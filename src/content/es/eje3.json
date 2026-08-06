@@ -1,0 +1,319 @@
+{
+  "id": "eje-3",
+  "fabricar": {
+    "title": "Fábrica de mitos",
+    "h1": "Cómo se fabrica una acusación",
+    "intro": "En cuatro momentos de la historia vas a armar vos un rumor sobre los judíos, eligiendo entre hechos que son ciertos. Después vas a ver qué se dijo realmente, y qué pasó.",
+    "warn": "Durante los próximos minutos vas a ocupar el lugar de quien acusa. Si preferís no hacerlo, podés salir ahora.",
+    "start": "Empezar",
+    "optOut": "Prefiero no hacerlo",
+    "colA": "Lo que todos saben — y es cierto",
+    "waiting": "Elegí de las dos columnas.",
+    "say": "Decirlo",
+    "sayLabel": "Lo que decís",
+    "revFrom": "Partiste de",
+    "revAdd": "Le agregaste",
+    "revSaid": "Dijiste",
+    "revTagTrue": "cierto",
+    "revHeard": "Se dijo",
+    "next": "Siguiente",
+    "last": "Ver las cuatro",
+    "finLabel": "Las cuatro frases las armaste vos, en cuatro siglos distintos",
+    "finClose": "Hablan de las mismas personas. ¿Pueden ser todas ciertas?",
+    "finClose2": "Cada una partió de un hecho verdadero. Ninguna necesitó uno falso.",
+    "crisis": [
+      {
+        "yr": "1348",
+        "lg": "La peste negra",
+        "ctx": "Un tercio de Europa muere en tres años. Nadie sabe por qué: la idea de contagio todavía no existe.",
+        "rol": "Estás en la plaza de tu ciudad. Tus vecinos tienen miedo y buscan una explicación.",
+        "h2": "Lo que querés que sienta quien te escucha",
+        "a": [
+          {
+            "k": "barrio",
+            "t": "Viven en barrios separados, por orden de las autoridades"
+          },
+          {
+            "k": "agua",
+            "t": "Tienen sus propias normas sobre el agua y la comida"
+          },
+          {
+            "k": "gremio",
+            "t": "Tienen prohibido integrar los gremios"
+          }
+        ],
+        "b": [
+          {
+            "k": "miedo",
+            "t": "Miedo"
+          },
+          {
+            "k": "envidia",
+            "t": "Envidia"
+          },
+          {
+            "k": "asco",
+            "t": "Asco"
+          }
+        ],
+        "f": {
+          "barrio|miedo": "Se encierran entre ellos. Ahí adentro pasa algo.",
+          "barrio|envidia": "Viven aparte, y aparte no les falta nada.",
+          "barrio|asco": "No se mezclan. Nosotros les damos asco.",
+          "agua|miedo": "No beben de nuestros pozos. Algo saben.",
+          "agua|envidia": "Cuidan su agua y su comida. Por eso no caen como caemos nosotros.",
+          "agua|asco": "Tienen sus reglas porque lo nuestro les parece sucio.",
+          "gremio|miedo": "No están en los oficios. Están en el dinero.",
+          "gremio|envidia": "No trabajan como nosotros y prestan como señores.",
+          "gremio|asco": "Hacen lo que ningún cristiano quiere tocar."
+        },
+        "hist": "La acusación de que los judíos envenenaban los pozos recorrió Europa entre 1348 y 1349. Las confesiones se obtuvieron bajo tortura. En Estrasburgo, el 14 de febrero de 1349, cientos de personas fueron quemadas. La peste todavía no había llegado a la ciudad.",
+        "kick": {
+          "miedo": "El hecho era cierto. La acusación la puso el miedo.",
+          "envidia": "El hecho era cierto. La acusación la puso la envidia.",
+          "asco": "El hecho era cierto. La acusación la puso el asco."
+        }
+      },
+      {
+        "yr": "1275",
+        "lg": "Inglaterra, las deudas",
+        "ctx": "Las malas cosechas y las guerras dejan endeudada a media Inglaterra. La corona también debe.",
+        "rol": "Estás en el mercado. Debés dinero y no vas a poder pagarlo este año.",
+        "h2": "Lo que querés que sienta quien te escucha",
+        "a": [
+          {
+            "k": "tierra",
+            "t": "Tienen prohibido poseer tierra y entrar en los gremios"
+          },
+          {
+            "k": "iglesia",
+            "t": "La Iglesia prohíbe a los cristianos prestar con interés"
+          },
+          {
+            "k": "prestamo",
+            "t": "Algunos viven del préstamo porque es de lo poco que se les permite"
+          }
+        ],
+        "b": [
+          {
+            "k": "envidia",
+            "t": "Envidia"
+          },
+          {
+            "k": "rencor",
+            "t": "Rencor"
+          },
+          {
+            "k": "miedo",
+            "t": "Miedo"
+          }
+        ],
+        "f": {
+          "tierra|envidia": "No tienen tierra y sin embargo no les falta nada.",
+          "tierra|rencor": "No pueden tener tierra. Por algo será.",
+          "tierra|miedo": "No tienen tierra que perder. Se van cuando quieren.",
+          "iglesia|envidia": "A nosotros nos prohíben prestar con interés. A ellos no.",
+          "iglesia|rencor": "Nuestra fe nos ata las manos y ellos se aprovechan.",
+          "iglesia|miedo": "Prestan con interés porque su ley se lo permite. Nada los frena.",
+          "prestamo|envidia": "Viven del préstamo y viven mejor que los que trabajamos.",
+          "prestamo|rencor": "Mi deuda crece cada mes y la de ellos nunca.",
+          "prestamo|miedo": "Le deben todos, hasta el rey. Nos tienen agarrados."
+        },
+        "hist": "En 1275 el Estatuto del Judaísmo les prohibió prestar con interés, la única actividad que les quedaba. Quince años después, el 18 de julio de 1290, Eduardo I expulsó de Inglaterra a toda la población judía. La corona se quedó con las deudas impagas. No volvieron durante más de trescientos años.",
+        "kick": {
+          "envidia": "Primero se les cierran los oficios. Después se los acusa por el que quedó.",
+          "rencor": "Primero se les cierran los oficios. Después se los acusa por el que quedó.",
+          "miedo": "Primero se les cierran los oficios. Después se los acusa por el que quedó."
+        }
+      },
+      {
+        "yr": "1903",
+        "lg": "Rusia, Los protocolos",
+        "ctx": "El imperio se tambalea. Hay huelgas, revueltas y una sociedad que cambia más rápido de lo que se entiende.",
+        "rol": "Estás en una ciudad rusa. Todo lo que conocías se está dando vuelta.",
+        "h2": "Lo que querés que sienta quien te escucha",
+        "a": [
+          {
+            "k": "derechos",
+            "t": "Hace poco se les permitió estudiar, votar y ejercer profesiones"
+          },
+          {
+            "k": "ambos",
+            "t": "Hay judíos en la banca y también en los movimientos revolucionarios"
+          },
+          {
+            "k": "familia",
+            "t": "Muchos emigraron y tienen familia en varios países"
+          }
+        ],
+        "b": [
+          {
+            "k": "miedo",
+            "t": "Miedo"
+          },
+          {
+            "k": "sospecha",
+            "t": "Sospecha"
+          },
+          {
+            "k": "rencor",
+            "t": "Rencor"
+          }
+        ],
+        "f": {
+          "derechos|miedo": "Ayer no podían nada y hoy están en todas partes.",
+          "derechos|sospecha": "Consiguieron todo demasiado rápido. Alguien los ayudó.",
+          "derechos|rencor": "Nos abrieron las puertas y las cruzaron ellos primero.",
+          "ambos|miedo": "Están en los bancos y están en las revueltas. Están de los dos lados.",
+          "ambos|sospecha": "Financian y también conspiran. No puede ser casualidad.",
+          "ambos|rencor": "Ganan pase lo que pase. Nosotros no.",
+          "familia|miedo": "Tienen familia en cada país. Se avisan antes que nadie.",
+          "familia|sospecha": "Se escriben entre países. ¿De qué hablan?",
+          "familia|rencor": "No son de ningún lado y están en todos."
+        },
+        "hist": "En 1903 se publicó en Rusia Los protocolos de los sabios de Sión, un texto que describía un gobierno secreto judío. Era una falsificación: estaba copiado de un panfleto francés de 1864 que no hablaba de judíos. The Times lo demostró en 1921. Para entonces ya circulaba en decenas de idiomas, y Henry Ford había repartido medio millón de ejemplares en Estados Unidos.",
+        "kick": {
+          "miedo": "Se demostró que era falso. Siguió circulando igual, y todavía circula.",
+          "sospecha": "Se demostró que era falso. Siguió circulando igual, y todavía circula.",
+          "rencor": "Se demostró que era falso. Siguió circulando igual, y todavía circula."
+        }
+      },
+      {
+        "yr": "1932",
+        "lg": "Alemania, la crisis",
+        "ctx": "Seis millones de desocupados. Los ahorros se evaporaron y nadie se hace cargo.",
+        "rol": "Estás en una fila de desempleados. Alguien tiene que ser el responsable.",
+        "h2": "Lo que querés que sienta quien te escucha",
+        "a": [
+          {
+            "k": "banca",
+            "t": "Hay judíos entre los banqueros y los comerciantes"
+          },
+          {
+            "k": "rojos",
+            "t": "Hay judíos entre los dirigentes comunistas y socialistas"
+          },
+          {
+            "k": "pocos",
+            "t": "Son menos del uno por ciento de la población"
+          }
+        ],
+        "b": [
+          {
+            "k": "miedo",
+            "t": "Miedo"
+          },
+          {
+            "k": "envidia",
+            "t": "Envidia"
+          },
+          {
+            "k": "rencor",
+            "t": "Rencor"
+          }
+        ],
+        "f": {
+          "banca|miedo": "Manejan el dinero mientras nosotros perdemos el trabajo.",
+          "banca|envidia": "La crisis nos hunde a todos menos a ellos.",
+          "banca|rencor": "Nuestro dinero terminó en sus manos.",
+          "rojos|miedo": "Están al frente de los rojos. Quieren dar vuelta todo.",
+          "rojos|envidia": "Prometen repartir lo que nunca les costó.",
+          "rojos|rencor": "Traen el desorden y después nos culpan a nosotros.",
+          "pocos|miedo": "Son un puñado y están en todos lados.",
+          "pocos|envidia": "Tan pocos y con tanto.",
+          "pocos|rencor": "Menos del uno por ciento y deciden por todos."
+        },
+        "hist": "La propaganda nazi sostuvo las dos acusaciones a la vez: el judío banquero y el judío bolchevique. Nadie señaló la contradicción. El 15 de septiembre de 1935 las Leyes de Núremberg quitaron la ciudadanía a la población judía alemana.",
+        "kick": {
+          "miedo": "Dos acusaciones opuestas, al mismo tiempo, sobre las mismas personas.",
+          "envidia": "Dos acusaciones opuestas, al mismo tiempo, sobre las mismas personas.",
+          "rencor": "Dos acusaciones opuestas, al mismo tiempo, sobre las mismas personas."
+        }
+      }
+    ]
+  },
+  "linea": {
+    "title": "Dos mil años",
+    "categories": {
+      "rel": "Religioso",
+      "eco": "Económico",
+      "rac": "Racial",
+      "con": "Conspirativo"
+    },
+    "hint": "Arrastrá para recorrer",
+    "myths": [
+      {
+        "y": 50,
+        "era": "Siglo I",
+        "cat": "rel",
+        "frase": "Los judíos son enemigos de la sociedad",
+        "glosa": "En el mundo grecorromano, el monoteísmo y las leyes alimentarias se leen como rechazo al resto. La diferencia cultural se transforma en sospecha.",
+        "vacio": false
+      },
+      {
+        "y": 380,
+        "era": "Siglo IV",
+        "cat": "rel",
+        "frase": "Los judíos mataron a Cristo",
+        "glosa": "La acusación de deicidio vuelve culpable a todo un pueblo por un hecho, y a todas sus generaciones siguientes.",
+        "vacio": false
+      },
+      {
+        "y": 1144,
+        "era": "1144, Norwich",
+        "cat": "rel",
+        "frase": "Los judíos usan sangre cristiana en rituales",
+        "glosa": "No deforma ningún hecho: es una invención completa. Fue de las mentiras más letales de la Edad Media.",
+        "vacio": false
+      },
+      {
+        "y": 1250,
+        "era": "Siglo XIII",
+        "cat": "eco",
+        "frase": "Los judíos controlan el dinero",
+        "glosa": "Se les prohíben los gremios y la tierra. Quedan en el préstamo. Después se los acusa por estar ahí. La sociedad crea la condición y culpa al grupo por la condición.",
+        "vacio": false
+      },
+      {
+        "y": 1349,
+        "era": "1348–1349, la peste",
+        "cat": "eco",
+        "frase": "Los judíos envenenan pozos",
+        "glosa": "Un tercio de Europa muere sin explicación médica. La acusación llena el vacío. En Estrasburgo, febrero de 1349, siguen las quemas.",
+        "vacio": false
+      },
+      {
+        "y": 1600,
+        "era": "Siglos XVI–XIX",
+        "cat": "eco",
+        "frase": "El judío mentiroso y estafador",
+        "glosa": "El prejuicio se vuelve personaje: literatura, teatro, pintura, después cine. Ya no hace falta acusar, alcanza con representar.",
+        "vacio": false
+      },
+      {
+        "y": 1903,
+        "era": "1903, Los protocolos",
+        "cat": "con",
+        "frase": "Los judíos controlan el mundo",
+        "glosa": "Un panfleto falso inventa un gobierno secreto judío. Se traduce a decenas de idiomas y sigue circulando hoy.",
+        "vacio": false
+      },
+      {
+        "y": 1935,
+        "era": "Década de 1930",
+        "cat": "rac",
+        "frase": "Los judíos son una raza peligrosa",
+        "glosa": "Capitalistas y comunistas, ricos y revolucionarios, débiles y todopoderosos. Las acusaciones se contradicen entre sí y funcionan igual: el antisemitismo no busca la verdad, necesita un enemigo.",
+        "vacio": false
+      },
+      {
+        "y": 2024,
+        "era": "Hoy",
+        "cat": "con",
+        "frase": "Los judíos tienen doble lealtad",
+        "glosa": "Este mito todavía no tiene texto escrito.",
+        "vacio": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "id": "eje-7",
+  "title": "Negacionismo y distorsión",
+  "lead": "Negar, distorsionar y banalizar no son lo mismo. Las tres dañan la memoria del Holocausto, pero de maneras distintas.",
+  "categories": [
+    {
+      "k": "negacion",
+      "label": "Negación",
+      "def": "Rechazo deliberado de la realidad del Holocausto o de su magnitud, a pesar de documentos, testimonios, fotografías, registros y restos materiales."
+    },
+    {
+      "k": "distorsion",
+      "label": "Distorsión",
+      "def": "Presentación manipulada. No niega que haya ocurrido: modifica, minimiza o tergiversa los hechos, las responsabilidades o las consecuencias."
+    },
+    {
+      "k": "banalizacion",
+      "label": "Banalización",
+      "def": "Uso de símbolos, palabras o comparaciones del nazismo y el Holocausto en situaciones que no guardan relación con esos hechos."
+    }
+  ],
+  "ui": {
+    "start": "Empezar",
+    "counter": "Afirmación {n} de {total}",
+    "prompt": "¿Qué es esta afirmación?",
+    "yours": "Elegiste",
+    "rightIs": "Correcto. Es",
+    "wrongIs": "Es",
+    "context": "El caso",
+    "why": "Por qué",
+    "note": "A tener en cuenta",
+    "next": "Siguiente",
+    "last": "Cerrar"
+  },
+  "cases": [
+    {
+      "id": "c1",
+      "correcta": "negacion",
+      "afirmacion": "El Holocausto fue una invención.",
+      "devolucion": "Esto no es una opinión histórica: es negacionismo. Rechaza deliberadamente documentos, testimonios, archivos, fotografías, órdenes, registros y restos materiales."
+    },
+    {
+      "id": "c2",
+      "correcta": "banalizacion",
+      "afirmacion": "Un videojuego usa símbolos nazis como decoración estética.",
+      "devolucion": "Convertir símbolos nazis en entretenimiento puede vaciarlos de su significado histórico. El problema aumenta si se los usa para provocar, celebrar o atraer adhesión.",
+      "caso": "Una fiesta, un comercio o una campaña publicitaria usa uniformes nazis, esvásticas o imágenes de campos de concentración para llamar la atención, producir humor o generar una estética “provocadora”.",
+      "nota": "Los símbolos no están vacíos de significado. La esvástica nazi representa un régimen basado en la persecución racial, la guerra, la dictadura y el asesinato masivo."
+    },
+    {
+      "id": "c3",
+      "correcta": "distorsion",
+      "afirmacion": "Los nazis no fueron tan responsables; la guerra fue una tragedia de todos por igual.",
+      "devolucion": "Esto desplaza la responsabilidad histórica. La distorsión no siempre niega que el Holocausto ocurrió, pero lo minimiza, lo relativiza o exculpa a los perpetradores."
+    },
+    {
+      "id": "c4",
+      "correcta": "negacion",
+      "afirmacion": "Las cifras de víctimas fueron inventadas por los Aliados.",
+      "devolucion": "Negar o manipular deliberadamente las cifras forma parte del repertorio negacionista. La investigación histórica trabaja con fuentes; el negacionismo selecciona o falsifica datos para sostener una conclusión previa."
+    },
+    {
+      "id": "c5",
+      "correcta": "distorsion",
+      "matiz": "Distorsión antisemita, que puede conducir al negacionismo",
+      "afirmacion": "Los judíos exageran el Holocausto para obtener beneficios.",
+      "devolucion": "Esta afirmación transforma la memoria de las víctimas en una conspiración. Acusa colectivamente a los judíos de manipular la historia, y por eso es una forma de antisemitismo contemporáneo.",
+      "caso": "El Museo Conmemorativo del Holocausto de Estados Unidos identifica esta acusación como parte del discurso negacionista. Sostiene que los judíos inventaron o exageraron el Holocausto para conseguir indemnizaciones, justificar la creación del Estado de Israel o adquirir influencia política."
+    },
+    {
+      "id": "c6",
+      "correcta": "banalizacion",
+      "afirmacion": "No me permiten entrar a un lugar, así que esto es igual a Auschwitz.",
+      "devolucion": "Auschwitz fue un complejo de concentración y exterminio en el que los nazis sometieron a seres humanos a trabajos forzados, hambre, tortura y asesinato masivo. Usarlo como sinónimo de cualquier incomodidad o injusticia despoja al lugar de su especificidad histórica.",
+      "caso": "En el debate público se usan con frecuencia expresiones como “esto es Auschwitz”, “vivimos en un campo de concentración” o “este político es Hitler” para describir gobiernos, restricciones, conflictos laborales o desacuerdos cotidianos.",
+      "nota": "No toda comparación histórica es ilegítima. Una comparación seria explica semejanzas, diferencias, escalas, contextos y límites. La banalización usa la referencia solamente para producir impacto."
+    },
+    {
+      "id": "c7",
+      "correcta": "banalizacion",
+      "afirmacion": "Pedir un certificado de vacunación es lo mismo que obligar a los judíos a usar la estrella amarilla.",
+      "devolucion": "La comparación elimina las diferencias de contexto, intención y consecuencias. La estrella amarilla no fue una simple identificación: formó parte de un proceso de persecución racial, deshumanización, deportación y exterminio.",
+      "caso": "Durante las protestas contra las medidas sanitarias por la pandemia de COVID-19, algunos manifestantes usaron estrellas amarillas semejantes a las impuestas a los judíos bajo el nazismo, acompañadas de expresiones como “no vacunado”. La IHRA y la UNESCO señalaron este tipo de analogías como una forma perjudicial de trivialización de la memoria del Holocausto."
+    },
+    {
+      "id": "c8",
+      "correcta": "negacion",
+      "afirmacion": "En realidad, no murieron seis millones de judíos; esa cifra fue exagerada.",
+      "devolucion": "Reducir deliberadamente la cantidad de víctimas sin basarse en evidencia histórica es una forma de negacionismo. No es una revisión académica, sino un intento por desacreditar la magnitud del genocidio y sembrar dudas sobre su realidad."
+    },
+    {
+      "id": "c9",
+      "correcta": "distorsion",
+      "matiz": "Distorsión y culpabilización de las víctimas",
+      "afirmacion": "Los campos de concentración fueron terribles, pero los nazis solo reaccionaron ante una amenaza judía.",
+      "devolucion": "Esta afirmación reconoce parcialmente los crímenes, pero intenta justificarlos y trasladar la responsabilidad a las víctimas. Culpar a los judíos por su propia persecución distorsiona la historia y reproduce una idea antisemita."
+    }
+  ],
+  "closing": {
+    "label": "Idea central",
+    "text": "La investigación histórica discute interpretaciones. El negacionismo manipula las fuentes para sostener una conclusión previa.",
+    "sub": "Las tres formas se apoyan en lo mismo: tratar la evidencia como algo negociable."
+  }
+}

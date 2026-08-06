@@ -1,0 +1,122 @@
+{
+  "id": "eje-4",
+  "title": "Cuando la discriminación se convierte en ley",
+  "lead": "Las políticas antisemitas estatales son medidas impulsadas, aprobadas o aplicadas por un gobierno para excluir, controlar o perseguir a las personas judías. Usan las instituciones y los recursos del Estado para convertir la discriminación en una práctica oficial.",
+  "hint": "Girá el marcador para avanzar · Tocá para seguir",
+  "stackLabel": "Lo que ya no se puede",
+  "ui": {
+    "start": "Empezar",
+    "next": "Siguiente",
+    "last": "Ver todo junto",
+    "counter": "Paso {n} de {total}",
+    "again": "Volver a empezar",
+    "accum": "medidas acumuladas"
+  },
+  "steps": [
+    {
+      "id": "identificar",
+      "title": "Identificar",
+      "desc": "Antes de excluir a un grupo hay que poder señalarlo. El Estado define quién entra en él y lo vuelve visible.",
+      "measures": [
+        {
+          "t": "Salir sin distintivo"
+        },
+        {
+          "t": "Desplazarse sin permiso"
+        },
+        {
+          "t": "Definir la propia identidad",
+          "fecha": "1935"
+        }
+      ],
+      "nota": "La identidad de una persona dejó de depender de sus creencias o de la manera en que se reconocía a sí misma: fue determinada por la burocracia racial del Estado."
+    },
+    {
+      "id": "restringir",
+      "title": "Restringir",
+      "desc": "Con el grupo ya identificado, se le cierra el acceso a la vida pública y económica. Las medidas no llegan todas juntas: se suman.",
+      "measures": [
+        {
+          "t": "Ocupar cargos públicos o militares"
+        },
+        {
+          "t": "Integrar gremios"
+        },
+        {
+          "t": "Ejercer ciertas profesiones"
+        },
+        {
+          "t": "Comprar tierras"
+        },
+        {
+          "t": "Estudiar en ciertas instituciones"
+        },
+        {
+          "t": "Trabajar en la administración pública",
+          "fecha": "1933"
+        },
+        {
+          "t": "Ejercer como abogado, juez o médico",
+          "fecha": "1933"
+        },
+        {
+          "t": "Estudiar sin cupo",
+          "fecha": "1933"
+        },
+        {
+          "t": "Tener un comercio sin boicot",
+          "fecha": "1933"
+        }
+      ],
+      "nota": "Al excluirlos de numerosas actividades, las autoridades los confinaron a un número reducido de ocupaciones. Más tarde, esas mismas ocupaciones fueron utilizadas para reforzar estereotipos antisemitas."
+    },
+    {
+      "id": "separar",
+      "title": "Separar",
+      "desc": "El grupo restringido se aparta del resto de la sociedad. La separación deja de ser social y pasa a ser jurídica.",
+      "measures": [
+        {
+          "t": "Elegir dónde vivir"
+        },
+        {
+          "t": "Vivir fuera del gueto"
+        },
+        {
+          "t": "Casarse con quien se quiera",
+          "fecha": "1935"
+        },
+        {
+          "t": "Ser ciudadano",
+          "fecha": "1935"
+        }
+      ],
+      "nota": "La Ley de Ciudadanía del Reich estableció que solo las personas consideradas de “sangre alemana o afín” podían ser ciudadanos. Los judíos quedaron reducidos a la condición de súbditos, sin igualdad jurídica."
+    },
+    {
+      "id": "facilitar",
+      "title": "Facilitar formas más extremas",
+      "desc": "Un grupo identificado, sin trabajo, sin propiedad y sin protección legal ya no necesita una ley nueva para ser deportado.",
+      "measures": [
+        {
+          "t": "Conservar el comercio o la propiedad",
+          "fecha": "Arianización"
+        },
+        {
+          "t": "Pagar los mismos impuestos"
+        },
+        {
+          "t": "Permanecer en el país"
+        },
+        {
+          "t": "Tener protección legal"
+        }
+      ],
+      "nota": "La discriminación administrativa y económica creó las condiciones para las confiscaciones, las deportaciones y, durante la Segunda Guerra Mundial, el asesinato sistemático de los judíos de Europa."
+    }
+  ],
+  "closing": {
+    "label": "Para pensar",
+    "text": "¿Qué ocurre cuando una ley deja de proteger la igualdad y comienza a decidir quién merece tener derechos?",
+    "sub": "Las Leyes de Núremberg no fueron hechos aislados. Formaron parte de un proceso que convirtió a los judíos en extranjeros dentro de su propio país."
+  }
+}

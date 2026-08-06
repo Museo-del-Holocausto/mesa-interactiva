@@ -1,0 +1,2238 @@
+/* ==========================================================================
+   Cascara de pieza
+   ==========================================================================
+   El marcador define un lado, no un punto. La pieza ocupa el lado opuesto,
+   con una columna reservada de 680 px para el objeto y su Volver.
+   Son dos estados espejados, no un layout por cada posicion posible.
+   Area util resultante: 1164 x 880. */
+
+.modulo {
+  position: absolute;
+  inset: 0;
+  background: var(--ink-800);
+  z-index: 5;
+}
+
+.modulo__eyebrow,
+.modulo__back {
+  position: absolute;
+}
+
+.modulo__eyebrow {
+  top: 56px;
+  font-family: var(--font-display);
+  font-size: var(--t-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.modulo__back {
+  bottom: 64px;
+  padding: 20px 44px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-900);
+  background: var(--accent);
+  z-index: 4;
+}
+
+.modulo__body {
+  position: absolute;
+  top: 124px;
+  bottom: 76px;
+}
+
+/* Marcador a la izquierda: contenido a la derecha. */
+.quadrant[data-marker-side='left'] .modulo__body,
+.quadrant[data-marker-side='left'] .modulo__eyebrow {
+  left: 756px;
+  right: 76px;
+}
+
+.quadrant[data-marker-side='left'] .modulo__back {
+  left: 76px;
+}
+
+/* Y al reves. */
+.quadrant[data-marker-side='right'] .modulo__body,
+.quadrant[data-marker-side='right'] .modulo__eyebrow {
+  left: 76px;
+  right: 756px;
+}
+
+.quadrant[data-marker-side='right'] .modulo__back {
+  right: 76px;
+}
+
+/* El marcador se paro sobre el contenido: se atenua hasta que lo corran. */
+.quadrant[data-warning='park'] .modulo__body {
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+/* La corona se apaga mientras hay una pieza montada. */
+.menu[data-hidden='true'] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Cuadrante dormido: el marcador se levanto pero el recorrido sigue guardado. */
+.quadrant[data-state='dormant'] .menu,
+.quadrant[data-state='dormant'] .modulo {
+  opacity: 0.3;
+  pointer-events: none;
+  transition: opacity var(--dur-slow) var(--ease-out);
+}
+
+/* ==========================================================================
+   Fábrica de mitos
+   ========================================================================== */
+
+.fab {
+  position: absolute;
+  inset: 0;
+}
+
+.fab__scene {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.fab__scene[data-on='true'] {
+  display: grid;
+}
+
+/* Progreso: cuatro crisis, se ve cuantas van. */
+/* Misma fila que el rotulo de la pieza, del otro lado: antes se pisaban. */
+.fab__steps {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  z-index: 2;
+}
+
+.fab__steps li {
+  width: 52px;
+  height: 3px;
+  background: var(--ink-500);
+  transition: background var(--dur-base) var(--ease-out);
+}
+
+.fab__steps li[data-done='true'] { background: var(--accent-dim); }
+.fab__steps li[data-on='true'] { background: var(--accent); }
+
+.fab__btn {
+  padding: 20px 42px;
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  white-space: nowrap;
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.fab__btn--go {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+.fab__btn[disabled] {
+  opacity: 0.26;
+  pointer-events: none;
+}
+
+.fab__k,
+.fab__saidh,
+.fab__colh {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+/* --- intro ---------------------------------------------------------------- */
+
+.fab__scene[data-scene='intro'] {
+  grid-template-rows: 1fr auto;
+  align-content: center;
+}
+
+.fab__h1 {
+  max-width: 16ch;
+  font-family: var(--font-display);
+  font-size: 84px;
+  font-weight: 400;
+  line-height: 1.03;
+  letter-spacing: -0.02em;
+  align-self: end;
+}
+
+.fab__lead {
+  max-width: 44ch;
+  margin-top: 32px;
+  font-size: 31px;
+  font-weight: 300;
+  line-height: 1.48;
+  color: var(--ink-300);
+}
+
+/* La advertencia previa: se puede salir antes de empezar. */
+.fab__warn {
+  max-width: 44ch;
+  margin-top: 30px;
+  padding-left: 26px;
+  font-size: 29px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-100);
+  border-left: 3px solid var(--warn);
+}
+
+.fab__acts {
+  display: flex;
+  gap: 18px;
+  align-self: end;
+}
+
+/* --- armado --------------------------------------------------------------- */
+
+/* Grilla, no posiciones absolutas: si algo sobra, sobra parejo. */
+.fab__scene[data-scene='build'] {
+  grid-template-columns: 1.3fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 40px 60px;
+}
+
+.fab__crisis { grid-area: 1 / 1; }
+.fab__said   { grid-area: 1 / 2; }
+.fab__cola   { grid-area: 2 / 1 / 4 / 2; }
+.fab__colb   { grid-area: 2 / 2; }
+.fab__say    { grid-area: 3 / 2; justify-self: end; align-self: end; }
+
+.fab__yr {
+  font-family: var(--font-display);
+  font-size: 74px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.fab__lg {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.fab__ctx {
+  margin-top: 24px;
+  font-size: 29px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+.fab__rol {
+  margin-top: 18px;
+  font-size: 29px;
+  font-weight: 400;
+  line-height: 1.46;
+  color: var(--ink-100);
+}
+
+/* Lo que decis, armandose a medida que elegis. */
+.fab__said {
+  padding-left: 44px;
+  border-left: 1px solid var(--ink-500);
+}
+
+.fab__phrase {
+  margin-top: 20px;
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink-100);
+  text-wrap: balance;
+}
+
+.fab__phrase[data-wait='true'] {
+  font-family: var(--font-body);
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--ink-400);
+}
+
+.fab__opts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.fab__opt {
+  padding: 20px 24px;
+  font-family: var(--font-body);
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 1.28;
+  text-align: left;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out);
+}
+
+.fab__opt[data-on='true'] {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+  background: var(--accent-ghost);
+}
+
+/* --- revelacion ----------------------------------------------------------- */
+
+/* La receta descompone la operacion: el hecho es cierto, la acusacion la puso
+   la emocion. Por eso "cierto" cuelga del hecho y no de la frase entera. */
+.fab__scene[data-scene='reveal'] {
+  grid-template-rows: auto 1fr auto;
+  gap: 44px;
+}
+
+.fab__rrow {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--ink-500);
+}
+
+.fab__rrow .fab__k {
+  flex: 0 0 180px;
+}
+
+.fab__v {
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--ink-300);
+}
+
+.fab__v--em {
+  color: var(--warn);
+}
+
+.fab__tag {
+  padding: 5px 13px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-900);
+  background: var(--ink-300);
+}
+
+.fab__mine {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.18;
+  color: var(--ink-100);
+}
+
+.fab__cut {
+  align-self: center;
+}
+
+.fab__hist {
+  margin-top: 18px;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.48;
+  color: var(--ink-300);
+}
+
+.fab__kick {
+  margin-top: 26px;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.28;
+  color: var(--accent);
+}
+
+.fab__scene[data-scene='reveal'] .fab__say {
+  grid-area: auto;
+  justify-self: end;
+}
+
+/* --- cierre --------------------------------------------------------------- */
+
+.fab__scene[data-scene='fin'] {
+  grid-template-rows: auto 1fr auto;
+  align-content: start;
+}
+
+.fab__list {
+  margin-top: 24px;
+  list-style: none;
+}
+
+.fab__list li {
+  display: flex;
+  gap: 26px;
+  padding: 15px 0;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.24;
+  color: var(--ink-100);
+  border-bottom: 1px solid var(--ink-500);
+}
+
+.fab__liyr {
+  flex: 0 0 110px;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.fab__close {
+  margin-top: 34px;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.22;
+  color: var(--accent);
+}
+
+.fab__close2 {
+  margin-top: 16px;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--ink-300);
+}
+
+/* ==========================================================================
+   Dos mil años
+   ========================================================================== */
+
+.linea {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  --rel: #8f9dff;
+  --eco: #4fdcb4;
+  --rac: #ff8571;
+  --con: #f0b64f;
+}
+
+.linea__era {
+  font-family: var(--font-display);
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.linea__era[data-cat='rel'] { color: var(--rel); }
+.linea__era[data-cat='eco'] { color: var(--eco); }
+.linea__era[data-cat='rac'] { color: var(--rac); }
+.linea__era[data-cat='con'] { color: var(--con); }
+
+.linea__frase {
+  margin-top: 22px;
+  font-family: var(--font-display);
+  font-size: 62px;
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.linea__glosa {
+  margin-top: 26px;
+  font-size: 29px;
+  font-weight: 300;
+  line-height: 1.48;
+  color: var(--ink-300);
+}
+
+.linea__glosa[data-vacio='true'] {
+  color: var(--ink-400);
+  font-style: italic;
+}
+
+/* --- la linea ------------------------------------------------------------- */
+
+.linea__track {
+  position: relative;
+  height: 120px;
+  margin-bottom: 28px;
+  cursor: grab;
+}
+
+.linea__track:active {
+  cursor: grabbing;
+}
+
+.linea__bands {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  left: 0;
+  height: 10px;
+}
+
+.linea__band {
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.linea__band[data-cat='rel'] { background: var(--rel); }
+.linea__band[data-cat='eco'] { background: var(--eco); }
+.linea__band[data-cat='rac'] { background: var(--rac); }
+.linea__band[data-cat='con'] { background: var(--con); }
+
+.linea__pt {
+  position: absolute;
+  top: 43px;
+  width: 28px;
+  height: 28px;
+  translate: -50% 0;
+  background: var(--ink-800);
+  border: 3px solid var(--ink-800);
+  border-radius: 50%;
+  transition: scale var(--dur-base) var(--ease-out);
+}
+
+.linea__pt[data-on='true'] {
+  scale: 1.55;
+  border-color: var(--ink-800);
+}
+
+.linea__pt[data-on='true'][data-cat='rel'] { background: var(--rel); }
+.linea__pt[data-on='true'][data-cat='eco'] { background: var(--eco); }
+.linea__pt[data-on='true'][data-cat='rac'] { background: var(--rac); }
+.linea__pt[data-on='true'][data-cat='con'] { background: var(--con); }
+
+/*
+ * Solo se rotula el punto activo. Nueve rotulos sobre un eje comprimido se
+ * pisan entre si y no aportan: la fecha ya esta arriba, en grande.
+ */
+.linea__yr {
+  position: absolute;
+  top: 92px;
+  translate: -50% 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  color: var(--ink-100);
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+
+.linea__yr[data-on='true'] {
+  opacity: 1;
+}
+
+.linea__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.linea__legend {
+  display: flex;
+  gap: 32px;
+  font-family: var(--font-display);
+  font-size: 21px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+}
+
+.linea__legend span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.linea__legend i {
+  width: 22px;
+  height: 8px;
+}
+
+.linea__legend i[data-cat='rel'] { background: var(--rel); }
+.linea__legend i[data-cat='eco'] { background: var(--eco); }
+.linea__legend i[data-cat='rac'] { background: var(--rac); }
+.linea__legend i[data-cat='con'] { background: var(--con); }
+
+.linea__hint {
+  font-family: var(--font-display);
+  font-size: 21px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--accent);
+  opacity: 0.65;
+}
+
+/* ==========================================================================
+   Decidir · clasificar afirmaciones
+   ==========================================================================
+   Modo reutilizable del pliego. Lo usa el eje 7 y va a usarlo el 1, el 2 y el 6. */
+
+.dec {
+  position: absolute;
+  inset: 0;
+  --cat-negacion: #ff8571;
+  --cat-distorsion: #f0b64f;
+  --cat-banalizacion: #8f9dff;
+}
+
+/* El color de cada categoria es el mismo en la definicion, en el boton y en la
+   respuesta: el vocabulario se aprende antes de tener que aplicarlo. */
+[data-cat='negacion'] { --cat: var(--cat-negacion); }
+[data-cat='distorsion'] { --cat: var(--cat-distorsion); }
+[data-cat='banalizacion'] { --cat: var(--cat-banalizacion); }
+
+.dec__scene {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.dec__scene[data-on='true'] {
+  display: grid;
+}
+
+/* Misma fila que el rótulo de la pieza, del otro lado. */
+.dec__steps {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  z-index: 2;
+}
+
+.dec__steps li {
+  width: 28px;
+  height: 3px;
+  background: var(--ink-500);
+  transition: background var(--dur-base) var(--ease-out);
+}
+
+.dec__steps li[data-done='true'] { background: var(--accent-dim); }
+.dec__steps li[data-on='true'] { background: var(--accent); }
+
+.dec__btn {
+  padding: 20px 42px;
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  white-space: nowrap;
+}
+
+.dec__btn--go {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+.dec__k {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+/* --- conceptos ------------------------------------------------------------ */
+
+.dec__scene[data-scene='intro'] {
+  grid-template-rows: 1fr auto;
+}
+
+.dec__h1 {
+  font-family: var(--font-display);
+  font-size: 68px;
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.dec__lead {
+  max-width: 44ch;
+  margin-top: 24px;
+  font-size: 29px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+.dec__defs {
+  margin-top: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* Cada categoría lleva su color: es el mismo código que después usan las
+   respuestas, así el vocabulario se aprende antes de tener que aplicarlo. */
+.dec__def {
+  padding-left: 26px;
+  border-left: 3px solid var(--ink-500);
+}
+
+.dec__def[data-cat] { border-left-color: var(--cat); }
+
+.dec__def dt {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-100);
+}
+
+.dec__def dd {
+  margin-top: 8px;
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 1.42;
+  color: var(--ink-300);
+}
+
+.dec__acts {
+  align-self: end;
+}
+
+/* --- pregunta ------------------------------------------------------------- */
+
+.dec__scene[data-scene='ask'] {
+  grid-template-rows: auto 1fr auto;
+  gap: 32px;
+}
+
+.dec__kicker {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.dec__claim {
+  align-self: center;
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  color: var(--ink-100);
+  text-wrap: balance;
+}
+
+.dec__opts {
+  display: flex;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.dec__opt {
+  flex: 1;
+  padding: 24px 20px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out);
+}
+
+.dec__opt[data-cat]:hover {
+  color: var(--cat);
+  border-color: var(--cat);
+}
+
+/* --- devolución ----------------------------------------------------------- */
+
+/* Sin puntaje ni felicitación: qué elegiste, cuál era, y por qué. */
+.dec__scene[data-scene='reveal'] {
+  grid-template-rows: auto 1fr auto;
+  gap: 34px;
+}
+
+/* Elegiste X / Es Y, cada uno con su color. El error salta a la vista sin
+   necesidad de decir "incorrecto". */
+.dec__verdict {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dec__row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.dec__row[hidden] {
+  display: none;
+}
+
+.dec__row .dec__k {
+  flex: 0 0 auto;
+}
+
+/* Las dos pastillas miden lo mismo: la diferencia la hace el color, no el
+   tamaño. Borde apenas redondeado, como el resto de la interfaz. */
+.dec__pill {
+  padding: 12px 26px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-900);
+  background: var(--cat, var(--ink-300));
+  border-radius: 4px;
+}
+
+.dec__matiz {
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1.36;
+  color: var(--cat, var(--ink-300));
+}
+
+.dec__matiz[hidden] {
+  display: none;
+}
+
+.dec__case,
+.dec__why {
+  margin-top: 14px;
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+.dec__why {
+  color: var(--ink-100);
+}
+
+.dec__k--why {
+  margin-top: 28px;
+}
+
+.dec__note {
+  margin-top: 26px;
+  padding-left: 24px;
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-400);
+  border-left: 2px solid var(--ink-500);
+}
+
+.dec__note[hidden] {
+  display: none;
+}
+
+.dec__next {
+  justify-self: end;
+  align-self: end;
+}
+
+/* --- cierre --------------------------------------------------------------- */
+
+.dec__scene[data-scene='fin'] {
+  align-content: center;
+}
+
+.dec__close {
+  max-width: 26ch;
+  margin-top: 22px;
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+
+.dec__close2 {
+  max-width: 44ch;
+  margin-top: 26px;
+  font-size: 29px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+/* ==========================================================================
+   Combinar · armar una persona
+   ==========================================================================
+   Sin respuesta correcta: el visitante compone y la mesa devuelve cuántas
+   personas más permiten las mismas preguntas. */
+
+.comb {
+  position: absolute;
+  inset: 0;
+}
+
+.comb__scene {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.comb__scene[data-on='true'] {
+  display: grid;
+}
+
+.comb__steps {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  z-index: 2;
+}
+
+.comb__steps li {
+  width: 44px;
+  height: 3px;
+  background: var(--ink-500);
+  transition: background var(--dur-base) var(--ease-out);
+}
+
+.comb__steps li[data-done='true'] { background: var(--accent-dim); }
+.comb__steps li[data-on='true'] { background: var(--accent); }
+
+.comb__btn {
+  padding: 20px 42px;
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  white-space: nowrap;
+}
+
+.comb__btn--go {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+.comb__k {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+/* --- entrada -------------------------------------------------------------- */
+
+.comb__scene[data-scene='intro'] {
+  grid-template-rows: 1fr auto;
+  align-content: center;
+}
+
+.comb__h1 {
+  font-family: var(--font-display);
+  font-size: 92px;
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  align-self: end;
+}
+
+.comb__lead {
+  max-width: 42ch;
+  margin-top: 30px;
+  font-size: 31px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+/* --- composición ---------------------------------------------------------- */
+
+.comb__scene[data-scene='compose'] {
+  grid-template-rows: auto 1fr auto;
+  gap: 40px;
+}
+
+/* La frase se arma arriba: se ve lo que ya elegiste y lo que falta. */
+.comb__sentence {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink-100);
+  text-wrap: balance;
+}
+
+.comb__gap {
+  padding: 2px 14px;
+  font-size: 26px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+  border-bottom: 2px solid var(--ink-500);
+}
+
+.comb__pick {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 52px;
+  align-content: start;
+}
+
+.comb__q {
+  font-size: 29px;
+  font-weight: 300;
+  line-height: 1.3;
+  color: var(--ink-300);
+}
+
+.comb__opts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.comb__opt {
+  padding: 18px 24px;
+  font-family: var(--font-body);
+  font-size: 27px;
+  font-weight: 300;
+  text-align: left;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out);
+}
+
+.comb__opt[data-on='true'] {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+  background: var(--accent-ghost);
+}
+
+/* La definición del valor elegido: es donde vive el texto de Bruno. */
+.comb__def {
+  padding-left: 40px;
+  border-left: 1px solid var(--ink-500);
+}
+
+.comb__deftext {
+  margin-top: 18px;
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-300);
+}
+
+.comb__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.comb__hint {
+  font-family: var(--font-display);
+  font-size: 21px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.65;
+}
+
+/* --- resultado ------------------------------------------------------------ */
+
+.comb__scene[data-scene='fin'] {
+  grid-template-rows: auto auto 1fr auto;
+  gap: 34px;
+}
+
+.comb__final {
+  font-family: var(--font-display);
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: var(--ink-100);
+  text-wrap: balance;
+}
+
+.comb__exists {
+  margin-top: 18px;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.comb__count {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 28px;
+  padding: 26px 0;
+  border-top: 1px solid var(--ink-500);
+  border-bottom: 1px solid var(--ink-500);
+}
+
+.comb__number {
+  font-family: var(--font-display);
+  font-size: 96px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.comb__andthis {
+  margin-top: 8px;
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--ink-300);
+}
+
+.comb__close {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.16;
+  color: var(--ink-100);
+}
+
+.comb__close2 {
+  max-width: 46ch;
+  margin-top: 18px;
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-300);
+}
+
+/* ==========================================================================
+   Recorrer · la acumulación es el argumento
+   ==========================================================================
+   Lo anterior no se va. La pila de la derecha crece con cada paso y al final
+   ocupa la pantalla entera: eso es lo que el módulo demuestra. */
+
+.rec {
+  position: absolute;
+  inset: 0;
+}
+
+.rec__scene {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.rec__scene[data-on='true'] {
+  display: grid;
+}
+
+.rec__steps {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  z-index: 2;
+}
+
+.rec__steps li {
+  width: 52px;
+  height: 3px;
+  background: var(--ink-500);
+  transition: background var(--dur-base) var(--ease-out);
+}
+
+.rec__steps li[data-done='true'] { background: var(--accent-dim); }
+.rec__steps li[data-on='true'] { background: var(--accent); }
+
+.rec__btn {
+  padding: 20px 42px;
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  white-space: nowrap;
+}
+
+.rec__btn--go {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+.rec__k {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+/* --- entrada -------------------------------------------------------------- */
+
+.rec__scene[data-scene='intro'] {
+  grid-template-rows: 1fr auto;
+  align-content: center;
+}
+
+.rec__h1 {
+  max-width: 15ch;
+  font-family: var(--font-display);
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 1.03;
+  letter-spacing: -0.025em;
+  align-self: end;
+}
+
+.rec__lead {
+  max-width: 46ch;
+  margin-top: 30px;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+/* --- travesía ------------------------------------------------------------- */
+
+.rec__scene[data-scene='walk'] {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 40px 52px;
+}
+
+.rec__step {
+  align-content: start;
+}
+
+.rec__counter {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.rec__title {
+  margin-top: 20px;
+  font-family: var(--font-display);
+  font-size: 58px;
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.rec__desc {
+  margin-top: 22px;
+  font-size: 29px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-300);
+}
+
+.rec__note {
+  margin-top: 28px;
+  padding-left: 24px;
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1.42;
+  color: var(--ink-100);
+  border-left: 3px solid var(--accent-dim);
+}
+
+.rec__note[hidden] {
+  display: none;
+}
+
+/* --- la pila -------------------------------------------------------------- */
+
+.rec__stack {
+  padding-left: 46px;
+  border-left: 1px solid var(--ink-500);
+  align-content: start;
+}
+
+/* La cifra es lo que carga el argumento: va grande y sube sola. */
+.rec__total {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.rec__accum {
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.rec__list {
+  margin-top: 34px;
+  list-style: none;
+}
+
+/* Los pasos ya recorridos se colapsan: nombre, barra y cuenta. Lo que se ve
+   crecer es la barra, no un listado. */
+.rec__row {
+  padding: 16px 0;
+  border-top: 1px solid var(--ink-600);
+}
+
+.rec__row:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.rec__rowhead {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.rec__rowname {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.rec__row[data-current='true'] .rec__rowname {
+  color: var(--accent);
+}
+
+.rec__ticks {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.rec__ticks i {
+  width: 9px;
+  height: 16px;
+  background: var(--ink-500);
+  transform-origin: left center;
+}
+
+.rec__row[data-current='true'] .rec__ticks i {
+  background: var(--accent);
+}
+
+.rec__rowcount {
+  min-width: 34px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  text-align: right;
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+}
+
+.rec__row[data-current='true'] .rec__rowcount {
+  color: var(--accent);
+}
+
+.rec__items {
+  margin-top: 14px;
+  list-style: none;
+}
+
+.rec__measure {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 7px 0;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.24;
+  color: var(--ink-100);
+}
+
+/* Marca de resta: es lo que dejó de poder hacerse. */
+.rec__measure::before {
+  content: '';
+  flex: 0 0 14px;
+  height: 1px;
+  background: var(--ink-400);
+  translate: 0 -7px;
+}
+
+.rec__fecha {
+  flex: 0 0 auto;
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-size: 17px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+  white-space: nowrap;
+}
+
+.rec__foot {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.rec__hint {
+  font-family: var(--font-display);
+  font-size: 21px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.65;
+}
+
+/* --- cierre --------------------------------------------------------------- */
+
+.rec__scene[data-scene='fin'] {
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 52px;
+}
+
+.rec__stack--full {
+  padding-left: 0;
+  padding-right: 46px;
+  border-left: none;
+  border-right: 1px solid var(--ink-500);
+}
+
+/* Al final se ven las veinte de una: ahí la pila es la demostración. */
+.rec__list--full {
+  margin-top: 24px;
+  columns: 2;
+  column-gap: 40px;
+}
+
+.rec__group {
+  break-inside: avoid;
+  margin-bottom: 22px;
+}
+
+.rec__grouph {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.rec__group ul {
+  margin-top: 6px;
+  list-style: none;
+}
+
+.rec__list--full .rec__measure {
+  padding: 4px 0;
+  font-size: 21px;
+}
+
+.rec__list--full .rec__fecha {
+  display: none;
+}
+
+.rec__end {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.rec__close {
+  margin-top: 22px;
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  text-wrap: balance;
+}
+
+.rec__close2 {
+  margin-top: 24px;
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-300);
+}
+
+.rec__end .rec__btn {
+  margin-top: 44px;
+}
+
+/* ==========================================================================
+   Explorar · el marcador como cursor
+   ==========================================================================
+   El riel vive en la columna del marcador, así que se posiciona contra
+   --marker-x, que publica el cuadrante. El resto de las piezas ignoran esa
+   columna; esta es la única que la usa. */
+
+.exp {
+  position: absolute;
+  inset: 0;
+}
+
+/* Sale del área útil hacia la columna reservada. Los offsets son los mismos
+   que usa .modulo__body, así que el riel cae exactamente sobre el marcador. */
+.exp__rail {
+  position: absolute;
+  top: -124px;
+  bottom: -76px;
+  width: 1px;
+  pointer-events: none;
+}
+
+.quadrant[data-marker-side='left'] .exp__rail {
+  left: calc(var(--marker-x, 360px) - 756px);
+}
+
+.quadrant[data-marker-side='right'] .exp__rail {
+  left: calc(var(--marker-x, 1560px) - 76px);
+}
+
+.exp__line {
+  position: absolute;
+  top: 16%;
+  bottom: 16%;
+  left: 0;
+  width: 1px;
+  background: var(--ink-500);
+}
+
+.exp__ticks {
+  position: absolute;
+  inset: 0;
+  list-style: none;
+}
+
+.exp__ticks li {
+  position: absolute;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  translate: -50% -50%;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* El punto dibujado es chico; el área de toque es grande. */
+.exp__ticks li::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  translate: -50% -50%;
+  background: var(--ink-400);
+  border-radius: 50%;
+  transition:
+    background var(--dur-base) var(--ease-out),
+    scale var(--dur-base) var(--ease-out);
+}
+
+.exp__ticks li[data-on='true']::after {
+  background: var(--accent);
+  scale: 2;
+  box-shadow: 0 0 24px var(--accent-dim);
+}
+
+.exp__pos {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  translate: -50% 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink-400);
+}
+
+.exp__pos span {
+  font-size: 34px;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* La instrucción del gesto nuevo: es lo único que hay que enseñar.
+   Va arriba del primer tick: abajo chocaba con el botón Volver. */
+.exp__hint {
+  position: absolute;
+  top: 10.5%;
+  left: 0;
+  translate: -50% 0;
+  font-family: var(--font-display);
+  font-size: 21px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+/* --- la ficha ------------------------------------------------------------- */
+
+.exp__card {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 0.72fr 1fr;
+  gap: 56px;
+  align-content: center;
+}
+
+.exp__figure {
+  align-self: center;
+}
+
+.exp__photo {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  color: var(--ink-400);
+  border: 1px dashed var(--ink-500);
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent 0 14px,
+      rgba(107, 123, 135, 0.06) 14px 15px
+    );
+}
+
+.exp__photo span {
+  font-family: var(--font-display);
+  font-size: 21px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.exp__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1.34;
+  color: var(--ink-400);
+}
+
+.exp__credit {
+  font-family: var(--font-display);
+  font-size: 17px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+.exp__text {
+  align-self: center;
+}
+
+.exp__disc {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.exp__name {
+  margin-top: 18px;
+  font-family: var(--font-display);
+  font-size: 66px;
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.exp__years {
+  margin-top: 12px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+}
+
+.exp__bio {
+  margin-top: 30px;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.48;
+  color: var(--ink-300);
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   Las comunidades atacadas · deslizar y girar
+   ==========================================================================
+   Deslizar elige el lugar; girar corre la cortina entre el antes y el después.
+   El marcador no sale de su columna: pasearlo a lo ancho tapaba el contenido. */
+
+.lug {
+  position: absolute;
+  inset: 0;
+}
+
+.lug__scene {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.lug__scene[data-on='true'] {
+  display: grid;
+}
+
+.lug__k {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.lug__btn,
+.vid__btn {
+  padding: 20px 42px;
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  white-space: nowrap;
+}
+
+.lug__btn--go,
+.vid__btn--go {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+/* --- advertencia ---------------------------------------------------------- */
+
+.lug__scene[data-scene='aviso'] {
+  grid-template-rows: 1fr auto;
+  align-content: center;
+}
+
+.lug__k--warn { color: var(--warn); }
+
+.lug__warn {
+  max-width: 38ch;
+  margin-top: 22px;
+  padding-left: 26px;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink-100);
+  border-left: 3px solid var(--warn);
+}
+
+.lug__lead {
+  max-width: 50ch;
+  margin-top: 30px;
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+.lug__acts {
+  display: flex;
+  gap: 18px;
+  align-self: end;
+}
+
+/* --- riel de lugares, en la columna del marcador -------------------------- */
+
+.lug__rail {
+  position: absolute;
+  top: -124px;
+  bottom: -76px;
+  list-style: none;
+  width: 1px;
+  background: var(--ink-500);
+  z-index: 3;
+}
+
+.quadrant[data-marker-side='left'] .lug__rail {
+  left: calc(var(--marker-x, 360px) - 756px);
+}
+
+.quadrant[data-marker-side='right'] .lug__rail {
+  left: calc(var(--marker-x, 1560px) - 76px);
+}
+
+.lug__rail li {
+  position: absolute;
+  left: 0;
+  translate: -50% -50%;
+  padding: 12px 0 12px 24px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.lug__rail li::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  translate: -50% -50%;
+  background: var(--ink-400);
+  border-radius: 50%;
+  transition: background var(--dur-base) var(--ease-out), scale var(--dur-base) var(--ease-out);
+}
+
+.lug__rail li span {
+  font-family: var(--font-display);
+  font-size: 19px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.lug__rail li[data-on='true']::before {
+  background: var(--accent);
+  scale: 1.8;
+}
+
+.lug__rail li[data-on='true'] span { color: var(--accent); }
+
+/* --- lugar ---------------------------------------------------------------- */
+
+.lug__scene[data-scene='lugar'] {
+  grid-template-rows: auto 300px 1fr;
+  gap: 26px;
+}
+
+.lug__name {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 58px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+/* --- la cortina ----------------------------------------------------------- */
+
+.lug__wipe {
+  position: relative;
+  overflow: hidden;
+  cursor: ew-resize;
+}
+
+.lug__panel {
+  position: absolute;
+  inset: 0;
+}
+
+.lug__photo {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: var(--ink-400);
+  border: 1px dashed var(--ink-500);
+  background: repeating-linear-gradient(
+    45deg,
+    transparent 0 16px,
+    rgba(107, 123, 135, 0.05) 16px 17px
+  );
+}
+
+.lug__panel--despues .lug__photo {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent 0 16px,
+    rgba(0, 229, 255, 0.06) 16px 17px
+  );
+}
+
+.lug__photo span {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* La costura: ahí se parte la imagen. */
+.lug__seam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 24px var(--accent-dim);
+  pointer-events: none;
+}
+
+.lug__tabs {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  left: 18px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.lug__tab {
+  padding: 9px 20px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+  background: rgba(6, 8, 10, 0.75);
+  border-radius: 3px;
+  transition: color var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
+}
+
+.lug__tab[data-on='true'] {
+  color: var(--ink-900);
+  background: var(--accent);
+}
+
+.lug__hint {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  padding: 8px 16px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(6, 8, 10, 0.75);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+/* --- textos --------------------------------------------------------------- */
+
+.lug__cols {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 46px;
+}
+
+.lug__stitle {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.16;
+  text-wrap: balance;
+}
+
+.lug__stext {
+  margin-top: 12px;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-300);
+}
+
+.lug__caption {
+  margin-top: 14px;
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.34;
+  color: var(--ink-400);
+}
+
+.lug__durante {
+  padding-left: 42px;
+  border-left: 1px solid var(--ink-500);
+}
+
+/* ==========================================================================
+   Detrás de cada cifra
+   ==========================================================================
+   Nunca abre con una cifra total: abre con la frase y después con los rostros. */
+
+.vid {
+  position: absolute;
+  inset: 0;
+}
+
+.vid__scene {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.vid__scene[data-on='true'] {
+  display: grid;
+}
+
+.vid__k {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.vid__scene[data-scene='intro'] {
+  grid-template-rows: 1fr auto;
+  align-content: center;
+}
+
+.vid__center {
+  max-width: 22ch;
+  font-family: var(--font-display);
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.vid__centersub {
+  max-width: 46ch;
+  margin-top: 26px;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-100);
+}
+
+.vid__lead {
+  max-width: 54ch;
+  margin-top: 30px;
+  padding-top: 26px;
+  border-top: 1px solid var(--ink-500);
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-300);
+}
+
+/* --- mosaico -------------------------------------------------------------- */
+
+.vid__scene[data-scene='mosaico'] {
+  grid-template-columns: 0.82fr 1fr;
+  gap: 52px;
+}
+
+.vid__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-content: start;
+}
+
+.vid__tile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  text-align: left;
+}
+
+.vid__tilephoto {
+  aspect-ratio: 3 / 4;
+  border: 1px dashed var(--ink-500);
+  background: repeating-linear-gradient(
+    45deg,
+    transparent 0 12px,
+    rgba(107, 123, 135, 0.05) 12px 13px
+  );
+  transition: border-color var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
+}
+
+.vid__tile[data-on='true'] .vid__tilephoto {
+  border-style: solid;
+  border-color: var(--accent);
+  background: var(--accent-ghost);
+}
+
+.vid__tilename {
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  color: var(--ink-400);
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.vid__tile[data-on='true'] .vid__tilename { color: var(--accent); }
+
+.vid__hint {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.65;
+}
+
+/* --- ficha ---------------------------------------------------------------- */
+
+.vid__card {
+  align-content: start;
+  padding-left: 48px;
+  border-left: 1px solid var(--ink-500);
+}
+
+.vid__estado {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.vid__name {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.vid__fields {
+  margin-top: 30px;
+}
+
+.vid__field {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--ink-600);
+}
+
+.vid__field dt {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.vid__field dd {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--ink-100);
+}
+
+/* El hueco se muestra, no se omite: es lo que hay que ir a buscar. */
+.vid__field[data-falta='true'] dd {
+  color: var(--ink-500);
+}
+
+.vid__rights {
+  margin-top: 30px;
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.36;
+  color: var(--ink-400);
+}

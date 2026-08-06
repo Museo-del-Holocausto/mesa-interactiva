@@ -1,0 +1,120 @@
+{
+  "id": "eje-8-vidas",
+  "title": "Detrás de cada cifra",
+  "lead": "Las víctimas no constituyeron un grupo uniforme. Había habitantes de kibutzim y ciudades, participantes del festival, integrantes de las fuerzas de seguridad, trabajadores agrícolas, cuidadores, ciudadanos árabes de Israel y personas de distintos países. Había bebés, niños, adolescentes, jóvenes, padres, madres, abuelos y abuelas.",
+  "centro": "Una persona no puede ser resumida por la manera en que murió.",
+  "centroSub": "Recordar significa también conocer cómo vivió, qué amaba, qué proyectos tenía y quiénes continúan pronunciando su nombre.",
+  "ui": {
+    "start": "Conocer una vida",
+    "hint": "Girá el marcador o tocá un retrato",
+    "imagePending": "Retrato pendiente",
+    "rights": "Retratos, biografías y objetos requieren autorización de las familias. No se publican imágenes de cuerpos ni escenas de muerte.",
+    "of": "de"
+  },
+  "fields": [
+    {
+      "k": "edad",
+      "label": "Edad"
+    },
+    {
+      "k": "lugar",
+      "label": "Dónde vivía"
+    },
+    {
+      "k": "familia",
+      "label": "Familia"
+    },
+    {
+      "k": "actividad",
+      "label": "A qué se dedicaba"
+    },
+    {
+      "k": "disfrutaba",
+      "label": "Algo que disfrutaba"
+    },
+    {
+      "k": "recuerdo",
+      "label": "Un recuerdo"
+    }
+  ],
+  "personas": [
+    {
+      "id": "vivian-silver",
+      "nombre": "Vivian Silver",
+      "estado": "Asesinada",
+      "edad": "74 años",
+      "lugar": "Kibutz Be'eri",
+      "actividad": "Activista por la paz y los derechos de las mujeres",
+      "recuerdo": "Durante años trabajó junto con palestinos y ayudó a trasladar pacientes de Gaza para recibir atención médica.",
+      "pendiente": [
+        "familia",
+        "disfrutaba"
+      ]
+    },
+    {
+      "id": "amer-abu-sabila",
+      "nombre": "Amer Abu Sabila",
+      "estado": "Asesinado",
+      "lugar": "Sderot",
+      "actividad": "Joven beduino, ciudadano árabe de Israel",
+      "recuerdo": "Intentó ayudar a Odaya Swissa y a sus hijas a llegar a un lugar seguro. Fue asesinado cerca de la comisaría, junto a ella.",
+      "pendiente": [
+        "edad",
+        "familia",
+        "disfrutaba"
+      ]
+    },
+    {
+      "id": "odaya-swissa",
+      "nombre": "Odaya Swissa",
+      "estado": "Asesinada",
+      "lugar": "Sderot",
+      "familia": "Su esposo Dolev y sus hijas Romi y Lia",
+      "recuerdo": "Intentaba abandonar la ciudad con su familia. Sus dos hijas fueron rescatadas.",
+      "pendiente": [
+        "edad",
+        "actividad",
+        "disfrutaba"
+      ]
+    },
+    {
+      "id": "aviv-atzili",
+      "nombre": "Aviv Atzili",
+      "estado": "Asesinado",
+      "lugar": "Kibutz Nir Oz",
+      "familia": "Su esposa Liat",
+      "pendiente": [
+        "edad",
+        "actividad",
+        "disfrutaba",
+        "recuerdo"
+      ]
+    },
+    {
+      "id": "liat-atzili",
+      "nombre": "Liat Atzili",
+      "estado": "Secuestrada y liberada",
+      "lugar": "Kibutz Nir Oz",
+      "familia": "Su esposo Aviv fue asesinado",
+      "actividad": "Profesora de Historia y Educación Cívica",
+      "recuerdo": "Permaneció 54 días cautiva. Tras su liberación volvió a enseñar: explicó que el aula le permitía recuperar una parte de la persona que había sido antes del ataque.",
+      "pendiente": [
+        "edad",
+        "disfrutaba"
+      ]
+    },
+    {
+      "id": "familia-ades",
+      "nombre": "Tomer y Amit Ades",
+      "estado": "Sobrevivientes",
+      "lugar": "Kibutz Kfar Aza",
+      "familia": "Sus tres hijos",
+      "recuerdo": "Permanecieron unas 35 horas dentro de su habitación protegida, parte del tiempo sin electricidad ni comunicaciones, mientras la vivienda vecina era usada por los atacantes. Fueron una de las últimas familias evacuadas.",
+      "pendiente": [
+        "edad",
+        "actividad",
+        "disfrutaba"
+      ]
+    }
+  ]
+}

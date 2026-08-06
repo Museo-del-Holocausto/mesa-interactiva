@@ -1,0 +1,41 @@
+:root {
+  /* --- color ------------------------------------------------------------- */
+  --ink-900: #06080a;   /* fondo de mesa */
+  --ink-800: #0a0d10;   /* fondo de cuadrante */
+  --ink-700: #11161b;   /* superficies */
+  --ink-600: #1a2229;   /* divisiones sutiles */
+  --ink-500: #2e3a44;   /* bordes visibles */
+  --ink-400: #6b7b87;   /* rótulos y texto terciario */
+  --ink-300: #90a1ac;   /* texto secundario */
+  --ink-100: #dfe7ec;   /* texto principal */
+
+  --accent: #00e5ff;
+  --accent-dim: rgba(0, 229, 255, 0.34);
+  --accent-ghost: rgba(0, 229, 255, 0.1);
+  --warn: #ffb020;
+
+  /* --- tipografia -------------------------------------------------------- */
+  --font-display: 'Space Grotesk Variable', 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter Variable', 'Inter', system-ui, sans-serif;
+
+  /* Escala en px de mesa. 1 px = 0.375 mm reales sobre el panel de 65". */
+  --t-eyebrow: 24px;
+  --t-meta: 28px;
+  --t-body: 34px;
+  --t-title: 68px;
+  --t-display: 96px;
+
+  --track-wide: 0.18em;
+
+  /* --- ritmo ------------------------------------------------------------- */
+  --gap-1: 8px;
+  --gap-2: 16px;
+  --gap-3: 28px;
+  --gap-4: 48px;
+  --gap-5: 80px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 180ms;
+  --dur-base: 320ms;
+  --dur-slow: 720ms;
+}

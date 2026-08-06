@@ -1,0 +1,156 @@
+{
+  "ui": {
+    "installationTitle": "Antisemitismo",
+    "installationSubtitle": "Museo del Holocausto de Buenos Aires",
+    "idlePrompt": "Apoyá el marcador para empezar",
+    "idleHint": "Nueve ejes para recorrer",
+    "back": "Volver",
+    "close": "Cerrar",
+    "guideMode": "Modo guía",
+    "warnEdge": "Alejá el marcador del borde",
+    "warnNeighbour": "Alejá el marcador del otro",
+    "axisCounter": "Eje {n} de {total}",
+    "ctaEnter": "Tocá para ingresar",
+    "ctaPending": "Contenido pendiente",
+    "ctaOpen": "Tocá para abrir",
+    "warnPark": "Corré el marcador a un costado",
+    "ctaDev": "En desarrollo"
+  },
+  "modes": {
+    "explorar": "Explorar",
+    "recorrer": "Recorrer",
+    "decidir": "Decidir",
+    "mixto": "Recorrer y decidir"
+  },
+  "axes": [
+    {
+      "id": "eje-1",
+      "number": "01",
+      "mode": "explorar",
+      "title": "Quiénes son los judíos",
+      "subtitle": "No hay dos iguales. Cinco preguntas y 2.304 personas posibles.",
+      "volume": "5 preguntas",
+      "module": "eje-1",
+      "eyebrow": "Eje 1 · Quiénes son los judíos"
+    },
+    {
+      "id": "eje-2",
+      "number": "02",
+      "mode": "recorrer",
+      "title": "Orígenes y evolución",
+      "subtitle": "Cómo cambió el antisemitismo desde la antigüedad grecorromana hasta hoy.",
+      "volume": "7 pasos",
+      "estado": "pendiente"
+    },
+    {
+      "id": "eje-3",
+      "number": "03",
+      "mode": "decidir",
+      "title": "Mitos y estereotipos",
+      "subtitle": "Las acusaciones más repetidas contra los judíos, y de dónde salieron.",
+      "volume": "6 casos",
+      "display": "destacado",
+      "children": [
+        {
+          "id": "eje-3-fabricar",
+          "module": "eje-3-fabricar",
+          "eyebrow": "Eje 3 · Fábrica de mitos",
+          "title": "Fábrica de mitos",
+          "subtitle": "En cuatro momentos de la historia armás vos la acusación, eligiendo entre hechos que son ciertos. Después ves qué se dijo realmente, y qué pasó."
+        },
+        {
+          "id": "eje-3-linea",
+          "module": "eje-3-linea",
+          "eyebrow": "Eje 3 · Dos mil años",
+          "title": "Dos mil años",
+          "subtitle": "Los nueve mitos en orden de fecha. El mismo prejuicio cambiando de registro: religioso, económico, racial, conspirativo."
+        }
+      ]
+    },
+    {
+      "id": "eje-4",
+      "number": "04",
+      "mode": "recorrer",
+      "title": "Políticas del Estado",
+      "subtitle": "Primero identifican, después restringen, después separan. Lo anterior nunca se va.",
+      "volume": "4 pasos · 20 medidas",
+      "module": "eje-4",
+      "eyebrow": "Eje 4 · Políticas del Estado"
+    },
+    {
+      "id": "eje-5",
+      "number": "05",
+      "mode": "decidir",
+      "title": "Israel y antisionismo",
+      "subtitle": "Dónde termina la crítica política y dónde empieza el antisemitismo.",
+      "volume": "7 casos",
+      "estado": "pendiente"
+    },
+    {
+      "id": "eje-6",
+      "number": "06",
+      "mode": "mixto",
+      "title": "Del chiste a la violencia",
+      "subtitle": "La escalada del odio, y qué hacer en cada etapa.",
+      "volume": "10 pasos y 5 casos",
+      "estado": "pendiente"
+    },
+    {
+      "id": "eje-7",
+      "number": "07",
+      "mode": "decidir",
+      "title": "Negacionismo",
+      "subtitle": "Negar, distorsionar y banalizar no son lo mismo. Nueve afirmaciones para clasificar.",
+      "volume": "9 casos",
+      "module": "eje-7",
+      "eyebrow": "Eje 7 · Negacionismo y distorsión"
+    },
+    {
+      "id": "eje-8",
+      "number": "08",
+      "mode": "explorar",
+      "title": "7 de octubre",
+      "subtitle": "El ataque, las comunidades y las personas. Cuatro secciones.",
+      "volume": "6 fichas",
+      "display": "destacado",
+      "children": [
+        {
+          "id": "eje-8-lugares",
+          "module": "eje-8-lugares",
+          "eyebrow": "Eje 8 · Las comunidades atacadas",
+          "title": "Las comunidades atacadas",
+          "subtitle": "Seis lugares, antes y después. Cada punto es una comunidad formada por viviendas, escuelas, campos y redes familiares."
+        },
+        {
+          "id": "eje-8-vidas",
+          "module": "eje-8-vidas",
+          "eyebrow": "Eje 8 · Detrás de cada cifra",
+          "title": "Detrás de cada cifra",
+          "subtitle": "Una persona no puede ser resumida por la manera en que murió."
+        },
+        {
+          "id": "eje-8-dia",
+          "estado": "pendiente",
+          "title": "El día",
+          "subtitle": "La cronología del 7 de octubre, hora por hora."
+        },
+        {
+          "id": "eje-8-saber",
+          "estado": "pendiente",
+          "title": "Cómo sabemos lo que sabemos",
+          "subtitle": "Fecha de actualización, instituciones consultadas y revisiones de cifras."
+        }
+      ]
+    },
+    {
+      "id": "eje-9",
+      "number": "09",
+      "mode": "explorar",
+      "title": "Aportes judíos",
+      "subtitle": "Ocho personas que dejaron una marca en la ciencia, el arte y el pensamiento.",
+      "volume": "8 fichas",
+      "module": "eje-9",
+      "eyebrow": "Eje 9 · Aportes judíos"
+    }
+  ]
+}

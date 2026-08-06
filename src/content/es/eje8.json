@@ -1,0 +1,135 @@
+{
+  "id": "eje-8",
+  "title": "Las comunidades atacadas",
+  "lead": "Cada punto es una comunidad formada por viviendas, escuelas, comedores, campos de cultivo, espacios de encuentro y redes familiares. La enumeración no es exhaustiva.",
+  "advertencia": {
+    "label": "Advertencia de contenido",
+    "text": "Este módulo contiene referencias a asesinatos, secuestros, violencia y pérdida. Las imágenes más sensibles no se reproducen automáticamente y pueden omitirse sin impedir la comprensión del recorrido.",
+    "enter": "Entrar",
+    "exit": "Prefiero no hacerlo"
+  },
+  "ui": {
+    "antes": "Antes",
+    "despues": "Después",
+    "durante": "Las horas del ataque",
+    "imagePending": "Imagen pendiente",
+    "of": "de",
+    "hint": "Girá el marcador para pasar del antes al después"
+  },
+  "lugares": [
+    {
+      "id": "beeri",
+      "nombre": "Be'eri",
+      "tipo": "Kibutz",
+      "antes": {
+        "titulo": "Una comunidad construida alrededor del trabajo colectivo",
+        "texto": "Be'eri era un kibutz de aproximadamente 1.200 habitantes, fundado en 1946. Su vida cotidiana combinaba viviendas familiares, espacios verdes, agricultura, actividades culturales y una importante imprenta comunitaria, una de las principales fuentes de trabajo del kibutz. Era una comunidad intergeneracional en la que convivían fundadores, hijos, nietos y familias jóvenes.",
+        "epigrafe": "Familias en los jardines, trabajadores de la imprenta, campos cultivados."
+      },
+      "durante": {
+        "titulo": "Horas dentro de las habitaciones protegidas",
+        "texto": "En la mañana del 7 de octubre, centenares de atacantes ingresaron en Be'eri. Entraron en viviendas, incendiaron edificios y secuestraron residentes. Muchas familias permanecieron durante horas dentro de habitaciones protegidas, intentando sostener las puertas y comunicándose por teléfono. El combate y las operaciones de rescate se prolongaron más de un día. Alrededor de un centenar de residentes fueron asesinados y unas treinta personas fueron secuestradas."
+      },
+      "despues": {
+        "titulo": "Una comunidad viviendo en varios lugares",
+        "texto": "Los sobrevivientes fueron evacuados a hoteles y alojamientos temporarios. Gran parte de la comunidad se trasladó a viviendas provisorias en el kibutz Hatzerim, mientras la imprenta y algunos servicios continuaron funcionando en Be'eri. La reconstrucción incluye viviendas, educación, atención psicológica y la discusión sobre qué edificios conservar como espacios de memoria.",
+        "epigrafe": "Viviendas provisorias en Hatzerim."
+      }
+    },
+    {
+      "id": "kfar-aza",
+      "nombre": "Kfar Aza",
+      "tipo": "Kibutz",
+      "antes": {
+        "titulo": "Familias de varias generaciones",
+        "texto": "Kfar Aza era un kibutz de alrededor de mil habitantes, situado a pocos kilómetros de Gaza. Tenía jardines, viviendas familiares, espacios educativos y un sector conocido como el barrio de los jóvenes, donde vivían adultos jóvenes que comenzaban su vida independiente. Era una comunidad pequeña y estrechamente conectada, en la que muchas familias se conocían desde hacía décadas.",
+        "epigrafe": "El jardín de infantes, jóvenes reunidos al aire libre, los caminos internos."
+      },
+      "durante": {
+        "titulo": "La comunidad quedó dividida en sectores aislados",
+        "texto": "Los atacantes ingresaron desde distintos puntos. La escuadra de seguridad local intentó responder, pero varios de sus integrantes fueron emboscados cerca de la armería. Viviendas y barrios quedaron incomunicados y algunas familias permanecieron más de un día encerradas. Más de sesenta residentes fueron asesinados y cerca de veinte fueron secuestrados."
+      },
+      "despues": {
+        "titulo": "¿Reconstruir una casa o vivir dentro de un memorial?",
+        "texto": "La mayoría de los sobrevivientes fue trasladada a hoteles, residencias universitarias y viviendas temporarias. Durante mucho tiempo solo un pequeño grupo regresó. La reconstrucción física avanzó, pero sigue acompañada por una pregunta difícil: cuánto preservar como testimonio del ataque y cuánto transformar para que el kibutz vuelva a ser un lugar habitable.",
+        "epigrafe": "Viviendas dañadas en Kfar Aza. Evelyn Hockstein / Reuters, 2 de noviembre de 2023."
+      }
+    },
+    {
+      "id": "nir-oz",
+      "nombre": "Nir Oz",
+      "tipo": "Kibutz",
+      "antes": {
+        "titulo": "Un jardín en medio del desierto",
+        "texto": "Nir Oz era un kibutz de casi 400 habitantes, reconocido por sus árboles, jardines y experimentación agrícola. Sus fundadores habían convertido una zona desértica en un espacio verde, con un jardín botánico y áreas comunitarias que funcionaban como una prolongación de las viviendas. Familias de distintas generaciones compartían educación, trabajo y actividades sociales.",
+        "epigrafe": "Niños y familias durante Purim en Nir Oz, 2 de marzo de 2018. Yael Yolovitch / Wikimedia Commons, CC BY-SA 4.0."
+      },
+      "durante": {
+        "titulo": "Una comunidad afectada en una proporción extraordinaria",
+        "texto": "Atacantes recorrieron prácticamente todo el kibutz, ingresaron en la gran mayoría de las viviendas y secuestraron familias completas. Más de una cuarta parte de la población fue asesinada o llevada a Gaza. Las fuerzas militares llegaron cuando los principales grupos atacantes ya se habían retirado, un elemento central en la experiencia de abandono expresada después por los sobrevivientes."
+      },
+      "despues": {
+        "titulo": "Reconstruir sin perder el jardín",
+        "texto": "Los sobrevivientes fueron evacuados primero a Eilat y muchos se instalaron después en viviendas temporarias en Kiryat Gat. La recuperación se centra no solo en levantar casas, sino en restablecer escuelas, espacios comunes y el jardín botánico, considerado parte esencial de la identidad del kibutz.",
+        "epigrafe": "Vivienda incendiada en Nir Oz. Yael Yolovitch, 5 de diciembre de 2023 / Wikimedia Commons, CC BY-SA 4.0."
+      }
+    },
+    {
+      "id": "sderot",
+      "nombre": "Sderot",
+      "tipo": "Ciudad fronteriza",
+      "antes": {
+        "titulo": "Una ciudad, no un kibutz",
+        "texto": "Sderot era una ciudad de decenas de miles de habitantes, con escuelas, comercios, barrios, centros culturales y población de orígenes diversos. Su vida cotidiana llevaba años condicionada por las alarmas y el lanzamiento de cohetes desde Gaza, pero también por el esfuerzo de mantener abiertas las escuelas, los comercios y las actividades culturales.",
+        "epigrafe": "Una plaza, la escuela a la salida de clases, el mercado."
+      },
+      "durante": {
+        "titulo": "Combates dentro de la ciudad",
+        "texto": "Grupos armados ingresaron por diferentes accesos, dispararon contra personas en las calles y tomaron la comisaría. Allí se desarrolló un combate prolongado entre atacantes y policías. Las investigaciones posteriores situaron en aproximadamente setenta el número de personas asesinadas en la ciudad, entre civiles y agentes policiales."
+      },
+      "despues": {
+        "titulo": "El regreso a una ciudad transformada",
+        "texto": "La mayor parte de la población fue evacuada a hoteles y alojamientos distribuidos por Israel. Sderot reabrió oficialmente en marzo de 2024 y gran parte de sus habitantes regresó durante los meses siguientes. El retorno implicó reabrir escuelas, reparar viviendas y atender las consecuencias psicológicas de una población expuesta al ataque y a los meses posteriores de guerra.",
+        "epigrafe": "La comisaría de Sderot después del ataque. Yoav Keren, 8 de octubre de 2023 / Wikimedia Commons, CC BY-SA 4.0."
+      }
+    },
+    {
+      "id": "ofakim",
+      "nombre": "Ofakim",
+      "tipo": "Ciudad",
+      "antes": {
+        "titulo": "Una ciudad de inmigrantes y familias trabajadoras",
+        "texto": "Ofakim no se encuentra inmediatamente junto a la frontera. Es una ciudad desarrollada desde la década de 1950, habitada en gran medida por familias provenientes de distintas olas migratorias.",
+        "epigrafe": "Calles del barrio Mishor HaGefen antes del ataque."
+      },
+      "durante": {
+        "titulo": "La violencia llegó a un barrio residencial",
+        "texto": "Un grupo de atacantes ingresó por el sector occidental de la ciudad y llegó al barrio Mishor HaGefen. Muchas personas se encontraban en la calle o se dirigían hacia refugios públicos cuando comenzó el ataque. Decenas de habitantes fueron asesinados. Policías, civiles y residentes armados respondieron antes de la llegada de fuerzas adicionales."
+      },
+      "despues": {
+        "titulo": "Una reconstrucción desigual",
+        "texto": "Ofakim no fue evacuada completamente, por lo que la recuperación tuvo un carácter diferente al de los kibutzim fronterizos. Se concentró en las familias afectadas, la atención psicológica y la recuperación del barrio Mishor HaGefen. Inicialmente la ciudad quedó fuera de algunos programas especiales de reconstrucción, lo que generó reclamos por una asistencia más equitativa.",
+        "epigrafe": "Una calle de Ofakim después del ataque. Ilan Assayag / Associated Press, 8 de octubre de 2023."
+      }
+    },
+    {
+      "id": "nova",
+      "nombre": "Festival Nova",
+      "tipo": "Festival de música",
+      "antes": {
+        "titulo": "Una noche de música y encuentro",
+        "texto": "El festival comenzó a las 22:00 del 6 de octubre, cerca del kibutz Re'im. Miles de jóvenes llegaron con amigos, instalaron carpas, bailaron durante la noche y compartieron fotografías y mensajes. La música electrónica, las estructuras de colores y el campamento formaban parte de una celebración que se prolongaría durante el día siguiente.",
+        "epigrafe": "El campamento y las estructuras del festival, la madrugada del 7 de octubre."
+      },
+      "durante": {
+        "titulo": "La música se detuvo",
+        "texto": "Cuando comenzaron las alarmas por los cohetes, muchas personas intentaron abandonar el lugar. Las rutas se congestionaron. Otras buscaron refugio en pequeños refugios de carretera, campos, arbustos o vehículos. Los atacantes dispararon contra quienes huían y contra personas escondidas. Centenares de asistentes fueron asesinados y decenas fueron secuestrados."
+      },
+      "despues": {
+        "titulo": "Un espacio de memoria",
+        "texto": "El sitio del festival se transformó posteriormente en un espacio de memoria, con retratos de las personas asesinadas y secuestradas colocados en el mismo campo donde se realizó el encuentro.",
+        "epigrafe": "El sitio del festival convertido en espacio de memoria."
+      }
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+/* --- guias de cuadrante --------------------------------------------------- */
+
+.debug {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  font-family: var(--font-display);
+}
+
+.debug__region {
+  position: absolute;
+  border: 1px dashed rgba(0, 229, 255, 0.16);
+}
+
+.debug__region span {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-size: 22px;
+  letter-spacing: 0.12em;
+  color: rgba(0, 229, 255, 0.4);
+}
+
+.debug__region[data-orientation='180'] span {
+  top: auto;
+  left: auto;
+  right: 20px;
+  bottom: 16px;
+  rotate: 180deg;
+}
+
+.debug__readout,
+.debug__help {
+  position: absolute;
+  padding: 18px 26px;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+  color: var(--ink-300);
+  background: rgba(6, 8, 10, 0.86);
+  border: 1px solid var(--ink-600);
+  border-radius: 12px;
+}
+
+.debug__readout {
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.debug__help {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  bottom: 28px;
+  left: 28px;
+  color: var(--ink-300);
+}
+
+.debug__help b {
+  color: var(--accent);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.debug__help kbd {
+  display: inline-block;
+  min-width: 34px;
+  padding: 2px 8px;
+  margin-right: 4px;
+  font: inherit;
+  text-align: center;
+  color: var(--ink-100);
+  background: var(--ink-700);
+  border: 1px solid var(--ink-600);
+  border-radius: 6px;
+}
+
+/* --- marcador simulado ---------------------------------------------------- */
+
+/* El ghost representa el objeto fisico, no es andamiaje: se dibuja siempre que
+   corre el simulador. Lo que ?debug=0 saca son las marcas de desarrollo
+   (numero, aro de foco, guias de cuadrante, overlay), no el marcador. */
+
+.ghosts {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ghost {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: auto;
+  cursor: grab;
+}
+
+.ghost:active {
+  cursor: grabbing;
+}
+
+.ghost__body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 294px;
+  height: 294px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 38% 30%, #23282e 0%, #14181c 46%, #0b0e11 100%);
+  box-shadow:
+    inset 0 2px 3px rgba(255, 255, 255, 0.09),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.7),
+    0 30px 70px rgba(0, 0, 0, 0.65);
+}
+
+/* Marca de indice: hace visible el giro, que si no es invisible en un disco. */
+.ghost__index {
+  position: absolute;
+  top: 26px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  translate: -50% 0;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 15px solid rgba(223, 231, 236, 0.34);
+}
+
+.ghost__label {
+  display: none;
+}
+
+/* --- extras que solo existen en desarrollo -------------------------------- */
+
+.ghosts[data-chrome='true'] .ghost__body {
+  border: 2px solid rgba(223, 231, 236, 0.22);
+  background:
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(223, 231, 236, 0.07) 0deg 12deg,
+      rgba(223, 231, 236, 0.02) 12deg 24deg
+    ),
+    radial-gradient(circle at 38% 30%, #23282e 0%, #14181c 46%, #0b0e11 100%);
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.ghosts[data-chrome='true'] .ghost[data-focused='true'] .ghost__body {
+  border-color: var(--accent);
+}
+
+.ghosts[data-chrome='true'] .ghost[data-guide='true'] .ghost__body {
+  border-style: dashed;
+}
+
+.ghosts[data-chrome='true'] .ghost__index {
+  border-bottom-color: var(--accent);
+}
+
+.ghosts[data-chrome='true'] .ghost__label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 700;
+  color: rgba(223, 231, 236, 0.5);
+}

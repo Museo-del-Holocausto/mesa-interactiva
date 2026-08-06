@@ -1,0 +1,298 @@
+/* La corona vive anclada al marcador fisico: se traslada con el, no con el cuadrante.
+   La posicion va por left/top y no por transform, para no pelear con GSAP. */
+.menu {
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  /* La orbita esta atada al tamano fisico del objeto y no escala.
+     El texto si: en modo guia se lee desde mas lejos. */
+  --panel-scale: 1;
+}
+
+.quadrant[data-guide='true'] .menu {
+  --panel-scale: 1.75;
+}
+
+.menu__corona {
+  position: absolute;
+  top: 0;
+  left: 0;
+  translate: -50% -50%;
+  overflow: visible;
+}
+
+/* Zona que tapa el objeto apoyado. Va sin relleno: abajo esta el marcador. */
+.menu__footprint {
+  fill: none;
+  stroke: rgba(223, 231, 236, 0.05);
+  stroke-width: 1;
+}
+
+.menu__track {
+  fill: none;
+  stroke: rgba(223, 231, 236, 0.09);
+  stroke-width: 1;
+}
+
+.menu__hit {
+  fill: transparent;
+}
+
+.menu__dot {
+  fill: rgba(223, 231, 236, 0.45);
+  transition:
+    fill var(--dur-base) var(--ease-out),
+    r var(--dur-base) var(--ease-out);
+}
+
+/* Eje en desarrollo: punto apagado, sin entrada. */
+.menu__dot[data-estado='pendiente'] {
+  fill: rgba(223, 231, 236, 0.14);
+}
+
+.menu__dot[data-active='true'] {
+  fill: var(--accent);
+  r: 11;
+  filter: drop-shadow(0 0 26px var(--accent));
+}
+
+/* Ranura de lectura: fija del lado del panel. Los puntos giran y el elegido entra ahi. */
+.menu__halo {
+  fill: none;
+  stroke: var(--accent-dim);
+  stroke-width: 1.5;
+}
+
+.menu__leader {
+  stroke: var(--accent-dim);
+  stroke-width: 1;
+}
+
+/* --- panel ---------------------------------------------------------------- */
+
+.menu__panel {
+  position: absolute;
+  top: 0;
+  translate: 0 -50%;
+  text-align: left;
+}
+
+/* Una vista por forma de despliegue. Solo se ve la activa. */
+.menu__view {
+  position: relative;
+  display: none;
+}
+
+.menu[data-display='destacado'] .menu__view[data-view='destacado'],
+.menu[data-display='lista'] .menu__view[data-view='lista'],
+.menu[data-display='contenido'] .menu__view[data-view='contenido'] {
+  display: block;
+}
+
+[data-slot][hidden] {
+  display: none;
+}
+
+/* Rotulo de posicion dentro de una hoja. */
+.menu__kicker {
+  margin-top: calc(20px * var(--panel-scale));
+  font-family: var(--font-display);
+  font-size: calc(24px * var(--panel-scale));
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.menu__body {
+  margin-top: calc(24px * var(--panel-scale));
+  font-size: calc(28px * var(--panel-scale));
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--ink-300);
+  text-wrap: pretty;
+  white-space: pre-line;
+}
+
+.menu[data-side='right'] .menu__panel {
+  left: 359px;
+}
+
+.menu[data-side='right'] .menu__cta {
+  left: 0;
+  right: auto;
+}
+
+.menu[data-side='left'] .menu__cta {
+  right: 0;
+  left: auto;
+}
+
+.menu[data-side='left'] .menu__panel {
+  right: 359px;
+  text-align: right;
+}
+
+.menu__eyebrow {
+  font-family: var(--font-display);
+  font-size: calc(24px * var(--panel-scale));
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+}
+
+.menu__title {
+  margin-top: calc(24px * var(--panel-scale));
+  font-family: var(--font-display);
+  font-size: calc(58px * var(--panel-scale) * var(--title-fit, 1));
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.menu__subtitle {
+  margin-top: calc(20px * var(--panel-scale));
+  font-size: calc(30px * var(--panel-scale));
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--ink-300);
+  text-wrap: pretty;
+}
+
+/* --- llamada a la accion --------------------------------------------------- */
+
+.menu__cta {
+  position: absolute;
+  top: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  margin-top: calc(52px * var(--panel-scale));
+  padding: calc(22px * var(--panel-scale)) calc(46px * var(--panel-scale));
+  font-family: var(--font-display);
+  font-size: calc(22px * var(--panel-scale));
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
+}
+
+/* --- volver: viaja con el marcador, no con el cuadrante ------------------- */
+
+.menu__back {
+  position: absolute;
+  top: 400px;
+  left: 0;
+  translate: -50% 0;
+  padding: 20px 44px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink-900);
+  background: var(--accent);
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+
+/* --- selector de items ----------------------------------------------------- */
+
+/* El listado se comporta como un dial: la fila elegida entra en la ranura fija
+   y el resto pasa por arriba y por abajo. Es la misma logica que la orbita. */
+/* En la lista, el rotulo sale del flujo para que lo centrado sobre la linea
+   de lectura sea el selector y no el bloque entero. */
+.menu__view[data-view='lista'] .menu__eyebrow {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  margin-bottom: calc(28px * var(--panel-scale));
+}
+
+.menu__picker {
+  position: relative;
+  overflow: hidden;
+  scale: var(--panel-scale);
+  transform-origin: left center;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 22%,
+    #000 78%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+}
+
+.menu[data-side='left'] .menu__picker {
+  transform-origin: right center;
+}
+
+.menu__list {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  margin-top: -42px;
+  list-style: none;
+}
+
+.menu__row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding-right: 24px;
+  color: var(--ink-300);
+  opacity: 0.4;
+  transition:
+    color var(--dur-base) var(--ease-out),
+    opacity var(--dur-base) var(--ease-out);
+}
+
+.menu[data-side='left'] .menu__row {
+  align-items: flex-end;
+  padding-right: 0;
+  padding-left: 24px;
+}
+
+.menu__row-kicker {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.menu__row-title {
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.22;
+}
+
+.menu__row[data-active='true'] {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.menu__row[data-active='true'] .menu__row-kicker {
+  color: var(--accent-dim);
+}
+
+/* En la raiz no hay a donde volver. */
+.menu[data-depth='0'] .menu__back {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu[data-display='contenido'] .menu__cta {
+  color: var(--ink-300);
+  border-color: var(--ink-500);
+}

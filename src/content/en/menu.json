@@ -1,0 +1,386 @@
+{
+  "ui": {
+    "installationTitle": "Antisemitism",
+    "installationSubtitle": "Holocaust Museum of Buenos Aires",
+    "idlePrompt": "Place the marker to begin",
+    "idleHint": "Nine themes to explore",
+    "back": "Back",
+    "close": "Close",
+    "guideMode": "Guide mode",
+    "warnEdge": "Move the marker away from the edge",
+    "warnNeighbour": "Move the marker away from the other one",
+    "axisCounter": "Theme {n} of {total}",
+    "ctaEnter": "Tap to enter",
+    "ctaPending": "Content pending",
+    "ctaOpen": "Tap to open",
+    "warnPark": "Move the marker aside",
+    "ctaDev": "In progress"
+  },
+  "modes": {
+    "explorar": "Explore",
+    "recorrer": "Follow",
+    "decidir": "Decide",
+    "mixto": "Follow and decide"
+  },
+  "axes": [
+    {
+      "id": "eje-1",
+      "number": "01",
+      "mode": "explorar",
+      "title": "Who Jews are",
+      "subtitle": "PENDING TRANSLATION",
+      "volume": "8 cards",
+      "display": "lista",
+      "children": [
+        {
+          "id": "eje-1-1",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-1-2",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-1-3",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-1-4",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-1-5",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-1-6",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-1-7",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-1-8",
+          "title": "PENDING TRANSLATION"
+        }
+      ]
+    },
+    {
+      "id": "eje-2",
+      "number": "02",
+      "mode": "recorrer",
+      "title": "Origins and evolution",
+      "subtitle": "PENDING TRANSLATION",
+      "volume": "7 steps",
+      "display": "lista",
+      "children": [
+        {
+          "id": "eje-2-1",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-2-2",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-2-3",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-2-4",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-2-5",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-2-6",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-2-7",
+          "title": "PENDING TRANSLATION"
+        }
+      ]
+    },
+    {
+      "id": "eje-3",
+      "number": "03",
+      "mode": "decidir",
+      "title": "Myths and stereotypes",
+      "subtitle": "PENDING TRANSLATION",
+      "volume": "6 cases",
+      "display": "lista",
+      "children": [
+        {
+          "id": "eje-3-1",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-3-2",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-3-3",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-3-4",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-3-5",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-3-6",
+          "title": "PENDING TRANSLATION"
+        }
+      ]
+    },
+    {
+      "id": "eje-4",
+      "number": "04",
+      "mode": "recorrer",
+      "title": "State policies",
+      "subtitle": "PENDING TRANSLATION",
+      "volume": "7 steps",
+      "display": "lista",
+      "children": [
+        {
+          "id": "eje-4-1",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-4-2",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-4-3",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-4-4",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-4-5",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-4-6",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-4-7",
+          "title": "PENDING TRANSLATION"
+        }
+      ]
+    },
+    {
+      "id": "eje-5",
+      "number": "05",
+      "mode": "decidir",
+      "title": "Israel and anti-Zionism",
+      "subtitle": "PENDING TRANSLATION",
+      "volume": "7 cases",
+      "display": "lista",
+      "children": [
+        {
+          "id": "eje-5-1",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-5-2",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-5-3",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-5-4",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-5-5",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-5-6",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-5-7",
+          "title": "PENDING TRANSLATION"
+        }
+      ]
+    },
+    {
+      "id": "eje-6",
+      "number": "06",
+      "mode": "mixto",
+      "title": "From joke to violence",
+      "subtitle": "PENDING TRANSLATION",
+      "volume": "10 steps and 5 cases",
+      "display": "lista",
+      "children": [
+        {
+          "id": "eje-6-1",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-6-2",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-6-3",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-6-4",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-6-5",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-6-6",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-6-7",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-6-8",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-6-9",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-6-10",
+          "title": "PENDING TRANSLATION"
+        }
+      ]
+    },
+    {
+      "id": "eje-7",
+      "number": "07",
+      "mode": "decidir",
+      "title": "Denialism",
+      "subtitle": "PENDING TRANSLATION",
+      "volume": "6 cases",
+      "display": "lista",
+      "children": [
+        {
+          "id": "eje-7-1",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-7-2",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-7-3",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-7-4",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-7-5",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-7-6",
+          "title": "PENDING TRANSLATION"
+        }
+      ]
+    },
+    {
+      "id": "eje-8",
+      "number": "08",
+      "mode": "explorar",
+      "title": "October 7",
+      "subtitle": "PENDING TRANSLATION",
+      "volume": "6 cards",
+      "display": "lista",
+      "children": [
+        {
+          "id": "eje-8-1",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-8-2",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-8-3",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-8-4",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-8-5",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-8-6",
+          "title": "PENDING TRANSLATION"
+        }
+      ]
+    },
+    {
+      "id": "eje-9",
+      "number": "09",
+      "mode": "explorar",
+      "title": "Jewish contributions",
+      "subtitle": "PENDING TRANSLATION",
+      "volume": "8 cards",
+      "display": "lista",
+      "children": [
+        {
+          "id": "eje-9-1",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-9-2",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-9-3",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-9-4",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-9-5",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-9-6",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-9-7",
+          "title": "PENDING TRANSLATION"
+        },
+        {
+          "id": "eje-9-8",
+          "title": "PENDING TRANSLATION"
+        }
+      ]
+    }
+  ]
+}

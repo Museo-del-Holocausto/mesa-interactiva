@@ -1,0 +1,93 @@
+{
+  "id": "eje-9",
+  "title": "Aportes judíos",
+  "lead": "Personas que dejaron una marca en la ciencia, el arte y el pensamiento. La identidad judía no se define por la persecución.",
+  "hint": "Deslizá el marcador para recorrer",
+  "ui": {
+    "of": "de",
+    "imagePending": "Imagen pendiente",
+    "creditPending": "Fuente y crédito a definir"
+  },
+  "people": [
+    {
+      "id": "franklin",
+      "nombre": "Rosalind Franklin",
+      "disciplina": "Química y cristalógrafa",
+      "anios": "1920 – 1958",
+      "bio": "Sus imágenes de difracción de rayos X del ADN, en particular la conocida como Fotografía 51, fueron determinantes para establecer la estructura de doble hélice. Murió a los 37 años, cuatro años antes de que se otorgara el Nobel por ese descubrimiento, en el que su aporte no fue reconocido en vida.",
+      "imagen": null,
+      "epigrafe": "Franklin en el laboratorio, Londres.",
+      "credito": null
+    },
+    {
+      "id": "milstein",
+      "nombre": "César Milstein",
+      "disciplina": "Bioquímico",
+      "anios": "1927 – 2002",
+      "bio": "Nació en Bahía Blanca, hijo de inmigrantes judíos. En 1984 recibió el Premio Nobel de Medicina junto a Georges Köhler por el desarrollo de los anticuerpos monoclonales, la base de buena parte de la inmunología y el diagnóstico actuales. Decidió no patentar la técnica para que quedara disponible.",
+      "imagen": null,
+      "epigrafe": "Milstein en Cambridge.",
+      "credito": null
+    },
+    {
+      "id": "arendt",
+      "nombre": "Hannah Arendt",
+      "disciplina": "Filosofía política",
+      "anios": "1906 – 1975",
+      "bio": "Huyó de Alemania en 1933 y de Francia en 1941. Escribió Los orígenes del totalitarismo y, tras cubrir el juicio a Adolf Eichmann en Jerusalén, acuñó la expresión “la banalidad del mal” para describir cómo el exterminio fue ejecutado por funcionarios que se veían a sí mismos cumpliendo órdenes.",
+      "imagen": null,
+      "epigrafe": "Arendt, hacia 1960.",
+      "credito": null
+    },
+    {
+      "id": "noether",
+      "nombre": "Emmy Noether",
+      "disciplina": "Matemática",
+      "anios": "1882 – 1935",
+      "bio": "Su teorema vincula las simetrías de un sistema con sus leyes de conservación, y es una de las bases de la física teórica moderna. Trabajó años en Gotinga sin cargo ni sueldo porque la universidad no admitía mujeres en el claustro. En 1933 fue expulsada por las leyes nazis y emigró a Estados Unidos.",
+      "imagen": null,
+      "epigrafe": "Noether, Gotinga.",
+      "credito": null
+    },
+    {
+      "id": "bohr",
+      "nombre": "Niels Bohr",
+      "disciplina": "Física atómica",
+      "anios": "1885 – 1962",
+      "bio": "Recibió el Nobel de Física en 1922 por su modelo del átomo. Su madre, Ellen Adler, provenía de una familia judía danesa. En 1943, ante la inminente deportación de los judíos de Dinamarca, escapó a Suecia; el instituto que fundó en Copenhague sigue siendo un centro de referencia en física.",
+      "imagen": null,
+      "epigrafe": "Bohr en su laboratorio de Copenhague.",
+      "credito": null
+    },
+    {
+      "id": "gerchunoff",
+      "nombre": "Alberto Gerchunoff",
+      "disciplina": "Escritor y periodista",
+      "anios": "1883 – 1950",
+      "bio": "Nació en Rusia y llegó de niño a las colonias judías de Entre Ríos. En 1910 publicó Los gauchos judíos, el primer libro en castellano escrito por un inmigrante judío en la Argentina, sobre la vida de esas colonias. Fue durante décadas una de las voces judías más leídas del periodismo argentino.",
+      "imagen": null,
+      "epigrafe": "Gerchunoff en Buenos Aires.",
+      "credito": null
+    },
+    {
+      "id": "salk",
+      "nombre": "Jonas Salk",
+      "disciplina": "Medicina",
+      "anios": "1914 – 1995",
+      "bio": "Hijo de inmigrantes judíos rusos en Nueva York, desarrolló la primera vacuna eficaz contra la poliomielitis, anunciada en 1955 cuando la enfermedad paralizaba a decenas de miles de chicos por año. No la patentó. Cuando le preguntaron de quién era la patente respondió que de la gente.",
+      "imagen": null,
+      "epigrafe": "Salk en su laboratorio, Pittsburgh.",
+      "credito": null
+    },
+    {
+      "id": "benacerraf",
+      "nombre": "Baruj Benacerraf",
+      "disciplina": "Inmunología",
+      "anios": "1920 – 2011",
+      "bio": "Nació en Caracas en una familia judía sefaradí de origen marroquí y se formó entre Venezuela, Francia y Estados Unidos. Recibió el Nobel de Medicina en 1980 por descubrir cómo un grupo de genes regula la respuesta inmune, lo que explicó por qué distintas personas reaccionan de forma distinta.",
+      "imagen": null,
+      "epigrafe": "Benacerraf en Harvard.",
+      "credito": null
+    }
+  ]
+}
