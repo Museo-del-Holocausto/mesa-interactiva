@@ -110,7 +110,7 @@
       "number": "08",
       "mode": "explorar",
       "title": "7 de octubre",
-      "subtitle": "El ataque, las comunidades y las personas. Cuatro secciones.",
+      "subtitle": "El ataque, las comunidades, las personas y la espera. Cinco secciones.",
       "volume": "6 fichas",
       "display": "destacado",
       "children": [
@@ -127,6 +127,13 @@
           "eyebrow": "Eje 8 · Detrás de cada cifra",
           "title": "Detrás de cada cifra",
           "subtitle": "Una persona no puede ser resumida por la manera en que murió."
+        },
+        {
+          "id": "eje-8-espera",
+          "module": "eje-8-espera",
+          "eyebrow": "Eje 8 · La incertidumbre de las familias",
+          "title": "La espera",
+          "subtitle": "Pasa el tiempo y hay cada vez menos. Los canales para averiguar algo se apagan y las preguntas ocupan su lugar."
         },
         {
           "id": "eje-8-dia",

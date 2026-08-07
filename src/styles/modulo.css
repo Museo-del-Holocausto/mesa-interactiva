@@ -2236,3 +2236,260 @@
   line-height: 1.36;
   color: var(--ink-400);
 }
+
+/* ==========================================================================
+   La incertidumbre de las familias · el único módulo que resta
+   ==========================================================================
+   Avanzar no suma: quita. Los canales se apagan, las filas colapsan a cero y
+   la columna izquierda se vacía de verdad mientras la derecha se llena. */
+
+.esp {
+  position: absolute;
+  inset: 0;
+}
+
+.esp__scene {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.esp__scene[data-on='true'] {
+  display: grid;
+}
+
+.esp__k {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.esp__n {
+  margin-left: 10px;
+  font-size: 26px;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.esp__btn {
+  padding: 20px 42px;
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  white-space: nowrap;
+}
+
+.esp__btn--go {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+/* --- entrada -------------------------------------------------------------- */
+
+.esp__scene[data-scene='intro'] {
+  grid-template-rows: 1fr auto;
+  align-content: center;
+}
+
+.esp__h1 {
+  max-width: 16ch;
+  font-family: var(--font-display);
+  font-size: 78px;
+  font-weight: 400;
+  line-height: 1.03;
+  letter-spacing: -0.025em;
+  align-self: end;
+}
+
+.esp__lead {
+  max-width: 48ch;
+  margin-top: 30px;
+  font-size: 29px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+/* --- la espera ------------------------------------------------------------ */
+
+.esp__scene[data-scene='espera'] {
+  grid-template-rows: auto 1fr auto;
+  gap: 34px;
+}
+
+.esp__head {
+  position: relative;
+}
+
+.esp__sub {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.esp__label {
+  margin-top: 12px;
+  font-family: var(--font-display);
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--ink-100);
+  transition: color var(--dur-slow) var(--ease-out);
+}
+
+/* El título también se apaga con el tiempo. */
+.esp[data-p='2'] .esp__label { color: var(--ink-300); }
+.esp[data-p='3'] .esp__label { color: var(--ink-400); }
+
+.esp__ticks {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  display: flex;
+  gap: 10px;
+  list-style: none;
+}
+
+.esp__ticks li {
+  width: 56px;
+  height: 3px;
+  background: var(--ink-500);
+  cursor: pointer;
+  transition: background var(--dur-base) var(--ease-out);
+}
+
+.esp__ticks li[data-done='true'] { background: var(--accent-dim); }
+.esp__ticks li[data-on='true'] { background: var(--accent); }
+
+.esp__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-content: start;
+}
+
+.esp__col--preguntas {
+  padding-left: 48px;
+  border-left: 1px solid var(--ink-500);
+}
+
+.esp__list {
+  margin-top: 20px;
+  list-style: none;
+}
+
+/* La fila colapsa a cero: no queda tachada, desaparece. */
+.esp__item {
+  display: flex;
+  align-items: center;
+  height: 62px;
+  overflow: hidden;
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 1.24;
+  opacity: 1;
+  transition:
+    height var(--dur-slow) var(--ease-out),
+    opacity var(--dur-base) var(--ease-out);
+}
+
+.esp__item[data-gone='true'] {
+  height: 0;
+  opacity: 0;
+}
+
+.esp__list--canales .esp__item {
+  color: var(--ink-300);
+}
+
+.esp__list--canales .esp__item::before {
+  content: '';
+  flex: 0 0 14px;
+  height: 1px;
+  margin-right: 14px;
+  background: var(--ink-400);
+}
+
+.esp__list--preguntas .esp__item {
+  color: var(--ink-100);
+}
+
+/* Lo que se puede hacer pierde luz a medida que pasa el tiempo.
+   Las preguntas no: son lo único que queda entero. */
+.esp__col--canales {
+  transition: opacity var(--dur-slow) var(--ease-out);
+}
+
+.esp[data-p='1'] .esp__col--canales { opacity: 0.82; }
+.esp[data-p='2'] .esp__col--canales { opacity: 0.62; }
+.esp[data-p='3'] .esp__col--canales { opacity: 0.42; }
+
+/* --- pie ------------------------------------------------------------------ */
+
+.esp__foot {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 40px;
+}
+
+.esp__hint {
+  font-family: var(--font-display);
+  font-size: 21px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.65;
+}
+
+.esp__cierre {
+  display: none;
+}
+
+/* El cierre aparece solo al final, cuando ya casi no queda nada arriba. */
+.esp[data-p='3'] .esp__cierre {
+  display: block;
+}
+
+.esp[data-p='3'] .esp__hint {
+  display: none;
+}
+
+.esp__ctext {
+  max-width: 44ch;
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.16;
+  color: var(--ink-100);
+}
+
+.esp__csub {
+  max-width: 44ch;
+  margin-top: 12px;
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.16;
+  color: var(--accent);
+}
+
+.esp__fuente {
+  max-width: 60ch;
+  margin-top: 22px;
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.36;
+  color: var(--ink-400);
+}

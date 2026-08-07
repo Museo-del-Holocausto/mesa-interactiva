@@ -254,8 +254,18 @@ Es la única pieza que declara `layout = 'full'`: necesita el ancho completo y q
 contenido no se reacomode cuando el marcador cruza el centro. `Quadrant` lo lee, congela
 `data-marker-side` y desactiva el aviso de *corré el marcador a un costado*.
 
-La cronología del día queda pendiente: es un relato hora por hora y ninguno de los
-componentes que tenemos le sirve.
+`src/modules/Vidas.js` (`eje8-vidas.json`) es *Detrás de cada cifra*: mosaico de
+retratos, seis personas nombradas en el documento, con los campos que él pide. Los que
+faltan se muestran vacíos en vez de ocultarse — el hueco es lo que hay que ir a buscar a
+las familias.
+
+`src/modules/Espera.js` (`eje8-espera.json`) es *La incertidumbre de las familias*, y es
+el único módulo que **resta**. En el resto avanzar suma; acá el tiempo pasa y la pantalla
+tiene cada vez menos. Los siete canales para averiguar algo se apagan uno por uno —las
+filas colapsan a cero, no quedan tachadas— y las preguntas sin respuesta ocupan el lugar
+que dejan. Se termina con un canal y ocho preguntas.
+
+La cronología del día y *Cómo sabemos lo que sabemos* quedan pendientes.
 
 **Ejes en desarrollo.** Los ejes 2, 5 y 6 llevan `"estado": "pendiente"` en el JSON:
 no tienen submenú ni módulo, el punto de la órbita se ve apagado, el panel va atenuado y

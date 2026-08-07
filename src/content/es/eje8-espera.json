@@ -1,0 +1,100 @@
+{
+  "id": "eje-8-espera",
+  "title": "La incertidumbre de las familias",
+  "lead": "Durante los primeros días, numerosas familias no sabían si sus seres queridos habían sido asesinados, heridos, secuestrados o permanecían escondidos. Buscaron información mediante llamadas, hospitales, redes sociales, fotografías y registros informales.",
+  "ui": {
+    "start": "Empezar",
+    "canales": "Lo que todavía se puede hacer",
+    "preguntas": "Lo que no se sabe",
+    "hint": "Girá el marcador para que pase el tiempo",
+    "next": "Que pase el tiempo",
+    "again": "Volver al principio",
+    "fuente": "La Organización Mundial de la Salud describió el trauma y el sufrimiento psicológico agudo experimentado tanto por los secuestrados como por sus familiares."
+  },
+  "periodos": [
+    {
+      "label": "Una hora sin noticias",
+      "sub": "7 de octubre, por la mañana"
+    },
+    {
+      "label": "Un día sin noticias",
+      "sub": "8 de octubre"
+    },
+    {
+      "label": "Una semana sin noticias",
+      "sub": "14 de octubre"
+    },
+    {
+      "label": "Meses sin noticias",
+      "sub": "Sin fecha"
+    }
+  ],
+  "canales": [
+    {
+      "t": "Llamar a su teléfono",
+      "hasta": 0
+    },
+    {
+      "t": "Escribir al grupo del barrio",
+      "hasta": 0
+    },
+    {
+      "t": "Preguntar en los hospitales",
+      "hasta": 1
+    },
+    {
+      "t": "Buscar su cara en fotos y videos",
+      "hasta": 1
+    },
+    {
+      "t": "Consultar los registros informales",
+      "hasta": 2
+    },
+    {
+      "t": "Esperar una confirmación médica",
+      "hasta": 2
+    },
+    {
+      "t": "Esperar una negociación",
+      "hasta": 3
+    }
+  ],
+  "preguntas": [
+    {
+      "t": "¿Está herido?",
+      "desde": 0
+    },
+    {
+      "t": "¿Está escondido?",
+      "desde": 0
+    },
+    {
+      "t": "¿Se lo llevaron?",
+      "desde": 0
+    },
+    {
+      "t": "¿Alguien lo vio?",
+      "desde": 1
+    },
+    {
+      "t": "¿Está en Gaza?",
+      "desde": 1
+    },
+    {
+      "t": "¿Está vivo?",
+      "desde": 2
+    },
+    {
+      "t": "¿Cuánto más hay que esperar?",
+      "desde": 2
+    },
+    {
+      "t": "¿Va a llegar alguna señal?",
+      "desde": 3
+    }
+  ],
+  "cierre": {
+    "text": "Para las familias, el ataque no terminó cuando concluyeron los combates de ese día.",
+    "sub": "Mientras no existía información sobre sus seres queridos, el tiempo permanecía suspendido."
+  }
+}
