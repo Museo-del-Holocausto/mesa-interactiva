@@ -21,6 +21,8 @@ function boot() {
 
   i18n.set(i18n.current);
 
+  console.log("init");
+
   const stage = new Stage(stageEl);
   const store = new MarkerStore();
   store.startSweep();
