@@ -45,9 +45,11 @@ function int(name, fallback, min, max) {
 
 export const DEBUG = {
   /** El simulador de marcadores. En produccion no se compila. */
-  simulator: flag('sim', import.meta.env.DEV),
+  //simulator: flag('sim', import.meta.env.DEV),
+  simulator: flag('sim', true),
   /** Ghosts, guias de cuadrante y overlay de estado. */
-  chrome: flag('debug', import.meta.env.DEV),
+  //chrome: flag('debug', import.meta.env.DEV),
+  chrome: flag('debug', false),
   markerCount: int('marker', 1, 0, 4),
   guide: flag('guide', false),
   /**
