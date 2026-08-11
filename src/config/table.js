@@ -84,8 +84,20 @@ export const MARKER_TIMEOUT_MS = 400;
  */
 export const QUADRANT_GRACE_MS = 12000;
 
-/** Columna reservada para el marcador cuando hay una pieza montada. */
+/** Columna reservada para el marcador cuando hay una pieza montada, en px de mesa. */
 export const MARKER_COLUMN_W = 680;
+
+/**
+ * Lienzo unico de las piezas. Toda pieza se disena una sola vez a esta medida
+ * y despues se escala por transform: en un cuadrante va 1:1, en modo guia va a
+ * 2x. Asi la longitud de linea en caracteres es identica en los dos modos y no
+ * hay un solo layout que reacomodar.
+ */
+export const MODULE_CANVAS_W = 1920;
+export const MODULE_CANVAS_H = 1080;
+
+/** Margen interno de una pieza, en px de lienzo. */
+export const MODULE_PAD = 76;
 
 /** ID reservado para el marcador del guia. Confirmar contra los IDs reales de Tangible Engine. */
 export const GUIDE_MARKER_ID = 99;

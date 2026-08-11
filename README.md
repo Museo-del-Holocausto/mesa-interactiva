@@ -56,8 +56,42 @@ explícita, no adivinada. Al entrar en modo guía salen los marcadores de visita
 
 **Qué escala y qué no.** La órbita está atada al tamaño físico del marcador, que en modo
 guía sigue midiendo lo mismo: si la agrandáramos se despegaría del objeto. Lo que sí
-escala es el texto (`--panel-scale`, 1.75 en guía), porque se lee desde varios metros y
-no desde 60 cm.
+escala es el texto (`--panel-scale`, 2 en guía), porque se lee desde varios metros y no
+desde 60 cm.
+
+**Las piezas viven en un lienzo fijo.** Toda pieza se diseña una sola vez a 1920×1080
+(`MODULE_CANVAS_W/H`) y `Modulo.fit()` la escala por transform. En un cuadrante entra
+1:1. En modo guía se agranda **pero no llena la mesa**: el sobrante es margen de movimiento.
+
+**El marcador es la manija.** Queda en la esquina de abajo del lienzo, del lado de su
+columna, y el bloque crece hacia arriba y hacia el lado opuesto. Moverlo arrastra la
+interfaz entera; el lienzo se frena contra los bordes de la mesa. Con `gscale=1.35` el
+recorrido real es de 47 cm en horizontal y 26 cm en vertical. Zona muerta de 24 px y
+tween de 0,5 s para que no tiemble mientras se toca un botón.
+
+En un cuadrante el lienzo entra justo y no sobra nada, así que el clamp lo deja clavado:
+ahí el marcador se sigue moviendo por dentro, como siempre. Es el mismo código.
+
+La longitud de línea en caracteres es idéntica en los dos modos; lo único que cambia es
+el tamaño físico del texto. Ninguna pieza sabe en qué modo corre.
+
+**La escala de guía está sin decidir.** Default 1.35, ajustable con `?gscale=`. El dato
+que importa: el panel tiene **68 ppi**, o sea 0,375 mm por píxel — mucho menos denso que
+un monitor. Ya a escala 1.0 el cuerpo de texto mide 10 mm, contra los 6-8 mm de una
+cartela de museo.
+
+| `gscale` | Lienzo | Margen | Cuerpo | Título |
+|---|---|---|---|---|
+| 1.0 | 1920×1080 | 1920×1080 | 10,1 mm | 21,8 mm |
+| 1.25 | 2400×1350 | 1440×810 | 12,7 mm | 27,2 mm |
+| **1.35** | 2592×1458 | 1248×702 | 13,7 mm | 29,4 mm |
+| 1.5 | 2880×1620 | 960×540 | 15,2 mm | 32,6 mm |
+| 2.0 | 3840×2160 | 0 | 20,2 mm | 43,5 mm |
+
+Como el marcador no escala —sigue midiendo 110 mm—, la columna que se le reserva se
+achica en coordenadas de lienzo cuando el lienzo crece, y se publica como `--col`.
+`Modulo.applyPosition()` convierte la posición a coordenadas de lienzo antes de pasársela
+a la pieza.
 
 **Entrada.** `MarkerStore` es la única fuente de verdad. `SimulatedInput` y
 `TangibleInput` escriben con la misma forma de dato (`MarkerFrame`), así que enchufar

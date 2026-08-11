@@ -25,6 +25,16 @@ function flag(name, fallback) {
 }
 
 /** @param {string} name @param {number} fallback @param {number} min @param {number} max */
+/** @param {string} name @param {number} fallback @param {number} min @param {number} max */
+function num(name, fallback, min, max) {
+  const raw = params.get(name);
+  if (raw === null) return fallback;
+  const n = Number.parseFloat(raw);
+  if (Number.isNaN(n)) return fallback;
+  return Math.min(max, Math.max(min, n));
+}
+
+/** @param {string} name @param {number} fallback @param {number} min @param {number} max */
 function int(name, fallback, min, max) {
   const raw = params.get(name);
   if (raw === null) return fallback;
@@ -40,6 +50,15 @@ export const DEBUG = {
   chrome: flag('debug', import.meta.env.DEV),
   markerCount: int('marker', 1, 0, 4),
   guide: flag('guide', false),
+  /**
+   * Escala del lienzo en modo guia. Provisorio hasta verlo en la mesa real:
+   * ?gscale=1.5 para probar otro valor.
+   *
+   * Referencia: el panel tiene 68 ppi, o sea 0.375 mm por pixel. A escala 1.0
+   * el cuerpo de texto de 27 px ya mide 10 mm, contra los 6-8 mm de una cartela
+   * de museo. Escala 2.0 lo lleva a 20 mm, que es tamano de titulo de sala.
+   */
+  guideScale: num('gscale', 1.2, 1, 2.5),
 };
 
 export const FORCED_LANG = params.get('lang');

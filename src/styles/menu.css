@@ -11,7 +11,7 @@
 }
 
 .quadrant[data-guide='true'] .menu {
-  --panel-scale: 1.75;
+  --panel-scale: 2;
 }
 
 .menu__corona {

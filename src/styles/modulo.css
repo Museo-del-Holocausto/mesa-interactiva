@@ -13,6 +13,22 @@
   z-index: 5;
 }
 
+/* Lienzo de medida fija. El transform lo pone Modulo.fit(): 1x en un cuadrante,
+   2x en modo guía. Nada acá adentro sabe en qué modo está corriendo. */
+.modulo__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  --pad: 76px;
+  --col: 680px;
+}
+
+/* En modo guía el lienzo no llena la mesa: el sobrante es margen. */
+.quadrant[data-guide='true'] .modulo {
+  background: var(--ink-900);
+}
+
 .modulo__eyebrow,
 .modulo__back {
   position: absolute;
@@ -50,26 +66,38 @@
 /* Marcador a la izquierda: contenido a la derecha. */
 .quadrant[data-marker-side='left'] .modulo__body,
 .quadrant[data-marker-side='left'] .modulo__eyebrow {
-  left: 756px;
-  right: 76px;
+  left: calc(var(--col) + var(--pad));
+  right: var(--pad);
 }
 
 .quadrant[data-marker-side='left'] .modulo__back {
-  left: 76px;
+  left: var(--pad);
 }
 
-/* Y al reves. */
+/* En guía el marcador es la manija y vive en la esquina de abajo de su
+   columna, así que Volver se corre a la esquina opuesta para no quedar debajo. */
+.quadrant[data-guide='true'][data-marker-side='left'] .modulo__back {
+  left: auto;
+  right: var(--pad);
+}
+
+/* Y al revés. */
 .quadrant[data-marker-side='right'] .modulo__body,
 .quadrant[data-marker-side='right'] .modulo__eyebrow {
-  left: 76px;
-  right: 756px;
+  left: var(--pad);
+  right: calc(var(--col) + var(--pad));
 }
 
 .quadrant[data-marker-side='right'] .modulo__back {
-  right: 76px;
+  right: var(--pad);
 }
 
-/* El marcador se paro sobre el contenido: se atenua hasta que lo corran. */
+.quadrant[data-guide='true'][data-marker-side='right'] .modulo__back {
+  right: auto;
+  left: var(--pad);
+}
+
+/* El marcador se paró sobre el contenido: se atenúa hasta que lo corran. */
 .quadrant[data-warning='park'] .modulo__body {
   opacity: 0.18;
   pointer-events: none;
@@ -1564,12 +1592,20 @@
   pointer-events: none;
 }
 
+/* En guía el marcador puede salir del lienzo: el riel se estira a la mesa
+   entera para que las paradas caigan donde de verdad se apoya el objeto. */
+.quadrant[data-guide='true'] .exp__rail,
+.quadrant[data-guide='true'] .lug__rail {
+  top: calc(-124px - var(--bleed-y, 0px));
+  bottom: calc(-76px - var(--bleed-y, 0px));
+}
+
 .quadrant[data-marker-side='left'] .exp__rail {
-  left: calc(var(--marker-x, 360px) - 756px);
+  left: calc(var(--marker-x, 360px) - var(--bleed-x, 0px) - var(--col) - var(--pad));
 }
 
 .quadrant[data-marker-side='right'] .exp__rail {
-  left: calc(var(--marker-x, 1560px) - 76px);
+  left: calc(var(--marker-x, 1560px) - var(--bleed-x, 0px) - var(--pad));
 }
 
 .exp__line {
@@ -1849,11 +1885,11 @@
 }
 
 .quadrant[data-marker-side='left'] .lug__rail {
-  left: calc(var(--marker-x, 360px) - 756px);
+  left: calc(var(--marker-x, 360px) - var(--bleed-x, 0px) - var(--col) - var(--pad));
 }
 
 .quadrant[data-marker-side='right'] .lug__rail {
-  left: calc(var(--marker-x, 1560px) - 76px);
+  left: calc(var(--marker-x, 1560px) - var(--bleed-x, 0px) - var(--pad));
 }
 
 .lug__rail li {
