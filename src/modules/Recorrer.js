@@ -96,6 +96,8 @@ export class Recorrer {
       </section>`;
 
     root.addEventListener('pointerdown', (event) => {
+      // Solo el boton principal. El secundario tiene que llegar al navegador.
+      if (event.button !== 0) return;
       const target = event.target;
       if (!(target instanceof Element)) return;
       event.stopPropagation();
@@ -194,9 +196,7 @@ export class Recorrer {
             ? `<ul class="rec__items">${step.measures
                 .map(
                   (m) =>
-                    `<li class="rec__measure">${m.t}${
-                      m.fecha ? `<span class="rec__fecha">${m.fecha}</span>` : ''
-                    }</li>`,
+                    `<li class="rec__measure">${m.t}${m.fecha ? `<span class="rec__fecha">${m.fecha}</span>` : ''}</li>`,
                 )
                 .join('')}</ul>`
             : ''
@@ -247,9 +247,7 @@ export class Recorrer {
         <ul>${step.measures
           .map(
             (m) =>
-              `<li class="rec__measure">${m.t}${
-                m.fecha ? `<span class="rec__fecha">${m.fecha}</span>` : ''
-              }</li>`,
+              `<li class="rec__measure">${m.t}${m.fecha ? `<span class="rec__fecha">${m.fecha}</span>` : ''}</li>`,
           )
           .join('')}</ul>`;
       list.append(group);

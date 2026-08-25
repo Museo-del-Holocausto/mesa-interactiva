@@ -1,0 +1,58 @@
+{
+  "id": "eje-8-proposito",
+  "title": "Antes de entrar",
+  "lead": "Este módulo presenta el ataque del 7 de octubre de 2023 desde una perspectiva histórica y humana. Su objetivo es reconstruir lo ocurrido, preservar la memoria de las víctimas y comprender sus consecuencias sin transformar el dolor en espectáculo ni establecer una competencia entre sufrimientos.",
+  "intro": "La propuesta se apoya en cuatro principios. Apoyá el marcador sobre cada uno para leerlos.",
+  "ui": {
+    "rest": "Apoyá el marcador sobre uno de los círculos · También podés tocarlos",
+    "spin": "Girá el marcador para recorrer",
+    "of": "de"
+  },
+  "contenedores": [
+    {
+      "id": "hechos",
+      "rot": "Nombrar los hechos",
+      "sub": "Con claridad",
+      "items": [
+        {
+          "titulo": "Nombrar los hechos con claridad",
+          "texto": "En la mañana del 7 de octubre de 2023, Hamás encabezó un ataque coordinado desde la Franja de Gaza, en el que participaron también otros grupos armados palestinos. Miles de cohetes fueron lanzados hacia Israel mientras hombres armados atravesaban la frontera y atacaban localidades, viviendas, rutas, instalaciones militares y un festival de música."
+        }
+      ]
+    },
+    {
+      "id": "personas",
+      "rot": "Recordar a las personas",
+      "sub": "No solo las cifras",
+      "items": [
+        {
+          "titulo": "Recordar a las personas, no solamente las cifras",
+          "texto": "Entre las víctimas y los secuestrados había bebés, niños, jóvenes, adultos mayores, familias enteras, ciudadanos israelíes y personas de otras nacionalidades. Una persona no puede ser resumida por la manera en que murió."
+        }
+      ]
+    },
+    {
+      "id": "responsables",
+      "rot": "Diferenciar",
+      "sub": "Responsables y civiles",
+      "items": [
+        {
+          "titulo": "Diferenciar a los responsables de las poblaciones civiles",
+          "texto": "Ningún palestino debe ser responsabilizado por los crímenes de Hamás simplemente por ser palestino, del mismo modo que ningún judío debe ser responsabilizado por las decisiones de un Estado."
+        }
+      ]
+    },
+    {
+      "id": "ambos",
+      "rot": "Reconocer",
+      "sub": "Los dos dolores",
+      "items": [
+        {
+          "titulo": "Reconocer el trauma israelí y judío y el sufrimiento de los civiles palestinos",
+          "texto": "Reconocer los derechos, la historia y el sufrimiento de un pueblo no exige negar los del otro."
+        }
+      ]
+    }
+  ],
+  "cierre": "Este módulo contiene referencias a asesinatos, secuestros, violencia y pérdida. Las imágenes más sensibles no se reproducen automáticamente y pueden omitirse sin impedir la comprensión del recorrido."
+}

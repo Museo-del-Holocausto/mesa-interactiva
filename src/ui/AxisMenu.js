@@ -343,6 +343,7 @@ export class AxisMenu {
    */
   #bindTouch(root) {
     root.addEventListener('pointerdown', (event) => {
+      if (event.button !== 0) return;
       const target = event.target;
       if (!(target instanceof Element)) return;
       event.stopPropagation();

@@ -13,8 +13,8 @@ import { Rotary } from '@/core/Rotary.js';
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
 /** Alto de fila del selector y cuantas se ven a la vez. */
-const ROW_H = 84;
-const VISIBLE_ROWS = 5;
+const ROW_H = 76;
+const VISIBLE_ROWS = 4;
 
 /**
  * Punto sobre la orbita. 0 grados arriba, sentido horario.
@@ -326,6 +326,7 @@ export class Corona {
    */
   #bindTouch(root) {
     root.addEventListener('pointerdown', (event) => {
+      if (event.button !== 0) return;
       const target = event.target;
       if (!(target instanceof Element)) return;
       event.stopPropagation();
@@ -426,7 +427,17 @@ export class Corona {
         row.className = 'menu__row';
         row.dataset.index = String(index);
         row.style.height = `${ROW_H}px`;
-        row.innerHTML = `${node.kicker ? `<span class="menu__row-kicker">${node.kicker}</span>` : ''}<span class="menu__row-title">${node.title}</span>`;
+        // Rotulo, filete y accion en la misma linea: asi la pila se lee como
+        // un listado y no como bloques apilados.
+        row.innerHTML =
+          '<span class="menu__row-tx">' +
+          `${node.kicker ? `<span class="menu__row-kicker">${node.kicker}</span>` : ''}` +
+          `<span class="menu__row-title">${node.title}</span>` +
+          '</span>' +
+          '<span class="menu__row-line"></span>' +
+          `<span class="menu__row-cta">${
+            node.estado === 'pendiente' ? i18n.t('ctaDev') : i18n.t('ctaOpen')
+          }</span>`;
         this.list.append(row);
       });
     }
@@ -495,7 +506,9 @@ export class Corona {
         : display === 'lista'
           ? i18n.t('ctaOpen')
           : i18n.t('ctaPending');
-    this.cta.hidden = display === 'contenido' && Boolean(node.body);
+    // En la lista la accion la lleva la fila activa: el boton suelto sobra.
+    // En la lista la accion la lleva la fila activa: el boton suelto sobra.
+    this.cta.hidden = display === 'lista' || (display === 'contenido' && Boolean(node.body));
 
     this.#fitTitle();
 

@@ -1,0 +1,82 @@
+{
+  "id": "eje-4-trivia",
+  "title": "Lo que acabás de ver",
+  "lead": "Seis preguntas sobre cómo un Estado convierte la discriminación en ley.",
+  "ui": {
+    "start": "Empezar",
+    "counter": "Pregunta {n} de {total}",
+    "next": "Siguiente",
+    "last": "Ver el cierre",
+    "again": "Volver a empezar"
+  },
+  "preguntas": [
+    {
+      "enunciado": "¿Qué distingue a una política antisemita estatal de un prejuicio individual?",
+      "opciones": [
+        { "k": "a", "label": "Que la sostiene mucha más gente." },
+        { "k": "b", "label": "Que usa las instituciones y los recursos del Estado." },
+        { "k": "c", "label": "Que es más violenta." }
+      ],
+      "correcta": "b",
+      "mensaje": "Leyes, decretos, reglamentos y decisiones administrativas convierten la discriminación en una práctica oficial."
+    },
+    {
+      "enunciado": "Durante siglos, a los judíos europeos se les prohibieron muchas profesiones. ¿Qué consecuencia tuvo?",
+      "opciones": [
+        { "k": "a", "label": "Quedaron confinados a unas pocas ocupaciones, que después se usaron como estereotipo." },
+        { "k": "b", "label": "Se dedicaron sobre todo a la agricultura." },
+        { "k": "c", "label": "Emigraron en su mayoría a otros continentes." }
+      ],
+      "correcta": "a",
+      "mensaje": "La sociedad creó la condición y después culpó al grupo por esa condición."
+    },
+    {
+      "enunciado": "Las Leyes de Núremberg establecieron que ser judío dependía de:",
+      "opciones": [
+        { "k": "a", "label": "Las creencias religiosas de cada persona." },
+        { "k": "b", "label": "La ascendencia de sus abuelos." },
+        { "k": "c", "label": "Una declaración voluntaria ante el Estado." }
+      ],
+      "correcta": "b",
+      "explicacion": "Los decretos posteriores a septiembre de 1935 definieron la condición de judío por la ascendencia.",
+      "mensaje": "La identidad de una persona dejó de depender de cómo se reconocía a sí misma: la determinó la burocracia racial del Estado."
+    },
+    {
+      "enunciado": "Después de la Noche de los Cristales Rotos, el gobierno alemán:",
+      "opciones": [
+        { "k": "a", "label": "Indemnizó a los comercios destruidos." },
+        { "k": "b", "label": "Le impuso a la comunidad judía una multa de mil millones de marcos." },
+        { "k": "c", "label": "Juzgó a los responsables de los incendios." }
+      ],
+      "correcta": "b",
+      "explicacion": "También le confiscó los seguros y la obligó a limpiar los escombros.",
+      "mensaje": "El Estado declaró que los judíos eran los culpables del ataque que había organizado, y les cobró el daño."
+    },
+    {
+      "enunciado": "¿Qué fue un gueto durante la ocupación nazi?",
+      "opciones": [
+        { "k": "a", "label": "Un barrio donde los judíos eligieron vivir juntos." },
+        { "k": "b", "label": "Un lugar de encierro forzado, previo a las deportaciones." },
+        { "k": "c", "label": "Una zona de protección durante los bombardeos." }
+      ],
+      "correcta": "b",
+      "explicacion": "En el gueto de Varsovia, unas cuatrocientas mil personas quedaron encerradas en 3,4 kilómetros cuadrados con raciones de hambre.",
+      "mensaje": "El gueto no fue una medida transitoria: fue una etapa del proceso."
+    },
+    {
+      "enunciado": "¿Cuál es el orden en que avanzaron estas políticas?",
+      "opciones": [
+        { "k": "a", "label": "Primero la violencia, después las leyes que la justificaron." },
+        { "k": "b", "label": "Identificar al grupo, restringir sus derechos, separarlo y después perseguirlo." },
+        { "k": "c", "label": "Todo empezó con la guerra, en 1939." }
+      ],
+      "correcta": "b",
+      "mensaje": "Las medidas no aparecen de una sola vez. Se acumulan de manera gradual."
+    }
+  ],
+  "closing": {
+    "label": "Para pensar",
+    "text": "¿Qué ocurre cuando una ley deja de proteger la igualdad y comienza a decidir quién merece tener derechos?",
+    "sub": "Las Leyes de Núremberg no fueron hechos aislados. Formaron parte de un proceso que convirtió a los judíos en extranjeros dentro de su propio país."
+  }
+}

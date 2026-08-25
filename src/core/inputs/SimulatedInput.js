@@ -216,6 +216,10 @@ export class SimulatedInput {
   }
 
   #onPointerDown = (event) => {
+    // Solo el boton principal arrastra. El secundario tiene que llegar al
+    // navegador: si se lo captura, no hay menu contextual y no se puede
+    // inspeccionar nada de lo que la pieza dibuja.
+    if (event.button !== 0) return;
     const id = this.#ghostIdFromEvent(event);
     if (id === null) return;
     const marker = this.store.get(id);

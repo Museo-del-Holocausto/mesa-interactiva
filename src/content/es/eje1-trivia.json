@@ -1,0 +1,60 @@
+{
+  "id": "eje-1-trivia",
+  "title": "Lo que acabás de ver",
+  "lead": "Cuatro preguntas sobre las cuatro pantallas anteriores.",
+  "ui": {
+    "start": "Empezar",
+    "counter": "Pregunta {n} de {total}",
+    "next": "Siguiente",
+    "last": "Ver el cierre",
+    "again": "Volver a empezar"
+  },
+  "preguntas": [
+    {
+      "enunciado": "El antisemitismo se basa principalmente en:",
+      "opciones": [
+        { "k": "a", "label": "Las características reales de todas las personas judías." },
+        { "k": "b", "label": "Una imagen construida a partir de prejuicios." },
+        { "k": "c", "label": "Una diferencia religiosa objetiva." }
+      ],
+      "correcta": "b"
+    },
+    {
+      "enunciado": "«Todas las personas judías piensan y viven de la misma manera.»",
+      "formato": "fila",
+      "opciones": [
+        { "k": "v", "label": "Verdadero" },
+        { "k": "f", "label": "Falso" }
+      ],
+      "correcta": "f",
+      "explicacion": "El antisemitismo borra las diferencias individuales y transforma a una población diversa en un grupo imaginariamente uniforme.",
+      "mensaje": "Una identidad compartida no convierte a las personas en copias idénticas."
+    },
+    {
+      "enunciado": "Completá la frase: «Una persona judía cometió un delito, entonces…»",
+      "opciones": [
+        { "k": "a", "label": "Esa persona debe responder por lo que hizo." },
+        { "k": "b", "label": "Todos los judíos son responsables." },
+        { "k": "c", "label": "Su religión explica su conducta." }
+      ],
+      "correcta": "a",
+      "mensaje": "Las personas son responsables de sus actos. Los grupos no tienen una culpa colectiva."
+    },
+    {
+      "enunciado": "Una ciudad atraviesa una epidemia. ¿Qué explicación permite comprender mejor lo que ocurre?",
+      "opciones": [
+        { "k": "a", "label": "Investigar sus causas médicas y sociales." },
+        { "k": "b", "label": "Culpar a una minoría." },
+        { "k": "c", "label": "Difundir un rumor." },
+        { "k": "d", "label": "Atacar a quienes parecen diferentes." }
+      ],
+      "correcta": "a",
+      "mensaje": "Culpar a un grupo no resuelve una crisis. Solamente crea nuevas víctimas."
+    }
+  ],
+  "closing": {
+    "label": "Para cerrar",
+    "text": "Las personas son responsables de sus actos.",
+    "sub": "Los grupos no tienen una culpa colectiva."
+  }
+}

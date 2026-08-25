@@ -90,6 +90,8 @@ export class LineaTiempo {
 
     this.track = root.querySelector('.linea__track');
     this.track.addEventListener('pointerdown', (event) => {
+      // Solo el boton principal. El secundario tiene que llegar al navegador.
+      if (event.button !== 0) return;
       event.stopPropagation();
       this.#dragging = true;
       this.track.setPointerCapture(event.pointerId);

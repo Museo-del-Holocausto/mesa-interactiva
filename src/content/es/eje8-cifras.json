@@ -1,0 +1,58 @@
+{
+  "id": "eje-8-cifras",
+  "title": "Detrás de cada cifra hay una persona",
+  "lead": "Las víctimas no constituyeron un grupo uniforme. Había habitantes de kibutzim y ciudades, participantes del festival, integrantes de las fuerzas de seguridad, trabajadores agrícolas, cuidadores, ciudadanos árabes de Israel y personas provenientes de distintos países. Había bebés, niños, adolescentes, jóvenes, padres, madres, abuelos y abuelas.",
+  "ui": {
+    "start": "Empezar",
+    "next": "Siguiente",
+    "last": "Ver el cierre",
+    "again": "Volver a empezar",
+    "hint": "Girá el marcador para avanzar · Tocá para seguir",
+    "unit": "personas",
+    "scale": "Cada figura es una persona"
+  },
+  "total": 1414,
+  "estados": [
+    {
+      "id": "asesinadas",
+      "rot": "El 7 de octubre",
+      "titulo": "Asesinadas",
+      "cifra": 1163,
+      "desde": 0,
+      "color": "muerte",
+      "nota": "Las fuentes oficiales israelíes suelen redondear la cifra a aproximadamente 1.200. La mayoría de las personas asesinadas eran civiles."
+    },
+    {
+      "id": "secuestradas",
+      "rot": "El 7 de octubre",
+      "titulo": "Secuestradas y llevadas a Gaza",
+      "cifra": 251,
+      "desde": 1163,
+      "color": "rehen",
+      "nota": "Entre las víctimas y los secuestrados había bebés, niños, jóvenes, adultos mayores, familias enteras, ciudadanos israelíes y personas de otras nacionalidades."
+    },
+    {
+      "id": "volvieron",
+      "rot": "De esas 251",
+      "titulo": "Regresaron con vida",
+      "cifra": 166,
+      "desde": 1163,
+      "color": "vida",
+      "nota": "Algunas fueron liberadas en acuerdos de intercambio, otras rescatadas por fuerzas israelíes. Los períodos de cautiverio fueron de días, meses o más de un año."
+    },
+    {
+      "id": "murieron",
+      "rot": "De esas 251",
+      "titulo": "Murieron el 7 de octubre o en cautiverio",
+      "cifra": 85,
+      "desde": 1329,
+      "color": "muerte",
+      "nota": "Algunas personas fueron asesinadas el mismo día y sus cuerpos llevados a Gaza. Otras murieron durante el cautiverio."
+    }
+  ],
+  "closing": {
+    "label": "El criterio de este módulo",
+    "text": "Recordar a las personas, no solamente las cifras.",
+    "sub": "Nombrar los hechos con claridad. Diferenciar a los responsables de las poblaciones civiles. Reconocer tanto el trauma israelí y judío como el sufrimiento de los civiles palestinos."
+  }
+}

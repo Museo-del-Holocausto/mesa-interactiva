@@ -85,10 +85,16 @@ export class Explorar {
           <h1 class="exp__name" data-slot="nombre"></h1>
           <p class="exp__years" data-slot="anios"></p>
           <p class="exp__bio" data-slot="bio"></p>
+          <div class="exp__dato" data-slot="datoCaja">
+            <p class="exp__datok">${t.dato}</p>
+            <p class="exp__datotx" data-slot="dato"></p>
+          </div>
         </div>
       </article>`;
 
     root.addEventListener('pointerdown', (event) => {
+      // Solo el boton principal. El secundario tiene que llegar al navegador.
+      if (event.button !== 0) return;
       if (!(event.target instanceof Element)) return;
       const tick = event.target.closest('.exp__ticks li');
       if (!tick?.dataset.index) return;
@@ -124,6 +130,9 @@ export class Explorar {
     set('nombre', person.nombre);
     set('anios', person.anios);
     set('bio', person.bio);
+    set('dato', person.dato);
+    const caja = this.el.querySelector('[data-slot="datoCaja"]');
+    if (caja) caja.hidden = !person.dato;
     set('epigrafe', person.epigrafe);
     set('credito', person.credito ?? t.creditPending);
 

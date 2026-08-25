@@ -178,19 +178,18 @@ export class Quadrant {
     this.el.style.setProperty('--marker-x', `${Math.round(local.x)}px`);
     this.el.style.setProperty('--marker-y', `${Math.round(local.y)}px`);
     this.#menu.place(local.x, local.y, this.region.w);
-    this.#syncSide(local.x, this.#module);
+    this.#syncSide(local.x);
 
     if (this.#module) {
-      // Con una pieza montada el giro es de la pieza, no de la corona oculta.
+      // Con una pieza montada el giro y la posicion son de la pieza, no de la
+      // corona oculta. El aviso lo decide el modulo contra su propio lienzo.
       this.#module.applyRotation(marker.rotation);
       this.#module.applyPosition(local.x, local.y);
-      // El aviso solo tiene sentido cuando el bloque esta clavado. Si el
-      // marcador es la manija, pararse "en el medio" es justamente lo que hace.
-      const central = this.#isCentral(local.x);
-      this.warningEl.dataset.visible = String(central);
+      const estorba = this.#module.overlaps;
+      this.warningEl.dataset.visible = String(estorba);
       this.warningEl.textContent = i18n.t('warnPark');
       this.warningEl.style.transform = `translate(${local.x}px, ${local.y}px)`;
-      this.el.dataset.warning = central ? 'park' : 'none';
+      this.el.dataset.warning = estorba ? 'park' : 'none';
       return;
     }
 
@@ -214,22 +213,8 @@ export class Quadrant {
    * una banda muerta en el medio para que no salte solo.
    * @param {number} localX
    */
-  #syncSide(localX, modulo) {
+  #syncSide(localX) {
     const w = this.region.w;
-
-    // Con el bloque deslizante el lado no puede cambiar en el medio de la mesa:
-    // mientras el lienzo pueda seguir al marcador, no hay motivo para espejarlo.
-    // Recien se da vuelta cuando el bloque ya toco el borde y quedo clavado.
-    // El lado se decide contra el lienzo, no contra la region: en modo guia el
-    // bloque esta centrado y la banda muerta de los costados no cuenta.
-    if (modulo?.hasMargin) {
-      const mid = this.region.w / 2;
-      if (localX < mid - 120) this.#markerSide = 'left';
-      else if (localX > mid + 120) this.#markerSide = 'right';
-      this.el.dataset.markerSide = this.#markerSide;
-      return;
-    }
-
     if (localX < w * 0.42) this.#markerSide = 'left';
     else if (localX > w * 0.58) this.#markerSide = 'right';
     this.el.dataset.markerSide = this.#markerSide;

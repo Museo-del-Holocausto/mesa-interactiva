@@ -99,6 +99,8 @@ export class Espera {
       </section>`;
 
     root.addEventListener('pointerdown', (event) => {
+      // Solo el boton principal. El secundario tiene que llegar al navegador.
+      if (event.button !== 0) return;
       if (!(event.target instanceof Element)) return;
       event.stopPropagation();
 

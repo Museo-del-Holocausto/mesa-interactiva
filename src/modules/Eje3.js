@@ -30,6 +30,8 @@ export class Eje3 {
 
     this.body = this.el.querySelector('.modulo__body');
     this.el.addEventListener('pointerdown', (event) => {
+      // Solo el boton principal. El secundario tiene que llegar al navegador.
+      if (event.button !== 0) return;
       if (!(event.target instanceof Element)) return;
       if (event.target.closest('.modulo__back')) {
         event.stopPropagation();

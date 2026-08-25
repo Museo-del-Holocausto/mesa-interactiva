@@ -1,0 +1,85 @@
+{
+  "id": "eje-4-linea",
+  "title": "De la exclusión a la persecución",
+  "ui": {
+    "hint": "Deslizá el marcador para recorrer",
+    "reveal": "Seguir",
+    "read": "Leído",
+    "of": "de",
+    "pending": "Este tramo todavía no tiene texto.",
+    "imagePending": "Imagen pendiente",
+    "creditPending": "Fuente y crédito a definir"
+  },
+  "categorias": {
+    "exc": "Exclusión",
+    "leg": "Ley",
+    "vio": "Violencia",
+    "ext": "Exterminio"
+  },
+  "bloques": [
+    {
+      "k": "origen",
+      "rot": "Qué pasó"
+    },
+    {
+      "k": "construccion",
+      "rot": "Cómo se aplicó"
+    },
+    {
+      "k": "clave",
+      "rot": "Idea clave"
+    }
+  ],
+  "mitos": [
+    {
+      "y": 1933,
+      "era": "1933",
+      "cat": "exc",
+      "frase": "Exclusión profesional",
+      "origen": "Primeras medidas de boicot, despidos y exclusión de la vida pública y económica. Cuando Adolf Hitler llegó al poder en 1933, el antisemitismo se transformó en una política central del Estado alemán.",
+      "construccion": "Boicot contra comercios judíos. Expulsión de empleados judíos de la administración pública. Exclusión de abogados, jueces, médicos y docentes. Imposición de cupos para estudiantes judíos. Eliminación de los judíos de universidades, instituciones culturales y Fuerzas Armadas.",
+      "clave": "Mediante el proceso denominado «arianización», comercios, empresas y propiedades judías fueron confiscados o transferidos de manera forzada a propietarios considerados «arios»."
+    },
+    {
+      "y": 1935,
+      "era": "1935",
+      "cat": "leg",
+      "frase": "Leyes de Núremberg",
+      "origen": "El 15 de septiembre de 1935 el régimen nazi aprobó leyes que dieron un marco legal a la exclusión racial de los judíos. Se legaliza la discriminación y se niegan los derechos ciudadanos.",
+      "construccion": "La Ley de Ciudadanía del Reich estableció que solamente las personas consideradas de «sangre alemana o afín» podían ser ciudadanos con plenos derechos políticos: los judíos quedaron reducidos a la condición de súbditos. La Ley para la Protección de la Sangre y el Honor Alemanes prohibió los matrimonios y las relaciones entre judíos y personas consideradas de «sangre alemana».",
+      "clave": "Los decretos posteriores definieron quién debía ser considerado judío según la ascendencia de sus abuelos. La identidad de una persona dejó de depender de sus creencias o de la manera en que se reconocía a sí misma: fue determinada por la burocracia racial del Estado."
+    },
+    {
+      "y": 1938,
+      "era": "9 y 10 de noviembre de 1938",
+      "cat": "vio",
+      "frase": "Confiscación y violencia",
+      "origen": "En la noche del 9 al 10 de noviembre de 1938 el régimen coordinó un pogromo en toda Alemania, Austria y los Sudetes. Se lo conoce como la Noche de los Cristales Rotos, por los vidrios que cubrieron las calles.",
+      "construccion": "Más de 1.400 sinagogas fueron incendiadas y unos 7.500 comercios y viviendas judías fueron destruidos y saqueados. Al menos 91 personas fueron asesinadas y cerca de 30.000 hombres judíos fueron arrestados y enviados a campos de concentración.",
+      "clave": "A las víctimas se les impuso además una multa colectiva por los daños y el Estado confiscó las indemnizaciones de sus seguros. La violencia y la «arianización» dejaron de ser hechos sueltos: pasaron a ser política económica."
+    },
+    {
+      "y": 1941,
+      "era": "1939 – 1944",
+      "cat": "vio",
+      "frase": "Concentración en guetos",
+      "origen": "Tras la invasión de Polonia, las autoridades alemanas concentraron a la población judía en barrios cerrados. Se establecieron más de mil guetos en la Europa ocupada.",
+      "construccion": "El de Varsovia fue el mayor. Quedó sellado el 15 de noviembre de 1940: cerca de 400.000 personas encerradas en el 2,4% de la superficie de la ciudad, con una ración oficial de unas 180 calorías diarias.",
+      "clave": "Entre 1940 y mediados de 1942 murieron allí más de 83.000 personas por hambre y enfermedad, antes de que comenzaran las deportaciones."
+    },
+    {
+      "y": 1943,
+      "era": "1941 – 1945",
+      "cat": "ext",
+      "frase": "Deportación y exterminio",
+      "origen": "Deportaciones masivas a campos de exterminio y asesinato sistemático de los judíos de Europa.",
+      "clave": "La discriminación administrativa y económica, el aislamiento en guetos y la violencia estatal fueron el camino que permitió la destrucción de millones de vidas.",
+      "construccion": "Desde 1941 la persecución dejó de buscar la expulsión y pasó al asesinato planificado. Solo del gueto de Varsovia fueron deportadas unas 265.000 personas al campo de exterminio de Treblinka, entre julio y septiembre de 1942."
+    }
+  ],
+  "closing": {
+    "label": "Para pensar",
+    "text": "¿Qué ocurre cuando una ley deja de proteger la igualdad y comienza a decidir quién merece tener derechos?",
+    "sub": "Las leyes y disposiciones antisemitas siguieron una escalada que creó las condiciones para la persecución extrema y el asesinato."
+  }
+}

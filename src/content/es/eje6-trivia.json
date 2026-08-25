@@ -1,0 +1,40 @@
+{
+  "id": "eje-6-trivia",
+  "title": "Las dos preguntas",
+  "lead": "Las dos preguntas del módulo, con las respuestas del documento.",
+  "ui": {
+    "start": "Empezar",
+    "counter": "Pregunta {n} de {total}",
+    "next": "Siguiente",
+    "last": "Ver el cierre",
+    "again": "Volver a empezar"
+  },
+  "preguntas": [
+    {
+      "enunciado": "¿Toda crítica a Israel es antisemita?",
+      "opciones": [
+        { "k": "a", "label": "Sí, porque Israel es un Estado judío." },
+        { "k": "b", "label": "No. Criticar a Israel nunca puede ser antisemita." },
+        { "k": "c", "label": "Depende del contenido, el lenguaje, el contexto y de quién es responsabilizado." }
+      ],
+      "correcta": "c",
+      "explicacion": "Criticar a un gobierno, una política o una ideología no es, por sí mismo, antisemitismo. Se vuelve antisemita cuando se responsabiliza a todos los judíos, se usan conspiraciones o se ataca a personas e instituciones judías por acciones de Israel.",
+      "mensaje": "Un Estado, un gobierno, una ideología y una población mundial no son la misma cosa."
+    },
+    {
+      "enunciado": "¿Podemos defender los derechos de israelíes y palestinos al mismo tiempo?",
+      "opciones": [
+        { "k": "a", "label": "No, hay que elegir un pueblo." },
+        { "k": "b", "label": "Sí. Reconocer los derechos, la historia y el sufrimiento de uno no exige negar los del otro." },
+        { "k": "c", "label": "Solo si evitamos hablar del conflicto." }
+      ],
+      "correcta": "b",
+      "mensaje": "El desafío es discutir políticas, ideologías e historia sin convertir a pueblos enteros en culpables, amenazas o caricaturas."
+    }
+  ],
+  "closing": {
+    "label": "Mensaje de cierre",
+    "text": "Criticar a Israel no es antisemitismo por definición.",
+    "sub": "Defender a Israel tampoco exige negar los derechos palestinos."
+  }
+}

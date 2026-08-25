@@ -1,0 +1,82 @@
+{
+  "id": "eje-5-trivia",
+  "title": "Lo que acabás de ver",
+  "lead": "Seis preguntas sobre cómo escala el odio en redes y qué se puede hacer.",
+  "ui": {
+    "start": "Empezar",
+    "counter": "Pregunta {n} de {total}",
+    "next": "Siguiente",
+    "last": "Ver el cierre",
+    "again": "Volver a empezar"
+  },
+  "preguntas": [
+    {
+      "enunciado": "La escalada del odio empieza por:",
+      "opciones": [
+        { "k": "a", "label": "La amenaza directa." },
+        { "k": "b", "label": "El estereotipo y el chiste degradante." },
+        { "k": "c", "label": "La agresión física." }
+      ],
+      "correcta": "b",
+      "mensaje": "El odio no aparece de repente. Escala de forma gradual."
+    },
+    {
+      "enunciado": "¿Qué dice el modelo de la escalada sobre los chistes antisemitas?",
+      "opciones": [
+        { "k": "a", "label": "Que todo chiste termina en violencia." },
+        { "k": "b", "label": "Que son inofensivos mientras nadie se ofenda." },
+        { "k": "c", "label": "Que el odio normalizado puede escalar hasta niveles extremos." }
+      ],
+      "correcta": "c",
+      "explicacion": "No se afirma que todo chiste conduzca inevitablemente a un genocidio.",
+      "mensaje": "La repetición del desprecio reduce los límites sociales frente a la violencia."
+    },
+    {
+      "enunciado": "¿Por qué una publicación llega a miles de personas en pocos días?",
+      "opciones": [
+        { "k": "a", "label": "Porque salta de la cuenta original a grupos, influenciadores y tendencias." },
+        { "k": "b", "label": "Porque la plataforma la promociona a propósito." },
+        { "k": "c", "label": "Porque mucha gente la busca." }
+      ],
+      "correcta": "a",
+      "mensaje": "Un mensaje puede pasar de una cuenta individual a miles de personas en minutos."
+    },
+    {
+      "enunciado": "¿En qué momento de la escalada intervenir cambia más las cosas?",
+      "opciones": [
+        { "k": "a", "label": "Cuando aparecen las amenazas, porque ahí el daño es claro." },
+        { "k": "b", "label": "Al principio, cuando todavía parece un chiste sin importancia." },
+        { "k": "c", "label": "Cuando se convoca a atacar, porque hay un delito." }
+      ],
+      "correcta": "b",
+      "explicacion": "En el día 1 la publicación la habían visto diez personas. En el día 9, tres mil doscientas.",
+      "mensaje": "Cuanto más evidente se vuelve el daño, menos se puede hacer para evitarlo."
+    },
+    {
+      "enunciado": "Ves un posteo antisemita. ¿Qué conviene hacer antes de responder?",
+      "opciones": [
+        { "k": "a", "label": "Compartirlo para que otros vean lo grave que es." },
+        { "k": "b", "label": "Guardar capturas con la fecha, el usuario y el contexto." },
+        { "k": "c", "label": "Discutir con el autor en los comentarios." }
+      ],
+      "correcta": "b",
+      "explicacion": "Registrar es uno de los cinco pasos: reconocer, registrar, reportar, proteger y acompañar.",
+      "mensaje": "Compartirlo, aunque sea para criticarlo, lo hace circular igual."
+    },
+    {
+      "enunciado": "Alguien de tu entorno recibe ataques antisemitas en redes. ¿Qué es lo más importante?",
+      "opciones": [
+        { "k": "a", "label": "Recomendarle que cierre sus cuentas." },
+        { "k": "b", "label": "Contactarla y evitar que quede aislada." },
+        { "k": "c", "label": "Esperar a ver si la cosa se calma sola." }
+      ],
+      "correcta": "b",
+      "mensaje": "Acompañar es parte de la respuesta, no un gesto aparte."
+    }
+  ],
+  "closing": {
+    "label": "Tu acción importa",
+    "text": "El odio en las redes no es solo «una opinión». Tiene consecuencias reales.",
+    "sub": "Detectar, intervenir y actuar puede evitar que la violencia siga escalando."
+  }
+}

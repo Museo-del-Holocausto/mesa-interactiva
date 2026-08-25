@@ -1,0 +1,81 @@
+{
+  "id": "eje-3-trivia",
+  "title": "Una idea que me llevo",
+  "lead": "Seis preguntas sobre los mitos y las contradicciones que acabás de recorrer.",
+  "ui": {
+    "start": "Empezar",
+    "counter": "Pregunta {n} de {total}",
+    "next": "Siguiente",
+    "last": "Ver el cierre",
+    "again": "Volver a empezar"
+  },
+  "preguntas": [
+    {
+      "enunciado": "Un mito antisemita es:",
+      "opciones": [
+        { "k": "a", "label": "Un error histórico que se corrigió con el tiempo." },
+        { "k": "b", "label": "Un relato falso que presenta a los judíos como una amenaza." },
+        { "k": "c", "label": "La exageración de un hecho que sí ocurrió." }
+      ],
+      "correcta": "b",
+      "mensaje": "No tienen base real, y aun así justificaron discriminación, expulsiones y violencia."
+    },
+    {
+      "enunciado": "Los mitos se vuelven peligrosos cuando:",
+      "opciones": [
+        { "k": "a", "label": "Los repite alguien con autoridad." },
+        { "k": "b", "label": "Circulan como explicación de una crisis y habilitan actuar contra un grupo." },
+        { "k": "c", "label": "Contienen algún dato verdadero." }
+      ],
+      "correcta": "b",
+      "mensaje": "Estas acusaciones prepararon el camino para la exclusión, la violencia y, finalmente, el Holocausto."
+    },
+    {
+      "enunciado": "El mito «los judíos controlan el dinero», ¿qué hecho deforma?",
+      "opciones": [
+        { "k": "a", "label": "Que algunos judíos eligieron dedicarse a la banca." },
+        { "k": "b", "label": "Que tenían prohibidas muchas profesiones y quedaron en el préstamo." },
+        { "k": "c", "label": "Que se les encargó administrar el dinero de otros." }
+      ],
+      "correcta": "b",
+      "mensaje": "Una restricción social fue convertida en prejuicio económico."
+    },
+    {
+      "enunciado": "A los judíos se los acusó de ser capitalistas y comunistas. ¿Qué muestra eso?",
+      "opciones": [
+        { "k": "a", "label": "Que había judíos en los dos bandos." },
+        { "k": "b", "label": "Que las acusaciones se referían a épocas distintas." },
+        { "k": "c", "label": "Que el antisemitismo elige el estereotipo que le sirve en cada crisis." }
+      ],
+      "correcta": "c",
+      "explicacion": "Las dos acusaciones convivieron en los mismos países y en las mismas décadas.",
+      "mensaje": "El antisemitismo no parte de hechos: selecciona el estereotipo que resulta útil para explicar una crisis o construir un enemigo."
+    },
+    {
+      "enunciado": "Escuchás una afirmación sobre todo un grupo. ¿Qué conviene hacer primero?",
+      "opciones": [
+        { "k": "a", "label": "Buscar de dónde salió y a cuántas personas describe realmente." },
+        { "k": "b", "label": "Ver si coincide con lo que uno observa." },
+        { "k": "c", "label": "Preguntarle a alguien del grupo si es cierta." }
+      ],
+      "correcta": "a",
+      "mensaje": "Una afirmación sobre millones de personas casi nunca resiste la pregunta de dónde salió."
+    },
+    {
+      "enunciado": "¿Cuál es una forma actual de frenar la circulación de un mito?",
+      "opciones": [
+        { "k": "a", "label": "Compartirlo para mostrar lo absurdo que es." },
+        { "k": "b", "label": "No reenviarlo y desmentirlo con datos donde apareció." },
+        { "k": "c", "label": "Ignorarlo hasta que desaparezca solo." }
+      ],
+      "correcta": "b",
+      "explicacion": "Compartir un mito para burlarse de él lo hace circular igual.",
+      "mensaje": "Los mitos no desaparecen solos: los que acabás de ver siguen circulando hoy."
+    }
+  ],
+  "closing": {
+    "label": "Para cerrar",
+    "text": "Los mitos antisemitas no son simples errores del pasado.",
+    "sub": "Son relatos falsos que construyen miedo, odio y deshumanización. A lo largo de la historia, estas acusaciones prepararon el camino para la exclusión, la violencia y, finalmente, el Holocausto."
+  }
+}

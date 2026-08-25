@@ -1,0 +1,70 @@
+{
+  "id": "eje-8-nova",
+  "title": "El festival Nova",
+  "lead": "Miles de jóvenes participaban del festival de música Nova, realizado cerca del kibutz Re'im. El encuentro se presentaba como una celebración de música, libertad, amistad y convivencia.",
+  "ui": {
+    "start": "Empezar",
+    "hint": "Girá el marcador para avanzar la hora",
+    "fin": "Ver el cierre",
+    "again": "Volver a empezar",
+    "imagePending": "Imagen pendiente",
+    "creditPending": "Fuente y crédito a definir"
+  },
+  "desde": 1320,
+  "hasta": 2160,
+  "paso": 5,
+  "pasoLento": 20,
+  "lentoDesde": 1440,
+  "eventos": [
+    {
+      "min": 1320,
+      "hora": "22:00",
+      "titulo": "Empieza el festival",
+      "texto": "El festival comienza a las 22:00 del 6 de octubre. Miles de jóvenes llegan con amigos, instalan carpas, bailan durante la noche y comparten fotografías y mensajes. La música electrónica, las estructuras de colores y el campamento forman parte de una celebración que se prolongaría durante el día siguiente.",
+      "imagen": {
+        "epigrafe": "Jóvenes bailan en el festival Nova durante la noche del 6 al 7 de octubre de 2023, cerca del kibutz Re'im.",
+        "credito": "Fotografía: Ido Darbi. Fuente: Ynet.",
+        "pendiente": true
+      }
+    },
+    {
+      "min": 1829,
+      "hora": "06:29",
+      "titulo": "Comienzan los cohetes",
+      "texto": "A las 6:29 comienza un intenso lanzamiento de cohetes desde Gaza.",
+      "imagen": {
+        "epigrafe": "Un grupo de amigos descansa en el sector de campamento del festival, durante la madrugada del 7 de octubre de 2023.",
+        "credito": "Fotografía: Matan Boltax. Publicada por WAMC Northeast Public Radio.",
+        "pendiente": true
+      }
+    },
+    {
+      "min": 1835,
+      "hora": "06:35",
+      "titulo": "La orden de evacuar",
+      "texto": "El oficial policial de mayor rango presente ordena detener la música y evacuar el festival. Muchos asistentes interpretan que se trata solamente de una situación de ataques con cohetes, relativamente conocida en el sur de Israel, y se dirigen hacia sus automóviles para abandonar el lugar."
+    },
+    {
+      "min": 1860,
+      "hora": "07:00",
+      "titulo": "Las rutas se congestionan",
+      "texto": "Muchas personas intentan abandonar el lugar y las rutas se llenan. Otras buscan refugio en pequeños refugios de carretera, campos, arbustos o vehículos. Los atacantes disparan contra quienes huyen y contra personas escondidas."
+    },
+    {
+      "min": 1995,
+      "hora": "09:15",
+      "titulo": "Los atacantes entran al predio",
+      "texto": "Después de las 9:15, decenas de atacantes ingresan al recinto del festival, disparan contra personas ocultas y secuestran a otras.",
+      "imagen": {
+        "epigrafe": "El sitio del festival, después del ataque.",
+        "credito": null,
+        "pendiente": true
+      }
+    }
+  ],
+  "closing": {
+    "label": "Después",
+    "text": "El sitio se transformó en un espacio de memoria.",
+    "sub": "Los retratos de las personas asesinadas y secuestradas fueron colocados en el mismo campo donde se realizó el encuentro."
+  }
+}

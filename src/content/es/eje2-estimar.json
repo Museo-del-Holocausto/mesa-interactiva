@@ -1,0 +1,109 @@
+{
+  "id": "eje-2-estimar",
+  "title": "¿Cuánto te imaginás?",
+  "lead": "Ocho preguntas con números. Girá el marcador para dar tu respuesta y después vas a ver el dato real.",
+  "ui": {
+    "start": "Empezar",
+    "counter": "Pregunta {n} de {total}",
+    "confirm": "Confirmar",
+    "next": "Siguiente",
+    "last": "Ver el cierre",
+    "again": "Volver a empezar",
+    "yours": "Tu respuesta",
+    "real": "El dato real",
+    "spin": "Girá el marcador para elegir"
+  },
+  "preguntas": [
+    {
+      "enunciado": "De cada 1.000 personas en el mundo, ¿cuántas son judías?",
+      "unidad": "de cada 1.000",
+      "max": 100,
+      "real": 2,
+      "corto": "2 de cada 1.000",
+      "fuente": "Alrededor de 16 millones de personas sobre 8.280 millones de habitantes. Es el 0,2% de la población mundial.",
+      "alto": "La mayoría se imagina un grupo mucho más grande. Esa exageración es la base de casi todas las teorías conspirativas.",
+      "bajo": "Estuviste cerca por abajo."
+    },
+    {
+      "enunciado": "De cada 1.000 argentinos, ¿cuántos son judíos?",
+      "unidad": "de cada 1.000",
+      "max": 100,
+      "real": 4,
+      "corto": "4 de cada 1.000",
+      "fuente": "Entre 175.000 y 220.000 personas sobre 47 millones, según la fuente. En la Argentina el censo no pregunta por religión, así que todas las cifras son estimaciones.",
+      "alto": "Es la comunidad judía más grande de América Latina y aun así es menos de una persona cada doscientas.",
+      "bajo": "Estuviste cerca por abajo."
+    },
+    {
+      "tipo": "anio",
+      "enunciado": "¿En qué año llegó a la Argentina el primer grupo organizado de inmigrantes judíos?",
+      "unidad": "año",
+      "min": 1800,
+      "max": 1960,
+      "real": 1889,
+      "corto": "1889",
+      "fuente": "El 14 de agosto de 1889 llegó al puerto de Buenos Aires el vapor Wesser, con unas 120 familias que escapaban de los pogromos de la Rusia zarista. De ahí salió Moisés Ville, la primera colonia agrícola judía del país.",
+      "alto": "Mucho antes. Llegaron junto con la inmigración italiana y española, no después de la guerra.",
+      "bajo": "Un poco después."
+    },
+    {
+      "enunciado": "De cada 100 judíos del mundo, ¿cuántos viven en Israel?",
+      "unidad": "de cada 100",
+      "max": 100,
+      "real": 45,
+      "corto": "45 de cada 100",
+      "fuente": "7,2 millones sobre 15,8 millones. Oficina Central de Estadísticas de Israel, 2025.",
+      "alto": "Más de la mitad de los judíos del mundo vive fuera de Israel.",
+      "bajo": "Israel concentra bastante más de lo que calculaste."
+    },
+    {
+      "enunciado": "De cada 100 judíos de Israel, ¿cuántos tienen origen en países árabes o musulmanes?",
+      "unidad": "de cada 100",
+      "max": 100,
+      "real": 50,
+      "corto": "50 de cada 100",
+      "fuente": "Cerca de 586.000 judíos que dejaron países de Medio Oriente y el norte de África se asentaron en Israel después de 1948. Casi la mitad de la población judía israelí desciende de ellos.",
+      "alto": "Estuviste cerca por arriba.",
+      "bajo": "Casi la mitad. Judío no es sinónimo de europeo."
+    },
+    {
+      "enunciado": "De cada 100 judíos de Israel, ¿cuántos son ultraortodoxos?",
+      "unidad": "de cada 100",
+      "max": 100,
+      "real": 9,
+      "corto": "9 de cada 100",
+      "fuente": "Haredim: 9%. Pew Research Center, encuesta en Israel.",
+      "alto": "Es la imagen más repetida del judío y la menos frecuente en la realidad.",
+      "bajo": "Estuviste cerca por abajo."
+    },
+    {
+      "enunciado": "De cada 100 judíos del mundo, ¿cuántos hablan ídish?",
+      "unidad": "de cada 100",
+      "max": 100,
+      "real": 4,
+      "corto": "4 de cada 100",
+      "fuente": "Unas 600.000 personas hoy. Antes de la Segunda Guerra Mundial había cerca de 13 millones de hablantes, casi todos en Europa del Este.",
+      "alto": "Es la lengua que más se asocia con lo judío y hoy casi nadie la habla. Lo que la hizo desaparecer es el tema de este museo.",
+      "bajo": "Estuviste cerca por abajo."
+    },
+    {
+      "tipo": "anio",
+      "enunciado": "¿En qué año la población judía del mundo volvió al número que tenía antes de la guerra?",
+      "unidad": "año",
+      "min": 1945,
+      "max": 2026,
+      "real": null,
+      "corto": "Todavía no pasó",
+      "fuente": "En 1939 la población judía mundial era de 16,6 millones. Hoy es de 15,8 millones. Oficina Central de Estadísticas de Israel.",
+      "veredicto": "Todavía no pasó.",
+      "detalle": "Ochenta y siete años después hay menos judíos en el mundo que antes de la guerra.",
+      "antes": { "rot": "En 1939", "val": "16,6 millones" },
+      "ahora": { "rot": "Hoy", "val": "15,8 millones" }
+    }
+  ],
+  "closing": {
+    "label": "Para cerrar",
+    "text": "Casi nadie acierta.",
+    "sub": "Y el error casi siempre va para el mismo lado: nos imaginamos una comunidad más grande, más religiosa y más uniforme de lo que es. Esa imagen no viene de los judíos. Viene de nosotros."
+  }
+}

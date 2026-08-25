@@ -29,78 +29,68 @@
   background: var(--ink-900);
 }
 
-.modulo__eyebrow,
-.modulo__back {
+/* La cabecera cuelga de la pantalla y no del lienzo: el lienzo está centrado y
+   escalado, así que su esquina no es la esquina de la mesa y el rótulo
+   terminaba flotando en el medio. */
+.modulo__head {
   position: absolute;
+  top: 48px;
+  left: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  z-index: 6;
 }
 
 .modulo__eyebrow {
-  top: 56px;
   font-family: var(--font-display);
-  font-size: var(--t-eyebrow);
+  font-size: 21px;
   font-weight: 500;
-  letter-spacing: var(--track-wide);
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--ink-400);
 }
 
 .modulo__back {
-  bottom: 64px;
-  padding: 20px 44px;
+  padding: 14px 32px;
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-900);
-  background: var(--accent);
-  z-index: 4;
+  color: var(--accent);
+  background: none;
+  border: 1px solid var(--accent-dim);
 }
 
 .modulo__body {
   position: absolute;
-  top: 124px;
-  bottom: 76px;
+  top: 132px;
+  bottom: 72px;
 }
 
 /* Marcador a la izquierda: contenido a la derecha. */
-.quadrant[data-marker-side='left'] .modulo__body,
-.quadrant[data-marker-side='left'] .modulo__eyebrow {
+.modulo__canvas[data-side='left'] .modulo__body {
   left: calc(var(--col) + var(--pad));
   right: var(--pad);
 }
 
-.quadrant[data-marker-side='left'] .modulo__back {
-  left: var(--pad);
-}
 
-/* En guía el marcador es la manija y vive en la esquina de abajo de su
-   columna, así que Volver se corre a la esquina opuesta para no quedar debajo. */
-.quadrant[data-guide='true'][data-marker-side='left'] .modulo__back {
-  left: auto;
-  right: var(--pad);
-}
 
 /* Y al revés. */
-.quadrant[data-marker-side='right'] .modulo__body,
-.quadrant[data-marker-side='right'] .modulo__eyebrow {
+.modulo__canvas[data-side='right'] .modulo__body {
   left: var(--pad);
   right: calc(var(--col) + var(--pad));
 }
 
-.quadrant[data-marker-side='right'] .modulo__back {
-  right: var(--pad);
-}
 
-.quadrant[data-guide='true'][data-marker-side='right'] .modulo__back {
-  right: auto;
-  left: var(--pad);
-}
 
-/* El marcador se paró sobre el contenido: se atenúa hasta que lo corran. */
+/* El marcador está pisando el contenido. Se baja el contraste apenas —lo
+   suficiente para que se note— pero se sigue pudiendo tocar: apagarlo del todo
+   dejaba la pieza innavegable si el objeto quedaba en el medio. */
 .quadrant[data-warning='park'] .modulo__body {
-  opacity: 0.18;
-  pointer-events: none;
+  opacity: 0.62;
 }
 
 /* La corona se apaga mientras hay una pieza montada. */
@@ -204,11 +194,10 @@
 .fab__h1 {
   max-width: 16ch;
   font-family: var(--font-display);
-  font-size: 84px;
+  font-size: 80px;
   font-weight: 400;
   line-height: 1.03;
   letter-spacing: -0.02em;
-  align-self: end;
 }
 
 .fab__lead {
@@ -1008,16 +997,19 @@
 
 .comb__scene[data-scene='intro'] {
   grid-template-rows: 1fr auto;
-  align-content: center;
+}
+
+.comb__scene[data-scene='intro'] > div:first-child {
+  align-self: center;
 }
 
 .comb__h1 {
+  max-width: 15ch;
   font-family: var(--font-display);
-  font-size: 92px;
+  font-size: 82px;
   font-weight: 400;
   line-height: 1.02;
   letter-spacing: -0.025em;
-  align-self: end;
 }
 
 .comb__lead {
@@ -1267,17 +1259,19 @@
 
 .rec__scene[data-scene='intro'] {
   grid-template-rows: 1fr auto;
-  align-content: center;
+}
+
+.rec__scene[data-scene='intro'] > div:first-child {
+  align-self: center;
 }
 
 .rec__h1 {
   max-width: 15ch;
   font-family: var(--font-display);
-  font-size: 80px;
+  font-size: 78px;
   font-weight: 400;
   line-height: 1.03;
   letter-spacing: -0.025em;
-  align-self: end;
 }
 
 .rec__lead {
@@ -1600,11 +1594,11 @@
   bottom: calc(-76px - var(--bleed-y, 0px));
 }
 
-.quadrant[data-marker-side='left'] .exp__rail {
+.modulo__canvas[data-side='left'] .exp__rail {
   left: calc(var(--marker-x, 360px) - var(--bleed-x, 0px) - var(--col) - var(--pad));
 }
 
-.quadrant[data-marker-side='right'] .exp__rail {
+.modulo__canvas[data-side='right'] .exp__rail {
   left: calc(var(--marker-x, 1560px) - var(--bleed-x, 0px) - var(--pad));
 }
 
@@ -1623,11 +1617,12 @@
   list-style: none;
 }
 
+/* Con dieciocho paradas el área de toque se achica para que no se pisen. */
 .exp__ticks li {
   position: absolute;
   left: 0;
   width: 44px;
-  height: 44px;
+  height: 34px;
   translate: -50% -50%;
   pointer-events: auto;
   cursor: pointer;
@@ -1639,8 +1634,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   translate: -50% -50%;
   background: var(--ink-400);
   border-radius: 50%;
@@ -1840,7 +1835,10 @@
 
 .lug__scene[data-scene='aviso'] {
   grid-template-rows: 1fr auto;
-  align-content: center;
+}
+
+.lug__scene[data-scene='aviso'] > div:first-child {
+  align-self: center;
 }
 
 .lug__k--warn { color: var(--warn); }
@@ -1884,11 +1882,11 @@
   z-index: 3;
 }
 
-.quadrant[data-marker-side='left'] .lug__rail {
+.modulo__canvas[data-side='left'] .lug__rail {
   left: calc(var(--marker-x, 360px) - var(--bleed-x, 0px) - var(--col) - var(--pad));
 }
 
-.quadrant[data-marker-side='right'] .lug__rail {
+.modulo__canvas[data-side='right'] .lug__rail {
   left: calc(var(--marker-x, 1560px) - var(--bleed-x, 0px) - var(--pad));
 }
 
@@ -2111,7 +2109,10 @@
 
 .vid__scene[data-scene='intro'] {
   grid-template-rows: 1fr auto;
-  align-content: center;
+}
+
+.vid__scene[data-scene='intro'] > div:first-child {
+  align-self: center;
 }
 
 .vid__center {
@@ -2147,21 +2148,23 @@
 /* --- mosaico -------------------------------------------------------------- */
 
 .vid__scene[data-scene='mosaico'] {
-  grid-template-columns: 0.82fr 1fr;
-  gap: 52px;
+  grid-template-columns: 0.66fr 1fr;
+  gap: 44px;
 }
 
+/* Con catorce retratos, tres columnas dejaban cinco filas y la grilla se caía
+   fuera del lienzo. Cuatro columnas entran en cuatro filas. */
 .vid__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
   align-content: start;
 }
 
 .vid__tile {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   padding: 0;
   text-align: left;
 }
@@ -2185,7 +2188,7 @@
 
 .vid__tilename {
   font-family: var(--font-display);
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.2;
   letter-spacing: 0.06em;
   color: var(--ink-400);
@@ -2209,13 +2212,13 @@
 
 .vid__card {
   align-content: start;
-  padding-left: 48px;
+  padding-left: 38px;
   border-left: 1px solid var(--ink-500);
 }
 
 .vid__estado {
   font-family: var(--font-display);
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -2223,9 +2226,9 @@
 }
 
 .vid__name {
-  margin-top: 14px;
+  margin-top: 12px;
   font-family: var(--font-display);
-  font-size: 56px;
+  font-size: 42px;
   font-weight: 400;
   line-height: 1.02;
   letter-spacing: -0.025em;
@@ -2233,20 +2236,20 @@
 }
 
 .vid__fields {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .vid__field {
   display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 24px;
-  padding: 14px 0;
+  grid-template-columns: 170px 1fr;
+  gap: 20px;
+  padding: 9px 0;
   border-top: 1px solid var(--ink-600);
 }
 
 .vid__field dt {
   font-family: var(--font-display);
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -2254,9 +2257,9 @@
 }
 
 .vid__field dd {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.36;
   color: var(--ink-100);
 }
 
@@ -2266,8 +2269,8 @@
 }
 
 .vid__rights {
-  margin-top: 30px;
-  font-size: 19px;
+  margin-top: 20px;
+  font-size: 17px;
   font-weight: 300;
   line-height: 1.36;
   color: var(--ink-400);
@@ -2331,17 +2334,19 @@
 
 .esp__scene[data-scene='intro'] {
   grid-template-rows: 1fr auto;
-  align-content: center;
+}
+
+.esp__scene[data-scene='intro'] > div:first-child {
+  align-self: center;
 }
 
 .esp__h1 {
   max-width: 16ch;
   font-family: var(--font-display);
-  font-size: 78px;
+  font-size: 76px;
   font-weight: 400;
   line-height: 1.03;
   letter-spacing: -0.025em;
-  align-self: end;
 }
 
 .esp__lead {
@@ -2528,4 +2533,2904 @@
   font-weight: 300;
   line-height: 1.36;
   color: var(--ink-400);
+}
+
+/* ==========================================================================
+   Definir — pantallas de contenido con revelado
+   ==========================================================================
+   El texto del documento se entrega igual, palabra por palabra. Lo unico que
+   cambia es que aparece cuando el visitante hace algo. */
+
+.def__scene {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.def__scene[data-on='true'] {
+  display: grid;
+}
+
+.def__scene[data-scene='pantalla'] {
+  grid-template-rows: auto auto 1fr auto;
+  gap: 30px;
+  align-content: start;
+}
+
+/* Misma fila que el rótulo de la pieza, del otro lado. Igual que en Decidir. */
+.def__steps {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  z-index: 2;
+}
+
+.def__steps li {
+  width: 28px;
+  height: 3px;
+  background: var(--ink-500);
+  transition: background var(--dur-base) var(--ease-out);
+}
+
+.def__steps li[data-done='true'] { background: var(--accent-dim); }
+.def__steps li[data-on='true'] { background: var(--accent); }
+
+.def__h1 {
+  font-family: var(--font-display);
+  font-size: 62px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink-100);
+  text-wrap: balance;
+}
+
+.def__intro {
+  max-width: 46ch;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.def__intro p {
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+.def__consigna {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--ink-100);
+}
+
+.def__consigna[hidden] { display: none; }
+
+/* Cuenta cuántas quedan y, al final, remata. En reposo es un rótulo; cuando
+   se resolvió pasa a acento, porque ahí deja de contar y dice algo. */
+.def__estado {
+  margin-top: 22px;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+  transition: color var(--dur-slow) var(--ease-out);
+}
+
+.def__estado[data-fuerte='true'] { color: var(--accent); }
+.def__estado[hidden] { display: none; }
+
+/* La instrucción, fija. La cuenta vive abajo y cambia; mezclarlas hacía que
+   el renglón dijera una cosa al principio y otra al final. */
+.def__ayuda {
+  margin-top: 12px;
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--ink-400);
+}
+
+.def__ayuda[hidden] { display: none; }
+
+.def__items {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-content: start;
+}
+
+/* --- elegir --------------------------------------------------------------- */
+
+.def__chip {
+  padding: 22px 28px;
+  font-size: 27px;
+  font-weight: 300;
+  color: var(--ink-400);
+  border: 1px solid var(--ink-500);
+  background: none;
+  text-align: left;
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    background var(--dur-base) var(--ease-out);
+}
+
+.def__chip:hover {
+  color: var(--ink-100);
+  border-color: var(--ink-400);
+}
+
+/* Elegida por el visitante: en blanco, todavía sin veredicto. */
+.def__chip[data-elegido='true'] {
+  color: var(--ink-100);
+  border-color: var(--ink-300);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Pantalla invertida: la respuesta es "ninguno", así que al confirmar se
+   apagan todas. Las marcadas se apagan de a una, para que se vea cuáles eran. */
+.def__chip[data-apagado='true'] {
+  color: var(--ink-500);
+  border-color: var(--ink-600);
+  background: none;
+}
+
+/* Las que marcó siguen a la vista hasta que les toca apagarse. Sin esto se
+   apagaban todas juntas en el momento de confirmar y no se veía cuáles eran. */
+.def__chip[data-apagado='true'][data-elegido='true'] {
+  color: var(--ink-100);
+  border-color: var(--ink-300);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Ya confirmado: todas terminan en acento, las que eligió y las que no. */
+.def__chip[data-revelado='true'] {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+  background: var(--accent-ghost);
+}
+
+.def__items[data-cerrado='true'] .def__chip {
+  pointer-events: none;
+}
+
+/* --- tarjetas ------------------------------------------------------------ */
+
+/* Mismo mecanismo que las pastillas: se marcan algunas y se confirma. La
+   diferencia es que abajo de cada una hay un dato que aparece al confirmar.
+   Grilla de columnas iguales: con flex, un título de dos líneas empujaba a sus
+   vecinas y las cuatro terminaban de distinto alto. */
+.def__items[data-formato='tarjetas'] {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.def__items[data-formato='tarjetas'] .def__chip {
+  display: grid;
+  grid-template-rows: 74px 1fr;
+  gap: 16px;
+  padding: 26px 24px;
+  min-height: 300px;
+  align-content: start;
+}
+
+.def__chip-nom {
+  font-family: var(--font-display);
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 1.14;
+  color: var(--ink-100);
+}
+
+.def__chip-mas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-out);
+}
+
+.def__chip[data-revelado='true'] .def__chip-mas { opacity: 1; }
+
+.def__chip-cuando {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.def__chip-texto {
+  font-size: 23px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--ink-300);
+}
+
+/* --- remate --------------------------------------------------------------- */
+
+/* La frase que cierra la parte. Aparece después de la interacción, nunca antes. */
+.def__remate {
+  align-self: start;
+  max-width: 40ch;
+  padding-left: 26px;
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.28;
+  color: var(--ink-100);
+  border-left: 2px solid var(--accent);
+}
+
+.def__remate[hidden] { display: none; }
+
+.def__foot {
+  align-self: end;
+  justify-self: end;
+}
+
+.def__btn {
+  padding: 20px 42px;
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  background: none;
+  white-space: nowrap;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+
+.def__btn--go {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+.def__btn:disabled {
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.def__k {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.def__scene[data-scene='fin'] { align-content: center; }
+
+.def__close {
+  max-width: 26ch;
+  margin-top: 22px;
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--ink-100);
+}
+
+.def__close2 {
+  max-width: 40ch;
+  margin-top: 24px;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+.def__scene[data-scene='fin'] .def__btn { margin-top: 44px; }
+
+/* ==========================================================================
+   Trivia — preguntas de repaso al cierre del eje
+   ========================================================================== */
+
+.tri__scene {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.tri__scene[data-on='true'] { display: grid; }
+
+.tri__scene[data-scene='intro'] { grid-template-rows: 1fr auto; }
+.tri__scene[data-scene='ask'] { grid-template-rows: auto auto auto 1fr auto; gap: 26px; }
+.tri__scene[data-scene='fin'] { align-content: center; }
+
+.tri__steps {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  z-index: 2;
+}
+
+.tri__steps li {
+  width: 28px;
+  height: 3px;
+  background: var(--ink-500);
+  transition: background var(--dur-base) var(--ease-out);
+}
+
+.tri__steps li[data-done='true'] { background: var(--accent-dim); }
+.tri__steps li[data-on='true'] { background: var(--accent); }
+
+.tri__h1 {
+  font-family: var(--font-display);
+  font-size: 62px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.tri__lead {
+  max-width: 44ch;
+  margin-top: 22px;
+  font-size: 29px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+.tri__acts { align-self: end; }
+
+.tri__kicker {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.tri__claim {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  color: var(--ink-100);
+  text-wrap: balance;
+}
+
+.tri__opts {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tri__opts[data-formato='fila'] { flex-direction: row; }
+
+.tri__opt {
+  padding: 24px 30px;
+  font-size: 28px;
+  font-weight: 300;
+  text-align: left;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  background: none;
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    background var(--dur-base) var(--ease-out),
+    opacity var(--dur-base) var(--ease-out);
+}
+
+.tri__opts[data-formato='fila'] .tri__opt {
+  flex: 1;
+  text-align: center;
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tri__opt:hover {
+  color: var(--ink-100);
+  border-color: var(--ink-400);
+}
+
+.tri__opts[data-cerrado='true'] .tri__opt { pointer-events: none; }
+
+.tri__opt[data-estado='correcta'] {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-ghost);
+}
+
+/* La elegida solo se marca cuando no era: no hace falta decir "incorrecto". */
+.tri__opt[data-estado='elegida'] {
+  color: var(--warn);
+  border-color: var(--warn);
+}
+
+.tri__opt[data-estado='apagada'] { opacity: 0.3; }
+
+.tri__exp {
+  max-width: 46ch;
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+.tri__exp[hidden] { display: none; }
+
+.tri__msg {
+  max-width: 40ch;
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.28;
+  color: var(--accent);
+}
+
+.tri__msg[hidden] { display: none; }
+
+.tri__foot { align-self: end; justify-self: end; }
+
+.tri__btn {
+  padding: 20px 42px;
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  background: none;
+  white-space: nowrap;
+}
+
+.tri__btn--go {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+.tri__btn[hidden] { display: none; }
+
+.tri__k {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.tri__close {
+  max-width: 26ch;
+  margin-top: 22px;
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--ink-100);
+}
+
+.tri__close2 {
+  max-width: 40ch;
+  margin-top: 24px;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+.tri__scene[data-scene='fin'] .tri__btn { margin-top: 44px; }
+
+/* ==========================================================================
+   Estimar — dar un número con el marcador y compararlo con el real
+   ==========================================================================
+   El anillo queda hueco: ahí se apoya el marcador físico. El número elegido
+   vive afuera, en la columna de texto, porque adentro quedaría tapado. */
+
+.est__scene {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.est__scene[data-on='true'] { display: grid; }
+
+.est__scene[data-scene='intro'] { grid-template-rows: 1fr auto; }
+.est__scene[data-scene='fin'] { grid-template-rows: auto 1fr auto; align-content: start; }
+
+.est__scene[data-scene='ask'] {
+  grid-template-columns: 360px 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 0 64px;
+  align-items: center;
+}
+
+.est__steps {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  z-index: 2;
+}
+
+.est__steps li {
+  width: 22px;
+  height: 3px;
+  background: var(--ink-500);
+  transition: background var(--dur-base) var(--ease-out);
+}
+
+.est__steps li[data-done='true'] { background: var(--accent-dim); }
+.est__steps li[data-on='true'] { background: var(--accent); }
+
+.est__h1 {
+  font-family: var(--font-display);
+  font-size: 62px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink-100);
+}
+
+.est__lead {
+  max-width: 44ch;
+  margin-top: 22px;
+  font-size: 29px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+.est__acts { align-self: end; }
+
+/* --- anillo --------------------------------------------------------------- */
+
+.est__dial {
+  grid-row: 1;
+  width: 340px;
+  height: 340px;
+  touch-action: none;
+  cursor: grab;
+}
+
+.est__dial:active { cursor: grabbing; }
+.est__dial svg { width: 100%; height: 100%; display: block; }
+
+.est__aro {
+  fill: none;
+  stroke: var(--ink-700);
+  stroke-width: 12;
+}
+
+.est__arco {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 12;
+  stroke-linecap: round;
+}
+
+.est__tope { fill: var(--accent); }
+
+/* --- columna de texto ----------------------------------------------------- */
+
+.est__col {
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.est__kicker {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.est__q {
+  max-width: 26ch;
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  color: var(--ink-100);
+  text-wrap: balance;
+}
+
+/* El número que el visitante está eligiendo. Grande y fuera del anillo. */
+.est__lectura {
+  margin-top: 26px;
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+}
+
+.est__cifra {
+  font-family: var(--font-display);
+  font-size: 92px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.est__lectura[data-cerrado='true'] .est__cifra { color: var(--ink-300); }
+
+.est__unidad {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--ink-400);
+}
+
+.est__spin {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.est__spin[hidden] { display: none; }
+
+/* --- comparación ---------------------------------------------------------- */
+
+.est__comp {
+  margin-top: 30px;
+  display: none;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.est__comp[data-on='true'] { display: flex; }
+
+.est__rot {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.est__barra {
+  position: relative;
+  height: 34px;
+  margin-top: 9px;
+  background: var(--ink-700);
+}
+
+.est__relleno {
+  height: 100%;
+  width: 0;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.est__fila[data-quien='vos'] .est__relleno { background: var(--warn); }
+.est__fila[data-quien='real'] .est__relleno { background: var(--accent); }
+
+.est__val {
+  position: absolute;
+  top: 50%;
+  left: var(--x, 0%);
+  margin-left: 14px;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--ink-100);
+  white-space: nowrap;
+  transition: left 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.est__dosnum { display: flex; gap: 60px; }
+
+.est__gran {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--ink-100);
+}
+
+.est__hoy .est__gran { color: var(--accent); }
+
+.est__brecha {
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1.3;
+  color: var(--accent);
+}
+
+.est__detalle {
+  display: block;
+  margin-top: 10px;
+  max-width: 48ch;
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--ink-300);
+}
+
+.est__fuente {
+  margin-top: 22px;
+  max-width: 56ch;
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.42;
+  color: var(--ink-400);
+}
+
+.est__fuente[hidden] { display: none; }
+
+.est__foot {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: end;
+}
+
+.est__btn {
+  padding: 20px 42px;
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  background: none;
+  white-space: nowrap;
+}
+
+.est__btn--go {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+/* --- cierre --------------------------------------------------------------- */
+
+.est__k {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.est__close {
+  max-width: 24ch;
+  margin-top: 20px;
+  font-family: var(--font-display);
+  font-size: 54px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--ink-100);
+}
+
+.est__close2 {
+  max-width: 46ch;
+  margin-top: 20px;
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+.est__resumen {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 50px;
+  align-content: start;
+  list-style: none;
+}
+
+.est__resumen li {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1.35;
+  color: var(--ink-400);
+}
+
+/* Sin `flex: none` el numero se encoge por debajo de su contenido y, como no
+   corta linea, se monta sobre el enunciado de al lado. */
+.est__resumen b {
+  flex: none;
+  min-width: 150px;
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 400;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Mitos — nueve acusaciones sobre un riel vertical
+   ==========================================================================
+   El riel va parado, como en Aportes judíos: deslizar el marcador recorre el
+   tiempo y girarlo abre los bloques del mito. Acostado, la línea le comía al
+   texto la única franja donde entra y se pisaba todo. */
+
+.mit {
+  position: absolute;
+  inset: 0;
+
+  /* La leyenda arriba y la ficha abajo. Al pie cerraba una caja imaginaria que
+     el propio contenido empujaba hacia afuera cada vez que crecía. */
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 24px;
+
+  /* Las mismas cuatro familias del documento. Estaban declaradas dentro de
+     .linea, así que no llegaban hasta acá. */
+  --rel: #8f9dff;
+  --eco: #4fdcb4;
+  --rac: #ff8571;
+  --con: #f0b64f;
+
+  /* Eje 5: palabras. Eje 6: definición, posición, límite / historia, derechos, política. */
+  --pal: #4fdcb4;
+  --neg: #ff8571;
+  --dis: #f0b64f;
+  --ban: #8f9dff;
+  --def: #8f9dff;
+  --pos: #4fdcb4;
+  --lim: #f0b64f;
+  --his: #8f9dff;
+  --der: #4fdcb4;
+  --pol: #f0b64f;
+
+  /* Eje 4: exclusión, ley, violencia, exterminio. */
+  --exc: #4fdcb4;
+  --leg: #8f9dff;
+  --vio: #f0b64f;
+  --ext: #ff8571;
+}
+
+.mit__cat[data-cat='def'] { color: var(--def); }
+.mit__cat[data-cat='pos'] { color: var(--pos); }
+.mit__cat[data-cat='lim'] { color: var(--lim); }
+.mit__cat[data-cat='his'] { color: var(--his); }
+.mit__cat[data-cat='der'] { color: var(--der); }
+.mit__cat[data-cat='pol'] { color: var(--pol); }
+.mit__cat[data-cat='neg'] { color: var(--neg); }
+.mit__cat[data-cat='dis'] { color: var(--dis); }
+.mit__cat[data-cat='ban'] { color: var(--ban); }
+.mit__cat[data-cat='pal'] { color: var(--pal); }
+.mit__cat[data-cat='exc'] { color: var(--exc); }
+.mit__cat[data-cat='leg'] { color: var(--leg); }
+.mit__cat[data-cat='vio'] { color: var(--vio); }
+.mit__cat[data-cat='ext'] { color: var(--ext); }
+
+.mit__ticks li[data-on='true'][data-cat='def']::after { background: var(--def); box-shadow: 0 0 24px var(--def); }
+.mit__ticks li[data-on='true'][data-cat='pos']::after { background: var(--pos); box-shadow: 0 0 24px var(--pos); }
+.mit__ticks li[data-on='true'][data-cat='lim']::after { background: var(--lim); box-shadow: 0 0 24px var(--lim); }
+.mit__ticks li[data-on='true'][data-cat='his']::after { background: var(--his); box-shadow: 0 0 24px var(--his); }
+.mit__ticks li[data-on='true'][data-cat='der']::after { background: var(--der); box-shadow: 0 0 24px var(--der); }
+.mit__ticks li[data-on='true'][data-cat='pol']::after { background: var(--pol); box-shadow: 0 0 24px var(--pol); }
+.mit__ticks li[data-on='true'][data-cat='neg']::after { background: var(--neg); box-shadow: 0 0 24px var(--neg); }
+.mit__ticks li[data-on='true'][data-cat='dis']::after { background: var(--dis); box-shadow: 0 0 24px var(--dis); }
+.mit__ticks li[data-on='true'][data-cat='ban']::after { background: var(--ban); box-shadow: 0 0 24px var(--ban); }
+.mit__ticks li[data-on='true'][data-cat='pal']::after { background: var(--pal); box-shadow: 0 0 24px var(--pal); }
+.mit__ticks li[data-on='true'][data-cat='exc']::after { background: var(--exc); box-shadow: 0 0 24px var(--exc); }
+.mit__ticks li[data-on='true'][data-cat='leg']::after { background: var(--leg); box-shadow: 0 0 24px var(--leg); }
+.mit__ticks li[data-on='true'][data-cat='vio']::after { background: var(--vio); box-shadow: 0 0 24px var(--vio); }
+.mit__ticks li[data-on='true'][data-cat='ext']::after { background: var(--ext); box-shadow: 0 0 24px var(--ext); }
+
+.mit__leyenda li[data-cat='def'] i { background: var(--def); }
+.mit__leyenda li[data-cat='pos'] i { background: var(--pos); }
+.mit__leyenda li[data-cat='lim'] i { background: var(--lim); }
+.mit__leyenda li[data-cat='his'] i { background: var(--his); }
+.mit__leyenda li[data-cat='der'] i { background: var(--der); }
+.mit__leyenda li[data-cat='pol'] i { background: var(--pol); }
+.mit__leyenda li[data-cat='neg'] i { background: var(--neg); }
+.mit__leyenda li[data-cat='dis'] i { background: var(--dis); }
+.mit__leyenda li[data-cat='ban'] i { background: var(--ban); }
+.mit__leyenda li[data-cat='pal'] i { background: var(--pal); }
+.mit__leyenda li[data-cat='exc'] i { background: var(--exc); }
+.mit__leyenda li[data-cat='leg'] i { background: var(--leg); }
+.mit__leyenda li[data-cat='vio'] i { background: var(--vio); }
+.mit__leyenda li[data-cat='ext'] i { background: var(--ext); }
+
+/* Sale del área útil hacia la columna reservada, con los mismos offsets que
+   usa .modulo__body: así el riel cae exactamente sobre el marcador. */
+.mit__rail {
+  position: absolute;
+  top: -124px;
+  bottom: -76px;
+  width: 1px;
+  pointer-events: none;
+}
+
+.quadrant[data-guide='true'] .mit__rail {
+  top: calc(-124px - var(--bleed-y, 0px));
+  bottom: calc(-76px - var(--bleed-y, 0px));
+}
+
+.modulo__canvas[data-side='left'] .mit__rail {
+  left: calc(var(--marker-x, 360px) - var(--bleed-x, 0px) - var(--col) - var(--pad));
+}
+
+.modulo__canvas[data-side='right'] .mit__rail {
+  left: calc(var(--marker-x, 1560px) - var(--bleed-x, 0px) - var(--pad));
+}
+
+.mit__line {
+  position: absolute;
+  top: 16%;
+  bottom: 16%;
+  left: 0;
+  width: 1px;
+  background: var(--ink-500);
+}
+
+.mit__ticks {
+  position: absolute;
+  inset: 0;
+  list-style: none;
+}
+
+.mit__ticks li {
+  position: absolute;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  translate: -50% -50%;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* El punto dibujado es chico; el área de toque es grande. El color dice a qué
+   familia de mito pertenece esa parada. */
+.mit__ticks li::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--ink-500);
+  transition:
+    background var(--dur-base) var(--ease-out),
+    scale var(--dur-base) var(--ease-out);
+}
+
+.mit__ticks li[data-leido='true']::after { background: var(--ink-300); }
+
+.mit__ticks li[data-on='true']::after { scale: 2; }
+.mit__ticks li[data-on='true'][data-cat='rel']::after { background: var(--rel); box-shadow: 0 0 24px var(--rel); }
+.mit__ticks li[data-on='true'][data-cat='eco']::after { background: var(--eco); box-shadow: 0 0 24px var(--eco); }
+.mit__ticks li[data-on='true'][data-cat='rac']::after { background: var(--rac); box-shadow: 0 0 24px var(--rac); }
+.mit__ticks li[data-on='true'][data-cat='con']::after { background: var(--con); box-shadow: 0 0 24px var(--con); }
+
+.mit__pos {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  translate: -50% 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink-400);
+}
+
+.mit__pos span {
+  font-size: 34px;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.mit__hint {
+  position: absolute;
+  top: 10.5%;
+  left: 0;
+  translate: -50% 0;
+  font-family: var(--font-display);
+  font-size: 21px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+/* --- la ficha ------------------------------------------------------------- */
+
+/* Arranca arriba y no centrada. Centrada, cada bloque que se abre corría todo
+   el texto hacia arriba y había que volver a buscar dónde se estaba leyendo. */
+.mit__card {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.mit__meta {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.mit__cat[data-cat='rel'] { color: var(--rel); }
+.mit__cat[data-cat='eco'] { color: var(--eco); }
+.mit__cat[data-cat='rac'] { color: var(--rac); }
+.mit__cat[data-cat='con'] { color: var(--con); }
+
+.mit__frase {
+  max-width: 26ch;
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: var(--ink-100);
+  text-wrap: balance;
+}
+
+/* Los tres bloques del documento. Aparecen de a uno: los tres juntos son un
+   párrafo largo, y un párrafo largo en una mesa no se lee. */
+/* Descontando la columna del marcador y los márgenes quedan 1088 px de ancho
+   real. Con 46ch se usaba poco más de la mitad y el texto caía en columnas de
+   cinco palabras. */
+.mit__bloques {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 68ch;
+}
+
+.mit__bloque {
+  display: none;
+  padding-left: 22px;
+  border-left: 1px solid var(--ink-600);
+}
+
+.mit__bloque[data-on='true'] { display: block; }
+.mit__bloque[data-k='clave'] { border-left-color: var(--accent); }
+
+.mit__rot {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.mit__bloque[data-k='clave'] .mit__rot { color: var(--accent); }
+
+.mit__txt {
+  margin-top: 10px;
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-300);
+}
+
+.mit__bloque[data-k='clave'] .mit__txt {
+  font-family: var(--font-display);
+  font-size: 31px;
+  font-weight: 400;
+  line-height: 1.28;
+  color: var(--ink-100);
+}
+
+.mit__vacio {
+  margin-top: 32px;
+  max-width: 60ch;
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-400);
+}
+
+.mit__vacio[hidden] { display: none; }
+
+.mit__acciones {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.mit__acciones[hidden] { display: none; }
+
+.mit__btn {
+  padding: 18px 40px;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+  background: none;
+}
+
+.mit__btn:disabled {
+  color: var(--ink-500);
+  border-color: var(--ink-600);
+  pointer-events: none;
+}
+
+/* Cuántos bloques quedan. Sin esto, el botón se apaga sin explicar por qué. */
+.mit__pasos {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+}
+
+.mit__pasos li[hidden] { display: none; }
+
+.mit__pasos li {
+  width: 22px;
+  height: 3px;
+  background: var(--ink-600);
+  transition: background var(--dur-base) var(--ease-out);
+}
+
+.mit__pasos li[data-on='true'] { background: var(--accent); }
+
+.mit__leyenda {
+  align-self: start;
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.mit__leyenda li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.mit__leyenda i {
+  width: 14px;
+  height: 3px;
+}
+
+.mit__leyenda li[data-cat='rel'] i { background: var(--rel); }
+.mit__leyenda li[data-cat='eco'] i { background: var(--eco); }
+.mit__leyenda li[data-cat='rac'] i { background: var(--rac); }
+.mit__leyenda li[data-cat='con'] i { background: var(--con); }
+
+/* ==========================================================================
+   Contradicciones — seis pares de acusaciones opuestas
+   ==========================================================================
+   El objeto tiene la forma del problema: un dial gira para los dos lados y una
+   contradicción tiene dos extremos. Deslizar cambia de par, girar opera dentro
+   del par. Misma gramática que la línea de tiempo. */
+
+.con {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.con__rail {
+  position: absolute;
+  top: -124px;
+  bottom: -76px;
+  width: 1px;
+  pointer-events: none;
+}
+
+.quadrant[data-guide='true'] .con__rail {
+  top: calc(-124px - var(--bleed-y, 0px));
+  bottom: calc(-76px - var(--bleed-y, 0px));
+}
+
+.modulo__canvas[data-side='left'] .con__rail {
+  left: calc(var(--marker-x, 360px) - var(--bleed-x, 0px) - var(--col) - var(--pad));
+}
+
+.modulo__canvas[data-side='right'] .con__rail {
+  left: calc(var(--marker-x, 1560px) - var(--bleed-x, 0px) - var(--pad));
+}
+
+.con__line {
+  position: absolute;
+  top: 18%;
+  bottom: 18%;
+  left: 0;
+  width: 1px;
+  background: var(--ink-500);
+}
+
+.con__ticks {
+  position: absolute;
+  inset: 0;
+  list-style: none;
+}
+
+.con__ticks li {
+  position: absolute;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  translate: -50% -50%;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.con__ticks li::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--ink-500);
+  transition:
+    background var(--dur-base) var(--ease-out),
+    scale var(--dur-base) var(--ease-out);
+}
+
+.con__ticks li[data-on='true']::after {
+  background: var(--accent);
+  scale: 2;
+  box-shadow: 0 0 24px var(--accent-dim);
+}
+
+.con__pos {
+  position: absolute;
+  top: 6%;
+  left: 0;
+  translate: -50% 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink-400);
+}
+
+.con__pos span {
+  font-size: 34px;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.con__hint {
+  position: absolute;
+  top: 11.5%;
+  left: 0;
+  translate: -50% 0;
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+/* --- la ficha ------------------------------------------------------------- */
+
+.con__card {
+  align-self: start;
+  padding-top: 30px;
+  max-width: 66ch;
+}
+
+.con__eje {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+/* --- la aguja ------------------------------------------------------------- */
+
+/* Los polos llevan un rótulo corto, no la frase entera: la frase completa vive
+   abajo, donde hay ancho para una sola línea. */
+.con__aguja {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.con__lado {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0;
+  background: none;
+  border: none;
+  text-align: left;
+  color: var(--ink-500);
+  cursor: pointer;
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.con__lado[data-lado='b'] { justify-content: flex-end; text-align: right; }
+.con__lado[data-visto='true'] { color: var(--ink-300); }
+.con__lado[data-on='true'] { color: var(--accent); }
+
+.con__lado-tx {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.con__flecha {
+  font-size: 34px;
+  line-height: 1;
+}
+
+.con__barra {
+  position: relative;
+  width: 220px;
+  height: 2px;
+  background: var(--ink-600);
+}
+
+.con__barra i {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 18px var(--accent-dim);
+  transition: left var(--dur-base) var(--ease-out);
+}
+
+/* --- lo que se dijo en ese extremo ---------------------------------------- */
+
+.con__dicho {
+  margin-top: 32px;
+  min-height: 300px;
+}
+
+.con__dicho[data-on='false'] { visibility: hidden; }
+
+.con__frase {
+  font-family: var(--font-display);
+  font-size: 46px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink-100);
+  text-wrap: balance;
+}
+
+.con__cuando {
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.con__quien {
+  margin-top: 12px;
+  max-width: 58ch;
+  font-size: 23px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-400);
+}
+
+/* El choque. Es lo que el visitante tiene que llevarse de este polo, así que
+   pesa más que el dato histórico que lo acompaña. */
+.con__choque {
+  margin-top: 22px;
+  max-width: 46ch;
+  padding-left: 20px;
+  border-left: 2px solid var(--accent);
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1.26;
+  color: var(--ink-100);
+}
+
+.con__espera {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+.con__espera[data-on='false'] { display: none; }
+
+/* --- la pregunta ---------------------------------------------------------- */
+
+.con__pregunta[data-on='false'] { display: none; }
+
+.con__ask {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink-100);
+}
+
+.con__ops {
+  margin-top: 22px;
+  display: flex;
+  gap: 16px;
+}
+
+.con__op {
+  min-width: 150px;
+  padding: 18px 40px;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+  background: none;
+}
+
+/* --- las dos, cara a cara ------------------------------------------------- */
+
+.con__cara {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 30px;
+  padding: 30px 0;
+  border-top: 1px solid var(--ink-600);
+  border-bottom: 1px solid var(--ink-600);
+}
+
+.con__cara[data-on='false'] { display: none; }
+
+.con__cara-frase {
+  font-family: var(--font-display);
+  font-size: 29px;
+  font-weight: 400;
+  line-height: 1.16;
+  color: var(--ink-100);
+}
+
+.con__cara-cuando {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.con__cara-vs {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: var(--ink-500);
+}
+
+.con__cierre {
+  margin-top: 26px;
+  max-width: 56ch;
+  padding-left: 22px;
+  border-left: 2px solid var(--accent);
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1.28;
+  color: var(--ink-100);
+}
+
+.con__cierre[data-on='false'] { display: none; }
+
+/* ==========================================================================
+   Alcance — cuánta gente vio la publicación en cada etapa
+   ==========================================================================
+   No hay nada que elegir: se gira y la multitud se enciende. Una figura el
+   primer día, trescientas veinte el noveno. El dato no se lee, se ve. */
+
+.alc {
+  position: absolute;
+  inset: 0;
+}
+
+.alc__scene {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.alc__scene[data-on='true'] { display: grid; }
+.alc__scene[data-scene='intro'] { grid-template-rows: 1fr auto; }
+.alc__scene[data-scene='fin'] { grid-template-rows: 1fr auto; }
+
+.alc__scene[data-scene='etapa'] {
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  gap: 30px 56px;
+  align-items: start;
+}
+
+.alc__h1 {
+  font-family: var(--font-display);
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink-100);
+}
+
+.alc__lead {
+  max-width: 46ch;
+  margin-top: 22px;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+/* Las cifras son de un caso de ejemplo y se dice. Un museo no puede presentar
+   como dato lo que es una ilustración. */
+.alc__aviso {
+  max-width: 52ch;
+  margin-top: 22px;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-400);
+}
+
+.alc__acts { align-self: end; }
+
+/* --- columna de texto ----------------------------------------------------- */
+
+.alc__col { max-width: 46ch; }
+
+.alc__pasos {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+}
+
+.alc__pasos li {
+  padding: 7px 14px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  border: 1px solid var(--ink-600);
+  cursor: pointer;
+  transition:
+    color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
+}
+
+.alc__pasos li[data-done='true'] { color: var(--ink-300); border-color: var(--ink-500); }
+.alc__pasos li[data-on='true'] { color: var(--accent); border-color: var(--accent-dim); }
+
+.alc__dia {
+  margin-top: 30px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.alc__tit {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink-100);
+}
+
+.alc__que {
+  margin-top: 16px;
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-300);
+}
+
+.alc__accion {
+  margin-top: 30px;
+  padding-left: 20px;
+  border-left: 1px solid var(--ink-600);
+}
+
+.alc__k {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.alc__acc {
+  margin-top: 9px;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.42;
+  color: var(--ink-100);
+}
+
+.alc__evita {
+  margin-top: 8px;
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1.42;
+  color: var(--ink-400);
+}
+
+/* --- la multitud ---------------------------------------------------------- */
+
+.alc__gente { justify-self: end; }
+
+.alc__cuenta {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.alc__cifra {
+  font-family: var(--font-display);
+  font-size: 76px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.alc__unidad {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.alc__grid {
+  display: block;
+  width: 520px;
+  margin-top: 24px;
+}
+
+/* Apagada es la gente que todavía no lo vio. La grilla completa está siempre a
+   la vista: sin el total dibujado, encender diez figuras no significa nada. */
+.alc__fig {
+  fill: var(--ink-700);
+  transition: fill 0.45s var(--ease-out);
+}
+
+.alc__fig[data-on='true'] { fill: var(--accent); }
+
+.alc__escala {
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+/* --- pie ------------------------------------------------------------------ */
+
+.alc__foot {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: end;
+}
+
+.alc__hint {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+.alc__btn {
+  padding: 20px 42px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  background: none;
+}
+
+.alc__btn--go { color: var(--accent); border-color: var(--accent-dim); }
+
+.alc__close {
+  max-width: 26ch;
+  margin-top: 18px;
+  font-family: var(--font-display);
+  font-size: 54px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--ink-100);
+}
+
+.alc__close2 {
+  max-width: 50ch;
+  margin-top: 20px;
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+/* La ruta que hace el posteo en cada salto. Explica por qué el número crece:
+   de una cuenta a sus seguidores, de ahí a grupos, después a tendencias. */
+.alc__ruta {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--ink-300);
+}
+
+/* ==========================================================================
+   Desmentido — la misma grilla, girada hacia los dos lados
+   ==========================================================================
+   Hacia un lado la mentira no para hasta llenar la grilla. Hacia el otro el
+   desmentido se frena a las dieciocho figuras. El paso de giro es el mismo
+   para los dos: la asimetría no está en el esfuerzo, está en el alcance. */
+
+.des { position: absolute; inset: 0; }
+
+.des__scene { position: absolute; inset: 0; display: none; }
+.des__scene[data-on='true'] { display: grid; }
+.des__scene[data-scene='intro'] { grid-template-rows: 1fr auto; }
+.des__scene[data-scene='fin'] { grid-template-rows: auto 1fr; gap: 34px; align-content: start; }
+
+.des__scene[data-scene='girar'] {
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  gap: 30px 56px;
+  align-items: start;
+}
+
+.des__h1 {
+  font-family: var(--font-display);
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink-100);
+}
+
+.des__lead {
+  max-width: 44ch;
+  margin-top: 22px;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+.des__acts { align-self: end; }
+
+/* --- los dos lados -------------------------------------------------------- */
+
+.des__col { max-width: 46ch; }
+
+.des__lados {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 22px;
+}
+
+.des__lado {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--ink-500);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.des__lado[data-lado='mentira'] { justify-content: flex-end; }
+.des__lado[data-on='true'] { color: var(--accent); }
+.des__lado[data-lado='desmentido'][data-on='true'] { color: var(--warn); }
+
+.des__flecha { font-size: 32px; line-height: 1; }
+
+.des__barra {
+  position: relative;
+  width: 180px;
+  height: 2px;
+  background: var(--ink-600);
+}
+
+.des__barra i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 13px;
+  height: 13px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--accent);
+  transition:
+    left var(--dur-base) var(--ease-out),
+    background var(--dur-base) var(--ease-out);
+}
+
+.des[data-lado='desmentido'] .des__barra i { background: var(--warn); }
+
+.des__rest {
+  margin-top: 34px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+.des__rest[data-on='false'] { display: none; }
+
+.des__dicho { margin-top: 34px; }
+.des__dicho[data-on='false'] { display: none; }
+
+.des__tit {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--ink-100);
+  text-wrap: balance;
+}
+
+.des__nota {
+  margin-top: 16px;
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-300);
+}
+
+/* Aparece cuando el giro ya no mueve nada. Es el momento en que la pieza dice
+   lo que tiene para decir. */
+.des__final {
+  margin-top: 26px;
+  padding-left: 20px;
+  border-left: 2px solid var(--warn);
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1.26;
+  color: var(--ink-100);
+}
+
+.des[data-lado='mentira'] .des__final { border-left-color: var(--accent); }
+.des__final[data-on='false'] { display: none; }
+
+/* --- la multitud ---------------------------------------------------------- */
+
+.des__gente { justify-self: end; }
+
+.des__cuenta { display: flex; align-items: baseline; gap: 14px; }
+
+.des__cifra {
+  font-family: var(--font-display);
+  font-size: 76px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.des[data-lado='desmentido'] .des__cifra { color: var(--warn); }
+
+.des__unidad {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.des__grid { display: block; width: 520px; margin-top: 24px; }
+
+.des__fig {
+  fill: var(--ink-700);
+  transition: fill 0.35s var(--ease-out);
+}
+
+.des__fig[data-on='true'] { fill: var(--accent); }
+.des[data-lado='desmentido'] .des__fig[data-on='true'] { fill: var(--warn); }
+
+.des__escala {
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+.des__foot { grid-column: 1 / -1; align-self: end; justify-self: end; }
+
+.des__btn {
+  padding: 20px 42px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  background: none;
+}
+
+.des__btn--go { color: var(--accent); border-color: var(--accent-dim); }
+
+/* --- cierre --------------------------------------------------------------- */
+
+.des__k {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.des__close {
+  max-width: 24ch;
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink-100);
+}
+
+.des__close2 {
+  max-width: 48ch;
+  margin-top: 18px;
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+.des__ftext {
+  max-width: 62ch;
+  margin-top: 12px;
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--ink-400);
+}
+
+.des__cita {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  color: var(--ink-300);
+}
+
+.des__fuente .des__btn { margin-top: 28px; }
+
+/* ==========================================================================
+   Cifras — las 1.414 personas del 7 de octubre
+   ==========================================================================
+   Una figura es una persona, no diez. Sin cascada y sin contador que trepa:
+   un número que sube y una ola que avanza son recursos de espectáculo, y acá
+   se está contando gente asesinada. */
+
+.cif {
+  position: absolute;
+  inset: 0;
+
+  --muerte: #d96a5a;
+  --rehen: #f0b64f;
+  --vida: #4fdcb4;
+}
+
+.cif__scene { position: absolute; inset: 0; display: none; }
+.cif__scene[data-on='true'] { display: grid; }
+.cif__scene[data-scene='intro'] { grid-template-rows: 1fr auto; }
+.cif__scene[data-scene='fin'] { grid-template-rows: 1fr auto; }
+
+.cif__scene[data-scene='estado'] {
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  gap: 26px 52px;
+  align-items: start;
+}
+
+.cif__h1 {
+  max-width: 20ch;
+  font-family: var(--font-display);
+  font-size: 58px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink-100);
+}
+
+.cif__lead {
+  max-width: 58ch;
+  margin-top: 22px;
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 1.48;
+  color: var(--ink-300);
+}
+
+.cif__acts { align-self: end; }
+
+/* --- columna de texto ----------------------------------------------------- */
+
+.cif__col { max-width: 40ch; }
+
+.cif__pasos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+
+.cif__pasos li {
+  padding: 6px 12px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  border: 1px solid var(--ink-600);
+  cursor: pointer;
+  transition: color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+}
+
+.cif__pasos li[data-done='true'] { color: var(--ink-300); border-color: var(--ink-500); }
+.cif__pasos li[data-on='true'] { color: var(--ink-100); border-color: var(--ink-300); }
+
+.cif__rot {
+  margin-top: 34px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.cif__cuenta {
+  margin-top: 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.cif__cifra {
+  font-family: var(--font-display);
+  font-size: 82px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-100);
+  transition: color var(--dur-slow) var(--ease-out);
+}
+
+.cif[data-color='muerte'] .cif__cifra { color: var(--muerte); }
+.cif[data-color='rehen'] .cif__cifra { color: var(--rehen); }
+.cif[data-color='vida'] .cif__cifra { color: var(--vida); }
+
+.cif__unidad {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.cif__tit {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.16;
+  color: var(--ink-100);
+}
+
+.cif__nota {
+  margin-top: 16px;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-400);
+}
+
+/* --- la grilla ------------------------------------------------------------ */
+
+.cif__gente { justify-self: end; }
+.cif__grid { display: block; width: 700px; }
+
+/* Apagada es la población que ese estado no señala. Está siempre dibujada:
+   sin el total a la vista, 251 no significa nada. */
+.cif__fig { fill: var(--ink-700); }
+
+.cif[data-color='muerte'] .cif__fig[data-on='true'] { fill: var(--muerte); }
+.cif[data-color='rehen'] .cif__fig[data-on='true'] { fill: var(--rehen); }
+.cif[data-color='vida'] .cif__fig[data-on='true'] { fill: var(--vida); }
+
+.cif__escala {
+  margin-top: 18px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+/* --- pie ------------------------------------------------------------------ */
+
+.cif__foot {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: end;
+}
+
+.cif__hint {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+.cif__btn {
+  padding: 20px 42px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  background: none;
+}
+
+.cif__btn--go { color: var(--accent); border-color: var(--accent-dim); }
+
+.cif__k {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.cif__close {
+  max-width: 26ch;
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: 54px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink-100);
+}
+
+.cif__close2 {
+  max-width: 54ch;
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 1.48;
+  color: var(--ink-300);
+}
+
+/* ==========================================================================
+   Contenedores — apoyar el marcador adentro de un círculo
+   ==========================================================================
+   El único lugar donde el objeto se posa en vez de deslizarse o girar sobre un
+   riel. La posición deja de ser un valor continuo y pasa a ser una
+   pertenencia: estás adentro o no estás. El círculo dibujado mide lo mismo que
+   el marcador físico, así que el objeto entra justo. */
+
+.con2 {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 26px;
+}
+
+.con2__h1 {
+  font-family: var(--font-display);
+  font-size: 54px;
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: var(--ink-100);
+}
+
+.con2__lead {
+  margin-top: 10px;
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--ink-300);
+}
+
+/* --- los círculos --------------------------------------------------------- */
+
+.con2__zonas {
+  display: flex;
+  gap: 24px;
+}
+
+/* Con cuatro círculos el ancho no alcanza para los 294 px del marcador. */
+.con2__zonas:has(> :nth-child(4)) .con2__circulo {
+  width: 240px;
+  height: 240px;
+}
+
+/* 294 px es el diámetro del marcador físico. El círculo mide lo mismo para
+   que el objeto entre justo adentro del anillo. */
+.con2__circulo {
+  position: relative;
+  width: 294px;
+  height: 294px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 22px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.con2__anillo {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--ink-600);
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    background var(--dur-base) var(--ease-out);
+}
+
+.con2__circulo[data-on='true'] .con2__anillo {
+  border-color: var(--accent);
+  background: var(--accent-ghost);
+  box-shadow: 0 0 36px rgba(0, 229, 255, 0.18);
+}
+
+.con2__rot {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.16;
+  text-align: center;
+  color: var(--ink-300);
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.con2__sub {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+.con2__circulo[data-on='true'] .con2__rot { color: var(--accent); }
+.con2__circulo[data-on='true'] .con2__sub { color: var(--ink-300); }
+
+/* --- el panel ------------------------------------------------------------- */
+
+.con2__panel { align-content: start; }
+
+.con2__reposo {
+  max-width: 52ch;
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+.con2__ayuda {
+  margin-top: 18px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+.con2__reposo[hidden],
+.con2__ayuda[hidden],
+.con2__abierto[hidden],
+.con2__encab[hidden],
+.con2__cifra[hidden],
+.con2__texto[hidden] { display: none; }
+
+.con2__encab {
+  max-width: 60ch;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-400);
+  margin-bottom: 18px;
+}
+
+.con2__cifra {
+  font-family: var(--font-display);
+  font-size: 78px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.con2__titulo {
+  margin-top: 12px;
+  max-width: 34ch;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.16;
+  color: var(--ink-100);
+}
+
+.con2__texto {
+  margin-top: 12px;
+  max-width: 54ch;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-300);
+}
+
+.con2__pie {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.con2__pasos {
+  display: flex;
+  gap: 7px;
+  list-style: none;
+}
+
+.con2__pasos li {
+  width: 20px;
+  height: 3px;
+  background: var(--ink-600);
+  transition: background var(--dur-base) var(--ease-out);
+}
+
+.con2__pasos li[data-on='true'] { background: var(--accent); }
+
+.con2__spin {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+.con2__cierre {
+  align-self: end;
+  max-width: 62ch;
+  padding-left: 20px;
+  border-left: 2px solid var(--accent);
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1.3;
+  color: var(--ink-100);
+}
+
+/* ==========================================================================
+   Reloj — girar el marcador adelanta la hora del día
+   ==========================================================================
+   Lo que cuenta el documento de este día no son cinco hechos: es una demora.
+   Por eso el contador de horas encerradas crece con el reloj y no se detiene,
+   y por eso entre las 10 de la mañana y las 11 de la noche se puede seguir
+   girando sin que aparezca nada nuevo. Ese tramo vacío es el contenido. */
+
+.rel { position: absolute; inset: 0; }
+
+.rel__scene { position: absolute; inset: 0; display: none; }
+.rel__scene[data-on='true'] { display: grid; }
+.rel__scene[data-scene='intro'] { grid-template-rows: 1fr auto; }
+.rel__scene[data-scene='fin'] { grid-template-rows: 1fr auto; }
+.rel__scene[data-scene='dia'] {
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: 26px;
+}
+
+.rel__h1 {
+  font-family: var(--font-display);
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink-100);
+}
+
+.rel__lead {
+  max-width: 44ch;
+  margin-top: 22px;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+.rel__acts { align-self: end; }
+
+/* --- el reloj ------------------------------------------------------------- */
+
+.rel__cab {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.rel__hora {
+  font-family: var(--font-display);
+  font-size: 96px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink-100);
+  font-variant-numeric: tabular-nums;
+}
+
+.rel__espera { text-align: right; }
+.rel__espera[data-on='false'] { visibility: hidden; }
+
+.rel__k {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.rel__hs {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warn);
+}
+
+.rel__hs span {
+  font-size: 44px;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- la banda del día ----------------------------------------------------- */
+
+.rel__banda { position: relative; padding-bottom: 54px; }
+
+.rel__pista {
+  position: relative;
+  height: 3px;
+  background: var(--ink-700);
+}
+
+.rel__pista i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  background: var(--accent);
+  transition: width var(--dur-base) var(--ease-out);
+}
+
+/* La lista de marcas se ancla a la línea y no a la banda: así el punto queda
+   centrado sobre el trazo y no flotando encima. */
+.rel__marcas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  list-style: none;
+}
+
+.rel__marcas li {
+  position: absolute;
+  top: 50%;
+  width: 0;
+  translate: -50% -50%;
+  cursor: pointer;
+}
+
+.rel__marcas li::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 11px;
+  height: 11px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--ink-600);
+  transition: background var(--dur-base) var(--ease-out), scale var(--dur-base) var(--ease-out);
+}
+
+/* Área de toque: el punto dibujado es chico. */
+.rel__marcas li::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  translate: -50% -50%;
+}
+
+.rel__marcas li[data-on='true']::before { background: var(--accent); scale: 1.25; }
+
+/* Dos alturas alternadas: a las 6:30, 7 y 8 las marcas están a minutos de
+   distancia y los rótulos en una sola línea se pisan. */
+.rel__marcas li span {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  translate: -50% 0;
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: var(--ink-500);
+  font-variant-numeric: tabular-nums;
+}
+
+.rel__marcas li[data-fila='1'] span { top: 34px; }
+
+.rel__marcas li[data-on='true'] span { color: var(--ink-300); }
+
+/* --- los hechos ----------------------------------------------------------- */
+
+/* El visor recorta: la pila crece hacia abajo y lo viejo se va por arriba. */
+.rel__visor {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  min-height: 0;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 9%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 9%, #000 100%);
+}
+
+.rel__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+}
+
+.rel__ev {
+  display: grid;
+  grid-template-columns: 82px 1fr;
+  gap: 22px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink-700);
+  max-width: 68ch;
+}
+
+.rel__evhora {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.rel__evtit {
+  font-family: var(--font-display);
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 1.16;
+  color: var(--ink-100);
+}
+
+.rel__evtx {
+  margin-top: 7px;
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-300);
+}
+
+/* --- pie ------------------------------------------------------------------ */
+
+.rel__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: end;
+}
+
+.rel__hint {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+.rel__btn {
+  padding: 20px 42px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-300);
+  border: 1px solid var(--ink-500);
+  background: none;
+}
+
+.rel__btn--go { color: var(--accent); border-color: var(--accent-dim); }
+
+.rel__close {
+  max-width: 44ch;
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink-100);
+}
+
+.rel__close2 {
+  max-width: 54ch;
+  margin-top: 18px;
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 1.46;
+  color: var(--ink-300);
+}
+
+/* La imagen del último hito alcanzado. Nova es sobre todo visual —jóvenes
+   bailando la noche anterior— y esas fotos no ilustran el ataque: muestran lo
+   que había antes. */
+/* `align-items: start` dejaba que el visor midiera lo que mide su contenido:
+   nunca sobraba nada y la pila jamás subía. Estirado a la fila, el visor tiene
+   un alto propio y recién ahí puede recortar. */
+.rel__cuerpo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 44px;
+  align-items: stretch;
+  min-height: 0;
+}
+
+.rel__cuerpo[data-confoto='true'] {
+  grid-template-columns: 360px 1fr;
+  gap: 44px;
+}
+
+.rel__cuerpo[data-confoto='false'] .rel__figura { display: none; }
+
+/* Sin foto la lista ocupa las dos columnas y se acomoda sola en dos. */
+/* Sin foto la columna de texto usa todo el ancho. */
+.rel__cuerpo[data-confoto='false'] .rel__visor { grid-column: 1 / -1; }
+
+.rel__figura {
+  align-self: start;
+}
+
+.rel__figura[data-on='false'] { visibility: hidden; }
+
+.rel__foto {
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--ink-500);
+  background: repeating-linear-gradient(
+    45deg,
+    transparent 0 8px,
+    rgba(255, 255, 255, 0.02) 8px 16px
+  );
+}
+
+.rel__foto span {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+.rel__figura figcaption {
+  display: block;
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--ink-400);
+}
+
+.rel__credito {
+  display: block;
+  margin-top: 5px;
+  font-size: 15px;
+  color: var(--ink-500);
+}
+
+/* El dato aparte de la biografía: es lo que el visitante se lleva de memoria. */
+.exp__dato {
+  margin-top: 22px;
+  padding-left: 20px;
+  border-left: 2px solid var(--accent);
+}
+
+.exp__dato[hidden] { display: none; }
+
+.exp__datok {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.exp__datotx {
+  margin-top: 8px;
+  max-width: 52ch;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-100);
+}
+
+/* ==========================================================================
+   Pantallas de entrada
+   ==========================================================================
+   El botón de empezar vivía pegado al borde inferior del lienzo: quedaba a
+   media pantalla del texto que lo explicaba. Va debajo del texto. */
+
+.est__scene[data-scene='intro'],
+.alc__scene[data-scene='intro'],
+.des__scene[data-scene='intro'],
+.cif__scene[data-scene='intro'],
+.rel__scene[data-scene='intro'],
+.tri__scene[data-scene='intro'] {
+  grid-template-rows: auto auto;
+  align-content: center;
+  gap: 44px;
+}
+
+.est__acts,
+.alc__acts,
+.des__acts,
+.cif__acts,
+.rel__acts,
+.tri__acts {
+  align-self: start;
+  justify-self: start;
+}
+
+/* Lo mismo en los cierres: el botón acompaña al texto. */
+.est__scene[data-scene='fin'],
+.alc__scene[data-scene='fin'],
+.cif__scene[data-scene='fin'],
+.rel__scene[data-scene='fin'] {
+  grid-template-rows: auto auto;
+  align-content: center;
+  gap: 40px;
 }

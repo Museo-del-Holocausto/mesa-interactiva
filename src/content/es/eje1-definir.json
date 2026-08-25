@@ -1,0 +1,114 @@
+{
+  "id": "eje-1-definir",
+  "title": "¿Qué es el antisemitismo?",
+  "ui": {
+    "confirm": "Confirmar",
+    "next": "Continuar",
+    "last": "Terminar",
+    "again": "Volver a empezar"
+  },
+  "pantallas": [
+    {
+      "tipo": "elegir",
+      "titulo": "¿Qué es el antisemitismo?",
+      "intro": [],
+      "consigna": "¿Por dónde te parece que se manifiesta?",
+      "items": [
+        "palabras",
+        "imágenes",
+        "rumores",
+        "teorías conspirativas",
+        "discriminación",
+        "negación de derechos",
+        "ataques contra personas e instituciones",
+        "violencia organizada"
+      ],
+      "completo": "Las ocho. No dejaste ninguna afuera.",
+      "parcial": "Por estas también",
+      "remate": "El antisemitismo no describe cómo son realmente los judíos. Construye una imagen negativa sobre ellos.",
+      "ayuda": "Marcá las que quieras y confirmá."
+    },
+    {
+      "tipo": "elegir",
+      "titulo": "Quiénes son los judíos",
+      "intro": [
+        "¿Todos los judíos son iguales? No."
+      ],
+      "consigna": "¿En qué pueden ser diferentes entre sí?",
+      "items": [
+        "creencias religiosas",
+        "ideas políticas",
+        "nacionalidades",
+        "idiomas",
+        "costumbres",
+        "formas de vivir su identidad"
+      ],
+      "completo": "En todas. Se diferencian en todo.",
+      "parcial": "En estas también",
+      "remate": "El antisemitismo borra estas diferencias y habla de «los judíos» como si fueran un único grupo.",
+      "ayuda": "Marcá las que quieras y confirmá."
+    },
+    {
+      "tipo": "elegir",
+      "invertida": true,
+      "permiteVacio": true,
+      "titulo": "De una persona a todo un grupo",
+      "intro": [
+        "El antisemitismo toma lo que hace una persona y lo atribuye a todos los judíos."
+      ],
+      "consigna": "Estos son datos de una sola persona judía. ¿Cuáles te dicen algo sobre el resto de los judíos?",
+      "ayuda": "Marcá los que quieras y confirmá. También podés confirmar sin marcar ninguno.",
+      "items": [
+        "Es maestra",
+        "Vive en Rosario",
+        "Cometió un delito",
+        "Habla ídish",
+        "Vota a la izquierda"
+      ],
+      "vacio": "Ninguno. Exactamente.",
+      "parcial": "Ninguno dice nada sobre otra persona",
+      "completo": "Ninguno dice nada sobre otra persona",
+      "remate": "Convierte una situación individual en una acusación colectiva."
+    },
+    {
+      "tipo": "elegir",
+      "titulo": "Buscar un culpable fácil",
+      "intro": [
+        "En momentos de crisis, algunas sociedades buscan una explicación rápida y un grupo al que responsabilizar."
+      ],
+      "consigna": "¿En cuáles de estas crisis te parece que se acusó a los judíos?",
+      "items": [
+        {
+          "titulo": "Epidemias",
+          "cuando": "Europa, 1348",
+          "acusacion": "Se acusó a los judíos de propagar la peste envenenando los pozos."
+        },
+        {
+          "titulo": "Guerras",
+          "cuando": "Alemania, 1918",
+          "acusacion": "Se acusó a los judíos de haber traicionado al país y provocado la derrota en la Primera Guerra Mundial."
+        },
+        {
+          "titulo": "Revoluciones",
+          "cuando": "Europa, desde 1917",
+          "acusacion": "Se acusó a los judíos de estar detrás de la revolución rusa y de conspirar contra el orden social."
+        },
+        {
+          "titulo": "Crisis económicas",
+          "cuando": "Alemania, años treinta",
+          "acusacion": "Se acusó a los judíos de haber causado la crisis y de enriquecerse con ella."
+        }
+      ],
+      "completo": "Las cuatro. En todas se los acusó.",
+      "remate": "Estas acusaciones desviaban la atención de las verdaderas causas de los problemas.",
+      "ayuda": "Marcá las que quieras y confirmá.",
+      "formato": "tarjetas",
+      "parcial": "En estas también"
+    }
+  ],
+  "closing": {
+    "label": "Para cerrar",
+    "text": "El antisemitismo no describe a nadie.",
+    "sub": "Construye una imagen, la aplica a un grupo entero y la usa cuando hace falta un culpable."
+  }
+}

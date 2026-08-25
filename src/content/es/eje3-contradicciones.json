@@ -1,0 +1,135 @@
+{
+  "id": "eje-3-contradicciones",
+  "title": "El detector de contradicciones",
+  "ui": {
+    "hint": "Deslizá el marcador para cambiar de par",
+    "spin": "Girá para un lado y para el otro",
+    "left": "Girá hacia la izquierda",
+    "right": "Girá hacia la derecha",
+    "ask": "¿Pueden ser las dos ciertas al mismo tiempo?",
+    "yes": "Sí",
+    "no": "No",
+    "of": "de",
+    "pendingData": "Época y contexto a confirmar"
+  },
+  "pares": [
+    {
+      "eje": "El lugar en la economía",
+      "a": {
+        "corto": "Capitalistas",
+        "frase": "Los judíos son capitalistas",
+        "cuando": "Europa, siglo XIX",
+        "nota": "Se los presenta como dueños de la banca y del gran comercio.",
+        "choque": "Si manejan el capital, no pueden querer destruirlo."
+      },
+      "b": {
+        "corto": "Comunistas",
+        "frase": "Los judíos son comunistas",
+        "cuando": "Europa, desde 1917",
+        "nota": "Tras la revolución rusa se los acusa de estar detrás del bolchevismo.",
+        "choque": "Si quieren destruir el capital, no pueden ser sus dueños."
+      },
+      "cierre": "Las dos acusaciones convivieron en los mismos países y en las mismas décadas."
+    },
+    {
+      "eje": "El lugar en la sociedad",
+      "a": {
+        "corto": "Aislados",
+        "frase": "Los judíos se aíslan del resto",
+        "cuando": "Antigüedad y Edad Media",
+        "nota": "Sus costumbres propias se leen como rechazo a los demás.",
+        "choque": "Si se apartan de todos, no pueden estar en todas partes."
+      },
+      "b": {
+        "corto": "Infiltrados",
+        "frase": "Los judíos se infiltran en todas partes",
+        "cuando": "Siglos XIX y XX",
+        "nota": "La misma población, ahora acusada de estar en todos lados sin que se la vea.",
+        "choque": "Si están en todas partes, no pueden estar apartados."
+      },
+      "cierre": "Se les reprochó separarse y también mezclarse. Nunca hubo una conducta correcta posible."
+    },
+    {
+      "eje": "El poder",
+      "a": {
+        "corto": "Débiles",
+        "frase": "Los judíos son débiles y parásitos",
+        "cuando": "Propaganda racial, 1930–1945",
+        "nota": "Se los presenta como incapaces de producir y dependientes del trabajo ajeno.",
+        "choque": "Si son débiles, no pueden dominar el mundo."
+      },
+      "b": {
+        "corto": "Todopoderosos",
+        "frase": "Los judíos son todopoderosos",
+        "cuando": "Del siglo XIX a hoy",
+        "nota": "Se los presenta como dueños de gobiernos, bancos y medios.",
+        "choque": "Si dominan el mundo, no pueden ser débiles."
+      },
+      "cierre": "El mismo grupo, descrito como el más débil y el más poderoso a la vez."
+    },
+    {
+      "eje": "La nacionalidad",
+      "a": {
+        "corto": "Extranjeros",
+        "frase": "Los judíos son extranjeros",
+        "cuando": "Europa, siglos XIX y XX",
+        "nota": "Se los describe como un cuerpo ajeno a la nación, sin importar cuántas generaciones llevaran ahí.",
+        "choque": "Si son ajenos a la nación, no pueden gobernarla."
+      },
+      "b": {
+        "corto": "Dueños del país",
+        "frase": "Los judíos controlan el país",
+        "cuando": "Europa, siglos XIX y XX",
+        "nota": "Al mismo tiempo se los acusa de manejar sus gobiernos e instituciones.",
+        "choque": "Si gobiernan la nación, no son ajenos a ella."
+      },
+      "cierre": "Extranjeros y dueños del país. Las dos cosas, dicho por las mismas voces."
+    },
+    {
+      "eje": "La tradición",
+      "a": {
+        "corto": "Tradicionalistas",
+        "frase": "Los judíos son atrasados y tradicionalistas",
+        "cuando": "Ilustración europea, siglo XVIII",
+        "nota": "Se los acusa de aferrarse a leyes antiguas y de negarse al progreso.",
+        "choque": "Si se aferran a lo antiguo, no pueden estar destruyéndolo."
+      },
+      "b": {
+        "corto": "Destructores",
+        "frase": "Los judíos destruyen la tradición",
+        "cuando": "Reacción conservadora, siglos XIX y XX",
+        "nota": "Se los acusa de promover el cambio moral, artístico y político.",
+        "choque": "Si destruyen la tradición, no pueden estar aferrados a ella."
+      },
+      "cierre": "Demasiado antiguos y demasiado modernos, según lo que hiciera falta."
+    },
+    {
+      "eje": "La pertenencia",
+      "a": {
+        "corto": "Sin patria",
+        "frase": "Los judíos son cosmopolitas sin patria",
+        "cuando": "Siglos XIX y XX",
+        "nota": "Se los acusa de no tener lealtad a ningún país.",
+        "choque": "Si no tienen patria, no pueden ser fanáticos de una."
+      },
+      "b": {
+        "corto": "Nacionalistas",
+        "frase": "Los judíos son nacionalistas fanáticos",
+        "cuando": "Siglos XX y XXI",
+        "nota": "Se los acusa de tener una lealtad nacional por encima de todo lo demás.",
+        "choque": "Si son fanáticos de su nación, no pueden carecer de patria."
+      },
+      "cierre": "Sin patria y demasiado patriotas. La acusación cambia, el acusado no."
+    }
+  ],
+  "veredicto": {
+    "label": "La respuesta",
+    "text": "No pueden ser las dos ciertas.",
+    "sub": "Y sin embargo las dos circularon, muchas veces al mismo tiempo y en el mismo lugar."
+  },
+  "closing": {
+    "label": "Para cerrar",
+    "text": "El antisemitismo no parte de hechos.",
+    "sub": "Selecciona el estereotipo que resulta útil para explicar una crisis o construir un enemigo."
+  }
+}

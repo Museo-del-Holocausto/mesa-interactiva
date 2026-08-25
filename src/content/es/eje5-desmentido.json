@@ -1,0 +1,41 @@
+{
+  "id": "eje-5-desmentido",
+  "title": "La mentira y el desmentido",
+  "lead": "El mismo hecho, contado de dos maneras. Girá hacia un lado y hacia el otro.",
+  "ui": {
+    "start": "Empezar",
+    "again": "Volver a empezar",
+    "reach": "personas lo vieron",
+    "scale": "Cada figura son diez personas",
+    "rest": "Girá para un lado o para el otro",
+    "end": "Ver el cierre"
+  },
+  "porFigura": 10,
+  "pasoFiguras": 8,
+  "lados": {
+    "mentira": {
+      "rot": "La mentira",
+      "titulo": "«Los judíos controlan los bancos»",
+      "nota": "Se reenvía sin verificar. Suena a algo que ya se escuchó antes.",
+      "techo": 3200,
+      "final": "Sigue circulando."
+    },
+    "desmentido": {
+      "rot": "El desmentido",
+      "titulo": "«Ese dato es falso, y esta es la fuente»",
+      "nota": "Aporta datos y cita de dónde salen. Casi nadie lo reenvía.",
+      "techo": 180,
+      "final": "Podés seguir girando. No llega más lejos."
+    }
+  },
+  "fuente": {
+    "label": "De dónde sale este dato",
+    "text": "En el mayor estudio hecho sobre el tema se analizaron 126.000 historias difundidas en Twitter entre 2006 y 2017, compartidas por tres millones de personas. Las noticias falsas tuvieron un 70% más de probabilidad de ser reenviadas que las verdaderas. Las verdaderas casi nunca superaron las mil personas; el 1% de las falsas llegó a entre mil y cien mil.",
+    "cita": "Vosoughi, Roy y Aral. Science, 2018."
+  },
+  "closing": {
+    "label": "Para cerrar",
+    "text": "Desmentir no alcanza.",
+    "sub": "La corrección llega siempre a menos gente que la mentira. Por eso importa el momento en que algo todavía no se compartió."
+  }
+}

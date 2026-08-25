@@ -155,7 +155,7 @@
 
 .menu__subtitle {
   margin-top: calc(20px * var(--panel-scale));
-  font-size: calc(30px * var(--panel-scale));
+  font-size: calc(26px * var(--panel-scale));
   font-weight: 300;
   line-height: 1.45;
   color: var(--ink-300);
@@ -163,6 +163,8 @@
 }
 
 /* --- llamada a la accion --------------------------------------------------- */
+
+.menu__cta[hidden] { display: none; }
 
 .menu__cta {
   position: absolute;
@@ -185,11 +187,12 @@
 
 /* --- volver: viaja con el marcador, no con el cuadrante ------------------- */
 
+/* Volver del lado opuesto al panel y a la misma altura que el marcador. Los
+   tres quedan sobre el mismo eje —volver, dial, acción— y la fila se lee como
+   una sola línea de interacción. */
 .menu__back {
   position: absolute;
-  top: 400px;
-  left: 0;
-  translate: -50% 0;
+  top: 0;
   padding: 20px 44px;
   font-family: var(--font-display);
   font-size: 22px;
@@ -201,6 +204,16 @@
   transition: opacity var(--dur-base) var(--ease-out);
 }
 
+.menu[data-side='right'] .menu__back {
+  left: -359px;
+  translate: -100% -50%;
+}
+
+.menu[data-side='left'] .menu__back {
+  left: 359px;
+  translate: 0 -50%;
+}
+
 /* --- selector de items ----------------------------------------------------- */
 
 /* El listado se comporta como un dial: la fila elegida entra en la ranura fija
@@ -209,25 +222,34 @@
    de lectura sea el selector y no el bloque entero. */
 .menu__view[data-view='lista'] .menu__eyebrow {
   position: absolute;
-  bottom: 100%;
+  bottom: 75%;
   left: 0;
   right: 0;
-  margin-bottom: calc(28px * var(--panel-scale));
+  margin-bottom: calc(46px * var(--panel-scale));
 }
 
 .menu__picker {
   position: relative;
+  width: 620px;
   overflow: hidden;
   scale: var(--panel-scale);
   transform-origin: left center;
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent 0,
-    #000 22%,
-    #000 78%,
+    transparent 36%,
+    #000 42%,
+    #000 86%,
     transparent 100%
   );
-  mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 36%,
+    #000 42%,
+    #000 86%,
+    transparent 100%
+  );
 }
 
 .menu[data-side='left'] .menu__picker {
@@ -239,15 +261,16 @@
   top: 50%;
   left: 0;
   width: 100%;
-  margin-top: -42px;
+  margin-top: -38px;
   list-style: none;
 }
 
+/* Rótulo, filete y acción en la misma línea. Apilados en bloque, cinco filas
+   se leían como cinco tarjetas sueltas; en horizontal se lee un listado. */
 .menu__row {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
+  align-items: center;
+  gap: 22px;
   padding-right: 24px;
   color: var(--ink-300);
   opacity: 0.4;
@@ -257,10 +280,30 @@
 }
 
 .menu[data-side='left'] .menu__row {
-  align-items: flex-end;
+  flex-direction: row-reverse;
   padding-right: 0;
   padding-left: 24px;
 }
+
+.menu__row-tx {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: none;
+}
+
+.menu[data-side='left'] .menu__row-tx { align-items: flex-end; }
+
+/* El filete cose el rótulo con su acción y marca el renglón. */
+.menu__row-line {
+  flex: 1 1 auto;
+  min-width: 24px;
+  height: 1px;
+  background: var(--ink-600);
+  transition: background var(--dur-base) var(--ease-out);
+}
+
+.menu__row[data-active='true'] .menu__row-line { background: var(--accent-dim); }
 
 .menu__row-kicker {
   font-family: var(--font-display);
@@ -272,9 +315,30 @@
 }
 
 .menu__row-title {
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.22;
+  white-space: nowrap;
+}
+
+.menu__row-cta {
+  flex: none;
+  padding: 12px 24px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out);
+  pointer-events: none;
+}
+
+.menu__row[data-active='true'] .menu__row-cta {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .menu__row[data-active='true'] {

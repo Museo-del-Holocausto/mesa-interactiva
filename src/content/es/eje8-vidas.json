@@ -1,7 +1,7 @@
 {
   "id": "eje-8-vidas",
-  "title": "Detrás de cada cifra",
-  "lead": "Las víctimas no constituyeron un grupo uniforme. Había habitantes de kibutzim y ciudades, participantes del festival, integrantes de las fuerzas de seguridad, trabajadores agrícolas, cuidadores, ciudadanos árabes de Israel y personas de distintos países. Había bebés, niños, adolescentes, jóvenes, padres, madres, abuelos y abuelas.",
+  "title": "Catorce vidas",
+  "lead": "Detrás de cada cifra hay una persona. Las víctimas no constituyeron un grupo uniforme: había habitantes de kibutzim y ciudades, participantes del festival, integrantes de las fuerzas de seguridad, trabajadores agrícolas, cuidadores, ciudadanos árabes de Israel y personas de distintos países. Había bebés, niños, adolescentes, jóvenes, padres, madres, abuelos y abuelas.",
   "centro": "Una persona no puede ser resumida por la manera en que murió.",
   "centroSub": "Recordar significa también conocer cómo vivió, qué amaba, qué proyectos tenía y quiénes continúan pronunciando su nombre.",
   "ui": {
@@ -45,11 +45,99 @@
       "edad": "74 años",
       "lugar": "Kibutz Be'eri",
       "actividad": "Activista por la paz y los derechos de las mujeres",
-      "recuerdo": "Durante años trabajó junto con palestinos y ayudó a trasladar pacientes de Gaza para recibir atención médica.",
-      "pendiente": [
-        "familia",
-        "disfrutaba"
-      ]
+      "recuerdo": "Dedicó gran parte de su vida a acercar israelíes y palestinos. El 7 de octubre habló y escribió con su hijo mientras el ataque avanzaba sobre Be'eri. Durante semanas se creyó que era rehén. Luego se confirmó que había sido asesinada en su casa.",
+      "familia": "Madre de Chen y Yonatan, y abuela.",
+      "disfrutaba": "Trabajar con otras personas y construir vínculos entre comunidades."
+    },
+    {
+      "id": "aner-shapira",
+      "nombre": "Aner Shapira",
+      "estado": "Asesinado",
+      "edad": "22 años",
+      "lugar": "Jerusalén",
+      "familia": "El mayor de siete hermanos, hijo de Shira y Moshe. Uno de sus mejores amigos era Hersh Goldberg-Polin.",
+      "actividad": "Soldado de la Brigada Nahal, fuera de servicio ese día. También músico, compositor, rapero y poeta.",
+      "disfrutaba": "La música. Escribía y grababa sus propias canciones. Después de su muerte, su familia produjo un álbum con sus composiciones.",
+      "recuerdo": "Aner era soldado, pero también músico y poeta. En el refugio al que habían escapado desde Nova se colocó junto a la entrada y devolvió una tras otra las granadas que arrojaban los atacantes. Murió intentando proteger a quienes estaban detrás de él."
+    },
+    {
+      "id": "shani-louk",
+      "nombre": "Shani Louk",
+      "estado": "Asesinada",
+      "edad": "22 años",
+      "lugar": "Tel Aviv. Había crecido en Srigim.",
+      "familia": "Hija de Ricarda y Nissim Louk; tenía hermanos. Poseía ciudadanía israelí y alemana.",
+      "actividad": "Artista y tatuadora. Había estudiado diseño gráfico.",
+      "disfrutaba": "Dibujar, crear ropa, viajar, bailar y escuchar música.",
+      "recuerdo": "Shani era artista y tatuadora. Había ido a Nova para bailar con amigos. Fue asesinada el 7 de octubre y su cuerpo fue llevado a Gaza. Siete meses después, sus restos fueron recuperados y su familia pudo enterrarla. Su padre recordó que, antes del ataque, había pasado la noche haciendo algo que amaba: bailar.",
+      "notaInterna": "No utilizar la imagen de la camioneta que circuló mundialmente. Usar exclusivamente un retrato en vida."
+    },
+    {
+      "id": "hersh-goldberg-polin",
+      "nombre": "Hersh Goldberg-Polin",
+      "estado": "Secuestrado y asesinado en cautiverio",
+      "edad": "23 años",
+      "lugar": "Jerusalén",
+      "familia": "Hijo de Rachel Goldberg-Polin y Jon Polin; tenía dos hermanas menores, Leebie y Orly. Aner Shapira era uno de sus amigos más cercanos.",
+      "actividad": "Había terminado el servicio militar pocos meses antes y trabajaba como mozo y acompañando grupos escolares para ahorrar dinero.",
+      "disfrutaba": "El fútbol, especialmente el Hapoel Jerusalem. Tenía un pasaje para empezar un largo viaje por India en diciembre de 2023.",
+      "recuerdo": "Había cumplido 23 años apenas cuatro días antes del ataque. Gravemente herido en el refugio de Re'im, fue llevado a Gaza con vida. Tras casi once meses de cautiverio, fue asesinado. Su familia convirtió su nombre en uno de los símbolos internacionales del reclamo por los rehenes."
+    },
+    {
+      "id": "noa-argamani",
+      "nombre": "Noa Argamani",
+      "estado": "Secuestrada y rescatada con vida",
+      "edad": "25 años",
+      "lugar": "Be'er Sheva",
+      "familia": "Hija única de Yaakov y Liora Argamani. Su pareja, Avinatan Or, también fue secuestrada el 7 de octubre.",
+      "actividad": "Estudiante de Ingeniería de Software y Sistemas de Información en la Universidad Ben-Gurion.",
+      "disfrutaba": "La naturaleza, la meditación y viajar. Poco antes había recorrido Sri Lanka.",
+      "recuerdo": "Fue secuestrada en Nova y permaneció 246 días en Gaza. Fue rescatada el 8 de junio de 2024. Después contó que muchas noches se dormía pensando que aquella podía ser la última noche de su vida."
+    },
+    {
+      "id": "familia-bibas",
+      "nombre": "Shiri, Ariel y Kfir Bibas",
+      "estado": "Secuestrados y asesinados en cautiverio",
+      "edad": "32 años, 4 años y 9 meses",
+      "lugar": "Kibutz Nir Oz",
+      "familia": "Shiri estaba casada con Yarden Bibas, también secuestrado y liberado con vida el 1 de febrero de 2025. Los padres de Shiri, Yossi y Margit Silberman, fueron asesinados en Nir Oz el 7 de octubre.",
+      "actividad": "Shiri había estudiado desarrollo de la primera infancia y trabajado durante años como educadora. En los últimos años trabajaba en la administración financiera del kibutz.",
+      "disfrutaba": "Ariel era fanático de Batman: su entusiasmo llevó a que toda la familia tuviera ropa del personaje a juego. Kfir era recordado como un bebé sonriente que estaba empezando a gatear.",
+      "recuerdo": "El 7 de octubre fueron secuestrados de su casa y llevados vivos a Gaza. Durante más de un año su familia esperó su regreso. En febrero de 2025 sus cuerpos fueron devueltos a Israel. Las autoridades israelíes determinaron que habían muerto durante el cautiverio."
+    },
+    {
+      "id": "yocheved-lifshitz",
+      "nombre": "Yocheved Lifshitz",
+      "estado": "Secuestrada y liberada con vida",
+      "edad": "85 años",
+      "lugar": "Kibutz Nir Oz, que ayudó a fundar en 1956",
+      "familia": "Casada con Oded Lifshitz, también secuestrado; posteriormente se confirmó su muerte. Tenían hijos y nietos.",
+      "actividad": "Fotógrafa y docente de fotografía. Durante décadas documentó la vida cotidiana de Nir Oz y creó un programa de fotografía para estudiantes secundarios.",
+      "disfrutaba": "La fotografía y el jardín de cactus que cultivó durante décadas junto con Oded.",
+      "recuerdo": "Había fotografiado la vida de Nir Oz durante décadas. El 7 de octubre fue arrancada de esa misma comunidad. Fue liberada el 23 de octubre de 2023. Tras su liberación relató la violencia del secuestro y kilómetros de túneles húmedos; también contó que durante parte del cautiverio recibió comida y atención básica."
+    },
+    {
+      "id": "mia-schem",
+      "nombre": "Mia Schem",
+      "estado": "Secuestrada y liberada con vida",
+      "edad": "21 años",
+      "lugar": "Shoham",
+      "familia": "Su madre, Keren, y sus hermanos llevaron adelante una campaña pública por su liberación.",
+      "actividad": "Se estaba formando para trabajar como tatuadora.",
+      "disfrutaba": "El arte, la música y el mundo del tatuaje. Había ido a Nova con amigos.",
+      "recuerdo": "Fue herida y secuestrada en el festival. Fue liberada el 30 de noviembre de 2023. Después de regresar habló del miedo constante, de su herida y de las condiciones en que estuvo retenida.",
+      "notaInterna": "No utilizar el video producido durante el cautiverio como si fuera un testimonio libre. Puede mencionarse como documento histórico, identificándolo explícitamente como material producido bajo coerción."
+    },
+    {
+      "id": "emily-damari",
+      "nombre": "Emily Damari",
+      "estado": "Secuestrada y liberada con vida",
+      "edad": "27 años",
+      "lugar": "Kibutz Kfar Aza",
+      "familia": "Su madre, Mandy Damari, protagonizó una extensa campaña por su liberación. Era muy cercana a sus amigos Gali y Ziv Berman.",
+      "actividad": "Había trabajado en el ámbito policial y desarrollaba su vida en Kfar Aza.",
+      "disfrutaba": "El fútbol. Era una reconocida hincha del Tottenham Hotspur.",
+      "recuerdo": "Fue herida de bala durante el secuestro y perdió dos dedos. Permaneció 471 días cautiva y fue liberada el 19 de enero de 2025. Al regresar contó que había pasado por casas, túneles y espacios cerrados, y que intentó conservar algo que sus captores no podían quitarle: su libertad interior."
     },
     {
       "id": "amer-abu-sabila",

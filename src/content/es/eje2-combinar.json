@@ -1,0 +1,204 @@
+{
+  "id": "eje-1",
+  "title": "No hay dos iguales",
+  "lead": "El judaísmo incluye religión, historia, lenguas, costumbres, memorias, arte y vida comunitaria. Cada persona lo combina a su manera.",
+  "hint": "Girá el marcador para elegir · Tocá para confirmar",
+  "template": "{corriente}, {origen}. {lengua}. {vive}. {politica}.",
+  "ui": {
+    "start": "Empezar",
+    "pending": "…",
+    "next": "Siguiente",
+    "last": "Ver la persona",
+    "exists": "Esta persona existe.",
+    "countLabel": "Combinaciones posibles con estas cinco preguntas",
+    "andThis": "Y esta es una.",
+    "again": "Armar otra"
+  },
+  "axes": [
+    {
+      "id": "corriente",
+      "label": "Corriente",
+      "question": "¿Cómo vive la práctica religiosa?",
+      "options": [
+        {
+          "k": "religioso",
+          "label": "Religioso",
+          "frase": "Religioso",
+          "def": "Considera la fe, las celebraciones y las prácticas judías una parte central de su vida."
+        },
+        {
+          "k": "secular",
+          "label": "Secular",
+          "frase": "Secular",
+          "def": "Se identifica como judío por su cultura, su historia o su familia, aunque no practique la religión."
+        },
+        {
+          "k": "ortodoxo",
+          "label": "Ortodoxo",
+          "frase": "Ortodoxo",
+          "def": "Sigue de manera estricta las leyes y tradiciones religiosas judías."
+        },
+        {
+          "k": "conservador",
+          "label": "Conservador",
+          "frase": "Conservador",
+          "def": "Combina la continuidad de la tradición con algunos cambios adaptados a la vida actual."
+        },
+        {
+          "k": "reformista",
+          "label": "Reformista",
+          "frase": "Reformista",
+          "def": "Interpreta las tradiciones de forma más flexible y da importancia a la elección personal."
+        },
+        {
+          "k": "otra",
+          "label": "Otra corriente",
+          "frase": "De otra corriente",
+          "def": "Existen muchas comunidades y formas de práctica que no entran exactamente en estas categorías."
+        }
+      ]
+    },
+    {
+      "id": "origen",
+      "label": "Origen",
+      "question": "¿De dónde viene su comunidad?",
+      "options": [
+        {
+          "k": "ashkenazi",
+          "label": "Ashkenazí",
+          "frase": "ashkenazí",
+          "def": "Tiene raíces históricas principalmente en Europa central y oriental."
+        },
+        {
+          "k": "sefaradi",
+          "label": "Sefaradí",
+          "frase": "sefaradí",
+          "def": "Desciende de comunidades vinculadas históricamente con la península ibérica y, después de las expulsiones, con el norte de África, el Mediterráneo y el Imperio otomano."
+        },
+        {
+          "k": "mizraji",
+          "label": "Mizrají",
+          "frase": "mizrají",
+          "def": "Proviene de antiguas comunidades judías de Medio Oriente y otras regiones de Asia y África."
+        },
+        {
+          "k": "otro",
+          "label": "Otro origen",
+          "frase": "de otro origen",
+          "def": "Existen comunidades judías con historias propias que no entran en estas tres."
+        }
+      ]
+    },
+    {
+      "id": "lengua",
+      "label": "Lengua",
+      "question": "¿Qué habla en su casa?",
+      "propuesta": true,
+      "options": [
+        {
+          "k": "espanol",
+          "label": "Español",
+          "frase": "Habla español",
+          "def": "La lengua de la comunidad judía argentina, la tercera más grande de América."
+        },
+        {
+          "k": "idish",
+          "label": "Ídish",
+          "frase": "Habla ídish",
+          "def": "Lengua histórica de muchas comunidades judías de Europa central y oriental."
+        },
+        {
+          "k": "ladino",
+          "label": "Ladino",
+          "frase": "Habla ladino",
+          "def": "Lengua de las comunidades sefaradíes, nacida del castellano medieval."
+        },
+        {
+          "k": "hebreo",
+          "label": "Hebreo",
+          "frase": "Habla hebreo",
+          "def": "Lengua litúrgica durante siglos y hoy lengua cotidiana en Israel."
+        },
+        {
+          "k": "arabe",
+          "label": "Árabe",
+          "frase": "Habla árabe",
+          "def": "Lengua de las comunidades judías del norte de África y Medio Oriente."
+        },
+        {
+          "k": "otra",
+          "label": "Otra lengua",
+          "frase": "Habla otra lengua",
+          "def": "Según su lugar de origen, puede hablar idiomas diferentes y tener músicas, comidas y costumbres propias."
+        }
+      ]
+    },
+    {
+      "id": "vive",
+      "label": "Cómo lo vive",
+      "question": "¿Por dónde le pasa su identidad?",
+      "options": [
+        {
+          "k": "cultural",
+          "label": "Cultural",
+          "frase": "Lo vive desde la cultura",
+          "def": "Se expresa mediante la historia, el arte, la literatura, la música o las celebraciones."
+        },
+        {
+          "k": "familiar",
+          "label": "Familiar",
+          "frase": "Lo vive desde la familia",
+          "def": "Se transmite a través de relatos, recuerdos, recetas y costumbres compartidas."
+        },
+        {
+          "k": "nacional",
+          "label": "Nacional",
+          "frase": "Lo vive desde lo nacional",
+          "def": "Algunas personas relacionan su identidad judía con el país en el que viven o con Israel; otras no lo hacen."
+        },
+        {
+          "k": "espiritual",
+          "label": "Espiritual",
+          "frase": "Lo vive desde lo espiritual",
+          "def": "Se vincula con la fe, la reflexión, los valores y la búsqueda de sentido."
+        }
+      ]
+    },
+    {
+      "id": "politica",
+      "label": "Política",
+      "question": "¿Dónde se para políticamente?",
+      "propuesta": true,
+      "options": [
+        {
+          "k": "izq",
+          "label": "De izquierda",
+          "frase": "De izquierda",
+          "def": "Como en cualquier sociedad, las personas judías pueden tener posiciones políticas muy diferentes."
+        },
+        {
+          "k": "centro",
+          "label": "De centro",
+          "frase": "De centro",
+          "def": "Como en cualquier sociedad, las personas judías pueden tener posiciones políticas muy diferentes."
+        },
+        {
+          "k": "der",
+          "label": "De derecha",
+          "frase": "De derecha",
+          "def": "Como en cualquier sociedad, las personas judías pueden tener posiciones políticas muy diferentes."
+        },
+        {
+          "k": "nada",
+          "label": "No le interesa",
+          "frase": "No le interesa la política",
+          "def": "Como en cualquier sociedad, las personas judías pueden tener posiciones políticas muy diferentes."
+        }
+      ]
+    }
+  ],
+  "closing": {
+    "text": "Y estas son solo cinco preguntas.",
+    "sub": "La apariencia no permite conocer la lengua, las creencias, las costumbres, la profesión o las ideas de una persona. No existe una única manera de ser judío."
+  }
+}

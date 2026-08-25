@@ -1,0 +1,81 @@
+{
+  "id": "eje-2-trivia",
+  "title": "Lo que acabás de ver",
+  "lead": "Seis preguntas sobre lo que pasó en las pantallas anteriores.",
+  "ui": {
+    "start": "Empezar",
+    "counter": "Pregunta {n} de {total}",
+    "next": "Siguiente",
+    "last": "Ver el cierre",
+    "again": "Volver a empezar"
+  },
+  "preguntas": [
+    {
+      "enunciado": "Ser judío significa:",
+      "opciones": [
+        { "k": "a", "label": "Pertenecer únicamente a una religión." },
+        { "k": "b", "label": "Formar parte de un pueblo con historia, cultura y tradiciones diversas." },
+        { "k": "c", "label": "Tener una única forma de vivir y pensar." }
+      ],
+      "correcta": "b",
+      "mensaje": "El judaísmo incluye religión, historia, lenguas, costumbres, memorias, arte y vida comunitaria."
+    },
+    {
+      "enunciado": "¿Qué parte de la población mundial es judía?",
+      "opciones": [
+        { "k": "a", "label": "Menos del 1%." },
+        { "k": "b", "label": "Cerca del 5%." },
+        { "k": "c", "label": "Cerca del 10%." }
+      ],
+      "correcta": "a",
+      "mensaje": "Son unos 16 millones de personas sobre 8.280 millones."
+    },
+    {
+      "enunciado": "¿Dónde vive la mayoría de los judíos del mundo?",
+      "opciones": [
+        { "k": "a", "label": "En Israel." },
+        { "k": "b", "label": "Fuera de Israel." },
+        { "k": "c", "label": "En Estados Unidos." }
+      ],
+      "correcta": "b",
+      "mensaje": "Israel concentra al 45%. El resto vive repartido en decenas de países."
+    },
+    {
+      "enunciado": "¿Cuándo llegó a la Argentina el primer grupo organizado de inmigrantes judíos?",
+      "opciones": [
+        { "k": "a", "label": "A fines del siglo XIX." },
+        { "k": "b", "label": "Después de la Primera Guerra Mundial." },
+        { "k": "c", "label": "Después del Holocausto." }
+      ],
+      "correcta": "a",
+      "mensaje": "En 1889, junto con la inmigración italiana y española."
+    },
+    {
+      "enunciado": "El ídish era la lengua de millones de judíos europeos. ¿Qué pasó con ella?",
+      "opciones": [
+        { "k": "a", "label": "Las comunidades decidieron reemplazarla por el hebreo." },
+        { "k": "b", "label": "La mayoría de sus hablantes fue asesinada en el Holocausto." },
+        { "k": "c", "label": "Cayó en desuso con el paso del tiempo." }
+      ],
+      "correcta": "b",
+      "explicacion": "Antes de la guerra la hablaban unos 13 millones de personas, casi todas en Europa del Este. Hoy quedan unas 600.000.",
+      "mensaje": "Cuando se destruye a una población también se destruye su lengua."
+    },
+    {
+      "enunciado": "¿Podías saber todo esto solamente mirando sus rostros?",
+      "formato": "fila",
+      "opciones": [
+        { "k": "si", "label": "Sí" },
+        { "k": "no", "label": "No" }
+      ],
+      "correcta": "no",
+      "explicacion": "La apariencia no nos permite conocer la lengua, las creencias, las costumbres, la profesión o las ideas de una persona.",
+      "mensaje": "Cada historia es diferente. No existe una única manera de ser judío."
+    }
+  ],
+  "closing": {
+    "label": "Para cerrar",
+    "text": "No existe una única forma de ser judío.",
+    "sub": "Cada persona combina su identidad de una manera propia."
+  }
+}

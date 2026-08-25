@@ -27,43 +27,86 @@
       "id": "eje-1",
       "number": "01",
       "mode": "explorar",
-      "title": "Quiénes son los judíos",
-      "subtitle": "No hay dos iguales. Cinco preguntas y 2.304 personas posibles.",
-      "volume": "5 preguntas",
-      "module": "eje-1",
-      "eyebrow": "Eje 1 · Quiénes son los judíos"
+      "title": "Qué es el antisemitismo",
+      "subtitle": "Es una forma de prejuicio, discriminación y hostilidad dirigida contra las personas judías, las comunidades judías, el judaísmo o aquello que se imagina y se presenta como «judío».",
+      "volume": "4 pantallas",
+      "children": [
+        {
+          "id": "eje-1-definir",
+          "module": "eje-1-definir",
+          "eyebrow": "Eje 1 · Qué es el antisemitismo",
+          "title": "Qué es el antisemitismo",
+          "subtitle": "La definición, la diversidad que borra, el salto de una persona al grupo entero y la búsqueda de un culpable."
+        },
+        {
+          "id": "eje-1-trivia",
+          "module": "eje-1-trivia",
+          "eyebrow": "Qué es el antisemitismo · Lo que acabás de ver",
+          "title": "Lo que acabás de ver",
+          "subtitle": "Preguntas de repaso sobre lo que acabás de recorrer."
+        }
+      ]
     },
     {
       "id": "eje-2",
       "number": "02",
-      "mode": "recorrer",
-      "title": "Orígenes y evolución",
-      "subtitle": "Cómo cambió el antisemitismo desde la antigüedad grecorromana hasta hoy.",
-      "volume": "7 pasos",
-      "estado": "pendiente"
+      "mode": "explorar",
+      "title": "Quiénes son los judíos",
+      "subtitle": "Las personas judías tienen historias, costumbres, ideas y formas de vida muy diferentes. El judaísmo incluye religión, historia, lenguas, costumbres, memorias, arte y vida comunitaria. No existe una única forma de ser judío.",
+      "volume": "3 partes",
+      "eyebrow": "Eje 2 · Quiénes son los judíos",
+      "children": [
+        {
+          "id": "eje-2-combinar",
+          "module": "eje-2-combinar",
+          "eyebrow": "Eje 2 · Armá una identidad",
+          "title": "Armá una identidad",
+          "subtitle": "Cinco preguntas y 2.304 personas posibles. Ninguna es más judía que otra."
+        },
+        {
+          "id": "eje-2-estimar",
+          "module": "eje-2-estimar",
+          "eyebrow": "Eje 2 · Cuánto te imaginás",
+          "title": "Cuánto te imaginás",
+          "subtitle": "Ocho preguntas con números. Girá el marcador y compará tu respuesta con el dato real."
+        },
+        {
+          "id": "eje-2-trivia",
+          "module": "eje-2-trivia",
+          "eyebrow": "Quiénes son los judíos · Lo que acabás de ver",
+          "title": "Lo que acabás de ver",
+          "subtitle": "Preguntas de repaso sobre lo que acabás de recorrer."
+        }
+      ]
     },
     {
       "id": "eje-3",
       "number": "03",
       "mode": "decidir",
       "title": "Mitos y estereotipos",
-      "subtitle": "Las acusaciones más repetidas contra los judíos, y de dónde salieron.",
+      "subtitle": "A lo largo de los siglos, el antisemitismo construyó mitos para presentar a los judíos como una amenaza. Estos relatos falsos cambiaron de forma según la época: primero fueron religiosos, luego económicos, raciales, políticos y conspirativos. Aunque no tienen base real, sirvieron para justificar discriminación, expulsiones, violencia y genocidio.",
       "volume": "6 casos",
-      "display": "destacado",
       "children": [
         {
-          "id": "eje-3-fabricar",
-          "module": "eje-3-fabricar",
-          "eyebrow": "Eje 3 · Fábrica de mitos",
-          "title": "Fábrica de mitos",
-          "subtitle": "En cuatro momentos de la historia armás vos la acusación, eligiendo entre hechos que son ciertos. Después ves qué se dijo realmente, y qué pasó."
+          "id": "eje-3-mitos",
+          "module": "eje-3-mitos",
+          "eyebrow": "Eje 3 · Dos mil años de mitos",
+          "title": "Dos mil años de mitos",
+          "subtitle": "Nueve acusaciones, de la Antigüedad a hoy. Su origen, cómo se construyeron y qué dejaron."
         },
         {
-          "id": "eje-3-linea",
-          "module": "eje-3-linea",
-          "eyebrow": "Eje 3 · Dos mil años",
-          "title": "Dos mil años",
-          "subtitle": "Los nueve mitos en orden de fecha. El mismo prejuicio cambiando de registro: religioso, económico, racial, conspirativo."
+          "id": "eje-3-contradicciones",
+          "module": "eje-3-contradicciones",
+          "eyebrow": "Eje 3 · El detector de contradicciones",
+          "title": "El detector de contradicciones",
+          "subtitle": "Seis pares de acusaciones opuestas sobre las mismas personas. ¿Pueden ser todas ciertas?"
+        },
+        {
+          "id": "eje-3-trivia",
+          "module": "eje-3-trivia",
+          "eyebrow": "Mitos y estereotipos · Lo que acabás de ver",
+          "title": "Lo que acabás de ver",
+          "subtitle": "Preguntas de repaso sobre lo que acabás de recorrer."
         }
       ]
     },
@@ -73,60 +116,191 @@
       "mode": "recorrer",
       "title": "Políticas del Estado",
       "subtitle": "Primero identifican, después restringen, después separan. Lo anterior nunca se va.",
-      "volume": "4 pasos · 20 medidas",
-      "module": "eje-4",
-      "eyebrow": "Eje 4 · Políticas del Estado"
+      "volume": "3 partes",
+      "eyebrow": "Eje 4 · Políticas del Estado",
+      "children": [
+        {
+          "id": "eje-4-linea",
+          "module": "eje-4-linea",
+          "eyebrow": "Eje 4 · De la exclusión a la persecución",
+          "title": "De la exclusión a la persecución",
+          "subtitle": "Cinco tramos, de las primeras exclusiones de 1933 al exterminio."
+        },
+        {
+          "id": "eje-4-recorrer",
+          "module": "eje-4-recorrer",
+          "eyebrow": "Eje 4 · Lo que el Estado fue prohibiendo",
+          "title": "Lo que el Estado fue prohibiendo",
+          "subtitle": "Veinte medidas que se acumulan y nunca desaparecen."
+        },
+        {
+          "id": "eje-4-trivia",
+          "module": "eje-4-trivia",
+          "eyebrow": "Políticas del Estado · Lo que acabás de ver",
+          "title": "Lo que acabás de ver",
+          "subtitle": "Preguntas de repaso sobre lo que acabás de recorrer."
+        }
+      ]
     },
     {
       "id": "eje-5",
       "number": "05",
       "mode": "decidir",
-      "title": "Israel y antisionismo",
-      "subtitle": "Dónde termina la crítica política y dónde empieza el antisemitismo.",
-      "volume": "7 casos",
-      "estado": "pendiente"
+      "title": "El antisemitismo en redes",
+      "subtitle": "El odio no aparece de repente. Escala de forma gradual. La repetición y normalización del desprecio puede reducir los límites sociales frente a la violencia.",
+      "volume": "4 partes",
+      "children": [
+        {
+          "id": "eje-5-escalada",
+          "module": "eje-5-escalada",
+          "eyebrow": "Eje 5 · La escalada del odio",
+          "title": "La escalada del odio",
+          "subtitle": "Diez niveles, del estereotipo al exterminio."
+        },
+        {
+          "id": "eje-5-alcance",
+          "module": "eje-5-alcance",
+          "eyebrow": "Eje 5 · Hasta dónde llega",
+          "title": "Hasta dónde llega",
+          "subtitle": "Nueve días de una escalada en redes, y cuánta gente la vio en cada etapa."
+        },
+        {
+          "id": "eje-5-desmentido",
+          "module": "eje-5-desmentido",
+          "eyebrow": "Eje 5 · La mentira y el desmentido",
+          "title": "La mentira y el desmentido",
+          "subtitle": "Girá hacia un lado y hacia el otro. Solo uno de los dos llega lejos."
+        },
+        {
+          "id": "eje-5-trivia",
+          "module": "eje-5-trivia",
+          "eyebrow": "El antisemitismo en redes · Lo que acabás de ver",
+          "title": "Lo que acabás de ver",
+          "subtitle": "Preguntas de repaso sobre lo que acabás de recorrer."
+        }
+      ]
     },
     {
       "id": "eje-6",
       "number": "06",
-      "mode": "mixto",
-      "title": "Del chiste a la violencia",
-      "subtitle": "La escalada del odio, y qué hacer en cada etapa.",
-      "volume": "10 pasos y 5 casos",
-      "estado": "pendiente"
+      "mode": "decidir",
+      "title": "Antisionismo y antisemitismo",
+      "subtitle": "Un Estado, un gobierno, una ideología y una población mundial no son la misma cosa.",
+      "volume": "3 partes",
+      "children": [
+        {
+          "id": "eje-6-definiciones",
+          "module": "eje-6-definiciones",
+          "eyebrow": "Eje 6 · Sionismo y antisionismo",
+          "title": "Sionismo y antisionismo",
+          "subtitle": "Qué dice cada término y dónde se cruza una línea."
+        },
+        {
+          "id": "eje-6-afirmaciones",
+          "module": "eje-6-afirmaciones",
+          "eyebrow": "Eje 6 · Siete afirmaciones frecuentes",
+          "title": "Siete afirmaciones frecuentes",
+          "subtitle": "Qué tiene de cierto cada una y qué simplifica."
+        },
+        {
+          "id": "eje-6-trivia",
+          "module": "eje-6-trivia",
+          "eyebrow": "Antisionismo y antisemitismo · Lo que acabás de ver",
+          "title": "Lo que acabás de ver",
+          "subtitle": "Preguntas de repaso sobre lo que acabás de recorrer."
+        }
+      ]
     },
     {
       "id": "eje-7",
       "number": "07",
       "mode": "decidir",
-      "title": "Negacionismo",
+      "title": "Negación, distorsión y banalización",
       "subtitle": "Negar, distorsionar y banalizar no son lo mismo. Nueve afirmaciones para clasificar.",
-      "volume": "9 casos",
-      "module": "eje-7",
-      "eyebrow": "Eje 7 · Negacionismo y distorsión"
+      "volume": "2 partes",
+      "eyebrow": "Eje 7 · Negacionismo y distorsión",
+      "children": [
+        {
+          "id": "eje-7-decidir",
+          "module": "eje-7-decidir",
+          "eyebrow": "Eje 7 · Nueve afirmaciones",
+          "title": "Nueve afirmaciones",
+          "subtitle": "Negar, distorsionar y banalizar no son lo mismo. ¿Cuál es cuál?"
+        },
+        {
+          "id": "eje-7-casos",
+          "module": "eje-7-casos",
+          "eyebrow": "Eje 7 · Ocho casos reales",
+          "title": "Ocho casos reales",
+          "subtitle": "De un juicio en Londres a las estrellas amarillas en las marchas antivacunas."
+        }
+      ]
     },
     {
       "id": "eje-8",
       "number": "08",
       "mode": "explorar",
-      "title": "7 de octubre",
-      "subtitle": "El ataque, las comunidades, las personas y la espera. Cinco secciones.",
-      "volume": "6 fichas",
-      "display": "destacado",
+      "title": "El 7 de octubre de 2023",
+      "subtitle": "En la mañana del 7 de octubre de 2023, Hamás encabezó un ataque coordinado desde la Franja de Gaza, en el que participaron también otros grupos armados palestinos. Alrededor de 1.200 personas fueron asesinadas y 251 fueron secuestradas. La mayoría de las personas asesinadas eran civiles.",
+      "volume": "8 partes",
       "children": [
+        {
+          "id": "eje-8-proposito",
+          "module": "eje-8-proposito",
+          "eyebrow": "Eje 8 · Antes de entrar",
+          "title": "Antes de entrar",
+          "subtitle": "Con qué criterio está armado este módulo."
+        },
+        {
+          "id": "eje-8-dia",
+          "module": "eje-8-dia",
+          "eyebrow": "Eje 8 · El día",
+          "title": "El día",
+          "subtitle": "Girá el marcador y avanzá la hora del 7 de octubre."
+        },
         {
           "id": "eje-8-lugares",
           "module": "eje-8-lugares",
           "eyebrow": "Eje 8 · Las comunidades atacadas",
           "title": "Las comunidades atacadas",
-          "subtitle": "Seis lugares, antes y después. Cada punto es una comunidad formada por viviendas, escuelas, campos y redes familiares."
+          "subtitle": "Tres kibutzim, una ciudad fronteriza y una ciudad más lejos de Gaza."
+        },
+        {
+          "id": "eje-8-nova-grupo",
+          "mode": "explorar",
+          "eyebrow": "Eje 8 · El festival Nova",
+          "title": "El festival Nova",
+          "subtitle": "Miles de jóvenes celebraban música, libertad, amistad y convivencia cerca del kibutz Re'im.",
+          "children": [
+            {
+              "id": "eje-8-nova",
+              "module": "eje-8-nova",
+              "eyebrow": "Nova · La noche y la mañana",
+              "title": "La noche y la mañana",
+              "subtitle": "De las 22:00 del 6 de octubre a la mañana siguiente."
+            },
+            {
+              "id": "eje-8-nova-cifras",
+              "module": "eje-8-nova-cifras",
+              "eyebrow": "Nova · Los números",
+              "title": "Los números",
+              "subtitle": "Quiénes estaban, cuántos fueron asesinados y dónde ocurrió."
+            }
+          ]
+        },
+        {
+          "id": "eje-8-cifras",
+          "module": "eje-8-cifras",
+          "eyebrow": "Eje 8 · Detrás de cada cifra",
+          "title": "Las cifras",
+          "subtitle": "1.414 personas. Una figura cada una."
         },
         {
           "id": "eje-8-vidas",
           "module": "eje-8-vidas",
-          "eyebrow": "Eje 8 · Detrás de cada cifra",
-          "title": "Detrás de cada cifra",
-          "subtitle": "Una persona no puede ser resumida por la manera en que murió."
+          "eyebrow": "Eje 8 · Catorce vidas",
+          "title": "Catorce vidas",
+          "subtitle": "Quiénes eran, qué hacían y qué les gustaba."
         },
         {
           "id": "eje-8-espera",
@@ -136,16 +310,11 @@
           "subtitle": "Pasa el tiempo y hay cada vez menos. Los canales para averiguar algo se apagan y las preguntas ocupan su lugar."
         },
         {
-          "id": "eje-8-dia",
-          "estado": "pendiente",
-          "title": "El día",
-          "subtitle": "La cronología del 7 de octubre, hora por hora."
-        },
-        {
-          "id": "eje-8-saber",
-          "estado": "pendiente",
-          "title": "Cómo sabemos lo que sabemos",
-          "subtitle": "Fecha de actualización, instituciones consultadas y revisiones de cifras."
+          "id": "eje-8-antisemitismo",
+          "module": "eje-8-antisemitismo",
+          "eyebrow": "Eje 8 · El aumento del antisemitismo",
+          "title": "El aumento del antisemitismo",
+          "subtitle": "Las denuncias, las formas que tomó y dónde está el límite."
         }
       ]
     },
@@ -153,9 +322,9 @@
       "id": "eje-9",
       "number": "09",
       "mode": "explorar",
-      "title": "Aportes judíos",
-      "subtitle": "Ocho personas que dejaron una marca en la ciencia, el arte y el pensamiento.",
-      "volume": "8 fichas",
+      "title": "Aportes judíos a la cultura y la sociedad",
+      "subtitle": "Detrás de muchas ideas, obras y descubrimientos que forman parte de nuestra vida hay historias judías.",
+      "volume": "18 personas",
       "module": "eje-9",
       "eyebrow": "Eje 9 · Aportes judíos"
     }

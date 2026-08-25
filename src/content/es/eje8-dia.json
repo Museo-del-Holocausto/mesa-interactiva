@@ -1,0 +1,72 @@
+{
+  "id": "eje-8-dia",
+  "title": "El día",
+  "lead": "El ataque comenzó a las 6:30 de la mañana. Para muchas familias no terminó ese día.",
+  "ui": {
+    "start": "Empezar",
+    "hint": "Girá el marcador para avanzar la hora",
+    "encerradas": "Familias encerradas desde hace",
+    "hs": "horas",
+    "fin": "Ver el cierre",
+    "again": "Volver a empezar"
+  },
+  "desde": 360,
+  "hasta": 1439,
+  "paso": 15,
+  "eventos": [
+    {
+      "min": 390,
+      "hora": "06:30",
+      "titulo": "Comienzan los cohetes",
+      "texto": "El ataque comienza alrededor de las 6:30 de la mañana con el lanzamiento masivo de cohetes desde la Franja de Gaza."
+    },
+    {
+      "min": 420,
+      "hora": "07:00",
+      "titulo": "Las incursiones",
+      "texto": "Grupos armados atraviesan la barrera que separaba Gaza de Israel por distintos puntos y avanzan hacia las comunidades del sur. También hacia el área donde se realizaba el festival Nova."
+    },
+    {
+      "min": 480,
+      "hora": "08:00",
+      "titulo": "Dentro de las casas",
+      "texto": "Durante horas atacan viviendas, calles, refugios, vehículos, puestos de seguridad y espacios civiles. Algunas personas son asesinadas dentro de sus casas; otras, mientras intentan huir o esconderse. Viviendas y vehículos son incendiados. También son atacadas bases y posiciones militares."
+    },
+    {
+      "min": 600,
+      "hora": "10:00",
+      "titulo": "La espera",
+      "texto": "Familias permanecen encerradas en habitaciones protegidas, refugios, campos y vehículos. En numerosos lugares la llegada de fuerzas de rescate y seguridad demora varias horas."
+    },
+    {
+      "min": 780,
+      "hora": "13:00",
+      "titulo": "El rescate demora",
+      "texto": "En numerosos lugares la llegada de las fuerzas de rescate y seguridad tarda varias horas. En Nir Oz las fuerzas militares llegan cuando los principales grupos atacantes ya se retiraron."
+    },
+    {
+      "min": 1200,
+      "hora": "20:00",
+      "titulo": "Todavía hay combates",
+      "texto": "En varias comunidades los enfrentamientos y las operaciones de rescate continúan. Algunas familias permanecen encerradas y serán evacuadas al día siguiente: una familia de Kfar Aza pasó unas 35 horas dentro de su habitación protegida."
+    },
+    {
+      "min": 1380,
+      "hora": "23:00",
+      "titulo": "Final del día",
+      "texto": "La dimensión total del ataque todavía se desconoce. Miles de familias buscan información sobre personas desaparecidas."
+    }
+  ],
+  "closing": {
+    "label": "Lo que concluyó la investigación",
+    "text": "La Comisión Internacional Independiente de Investigación de las Naciones Unidas concluyó que integrantes de Hamás y de otros grupos armados palestinos cometieron graves violaciones del derecho internacional.",
+    "sub": "Incluidos ataques deliberados contra civiles, violencia sexual y de género contra mujeres y hombres, asesinatos y toma de rehenes."
+  },
+  "pasoLento": 60,
+  "lentoDesde": 600,
+  "contador": {
+    "label": "Familias encerradas desde hace",
+    "unidad": "horas",
+    "desde": 420
+  }
+}

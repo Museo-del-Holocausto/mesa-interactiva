@@ -1,0 +1,48 @@
+{
+  "id": "eje-8-nova-cifras",
+  "title": "Quiénes estaban y qué ocurrió",
+  "lead": "Del sonido de la música al sonido de las armas.",
+  "intro": "Los ataques no ocurrieron únicamente en la pista de baile: se extendieron por distintos espacios alrededor del festival.",
+  "ui": {
+    "rest": "Apoyá el marcador sobre uno de los círculos · También podés tocarlos",
+    "spin": "Girá el marcador para recorrer",
+    "of": "de"
+  },
+  "contenedores": [
+    {
+      "id": "quienes",
+      "rot": "Quiénes estaban",
+      "sub": "Más de 3.500",
+      "items": [
+        { "cifra": "3.000", "titulo": "Asistentes", "texto": "Más de tres mil personas habían llegado la noche anterior para bailar hasta el día siguiente." },
+        { "cifra": "400", "titulo": "Trabajadores", "texto": "Alrededor de cuatrocientas personas trabajaban en el festival." },
+        { "cifra": "75", "titulo": "Guardias de seguridad", "texto": "Setenta y cinco guardias, sin armas. Además había policías desplegados en el lugar." }
+      ]
+    },
+    {
+      "id": "victimas",
+      "rot": "Las víctimas",
+      "sub": "El balance oficial",
+      "encabezado": "El balance oficial más reciente identifica 378 personas asesinadas en hechos vinculados con el festival Nova.",
+      "items": [
+        { "cifra": "344", "titulo": "Civiles que asistían al festival", "texto": "" },
+        { "cifra": "34", "titulo": "Integrantes de las fuerzas de seguridad", "texto": "" },
+        { "cifra": "44", "titulo": "Personas secuestradas", "texto": "Además de las asesinadas, cuarenta y cuatro personas fueron llevadas a Gaza." }
+      ]
+    },
+    {
+      "id": "donde",
+      "rot": "Dónde ocurrió",
+      "sub": "Cinco espacios",
+      "encabezado": "Los ataques no ocurrieron únicamente en la pista de baile. Se extendieron por diferentes espacios:",
+      "items": [
+        { "titulo": "La Ruta 232 y los cruces cercanos", "texto": "Los atacantes dispararon contra automóviles y personas que intentaban huir." },
+        { "titulo": "Los refugios de carretera", "texto": "Algunos fueron atacados con disparos y granadas mientras numerosas personas se encontraban hacinadas en su interior." },
+        { "titulo": "Los campos abiertos", "texto": "Grupos armados persiguieron y dispararon contra quienes escapaban a pie." },
+        { "titulo": "El predio del festival", "texto": "El estacionamiento, la zona de campamento y el recinto. Después de las 9:15 decenas de atacantes ingresaron y dispararon contra personas ocultas." },
+        { "titulo": "La ambulancia del festival", "texto": "Fue atacada cuando varias personas se refugiaban dentro y alrededor de ella." }
+      ]
+    }
+  ],
+  "cierre": "Centenares de asistentes fueron asesinados y decenas fueron secuestrados."
+}

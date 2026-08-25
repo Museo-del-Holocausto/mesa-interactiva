@@ -106,6 +106,8 @@ export class Fabricar {
       </section>`;
 
     root.addEventListener('pointerdown', (event) => {
+      // Solo el boton principal. El secundario tiene que llegar al navegador.
+      if (event.button !== 0) return;
       const target = event.target;
       if (!(target instanceof Element)) return;
       event.stopPropagation();

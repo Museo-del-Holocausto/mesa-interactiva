@@ -6,17 +6,17 @@
     {
       "k": "negacion",
       "label": "Negación",
-      "def": "Rechazo deliberado de la realidad del Holocausto o de su magnitud, a pesar de documentos, testimonios, fotografías, registros y restos materiales."
+      "def": "Rechaza que el Holocausto haya ocurrido o niega su magnitud, contra documentos, testimonios, fotografías y restos materiales."
     },
     {
       "k": "distorsion",
       "label": "Distorsión",
-      "def": "Presentación manipulada. No niega que haya ocurrido: modifica, minimiza o tergiversa los hechos, las responsabilidades o las consecuencias."
+      "def": "No lo niega: lo modifica. Minimiza las cifras, relativiza la responsabilidad nazi o culpa a los propios perseguidos."
     },
     {
       "k": "banalizacion",
       "label": "Banalización",
-      "def": "Uso de símbolos, palabras o comparaciones del nazismo y el Holocausto en situaciones que no guardan relación con esos hechos."
+      "def": "Usa símbolos, palabras o comparaciones del nazismo en situaciones que no tienen ninguna relación con esos hechos."
     }
   ],
   "ui": {

@@ -1,5 +1,13 @@
 import gsap from 'gsap';
-import { MARKER_COLUMN_W, MODULE_CANVAS_H, MODULE_CANVAS_W } from '@/config/table.js';
+import {
+  MARKER_COLUMN_W,
+  MARKER_RADIUS,
+  MODULE_CANVAS_H,
+  MODULE_CANVAS_W,
+} from '@/config/table.js';
+
+/** Banda muerta para que el lado no cambie con un temblor. */
+const SIDE_HYSTERESIS = 140;
 
 /**
  * Cascara comun de una pieza de eje.
@@ -18,6 +26,9 @@ export class Modulo {
   #scale = 1;
   #regionW = MODULE_CANVAS_W;
   #regionH = MODULE_CANVAS_H;
+  #side = 'left';
+  /** El marcador esta pisando la zona util del lienzo. */
+  overlaps = false;
   #originX = 0;
   #originY = 0;
 
@@ -31,17 +42,22 @@ export class Modulo {
     this.el = document.createElement('div');
     this.el.className = 'modulo';
     this.el.innerHTML = `
-      <div class="modulo__canvas">
+      <header class="modulo__head">
         <p class="modulo__eyebrow">${node.eyebrow ?? node.title}</p>
-        <div class="modulo__body"></div>
         <button class="modulo__back" type="button">Volver</button>
+      </header>
+      <div class="modulo__canvas">
+        <div class="modulo__body"></div>
       </div>`;
 
     this.canvas = this.el.querySelector('.modulo__canvas');
     this.canvas.style.width = `${MODULE_CANVAS_W}px`;
     this.canvas.style.height = `${MODULE_CANVAS_H}px`;
+    this.canvas.dataset.side = 'left';
 
     this.el.addEventListener('pointerdown', (event) => {
+      // Solo el boton principal. El secundario tiene que llegar al navegador.
+      if (event.button !== 0) return;
       if (!(event.target instanceof Element)) return;
       if (event.target.closest('.modulo__back')) {
         event.stopPropagation();
@@ -76,9 +92,6 @@ export class Modulo {
       transformOrigin: 'top left',
     });
 
-    // El marcador mide lo mismo siempre, asi que en coordenadas de lienzo
-    // ocupa menos cuanto mas grande sea el lienzo.
-    this.canvas.style.setProperty('--col', `${Math.round(MARKER_COLUMN_W / this.#scale)}px`);
     // Banda muerta alrededor del lienzo, en coordenadas de lienzo. Las piezas
     // que usan el marcador como cursor la necesitan para estirar su riel.
     this.canvas.style.setProperty('--bleed-x', `${Math.round(this.#originX / this.#scale)}px`);
@@ -105,25 +118,57 @@ export class Modulo {
    * @param {number} localX @param {number} localY
    */
   /**
-   * Traduce la posicion del marcador a coordenadas de lienzo y se la pasa a la
-   * pieza. El lienzo no se mueve: el marcador sigue siendo cursor y perilla,
-   * igual que en un cuadrante.
+   * Traduce la posicion del marcador a coordenadas de lienzo y decide, con ese
+   * dato, tres cosas: de que lado va el contenido, si hace falta reservarle
+   * columna al objeto, y si el objeto esta realmente encima del contenido.
+   *
+   * Todo se calcula contra el lienzo y no contra la region. Medirlo contra la
+   * region era el error: en modo guia el lienzo esta centrado y sobra banda
+   * muerta a los costados, asi que un marcador lejisimos del bloque se leia
+   * como "encima del contenido" y lo apagaba.
+   *
    * @param {number} localX @param {number} localY
    */
   applyPosition(localX, localY) {
     const cx = (localX - this.#originX) / this.#scale;
     const cy = (localY - this.#originY) / this.#scale;
-    // Coordenadas medidas desde el borde de la region, para las piezas que
-    // usan el marcador como cursor a lo largo de toda la mesa.
-    const rx = localX / this.#scale;
-    const ry = localY / this.#scale;
-    this.canvas.style.setProperty('--marker-x', `${Math.round(rx)}px`);
-    this.canvas.style.setProperty('--marker-y', `${Math.round(ry)}px`);
+    const r = MARKER_RADIUS / this.#scale;
+
+    // Lado: contra el centro del lienzo, con banda muerta.
+    const mid = MODULE_CANVAS_W / 2;
+    if (cx < mid - SIDE_HYSTERESIS) this.#side = 'left';
+    else if (cx > mid + SIDE_HYSTERESIS) this.#side = 'right';
+    this.canvas.dataset.side = this.#side;
+
+    // Columna: solo si el objeto pisa el lienzo. Si quedo afuera —cosa habitual
+    // en modo guia— el contenido usa todo el ancho en vez de dejar un hueco.
+    // Las piezas que reciben el marcador encima tampoco reservan columna: si el
+    // contenido se corriera al costado, los circulos se moverian justo cuando
+    // el objeto se acerca a ellos.
+    const dentro = cx + r > 0 && cx - r < MODULE_CANVAS_W;
+    const col =
+      dentro && !this.#piece?.aceptaMarcadorEncima ? MARKER_COLUMN_W / this.#scale : 0;
+    this.canvas.style.setProperty('--col', `${Math.round(col)}px`);
+
+    // Estorbo: el objeto pisa la zona util, no la columna que le reservamos.
+    const util = this.#side === 'left' ? [col, MODULE_CANVAS_W] : [0, MODULE_CANVAS_W - col];
+    // Hay piezas donde apoyar el marcador sobre el contenido ES la
+    // interaccion. Esas lo declaran y no se les avisa que estorban.
+    this.overlaps =
+      !this.#piece?.aceptaMarcadorEncima &&
+      dentro &&
+      cy + r > 0 &&
+      cy - r < MODULE_CANVAS_H &&
+      cx + r > util[0] &&
+      cx - r < util[1];
+
+    this.canvas.style.setProperty('--marker-x', `${Math.round(localX / this.#scale)}px`);
+    this.canvas.style.setProperty('--marker-y', `${Math.round(localY / this.#scale)}px`);
     // Se le pasa el alto real que recorre el marcador, no el del lienzo: en
     // modo guia el objeto puede subir y bajar por toda la mesa.
     this.#piece?.applyPosition?.(
-      rx,
-      ry,
+      localX / this.#scale,
+      localY / this.#scale,
       this.#regionW / this.#scale,
       this.#regionH / this.#scale,
     );

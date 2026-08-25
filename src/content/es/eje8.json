@@ -1,7 +1,7 @@
 {
   "id": "eje-8",
   "title": "Las comunidades atacadas",
-  "lead": "Cada punto es una comunidad formada por viviendas, escuelas, comedores, campos de cultivo, espacios de encuentro y redes familiares. La enumeración no es exhaustiva.",
+  "lead": "Cada punto es una comunidad formada por viviendas, escuelas, comedores, campos de cultivo, espacios de encuentro y redes familiares. La enumeración no es exhaustiva: son tres kibutzim, una ciudad fronteriza y una ciudad situada más lejos de Gaza.",
   "advertencia": {
     "label": "Advertencia de contenido",
     "text": "Este módulo contiene referencias a asesinatos, secuestros, violencia y pérdida. Las imágenes más sensibles no se reproducen automáticamente y pueden omitirse sin impedir la comprensión del recorrido.",
@@ -110,25 +110,6 @@
         "titulo": "Una reconstrucción desigual",
         "texto": "Ofakim no fue evacuada completamente, por lo que la recuperación tuvo un carácter diferente al de los kibutzim fronterizos. Se concentró en las familias afectadas, la atención psicológica y la recuperación del barrio Mishor HaGefen. Inicialmente la ciudad quedó fuera de algunos programas especiales de reconstrucción, lo que generó reclamos por una asistencia más equitativa.",
         "epigrafe": "Una calle de Ofakim después del ataque. Ilan Assayag / Associated Press, 8 de octubre de 2023."
-      }
-    },
-    {
-      "id": "nova",
-      "nombre": "Festival Nova",
-      "tipo": "Festival de música",
-      "antes": {
-        "titulo": "Una noche de música y encuentro",
-        "texto": "El festival comenzó a las 22:00 del 6 de octubre, cerca del kibutz Re'im. Miles de jóvenes llegaron con amigos, instalaron carpas, bailaron durante la noche y compartieron fotografías y mensajes. La música electrónica, las estructuras de colores y el campamento formaban parte de una celebración que se prolongaría durante el día siguiente.",
-        "epigrafe": "El campamento y las estructuras del festival, la madrugada del 7 de octubre."
-      },
-      "durante": {
-        "titulo": "La música se detuvo",
-        "texto": "Cuando comenzaron las alarmas por los cohetes, muchas personas intentaron abandonar el lugar. Las rutas se congestionaron. Otras buscaron refugio en pequeños refugios de carretera, campos, arbustos o vehículos. Los atacantes dispararon contra quienes huían y contra personas escondidas. Centenares de asistentes fueron asesinados y decenas fueron secuestrados."
-      },
-      "despues": {
-        "titulo": "Un espacio de memoria",
-        "texto": "El sitio del festival se transformó posteriormente en un espacio de memoria, con retratos de las personas asesinadas y secuestradas colocados en el mismo campo donde se realizó el encuentro.",
-        "epigrafe": "El sitio del festival convertido en espacio de memoria."
       }
     }
   ]

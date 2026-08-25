@@ -1,0 +1,63 @@
+{
+  "id": "eje-8-antisemitismo",
+  "title": "El aumento del antisemitismo",
+  "lead": "Cuando los judíos son responsabilizados colectivamente.",
+  "intro": "Después del ataque y durante la guerra en Gaza se registró un fuerte aumento de incidentes antisemitas en numerosos países.",
+  "ui": {
+    "rest": "Apoyá el marcador sobre uno de los círculos · También podés tocarlos",
+    "spin": "Girá el marcador para recorrer",
+    "of": "de"
+  },
+  "contenedores": [
+    {
+      "id": "denuncias",
+      "rot": "Las denuncias",
+      "sub": "Argentina",
+      "items": [
+        {
+          "cifra": "+44%",
+          "titulo": "2023",
+          "texto": "La DAIA informó que las denuncias recibidas durante 2023 aumentaron un 44 % respecto del año anterior."
+        },
+        {
+          "cifra": "687",
+          "titulo": "Denuncias en 2024",
+          "texto": "Un 15 % más que en 2023."
+        },
+        {
+          "cifra": "66%",
+          "titulo": "En el ámbito digital",
+          "texto": "Dos de cada tres denuncias de 2024 correspondieron a incidentes ocurridos en internet."
+        }
+      ]
+    },
+    {
+      "id": "formas",
+      "rot": "Cómo se manifestó",
+      "sub": "Siete formas",
+      "items": [
+        { "titulo": "Amenazas y agresiones", "texto": "Contra personas judías." },
+        { "titulo": "Ataques a instituciones", "texto": "Ataques o pintadas en sinagogas, escuelas y espacios comunitarios." },
+        { "titulo": "Celebración del asesinato", "texto": "Celebración o justificación del asesinato de civiles." },
+        { "titulo": "Negación del ataque", "texto": "Negación o distorsión de lo ocurrido el 7 de octubre." },
+        { "titulo": "Estereotipos antiguos", "texto": "Uso de antiguos estereotipos sobre conspiración, poder, dinero o control." },
+        { "titulo": "Responsabilidad colectiva", "texto": "Responsabilización de todos los judíos por las decisiones del Gobierno de Israel." },
+        { "titulo": "Hostigamiento por identidad", "texto": "Hostigamiento a personas por símbolos, vestimenta o identidad judía." }
+      ]
+    },
+    {
+      "id": "limite",
+      "rot": "Dónde está el límite",
+      "sub": "Cinco casos",
+      "encabezado": "Criticar las decisiones de un Gobierno no es, por sí mismo, antisemitismo. La crítica a las políticas del Estado de Israel forma parte del debate político legítimo. Se cruza un límite cuando:",
+      "items": [
+        { "titulo": "Se atribuyen esas decisiones a todos los judíos." },
+        { "titulo": "Se amenaza o agrede a una persona por ser judía." },
+        { "titulo": "Se utilizan mitos antisemitas." },
+        { "titulo": "Se niega a los judíos la condición de personas o se justifica su asesinato." },
+        { "titulo": "Se ataca una institución judía por acciones realizadas por un Estado." }
+      ]
+    }
+  ],
+  "cierre": "Del mismo modo, ningún palestino debe ser responsabilizado por los crímenes de Hamás simplemente por ser palestino."
+}

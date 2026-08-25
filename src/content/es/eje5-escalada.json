@@ -1,0 +1,109 @@
+{
+  "id": "eje-5-escalada",
+  "title": "La escalada del odio",
+  "ui": {
+    "hint": "Deslizá el marcador para recorrer",
+    "reveal": "Seguir",
+    "read": "Leído",
+    "of": "de",
+    "pending": "Este nivel todavía no tiene texto.",
+    "imagePending": "Imagen pendiente",
+    "creditPending": "Fuente y crédito a definir"
+  },
+  "categorias": {
+    "pal": "Palabras",
+    "exc": "Exclusión",
+    "vio": "Violencia"
+  },
+  "bloques": [
+    { "k": "origen", "rot": "Qué es" },
+    { "k": "construccion", "rot": "Cómo aparece en redes" }
+  ],
+  "mitos": [
+    {
+      "y": 1,
+      "era": "Nivel 1",
+      "cat": "pal",
+      "frase": "Estereotipo",
+      "origen": "Ideas falsas y generalizaciones sobre los judíos.",
+      "construccion": "Circula sin que nadie lo firme. No parece una agresión: parece un dato conocido."
+    },
+    {
+      "y": 2,
+      "era": "Nivel 2",
+      "cat": "pal",
+      "frase": "Chiste degradante",
+      "origen": "Se presenta el prejuicio como humor.",
+      "construccion": "El formato del meme lo vuelve compartible. Quien lo objeta queda como el que no entiende la broma."
+    },
+    {
+      "y": 3,
+      "era": "Nivel 3",
+      "cat": "pal",
+      "frase": "Insulto",
+      "origen": "El prejuicio se convierte en agresión verbal.",
+      "construccion": "Ya no hace falta el chiste. La agresión se dice de frente y en público."
+    },
+    {
+      "y": 4,
+      "era": "Nivel 4",
+      "cat": "pal",
+      "frase": "Rumor",
+      "origen": "Se difunden mentiras sobre las personas judías.",
+      "construccion": "Sin fuente y sin autor. Cuanto más se repite, más se parece a una verdad."
+    },
+    {
+      "y": 5,
+      "era": "Nivel 5",
+      "cat": "exc",
+      "frase": "Discriminación",
+      "origen": "Se niegan derechos o se trata mal por ser judío.",
+      "construccion": "El prejuicio deja de ser algo que se dice y pasa a ser algo que se hace."
+    },
+    {
+      "y": 6,
+      "era": "Nivel 6",
+      "cat": "exc",
+      "frase": "Exclusión institucional",
+      "origen": "Se excluye de espacios, servicios o instituciones.",
+      "construccion": "Ya no es una persona la que discrimina: es una organización."
+    },
+    {
+      "y": 7,
+      "era": "Nivel 7",
+      "cat": "vio",
+      "frase": "Amenaza",
+      "origen": "Se amenaza con hacer daño.",
+      "construccion": "El daño todavía no ocurrió, pero ya tiene destinatario y fecha."
+    },
+    {
+      "y": 8,
+      "era": "Nivel 8",
+      "cat": "vio",
+      "frase": "Agresión",
+      "origen": "Se producen ataques físicos o materiales.",
+      "construccion": "Personas heridas, comercios rotos, cementerios y sinagogas atacados."
+    },
+    {
+      "y": 9,
+      "era": "Nivel 9",
+      "cat": "vio",
+      "frase": "Violencia organizada",
+      "origen": "Los ataques se planifican y coordinan.",
+      "construccion": "Deja de haber agresores sueltos. Hay un grupo, un objetivo y una fecha."
+    },
+    {
+      "y": 10,
+      "era": "Nivel 10",
+      "cat": "vio",
+      "frase": "Exterminio",
+      "origen": "La violencia sistemática busca eliminar completamente a un grupo.",
+      "construccion": "Es el punto al que llegó el proceso que este museo documenta."
+    }
+  ],
+  "closing": {
+    "label": "Para tener en cuenta",
+    "text": "No se afirma que todo chiste conduzca inevitablemente a un genocidio.",
+    "sub": "El objetivo es mostrar cómo el odio normalizado puede escalar hasta niveles extremos."
+  }
+}

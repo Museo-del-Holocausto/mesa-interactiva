@@ -77,6 +77,8 @@ export class Vidas {
       </section>`;
 
     root.addEventListener('pointerdown', (event) => {
+      // Solo el boton principal. El secundario tiene que llegar al navegador.
+      if (event.button !== 0) return;
       if (!(event.target instanceof Element)) return;
       event.stopPropagation();
       if (event.target.closest('[data-act="start"]')) return this.#start();
