@@ -90,7 +90,12 @@ export class Mitos {
       <div class="mit__rail">
         <div class="mit__line"></div>
         <ol class="mit__ticks">
-          ${this.#data.mitos.map((m, i) => `<li data-index="${i}" data-cat="${m.cat}"></li>`).join('')}
+          ${this.#data.mitos
+            .map(
+              (m, i) =>
+                `<li data-index="${i}" data-cat="${m.cat}"><span>${m.eje ?? m.y}</span></li>`,
+            )
+            .join('')}
         </ol>
         <p class="mit__pos"><span data-slot="n"></span> ${t.of} ${n}</p>
         <p class="mit__hint">${t.hint}</p>

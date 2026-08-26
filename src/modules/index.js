@@ -19,6 +19,7 @@ import eje1definir from '@/content/es/eje1-definir.json';
 import eje1trivia from '@/content/es/eje1-trivia.json';
 import eje2combinar from '@/content/es/eje2-combinar.json';
 import eje2estimar from '@/content/es/eje2-estimar.json';
+import eje2que from '@/content/es/eje2-que.json';
 import eje2trivia from '@/content/es/eje2-trivia.json';
 import eje3mitos from '@/content/es/eje3-mitos.json';
 import eje3contra from '@/content/es/eje3-contradicciones.json';
@@ -58,6 +59,7 @@ import eje9 from '@/content/es/eje9.json';
 export const MODULES = {
   'eje-1-definir': (onExit) => new Definir(eje1definir, onExit),
   'eje-1-trivia': (onExit) => new Trivia(eje1trivia, onExit),
+  'eje-2-que': (onExit) => new Contenedores(eje2que, onExit),
   'eje-2-combinar': (onExit) => new Combinar(eje2combinar, onExit),
   'eje-2-estimar': (onExit) => new Estimar(eje2estimar, onExit),
   'eje-2-trivia': (onExit) => new Trivia(eje2trivia, onExit),

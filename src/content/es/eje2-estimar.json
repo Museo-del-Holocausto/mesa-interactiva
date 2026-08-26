@@ -1,7 +1,7 @@
 {
   "id": "eje-2-estimar",
-  "title": "¿Cuánto te imaginás?",
-  "lead": "Ocho preguntas con números. Girá el marcador para dar tu respuesta y después vas a ver el dato real.",
+  "title": "Lo que creemos y lo que es",
+  "lead": "Casi todo lo que damos por sabido sobre los judíos lo supusimos. Ocho preguntas con números: girá el marcador para responder y compará tu cálculo con el dato real.",
   "ui": {
     "start": "Empezar",
     "counter": "Pregunta {n} de {total}",
@@ -97,8 +97,14 @@
       "fuente": "En 1939 la población judía mundial era de 16,6 millones. Hoy es de 15,8 millones. Oficina Central de Estadísticas de Israel.",
       "veredicto": "Todavía no pasó.",
       "detalle": "Ochenta y siete años después hay menos judíos en el mundo que antes de la guerra.",
-      "antes": { "rot": "En 1939", "val": "16,6 millones" },
-      "ahora": { "rot": "Hoy", "val": "15,8 millones" }
+      "antes": {
+        "rot": "En 1939",
+        "val": "16,6 millones"
+      },
+      "ahora": {
+        "rot": "Hoy",
+        "val": "15,8 millones"
+      }
     }
   ],
   "closing": {

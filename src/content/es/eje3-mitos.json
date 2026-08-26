@@ -17,9 +17,18 @@
     "con": "Conspirativo"
   },
   "bloques": [
-    { "k": "origen", "rot": "Origen del mito" },
-    { "k": "construccion", "rot": "Cómo se construyó el prejuicio" },
-    { "k": "clave", "rot": "Idea clave" }
+    {
+      "k": "origen",
+      "rot": "Origen del mito"
+    },
+    {
+      "k": "construccion",
+      "rot": "Cómo se construyó el prejuicio"
+    },
+    {
+      "k": "clave",
+      "rot": "Idea clave"
+    }
   ],
   "mitos": [
     {
@@ -29,7 +38,8 @@
       "frase": "Los judíos son enemigos de la sociedad",
       "origen": "En la Antigüedad grecorromana, algunas costumbres judías —como el monoteísmo, las leyes alimentarias o la circuncisión— fueron vistas como extrañas.",
       "construccion": "Esa diferencia fue usada para acusar a los judíos de aislarse o de rechazar a los demás.",
-      "clave": "La diferencia cultural fue transformada en sospecha."
+      "clave": "La diferencia cultural fue transformada en sospecha.",
+      "eje": "Siglo I"
     },
     {
       "y": 380,
@@ -38,7 +48,8 @@
       "frase": "Los judíos mataron a Cristo",
       "origen": "Con el cristianismo se difundió la acusación de deicidio: la idea de que todos los judíos eran culpables por la muerte de Jesús.",
       "construccion": "El mito convirtió a los judíos en enemigos religiosos y alimentó siglos de persecución.",
-      "clave": "Una acusación religiosa colectiva justificó exclusión y violencia."
+      "clave": "Una acusación religiosa colectiva justificó exclusión y violencia.",
+      "eje": "Siglo IV"
     },
     {
       "y": 1144,
@@ -47,7 +58,8 @@
       "frase": "Los judíos usan sangre cristiana en rituales",
       "origen": "En la Edad Media surgió el mito del crimen ritual: la falsa acusación de que los judíos asesinaban niños cristianos para usar su sangre en ceremonias.",
       "construccion": "Fue una de las mentiras más peligrosas y provocó ataques, juicios y matanzas.",
-      "clave": "Una mentira religiosa podía convertirse en violencia real."
+      "clave": "Una mentira religiosa podía convertirse en violencia real.",
+      "eje": "1144"
     },
     {
       "y": 1250,
@@ -56,7 +68,8 @@
       "frase": "Los judíos controlan el dinero",
       "origen": "Como muchas profesiones les estaban prohibidas, algunos judíos fueron empujados a actividades como el préstamo o el comercio.",
       "construccion": "Con el tiempo, esa situación impuesta fue deformada en el estereotipo del judío codicioso o dueño del dinero.",
-      "clave": "Una restricción social fue convertida en prejuicio económico."
+      "clave": "Una restricción social fue convertida en prejuicio económico.",
+      "eje": "Siglo XIII"
     },
     {
       "y": 1349,
@@ -65,7 +78,8 @@
       "frase": "Los judíos envenenan pozos",
       "origen": "Durante epidemias y crisis, especialmente en la Edad Media, se acusó falsamente a los judíos de provocar enfermedades o contaminar el agua.",
       "construccion": "El mito los convirtió en chivos expiatorios frente al miedo colectivo.",
-      "clave": "Cuando una sociedad no entendía una crisis, buscaba culpables."
+      "clave": "Cuando una sociedad no entendía una crisis, buscaba culpables.",
+      "eje": "1348"
     },
     {
       "y": 1600,
@@ -74,7 +88,8 @@
       "frase": "El judío mentiroso y estafador",
       "origen": "Las restricciones legales y la imagen negativa vinculada a la usura dieron origen a la acusación.",
       "construccion": "En cada crisis económica se acusó a los judíos de manipulación financiera. La literatura, el arte, el teatro y más tarde el cine los retrataron como astutos, engañosos y estafadores.",
-      "clave": "El estereotipo persiste hoy en teorías que presentan a los judíos como controladores financieros y mediáticos."
+      "clave": "El estereotipo persiste hoy en teorías que presentan a los judíos como controladores financieros y mediáticos.",
+      "eje": "Siglos XVI–XIX"
     },
     {
       "y": 1903,
@@ -83,7 +98,8 @@
       "frase": "Los judíos controlan el mundo",
       "origen": "En la modernidad, los viejos prejuicios se transformaron en teorías conspirativas.",
       "construccion": "Se empezó a presentar a los judíos como una fuerza secreta capaz de controlar gobiernos, bancos, revoluciones, guerras o medios de comunicación.",
-      "clave": "La conspiración judía mundial es un mito moderno basado en prejuicios antiguos."
+      "clave": "La conspiración judía mundial es un mito moderno basado en prejuicios antiguos.",
+      "eje": "1903"
     },
     {
       "y": 1935,
@@ -92,14 +108,16 @@
       "frase": "Los judíos son una raza peligrosa",
       "origen": "Una característica del antisemitismo es su capacidad de adaptarse.",
       "construccion": "A los judíos se los acusó, de forma contradictoria, de ser capitalistas y comunistas, ricos y revolucionarios, poderosos y peligrosos. Esa flexibilidad permitió usar el antisemitismo como explicación falsa para casi cualquier crisis.",
-      "clave": "El antisemitismo no busca la verdad: necesita un enemigo."
+      "clave": "El antisemitismo no busca la verdad: necesita un enemigo.",
+      "eje": "1930"
     },
     {
       "y": 2024,
       "era": "Hoy",
       "cat": "con",
       "frase": "Los judíos tienen doble lealtad",
-      "vacio": true
+      "vacio": true,
+      "eje": "Hoy"
     }
   ],
   "closing": {

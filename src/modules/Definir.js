@@ -87,11 +87,11 @@ export class Definir {
           <p class="def__ayuda" data-slot="ayuda"></p>
           <div class="def__items" data-slot="items"></div>
           <p class="def__estado" data-slot="estado"></p>
+          <div class="def__foot">
+            <button class="def__btn def__btn--go" data-act="avanzar"></button>
+          </div>
         </div>
         <p class="def__remate" data-slot="remate"></p>
-        <div class="def__foot">
-          <button class="def__btn def__btn--go" data-act="avanzar"></button>
-        </div>
       </section>
 
       <section class="def__scene" data-scene="fin">
@@ -243,10 +243,11 @@ export class Definir {
       btn.dataset.modo = 'seguir';
       btn.disabled = false;
     } else {
-      btn.textContent = t.confirm;
-      btn.dataset.modo = 'confirmar';
       // Donde la respuesta correcta es "ninguno", exigir una marcada obligaria
-      // a equivocarse al que ya se dio cuenta.
+      // a equivocarse al que ya se dio cuenta. Y el boton dice lo que hace: sin
+      // nada marcado no se confirma una eleccion, se confirma que no hay.
+      btn.textContent = this.#pantalla.permiteVacio ? t.skip : t.confirm;
+      btn.dataset.modo = 'confirmar';
       btn.disabled = !this.#pantalla.permiteVacio;
     }
   }

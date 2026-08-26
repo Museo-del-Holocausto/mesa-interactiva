@@ -16,9 +16,18 @@
     "pol": "Política"
   },
   "bloques": [
-    { "k": "origen", "rot": "Qué sabemos" },
-    { "k": "construccion", "rot": "Qué simplifica" },
-    { "k": "clave", "rot": "Idea clave" }
+    {
+      "k": "origen",
+      "rot": "Qué sabemos"
+    },
+    {
+      "k": "construccion",
+      "rot": "Qué simplifica"
+    },
+    {
+      "k": "clave",
+      "rot": "Idea clave"
+    }
   ],
   "mitos": [
     {
@@ -27,7 +36,8 @@
       "cat": "his",
       "frase": "«Israel expulsó a todos los árabes en 1948»",
       "origen": "La palabra «todos» es incorrecta: una parte de la población árabe palestina permaneció dentro del territorio que pasó a ser Israel, y actualmente la población árabe constituye aproximadamente el 21 % de la población israelí.",
-      "construccion": "Más de 700.000 palestinos fueron desplazados durante la guerra de 1948, en circunstancias que incluyeron expulsiones, huida ante los combates, miedo, ataques y colapso de comunidades. Ese proceso es recordado por los palestinos como la Nakba."
+      "construccion": "Más de 700.000 palestinos fueron desplazados durante la guerra de 1948, en circunstancias que incluyeron expulsiones, huida ante los combates, miedo, ataques y colapso de comunidades. Ese proceso es recordado por los palestinos como la Nakba.",
+      "eje": ""
     },
     {
       "y": 1949,
@@ -36,7 +46,8 @@
       "frase": "Ciudadanía, ocupación y desigualdad",
       "origen": "Los ciudadanos árabes de Israel tienen derecho al voto y a presentarse a elecciones parlamentarias. La legislación electoral establece el derecho al voto para los ciudadanos israelíes mayores de 18 años.",
       "construccion": "La igualdad formal de ciudadanía no significa que no existan discriminación, desigualdad presupuestaria, barreras sociales o políticas controvertidas.",
-      "clave": "No se puede responder al debate sobre apartheid mencionando solamente los derechos electorales de los ciudadanos árabes de Israel. También hay que analizar la situación de los palestinos que viven bajo ocupación o control israelí y no son ciudadanos."
+      "clave": "No se puede responder al debate sobre apartheid mencionando solamente los derechos electorales de los ciudadanos árabes de Israel. También hay que analizar la situación de los palestinos que viven bajo ocupación o control israelí y no son ciudadanos.",
+      "eje": ""
     },
     {
       "y": 1950,
@@ -44,7 +55,8 @@
       "cat": "his",
       "frase": "¿Israel es un Estado colonial?",
       "origen": "Perspectiva 1. El sionismo se entendió a sí mismo como un movimiento de autodeterminación del pueblo judío, con vínculos históricos, religiosos y culturales con la tierra. La ONU propuso en 1947 la creación de un Estado árabe y otro judío.",
-      "construccion": "Perspectiva 2. Muchos palestinos y académicos interpretan el proceso como colonialismo de asentamiento por la inmigración organizada, la adquisición y conquista territorial, el desplazamiento de población y la posterior expansión de asentamientos."
+      "construccion": "Perspectiva 2. Muchos palestinos y académicos interpretan el proceso como colonialismo de asentamiento por la inmigración organizada, la adquisición y conquista territorial, el desplazamiento de población y la posterior expansión de asentamientos.",
+      "eje": ""
     },
     {
       "y": 1979,
@@ -53,7 +65,8 @@
       "frase": "«Israel se niega a negociar la paz»",
       "origen": "Israel firmó tratados de paz con Egipto en 1979 y Jordania en 1994. También participó en los Acuerdos de Oslo, que establecieron reconocimiento mutuo y un marco de autogobierno palestino provisional. Esto demuestra que la frase «Israel nunca negocia» es falsa.",
       "construccion": "Pero la existencia de negociaciones no prueba que todos los gobiernos israelíes hayan buscado siempre la misma solución, ni que no hayan existido decisiones que dificultaran acuerdos. También hubo violencia, atentados, expansión de asentamientos, divisiones políticas, incumplimientos y cambios de liderazgo en ambas sociedades.",
-      "clave": "Participar en negociaciones no garantiza la paz. Rechazar la frase «nunca negoció» no significa afirmar que toda responsabilidad por el fracaso corresponde a una sola parte."
+      "clave": "Participar en negociaciones no garantiza la paz. Rechazar la frase «nunca negoció» no significa afirmar que toda responsabilidad por el fracaso corresponde a una sola parte.",
+      "eje": ""
     },
     {
       "y": 1994,
@@ -62,7 +75,8 @@
       "frase": "«Israel impide el desarrollo económico palestino»",
       "origen": "Israel ha permitido en distintos períodos el ingreso de ayuda, proyectos de infraestructura, permisos de trabajo y cooperación económica.",
       "construccion": "Al mismo tiempo, organismos de la ONU documentan que las restricciones de circulación, los puestos de control, las barreras, los cierres y el régimen de permisos afectan el acceso palestino al empleo, la salud, la educación y los mercados. Las autoridades israelíes justifican muchas de estas medidas por motivos de seguridad. El debate consiste en analizar su necesidad, proporcionalidad, duración e impacto sobre la población civil.",
-      "clave": "Ayuda económica y restricciones estructurales pueden existir simultáneamente."
+      "clave": "Ayuda económica y restricciones estructurales pueden existir simultáneamente.",
+      "eje": ""
     },
     {
       "y": 1995,
@@ -71,7 +85,8 @@
       "frase": "«Israel se opone a la creación de un Estado palestino»",
       "origen": "Distintos gobiernos israelíes adoptaron posiciones diferentes. Israel participó en Oslo, cuyo marco reconoció a la OLP y estableció instituciones palestinas de autogobierno, pero dejó los asuntos centrales para negociaciones posteriores.",
       "construccion": "Existieron divisiones palestinas, rechazos, violencia y desacuerdos internos. Algunos dirigentes israelíes apoyaron explícitamente una solución de dos Estados; otros se opusieron, la condicionaron fuertemente o promovieron políticas incompatibles con un Estado palestino territorialmente viable.",
-      "clave": "Aceptar en principio «dos Estados» no resuelve qué tipo de Estado palestino se propone ni qué soberanía tendría."
+      "clave": "Aceptar en principio «dos Estados» no resuelve qué tipo de Estado palestino se propone ni qué soberanía tendría.",
+      "eje": ""
     },
     {
       "y": 2000,
@@ -80,7 +95,8 @@
       "frase": "«Israel inició todas las guerras de la región»",
       "origen": "La palabra «todas» vuelve falsa la afirmación, pero responder solamente con 1948 también simplifica. En 1947 la ONU propuso dividir Palestina en un Estado árabe y uno judío. Tras la declaración de independencia de Israel, ejércitos de Estados árabes intervinieron en la guerra de 1948.",
       "construccion": "Al mismo tiempo, antes de esa intervención ya existía una guerra civil entre comunidades judías y árabes dentro del Mandato, además de desplazamientos palestinos. Las guerras posteriores tuvieron causas diferentes. No todas pueden explicarse con un único responsable o con el mismo patrón.",
-      "clave": "Preguntar quién disparó primero puede ser importante, pero no reemplaza el análisis de antecedentes, decisiones, ocupación, amenazas, violencia previa y consecuencias."
+      "clave": "Preguntar quién disparó primero puede ser importante, pero no reemplaza el análisis de antecedentes, decisiones, ocupación, amenazas, violencia previa y consecuencias.",
+      "eje": ""
     }
   ],
   "closing": {

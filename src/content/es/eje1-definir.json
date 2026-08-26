@@ -5,14 +5,17 @@
     "confirm": "Confirmar",
     "next": "Continuar",
     "last": "Terminar",
-    "again": "Volver a empezar"
+    "again": "Volver a empezar",
+    "skip": "Ninguno"
   },
   "pantallas": [
     {
       "tipo": "elegir",
       "titulo": "¿Qué es el antisemitismo?",
-      "intro": [],
-      "consigna": "¿Por dónde te parece que se manifiesta?",
+      "intro": [
+        "Es una forma de prejuicio, discriminación y hostilidad dirigida contra las personas judías, las comunidades judías, el judaísmo o aquello que se imagina y se presenta como «judío»."
+      ],
+      "consigna": "¿A través de qué te parece que se manifiesta?",
       "items": [
         "palabras",
         "imágenes",
@@ -26,13 +29,13 @@
       "completo": "Las ocho. No dejaste ninguna afuera.",
       "parcial": "Por estas también",
       "remate": "El antisemitismo no describe cómo son realmente los judíos. Construye una imagen negativa sobre ellos.",
-      "ayuda": "Marcá las que quieras y confirmá."
+      "ayuda": ""
     },
     {
       "tipo": "elegir",
       "titulo": "Quiénes son los judíos",
       "intro": [
-        "¿Todos los judíos son iguales? No."
+        "¿Todos los judíos son iguales?"
       ],
       "consigna": "¿En qué pueden ser diferentes entre sí?",
       "items": [
@@ -46,7 +49,7 @@
       "completo": "En todas. Se diferencian en todo.",
       "parcial": "En estas también",
       "remate": "El antisemitismo borra estas diferencias y habla de «los judíos» como si fueran un único grupo.",
-      "ayuda": "Marcá las que quieras y confirmá."
+      "ayuda": ""
     },
     {
       "tipo": "elegir",
@@ -54,10 +57,11 @@
       "permiteVacio": true,
       "titulo": "De una persona a todo un grupo",
       "intro": [
-        "El antisemitismo toma lo que hace una persona y lo atribuye a todos los judíos."
+        "El antisemitismo toma lo que hace una persona y lo atribuye a todos los judíos.",
+        "Estos son datos de una sola persona judía."
       ],
-      "consigna": "Estos son datos de una sola persona judía. ¿Cuáles te dicen algo sobre el resto de los judíos?",
-      "ayuda": "Marcá los que quieras y confirmá. También podés confirmar sin marcar ninguno.",
+      "consigna": "¿Cuáles te dicen algo sobre el resto de los judíos?",
+      "ayuda": "También podés confirmar sin marcar ninguno.",
       "items": [
         "Es maestra",
         "Vive en Rosario",
@@ -101,7 +105,7 @@
       ],
       "completo": "Las cuatro. En todas se los acusó.",
       "remate": "Estas acusaciones desviaban la atención de las verdaderas causas de los problemas.",
-      "ayuda": "Marcá las que quieras y confirmá.",
+      "ayuda": "",
       "formato": "tarjetas",
       "parcial": "En estas también"
     }

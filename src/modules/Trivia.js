@@ -28,7 +28,9 @@ export class Trivia {
     this.#data = data;
     this.#onExit = onExit;
     this.el = this.#build();
-    this.#showScene('intro');
+    // Directo a la primera pregunta: la pantalla de entrada repetia lo que ya
+    // dice la fila del menu y agregaba un click de mas.
+    this.#ask(0);
   }
 
   destroy() {

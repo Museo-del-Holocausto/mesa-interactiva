@@ -131,7 +131,7 @@
 .fab__steps {
   position: absolute;
   top: -50px;
-  right: 0;
+  left: 0;
   display: flex;
   gap: 10px;
   list-style: none;
@@ -652,7 +652,7 @@
 .dec__steps {
   position: absolute;
   top: -50px;
-  right: 0;
+  left: 0;
   display: flex;
   gap: 10px;
   list-style: none;
@@ -950,7 +950,7 @@
 .comb__steps {
   position: absolute;
   top: -50px;
-  right: 0;
+  left: 0;
   display: flex;
   gap: 10px;
   list-style: none;
@@ -995,18 +995,21 @@
 
 /* --- entrada -------------------------------------------------------------- */
 
+/* El botón acompaña al texto: al pie del lienzo quedaba a media pantalla. */
 .comb__scene[data-scene='intro'] {
-  grid-template-rows: 1fr auto;
+  grid-template-rows: auto auto;
+  align-content: center;
+  gap: 44px;
 }
 
-.comb__scene[data-scene='intro'] > div:first-child {
-  align-self: center;
+.comb__scene[data-scene='intro'] > div:last-child {
+  justify-self: start;
 }
 
 .comb__h1 {
-  max-width: 15ch;
+  max-width: 20ch;
   font-family: var(--font-display);
-  font-size: 82px;
+  font-size: 62px;
   font-weight: 400;
   line-height: 1.02;
   letter-spacing: -0.025em;
@@ -1212,7 +1215,7 @@
 .rec__steps {
   position: absolute;
   top: -50px;
-  right: 0;
+  left: 0;
   display: flex;
   gap: 10px;
   list-style: none;
@@ -2552,16 +2555,17 @@
 }
 
 .def__scene[data-scene='pantalla'] {
-  grid-template-rows: auto auto 1fr auto;
-  gap: 30px;
+  grid-template-rows: auto auto auto;
+  gap: 28px;
   align-content: start;
 }
 
 /* Misma fila que el rótulo de la pieza, del otro lado. Igual que en Decidir. */
+/* Sobre el contenido y no en la esquina opuesta: ahí no los miraba nadie. */
 .def__steps {
   position: absolute;
   top: -50px;
-  right: 0;
+  left: 0;
   display: flex;
   gap: 10px;
   list-style: none;
@@ -2631,6 +2635,8 @@
 
 /* La instrucción, fija. La cuenta vive abajo y cambia; mezclarlas hacía que
    el renglón dijera una cosa al principio y otra al final. */
+.def__ayuda[hidden] { display: none; }
+
 .def__ayuda {
   margin-top: 12px;
   font-size: 24px;
@@ -2775,9 +2781,10 @@
 
 .def__remate[hidden] { display: none; }
 
+/* El botón acompaña a las pastillas. Al pie del lienzo quedaba a media
+   pantalla de aquello que confirma. */
 .def__foot {
-  align-self: end;
-  justify-self: end;
+  margin-top: 26px;
 }
 
 .def__btn {
@@ -2856,7 +2863,7 @@
 .tri__steps {
   position: absolute;
   top: -50px;
-  right: 0;
+  left: 0;
   display: flex;
   gap: 10px;
   list-style: none;
@@ -3065,7 +3072,7 @@
 .est__steps {
   position: absolute;
   top: -50px;
-  right: 0;
+  left: 0;
   display: flex;
   gap: 8px;
   list-style: none;
@@ -3344,36 +3351,44 @@
   color: var(--ink-300);
 }
 
+/* Una sola columna y la pregunta primero. En dos columnas con la cifra
+   adelante, el resumen se leía como una planilla. */
 .est__resumen {
-  margin-top: 30px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px 50px;
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   align-content: start;
   list-style: none;
+  max-width: 76ch;
 }
 
 .est__resumen li {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: baseline;
-  gap: 16px;
-  font-size: 21px;
+  gap: 24px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--ink-700);
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.35;
   color: var(--ink-400);
 }
 
-/* Sin `flex: none` el numero se encoge por debajo de su contenido y, como no
-   corta linea, se monta sobre el enunciado de al lado. */
+/* El enunciado primero y el resultado a la derecha. Con la cifra adelante el
+   resumen se leía como una planilla. */
 .est__resumen b {
+  order: 2;
   flex: none;
-  min-width: 150px;
   font-family: var(--font-display);
-  font-size: 23px;
+  font-size: 21px;
   font-weight: 400;
   color: var(--accent);
   white-space: nowrap;
 }
+
+.est__resumen span { order: 1; }
 
 /* ==========================================================================
    Mitos — nueve acusaciones sobre un riel vertical
@@ -3745,126 +3760,86 @@
 /* ==========================================================================
    Contradicciones — seis pares de acusaciones opuestas
    ==========================================================================
-   El objeto tiene la forma del problema: un dial gira para los dos lados y una
-   contradicción tiene dos extremos. Deslizar cambia de par, girar opera dentro
-   del par. Misma gramática que la línea de tiempo. */
+   El par se elige apoyando el marcador en un círculo. Con riel, esta pieza y la
+   línea de tiempo del mismo eje se veían iguales, y una es una cronología y la
+   otra son seis casos sueltos. Apoyar elige el tema, girar muestra las dos
+   caras. */
 
 .con {
   position: absolute;
   inset: 0;
   display: grid;
-  grid-template-rows: 1fr;
+  grid-template-rows: auto auto 1fr;
+  gap: 20px;
 }
 
-.con__rail {
-  position: absolute;
-  top: -124px;
-  bottom: -76px;
-  width: 1px;
-  pointer-events: none;
+.con__zonas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
 }
 
-.quadrant[data-guide='true'] .con__rail {
-  top: calc(-124px - var(--bleed-y, 0px));
-  bottom: calc(-76px - var(--bleed-y, 0px));
-}
-
-.modulo__canvas[data-side='left'] .con__rail {
-  left: calc(var(--marker-x, 360px) - var(--bleed-x, 0px) - var(--col) - var(--pad));
-}
-
-.modulo__canvas[data-side='right'] .con__rail {
-  left: calc(var(--marker-x, 1560px) - var(--bleed-x, 0px) - var(--pad));
-}
-
-.con__line {
-  position: absolute;
-  top: 18%;
-  bottom: 18%;
-  left: 0;
-  width: 1px;
-  background: var(--ink-500);
-}
-
-.con__ticks {
-  position: absolute;
-  inset: 0;
-  list-style: none;
-}
-
-.con__ticks li {
-  position: absolute;
-  left: 0;
-  width: 44px;
-  height: 44px;
-  translate: -50% -50%;
-  pointer-events: auto;
+.con__zona {
+  position: relative;
+  width: 176px;
+  height: 176px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  padding: 0 20px;
+  border: none;
+  background: none;
   cursor: pointer;
 }
 
-.con__ticks li::after {
-  content: '';
+.con__anillo {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 10px;
-  height: 10px;
-  translate: -50% -50%;
+  inset: 0;
   border-radius: 50%;
-  background: var(--ink-500);
+  border: 1px solid var(--ink-600);
   transition:
-    background var(--dur-base) var(--ease-out),
-    scale var(--dur-base) var(--ease-out);
+    border-color var(--dur-base) var(--ease-out),
+    background var(--dur-base) var(--ease-out);
 }
 
-.con__ticks li[data-on='true']::after {
-  background: var(--accent);
-  scale: 2;
-  box-shadow: 0 0 24px var(--accent-dim);
+.con__zona[data-on='true'] .con__anillo {
+  border-color: var(--accent);
+  background: var(--accent-ghost);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.16);
 }
 
-.con__pos {
-  position: absolute;
-  top: 6%;
-  left: 0;
-  translate: -50% 0;
-  font-family: var(--font-display);
-  font-size: 22px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--ink-400);
-}
-
-.con__pos span {
-  font-size: 34px;
-  color: var(--accent);
-  font-variant-numeric: tabular-nums;
-}
-
-.con__hint {
-  position: absolute;
-  top: 11.5%;
-  left: 0;
-  translate: -50% 0;
+.con__zrot {
+  position: relative;
   font-family: var(--font-display);
   font-size: 20px;
-  letter-spacing: 0.1em;
+  font-weight: 400;
+  line-height: 1.18;
+  text-align: center;
+  color: var(--ink-400);
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.con__zona[data-on='true'] .con__zrot { color: var(--accent); }
+
+.con__hint {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--accent);
-  opacity: 0.7;
+  color: var(--ink-500);
 }
 
 /* --- la ficha ------------------------------------------------------------- */
 
 .con__card {
   align-self: start;
-  padding-top: 30px;
   max-width: 66ch;
 }
 
+/* Se repite el nombre del par debajo: arriba lo tapa el propio marcador. */
 .con__eje {
+  margin-bottom: 18px;
   font-family: var(--font-display);
   font-size: 21px;
   font-weight: 500;
@@ -3878,7 +3853,7 @@
 /* Los polos llevan un rótulo corto, no la frase entera: la frase completa vive
    abajo, donde hay ancho para una sola línea. */
 .con__aguja {
-  margin-top: 24px;
+  margin-top: 4px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -5404,6 +5379,7 @@
    El botón de empezar vivía pegado al borde inferior del lienzo: quedaba a
    media pantalla del texto que lo explicaba. Va debajo del texto. */
 
+.comb__scene[data-scene='intro'],
 .est__scene[data-scene='intro'],
 .alc__scene[data-scene='intro'],
 .des__scene[data-scene='intro'],
@@ -5415,6 +5391,7 @@
   gap: 44px;
 }
 
+.comb__acts,
 .est__acts,
 .alc__acts,
 .des__acts,
@@ -5433,4 +5410,30 @@
   grid-template-rows: auto auto;
   align-content: center;
   gap: 40px;
+}
+
+/* El año al lado de cada parada. Sin fechas a la vista, el riel no se lee como
+   una línea de tiempo: se lee como una lista puesta en vertical. */
+.mit__ticks li span {
+  position: absolute;
+  top: 50%;
+  left: 34px;
+  translate: 0 -50%;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--ink-500);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.mit__ticks li[data-leido='true'] span { color: var(--ink-400); }
+.mit__ticks li[data-on='true'] span { color: var(--ink-100); }
+
+/* Con el marcador a la derecha el año cae del otro lado, hacia el contenido. */
+.modulo__canvas[data-side='right'] .mit__ticks li span {
+  left: auto;
+  right: 34px;
 }

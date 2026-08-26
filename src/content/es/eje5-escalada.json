@@ -16,8 +16,14 @@
     "vio": "Violencia"
   },
   "bloques": [
-    { "k": "origen", "rot": "Qué es" },
-    { "k": "construccion", "rot": "Cómo aparece en redes" }
+    {
+      "k": "origen",
+      "rot": "Qué es"
+    },
+    {
+      "k": "construccion",
+      "rot": "Cómo aparece en redes"
+    }
   ],
   "mitos": [
     {
@@ -26,7 +32,8 @@
       "cat": "pal",
       "frase": "Estereotipo",
       "origen": "Ideas falsas y generalizaciones sobre los judíos.",
-      "construccion": "Circula sin que nadie lo firme. No parece una agresión: parece un dato conocido."
+      "construccion": "Circula sin que nadie lo firme. No parece una agresión: parece un dato conocido.",
+      "eje": "1"
     },
     {
       "y": 2,
@@ -34,7 +41,8 @@
       "cat": "pal",
       "frase": "Chiste degradante",
       "origen": "Se presenta el prejuicio como humor.",
-      "construccion": "El formato del meme lo vuelve compartible. Quien lo objeta queda como el que no entiende la broma."
+      "construccion": "El formato del meme lo vuelve compartible. Quien lo objeta queda como el que no entiende la broma.",
+      "eje": "2"
     },
     {
       "y": 3,
@@ -42,7 +50,8 @@
       "cat": "pal",
       "frase": "Insulto",
       "origen": "El prejuicio se convierte en agresión verbal.",
-      "construccion": "Ya no hace falta el chiste. La agresión se dice de frente y en público."
+      "construccion": "Ya no hace falta el chiste. La agresión se dice de frente y en público.",
+      "eje": "3"
     },
     {
       "y": 4,
@@ -50,7 +59,8 @@
       "cat": "pal",
       "frase": "Rumor",
       "origen": "Se difunden mentiras sobre las personas judías.",
-      "construccion": "Sin fuente y sin autor. Cuanto más se repite, más se parece a una verdad."
+      "construccion": "Sin fuente y sin autor. Cuanto más se repite, más se parece a una verdad.",
+      "eje": "4"
     },
     {
       "y": 5,
@@ -58,7 +68,8 @@
       "cat": "exc",
       "frase": "Discriminación",
       "origen": "Se niegan derechos o se trata mal por ser judío.",
-      "construccion": "El prejuicio deja de ser algo que se dice y pasa a ser algo que se hace."
+      "construccion": "El prejuicio deja de ser algo que se dice y pasa a ser algo que se hace.",
+      "eje": "5"
     },
     {
       "y": 6,
@@ -66,7 +77,8 @@
       "cat": "exc",
       "frase": "Exclusión institucional",
       "origen": "Se excluye de espacios, servicios o instituciones.",
-      "construccion": "Ya no es una persona la que discrimina: es una organización."
+      "construccion": "Ya no es una persona la que discrimina: es una organización.",
+      "eje": "6"
     },
     {
       "y": 7,
@@ -74,7 +86,8 @@
       "cat": "vio",
       "frase": "Amenaza",
       "origen": "Se amenaza con hacer daño.",
-      "construccion": "El daño todavía no ocurrió, pero ya tiene destinatario y fecha."
+      "construccion": "El daño todavía no ocurrió, pero ya tiene destinatario y fecha.",
+      "eje": "7"
     },
     {
       "y": 8,
@@ -82,7 +95,8 @@
       "cat": "vio",
       "frase": "Agresión",
       "origen": "Se producen ataques físicos o materiales.",
-      "construccion": "Personas heridas, comercios rotos, cementerios y sinagogas atacados."
+      "construccion": "Personas heridas, comercios rotos, cementerios y sinagogas atacados.",
+      "eje": "8"
     },
     {
       "y": 9,
@@ -90,7 +104,8 @@
       "cat": "vio",
       "frase": "Violencia organizada",
       "origen": "Los ataques se planifican y coordinan.",
-      "construccion": "Deja de haber agresores sueltos. Hay un grupo, un objetivo y una fecha."
+      "construccion": "Deja de haber agresores sueltos. Hay un grupo, un objetivo y una fecha.",
+      "eje": "9"
     },
     {
       "y": 10,
@@ -98,7 +113,8 @@
       "cat": "vio",
       "frase": "Exterminio",
       "origen": "La violencia sistemática busca eliminar completamente a un grupo.",
-      "construccion": "Es el punto al que llegó el proceso que este museo documenta."
+      "construccion": "Es el punto al que llegó el proceso que este museo documenta.",
+      "eje": "10"
     }
   ],
   "closing": {

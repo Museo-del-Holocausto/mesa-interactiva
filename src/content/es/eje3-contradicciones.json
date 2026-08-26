@@ -2,7 +2,7 @@
   "id": "eje-3-contradicciones",
   "title": "El detector de contradicciones",
   "ui": {
-    "hint": "Deslizá el marcador para cambiar de par",
+    "hint": "Apoyá el marcador sobre un círculo · También podés tocarlo",
     "spin": "Girá para un lado y para el otro",
     "left": "Girá hacia la izquierda",
     "right": "Girá hacia la derecha",

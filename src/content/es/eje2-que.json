@@ -1,0 +1,58 @@
+{
+  "id": "eje-2-que",
+  "title": "Qué significa ser judío",
+  "lead": "Ser judío no significa pertenecer únicamente a una religión.",
+  "intro": "Apoyá el marcador sobre cada círculo para leer qué incluye.",
+  "ui": {
+    "rest": "Apoyá el marcador sobre uno de los círculos · También podés tocarlos",
+    "spin": "Girá el marcador para recorrer",
+    "of": "de"
+  },
+  "contenedores": [
+    {
+      "id": "pueblo",
+      "rot": "Un pueblo",
+      "sub": "Historia compartida",
+      "items": [
+        {
+          "titulo": "Un pueblo con historia propia",
+          "texto": "El judaísmo es la identidad de un pueblo con una historia de más de tres mil años, atravesada por migraciones, expulsiones, reconstrucciones y encuentros con otras culturas."
+        }
+      ]
+    },
+    {
+      "id": "religion",
+      "rot": "Una religión",
+      "sub": "Para algunos",
+      "items": [
+        {
+          "titulo": "Una religión, para quienes la practican",
+          "texto": "Hay personas judías religiosas y personas judías que no lo son. La religión es una de las formas de vivir esa identidad, no la única."
+        }
+      ]
+    },
+    {
+      "id": "cultura",
+      "rot": "Una cultura",
+      "sub": "Lenguas y costumbres",
+      "items": [
+        {
+          "titulo": "Lenguas, costumbres, comida, música",
+          "texto": "El judaísmo incluye lenguas propias, celebraciones, recetas, canciones, literatura y formas de reunirse que cambian según el lugar y la familia."
+        }
+      ]
+    },
+    {
+      "id": "memoria",
+      "rot": "Una memoria",
+      "sub": "Transmitida",
+      "items": [
+        {
+          "titulo": "Una memoria que se transmite",
+          "texto": "Historias familiares, lugares de origen, persecuciones y llegadas. Buena parte de esa memoria se cuenta de una generación a la siguiente."
+        }
+      ]
+    }
+  ],
+  "cierre": "No existe una única forma de ser judío. Cada persona combina estos elementos de una manera propia."
+}

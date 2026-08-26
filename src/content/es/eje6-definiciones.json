@@ -16,8 +16,14 @@
     "lim": "Límite"
   },
   "bloques": [
-    { "k": "origen", "rot": "Qué dice" },
-    { "k": "construccion", "rot": "Qué hay que tener en cuenta" }
+    {
+      "k": "origen",
+      "rot": "Qué dice"
+    },
+    {
+      "k": "construccion",
+      "rot": "Qué hay que tener en cuenta"
+    }
   ],
   "mitos": [
     {
@@ -25,7 +31,8 @@
       "era": "Punto 1",
       "cat": "def",
       "frase": "Qué es el sionismo",
-      "origen": "El sionismo surgió como un conjunto de movimientos políticos judíos que defendieron la autodeterminación nacional judía, principalmente en la tierra histórica de Israel y Palestina."
+      "origen": "El sionismo surgió como un conjunto de movimientos políticos judíos que defendieron la autodeterminación nacional judía, principalmente en la tierra histórica de Israel y Palestina.",
+      "eje": ""
     },
     {
       "y": 2,
@@ -33,7 +40,8 @@
       "cat": "def",
       "frase": "Qué es el antisionismo",
       "origen": "El antisionismo es la oposición al sionismo o a alguna de sus ideas fundamentales.",
-      "construccion": "Puede adoptar posiciones diferentes: oposición a todo nacionalismo; rechazo a la definición de Israel como Estado judío; crítica a las consecuencias históricas del proyecto sionista para la población palestina; uso de «sionista» como palabra sustituta de «judío». No todas estas posiciones son equivalentes."
+      "construccion": "Puede adoptar posiciones diferentes: oposición a todo nacionalismo; rechazo a la definición de Israel como Estado judío; crítica a las consecuencias históricas del proyecto sionista para la población palestina; uso de «sionista» como palabra sustituta de «judío». No todas estas posiciones son equivalentes.",
+      "eje": ""
     },
     {
       "y": 3,
@@ -41,7 +49,8 @@
       "cat": "lim",
       "frase": "Dónde se cruza una línea",
       "origen": "Criticar a un gobierno, una política o una ideología no es, por sí mismo, antisemitismo. Se vuelve antisemita cuando se responsabiliza a todos los judíos, se usan conspiraciones o se ataca a personas e instituciones judías por acciones de Israel.",
-      "construccion": "Se cruza una línea cuando se responsabiliza a todos los judíos por Israel; se exige a una persona judía que responda por un gobierno; se usan mitos antisemitas clásicos para hablar de Israel; se afirma que los judíos controlan gobiernos, medios o finanzas; se amenaza a personas o instituciones judías por hechos ocurridos en Medio Oriente."
+      "construccion": "Se cruza una línea cuando se responsabiliza a todos los judíos por Israel; se exige a una persona judía que responda por un gobierno; se usan mitos antisemitas clásicos para hablar de Israel; se afirma que los judíos controlan gobiernos, medios o finanzas; se amenaza a personas o instituciones judías por hechos ocurridos en Medio Oriente.",
+      "eje": ""
     },
     {
       "y": 4,
@@ -49,14 +58,16 @@
       "cat": "lim",
       "frase": "Los criterios",
       "origen": "La expresión se acerca al antisemitismo cuando sustituye «Israel» por «los judíos»; atribuye una conducta colectiva esencial; usa conspiraciones clásicas; exige lealtad o condena pública a personas judías; niega a los judíos derechos que reconoce a otros pueblos por ser judíos; promueve hostilidad o violencia contra judíos.",
-      "construccion": "La Declaración de Jerusalén, Nexus e IHRA discrepan en ciertos límites, pero coinciden en que responsabilizar a los judíos colectivamente o atacarlos por Israel es antisemita."
+      "construccion": "La Declaración de Jerusalén, Nexus e IHRA discrepan en ciertos límites, pero coinciden en que responsabilizar a los judíos colectivamente o atacarlos por Israel es antisemita.",
+      "eje": ""
     },
     {
       "y": 5,
       "era": "Punto 5",
       "cat": "pos",
       "frase": "Qué no determina la palabra",
-      "origen": "La palabra «antisionismo» no determina por sí sola si una expresión es antisemita. Hay que analizar qué afirma, a quién responsabiliza y qué imágenes utiliza."
+      "origen": "La palabra «antisionismo» no determina por sí sola si una expresión es antisemita. Hay que analizar qué afirma, a quién responsabiliza y qué imágenes utiliza.",
+      "eje": ""
     }
   ],
   "closing": {

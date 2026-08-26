@@ -36,7 +36,7 @@
           "module": "eje-1-definir",
           "eyebrow": "Eje 1 · Qué es el antisemitismo",
           "title": "Qué es el antisemitismo",
-          "subtitle": "La definición, la diversidad que borra, el salto de una persona al grupo entero y la búsqueda de un culpable."
+          "subtitle": "La definición, la diversidad que borra, el salto al grupo entero y la búsqueda de un culpable."
         },
         {
           "id": "eje-1-trivia",
@@ -53,22 +53,29 @@
       "mode": "explorar",
       "title": "Quiénes son los judíos",
       "subtitle": "Las personas judías tienen historias, costumbres, ideas y formas de vida muy diferentes. El judaísmo incluye religión, historia, lenguas, costumbres, memorias, arte y vida comunitaria. No existe una única forma de ser judío.",
-      "volume": "3 partes",
+      "volume": "4 partes",
       "eyebrow": "Eje 2 · Quiénes son los judíos",
       "children": [
         {
+          "id": "eje-2-que",
+          "module": "eje-2-que",
+          "eyebrow": "Eje 2 · Qué significa ser judío",
+          "title": "Qué significa ser judío",
+          "subtitle": "Un pueblo, una religión, una cultura y una historia."
+        },
+        {
           "id": "eje-2-combinar",
           "module": "eje-2-combinar",
-          "eyebrow": "Eje 2 · Armá una identidad",
-          "title": "Armá una identidad",
-          "subtitle": "Cinco preguntas y 2.304 personas posibles. Ninguna es más judía que otra."
+          "eyebrow": "Eje 2 · Una identidad, muchas formas",
+          "title": "Una identidad, muchas formas",
+          "subtitle": "Cinco preguntas y 2.304 personas posibles."
         },
         {
           "id": "eje-2-estimar",
           "module": "eje-2-estimar",
-          "eyebrow": "Eje 2 · Cuánto te imaginás",
-          "title": "Cuánto te imaginás",
-          "subtitle": "Ocho preguntas con números. Girá el marcador y compará tu respuesta con el dato real."
+          "eyebrow": "Eje 2 · Lo que creemos y lo que es",
+          "title": "Lo que creemos y lo que es",
+          "subtitle": "Ocho preguntas con números. Girá el marcador y compará con el dato real."
         },
         {
           "id": "eje-2-trivia",

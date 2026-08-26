@@ -1,9 +1,7 @@
 import gsap from 'gsap';
 import { Rotary } from '@/core/Rotary.js';
+import { MODULE_CANVAS_W } from '@/config/table.js';
 
-/** Tramo del alto donde vive el riel, en fracciones. El mismo que en Mitos. */
-const RAIL_TOP = 0.18;
-const RAIL_BOTTOM = 0.82;
 /** Pasos de giro hasta llegar a un extremo. */
 const TOPE = 2;
 
@@ -18,10 +16,16 @@ const TOPE = 2;
  * Recien cuando el visitante estuvo en los dos extremos aparece la pregunta.
  * Antes no: la contradiccion tiene que haberla producido el, no leerla.
  *
- * Misma gramatica que el resto del eje: deslizar cambia de par, girar opera
- * adentro del par.
+ * El par se elige apoyando el marcador en un circulo, no deslizando por un
+ * riel. Con riel esta pieza y la linea de tiempo del mismo eje se veian
+ * iguales, y una es una cronologia y la otra son seis casos sueltos. Apoyar
+ * para elegir el tema y girar para ver las dos caras: dos gestos, dos piezas
+ * distintas.
  */
 export class Contradicciones {
+  /** Aca el marcador sobre el contenido no estorba: es el gesto de la pieza. */
+  aceptaMarcadorEncima = true;
+
   #data;
   #onExit;
   #rotary = new Rotary();
@@ -48,13 +52,28 @@ export class Contradicciones {
     this.el.remove();
   }
 
-  /** Deslizar: la altura del marcador elige el par. */
-  applyPosition(_x, y, _w, h) {
-    const top = h * RAIL_TOP;
-    const span = h * (RAIL_BOTTOM - RAIL_TOP);
-    const n = this.#data.pares.length;
-    const t = Math.min(1, Math.max(0, (y - top) / span));
-    this.#select(Math.round(t * (n - 1)));
+  /**
+   * Apoyar el marcador adentro de un circulo elige el par. Se compara contra el
+   * centro de cada uno, los dos medidos desde el mismo origen: el cuadrante.
+   */
+  applyPosition(x, y) {
+    const canvas = this.el.closest('.modulo__canvas');
+    const region = this.el.closest('.quadrant') ?? canvas;
+    if (!canvas || !region) return;
+    const escala = canvas.getBoundingClientRect().width / MODULE_CANVAS_W;
+    if (!escala) return;
+    const origen = region.getBoundingClientRect();
+
+    for (const circulo of this.el.querySelectorAll('.con__zona')) {
+      const r = circulo.getBoundingClientRect();
+      const cx = (r.left + r.width / 2 - origen.left) / escala;
+      const cy = (r.top + r.height / 2 - origen.top) / escala;
+      const radio = r.width / escala / 2 + 50;
+      if ((x - cx) ** 2 + (y - cy) ** 2 <= radio ** 2) {
+        this.#select(Number.parseInt(circulo.dataset.index, 10));
+        return;
+      }
+    }
   }
 
   /** Girar: la aguja se corre hacia un lado o hacia el otro. */
@@ -74,14 +93,18 @@ export class Contradicciones {
     const root = document.createElement('div');
     root.className = 'con';
     root.innerHTML = `
-      <div class="con__rail">
-        <div class="con__line"></div>
-        <ol class="con__ticks">
-          ${this.#data.pares.map((_, i) => `<li data-index="${i}"></li>`).join('')}
-        </ol>
-        <p class="con__pos"><span data-slot="n"></span> ${t.of} ${n}</p>
-        <p class="con__hint">${t.hint}</p>
+      <div class="con__zonas">
+        ${this.#data.pares
+          .map(
+            (p, i) => `
+          <button class="con__zona" data-index="${i}" type="button">
+            <span class="con__anillo"></span>
+            <span class="con__zrot">${p.eje}</span>
+          </button>`,
+          )
+          .join('')}
       </div>
+      <p class="con__hint">${t.hint}</p>
 
       <article class="con__card">
         <p class="con__eje" data-slot="eje"></p>
@@ -136,10 +159,10 @@ export class Contradicciones {
       const target = event.target;
       if (!(event.target instanceof Element)) return;
 
-      const tick = target.closest('.con__ticks li');
-      if (tick?.dataset.index) {
+      const zona = target.closest('.con__zona');
+      if (zona?.dataset.index) {
         event.stopPropagation();
-        this.#select(Number.parseInt(tick.dataset.index, 10));
+        this.#select(Number.parseInt(zona.dataset.index, 10));
         return;
       }
       const lado = target.closest('.con__lado');
@@ -153,11 +176,6 @@ export class Contradicciones {
         event.stopPropagation();
         this.#responder();
       }
-    });
-
-    const n2 = this.#data.pares.length;
-    [...root.querySelectorAll('.con__ticks li')].forEach((li, i) => {
-      li.style.top = `${(RAIL_TOP + (i / (n2 - 1)) * (RAIL_BOTTOM - RAIL_TOP)) * 100}%`;
     });
 
     return root;
@@ -180,7 +198,8 @@ export class Contradicciones {
     this.#rotary.reset();
 
     const p = this.#par;
-    this.#set('n', String(index + 1));
+    // El objeto se apoya sobre el circulo elegido y lo tapa: el nombre del par
+    // se repite acá abajo, donde la mano no llega.
     this.#set('eje', p.eje);
     this.#set('rot-a', p.a.corto);
     this.#set('rot-b', p.b.corto);
@@ -190,8 +209,8 @@ export class Contradicciones {
     this.#set('cara-b-cuando', p.b.cuando);
     this.#set('cierre', p.cierre);
 
-    for (const tick of this.el.querySelectorAll('.con__ticks li')) {
-      tick.dataset.on = String(Number(tick.dataset.index) === index);
+    for (const zona of this.el.querySelectorAll('.con__zona')) {
+      zona.dataset.on = String(Number(zona.dataset.index) === index);
     }
 
     this.#pintar(immediate);

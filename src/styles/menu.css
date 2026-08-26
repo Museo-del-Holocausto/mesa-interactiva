@@ -230,7 +230,7 @@
 
 .menu__picker {
   position: relative;
-  width: 620px;
+  width: 700px;
   overflow: hidden;
   scale: var(--panel-scale);
   transform-origin: left center;
@@ -289,7 +289,8 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  flex: none;
+  flex: 0 1 auto;
+  min-width: 0;
 }
 
 .menu[data-side='left'] .menu__row-tx { align-items: flex-end; }
@@ -297,7 +298,7 @@
 /* El filete cose el rótulo con su acción y marca el renglón. */
 .menu__row-line {
   flex: 1 1 auto;
-  min-width: 24px;
+  min-width: 18px;
   height: 1px;
   background: var(--ink-600);
   transition: background var(--dur-base) var(--ease-out);

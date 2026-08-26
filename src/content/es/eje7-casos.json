@@ -16,9 +16,18 @@
     "ban": "Banalización"
   },
   "bloques": [
-    { "k": "origen", "rot": "Qué pasó" },
-    { "k": "construccion", "rot": "La afirmación" },
-    { "k": "clave", "rot": "Por qué" }
+    {
+      "k": "origen",
+      "rot": "Qué pasó"
+    },
+    {
+      "k": "construccion",
+      "rot": "La afirmación"
+    },
+    {
+      "k": "clave",
+      "rot": "Por qué"
+    }
   ],
   "mitos": [
     {
@@ -28,7 +37,8 @@
       "frase": "David Irving contra Deborah Lipstadt",
       "origen": "En 1993 la historiadora Deborah Lipstadt publicó Denying the Holocaust, donde caracterizó al escritor británico David Irving como un peligroso portavoz del negacionismo. Irving la demandó por difamación en el Reino Unido, junto con su editorial Penguin Books. Durante el juicio, el tribunal concluyó que Irving había tergiversado deliberadamente el registro histórico por razones ideológicas y que intentaba mostrar a Hitler bajo una luz favorable. La demanda fue rechazada el 11 de abril de 2000.",
       "construccion": "«Irving solamente proponía una interpretación histórica diferente.»",
-      "clave": "El juicio no determinó que Irving hubiera cometido simples errores. Demostró un patrón de selección, modificación y tergiversación deliberada de evidencias. La investigación histórica puede discutir interpretaciones; el negacionismo manipula las fuentes para sostener una conclusión ideológica previa."
+      "clave": "El juicio no determinó que Irving hubiera cometido simples errores. Demostró un patrón de selección, modificación y tergiversación deliberada de evidencias. La investigación histórica puede discutir interpretaciones; el negacionismo manipula las fuentes para sostener una conclusión ideológica previa.",
+      "eje": "2000"
     },
     {
       "y": 1985,
@@ -37,7 +47,8 @@
       "frase": "Ernst Zündel y sus publicaciones",
       "origen": "Ernst Zündel fue uno de los principales distribuidores de propaganda neonazi y negacionista en Canadá. Por medio de su editorial Samisdat Publishers difundió materiales que presentaban el Holocausto como una invención y negaban el uso homicida de las cámaras de gas. En 1985 fue procesado por distribuir información que sabía falsa.",
       "construccion": "«Las cámaras de gas son un mito creado después de la guerra.»",
-      "clave": "Negar el uso de cámaras de gas para el asesinato masivo contradice documentos nazis, testimonios de perpetradores y sobrevivientes, registros administrativos, fotografías, planos y evidencias materiales. No se trata de una controversia académica legítima."
+      "clave": "Negar el uso de cámaras de gas para el asesinato masivo contradice documentos nazis, testimonios de perpetradores y sobrevivientes, registros administrativos, fotografías, planos y evidencias materiales. No se trata de una controversia académica legítima.",
+      "eje": "1985"
     },
     {
       "y": 1978,
@@ -46,7 +57,8 @@
       "frase": "El Instituto de Revisión Histórica",
       "origen": "El Institute for Historical Review fue creado en California en 1978. Publicó materiales y organizó encuentros que negaban el Holocausto, utilizando nombres, revistas, notas al pie y congresos con apariencia académica. Entre sus colaboradores se encontraban Arthur Butz, Robert Faurisson, Ernst Zündel y David Irving.",
       "construccion": "«Como una publicación tiene notas al pie y se denomina revisión histórica, sus conclusiones son científicas.»",
-      "clave": "La apariencia académica no garantiza la calidad de una investigación. Es necesario verificar cómo se seleccionan las fuentes, si los documentos son auténticos, si se considera la totalidad de la evidencia y si las conclusiones pueden ser revisadas."
+      "clave": "La apariencia académica no garantiza la calidad de una investigación. Es necesario verificar cómo se seleccionan las fuentes, si los documentos son auténticos, si se considera la totalidad de la evidencia y si las conclusiones pueden ser revisadas.",
+      "eje": "1978"
     },
     {
       "y": 2019,
@@ -55,7 +67,8 @@
       "frase": "Culpar a los prisioneros judíos",
       "origen": "En mayo de 2019, durante una comparación con la situación política de Venezuela, una actriz afirmó públicamente que dentro de los campos los propios judíos habían sido «los peores» y «los más torturadores». Posteriormente pidió disculpas y participó en acciones junto con la DAIA.",
       "construccion": "«Los judíos fueron responsables de lo que les ocurrió dentro de los campos.»",
-      "clave": "Los kapos eran prisioneros obligados por las SS a cumplir determinadas funciones dentro de un sistema de terror, coerción y violencia creado por los nazis. Sus conductas individuales pueden estudiarse históricamente, pero utilizarlas para trasladar a los prisioneros la responsabilidad del sistema concentracionario distorsiona la historia y culpabiliza a las víctimas."
+      "clave": "Los kapos eran prisioneros obligados por las SS a cumplir determinadas funciones dentro de un sistema de terror, coerción y violencia creado por los nazis. Sus conductas individuales pueden estudiarse históricamente, pero utilizarlas para trasladar a los prisioneros la responsabilidad del sistema concentracionario distorsiona la historia y culpabiliza a las víctimas.",
+      "eje": "2019"
     },
     {
       "y": 1952,
@@ -64,7 +77,8 @@
       "frase": "El Holocausto como negocio",
       "origen": "Una afirmación frecuente sostiene que los judíos inventaron o exageraron el Holocausto para conseguir indemnizaciones, justificar la creación del Estado de Israel o adquirir influencia política. El Museo Conmemorativo del Holocausto de Estados Unidos identifica esta acusación como parte del discurso negacionista.",
       "construccion": "«Los judíos exageran el Holocausto para obtener dinero y poder.»",
-      "clave": "La afirmación no discute honestamente una política concreta de reparación. Acusa colectivamente a los judíos de fabricar o manipular una tragedia para obtener ventajas. Las reparaciones del Acuerdo de Luxemburgo, firmado en 1952, fueron concebidas como una medida limitada de reconocimiento y compensación: no podían restituir las vidas destruidas ni reparar plenamente los daños sufridos."
+      "clave": "La afirmación no discute honestamente una política concreta de reparación. Acusa colectivamente a los judíos de fabricar o manipular una tragedia para obtener ventajas. Las reparaciones del Acuerdo de Luxemburgo, firmado en 1952, fueron concebidas como una medida limitada de reconocimiento y compensación: no podían restituir las vidas destruidas ni reparar plenamente los daños sufridos.",
+      "eje": "1952"
     },
     {
       "y": 2021,
@@ -73,7 +87,8 @@
       "frase": "Estrellas amarillas en protestas contra la vacunación",
       "origen": "Durante las protestas contra las medidas sanitarias por la pandemia de COVID-19, algunos manifestantes utilizaron estrellas amarillas semejantes a las impuestas a los judíos bajo el nazismo, acompañadas de expresiones como «no vacunado». La IHRA y la UNESCO señalaron este tipo de analogías como una forma perjudicial de trivialización o distorsión de la memoria del Holocausto.",
       "construccion": "«Pedir un certificado de vacunación es lo mismo que obligar a los judíos a usar la estrella amarilla.»",
-      "clave": "La comparación elimina las diferencias de contexto, intención y consecuencias. La estrella amarilla no fue una simple identificación: formó parte de un proceso de persecución racial, deshumanización, deportación y exterminio."
+      "clave": "La comparación elimina las diferencias de contexto, intención y consecuencias. La estrella amarilla no fue una simple identificación: formó parte de un proceso de persecución racial, deshumanización, deportación y exterminio.",
+      "eje": "2020"
     },
     {
       "y": 2022,
@@ -82,7 +97,8 @@
       "frase": "«Esto es Auschwitz»",
       "origen": "En el debate público se utilizan con frecuencia expresiones como «esto es Auschwitz», «vivimos en un campo de concentración» o «este político es Hitler» para describir gobiernos, restricciones, conflictos laborales o desacuerdos cotidianos.",
       "construccion": "«No me permiten entrar a un lugar, así que esto es igual a Auschwitz.»",
-      "clave": "Auschwitz fue un complejo de concentración y exterminio en el que los nazis sometieron a seres humanos a trabajos forzados, hambre, tortura y asesinato masivo. No toda comparación histórica es ilegítima: una comparación seria explica semejanzas, diferencias, escalas, contextos y límites. La banalización utiliza la referencia solamente para producir impacto."
+      "clave": "Auschwitz fue un complejo de concentración y exterminio en el que los nazis sometieron a seres humanos a trabajos forzados, hambre, tortura y asesinato masivo. No toda comparación histórica es ilegítima: una comparación seria explica semejanzas, diferencias, escalas, contextos y límites. La banalización utiliza la referencia solamente para producir impacto.",
+      "eje": "Hoy"
     },
     {
       "y": 2023,
@@ -91,7 +107,8 @@
       "frase": "Símbolos nazis como entretenimiento",
       "origen": "Una fiesta, un comercio o una campaña publicitaria utiliza uniformes nazis, esvásticas o imágenes de campos de concentración para llamar la atención, producir humor o generar una estética «provocadora».",
       "construccion": "«Es solamente una estética fuerte; no tiene relación con la historia.»",
-      "clave": "Los símbolos no están vacíos de significado. La esvástica nazi representa un régimen basado en la persecución racial, la guerra, la dictadura y el asesinato masivo. Convertirla en decoración o entretenimiento puede normalizarla y debilitar la conciencia sobre aquello que representa."
+      "clave": "Los símbolos no están vacíos de significado. La esvástica nazi representa un régimen basado en la persecución racial, la guerra, la dictadura y el asesinato masivo. Convertirla en decoración o entretenimiento puede normalizarla y debilitar la conciencia sobre aquello que representa.",
+      "eje": "Hoy"
     }
   ],
   "closing": {

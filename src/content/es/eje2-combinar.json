@@ -1,7 +1,7 @@
 {
-  "id": "eje-1",
-  "title": "No hay dos iguales",
-  "lead": "El judaísmo incluye religión, historia, lenguas, costumbres, memorias, arte y vida comunitaria. Cada persona lo combina a su manera.",
+  "id": "eje-2-combinar",
+  "title": "Una identidad, muchas formas",
+  "lead": "El judaísmo incluye religión, historia, lenguas, costumbres, memorias, arte y vida comunitaria. Respondé cinco preguntas y mirá qué persona aparece.",
   "hint": "Girá el marcador para elegir · Tocá para confirmar",
   "template": "{corriente}, {origen}. {lengua}. {vive}. {politica}.",
   "ui": {
@@ -10,8 +10,8 @@
     "next": "Siguiente",
     "last": "Ver la persona",
     "exists": "Esta persona existe.",
-    "countLabel": "Combinaciones posibles con estas cinco preguntas",
-    "andThis": "Y esta es una.",
+    "countLabel": "Con estas cinco preguntas hay 2.304 combinaciones posibles. Esta es una de ellas.",
+    "andThis": "",
     "again": "Armar otra"
   },
   "axes": [
@@ -198,7 +198,7 @@
     }
   ],
   "closing": {
-    "text": "Y estas son solo cinco preguntas.",
-    "sub": "La apariencia no permite conocer la lengua, las creencias, las costumbres, la profesión o las ideas de una persona. No existe una única manera de ser judío."
+    "text": "La apariencia no permite conocer la lengua, las creencias, las costumbres, la profesión o las ideas de una persona.",
+    "sub": "No existe una única manera de ser judío."
   }
 }
