@@ -121,7 +121,7 @@
       "id": "eje-4",
       "number": "04",
       "mode": "recorrer",
-      "title": "Políticas del Estado",
+      "title": "Políticas estatales antisemitas",
       "subtitle": "Primero identifican, después restringen, después separan. Lo anterior nunca se va.",
       "volume": "3 partes",
       "eyebrow": "Eje 4 · Políticas del Estado",
@@ -143,7 +143,7 @@
         {
           "id": "eje-4-trivia",
           "module": "eje-4-trivia",
-          "eyebrow": "Políticas del Estado · Lo que acabás de ver",
+          "eyebrow": "Eje 4 · Lo que acabás de ver",
           "title": "Lo que acabás de ver",
           "subtitle": "Preguntas de repaso sobre lo que acabás de recorrer."
         }
@@ -167,15 +167,15 @@
         {
           "id": "eje-5-alcance",
           "module": "eje-5-alcance",
-          "eyebrow": "Eje 5 · Hasta dónde llega",
-          "title": "Hasta dónde llega",
-          "subtitle": "Nueve días de una escalada en redes, y cuánta gente la vio en cada etapa."
+          "eyebrow": "Eje 5 · Cómo escala un meme",
+          "title": "Cómo escala un meme",
+          "subtitle": "Nueve días de una publicación antisemita, y cuánta gente la vio en cada etapa."
         },
         {
           "id": "eje-5-desmentido",
           "module": "eje-5-desmentido",
-          "eyebrow": "Eje 5 · La mentira y el desmentido",
-          "title": "La mentira y el desmentido",
+          "eyebrow": "Eje 5 · La mentira y la corrección",
+          "title": "La mentira y la corrección",
           "subtitle": "Girá hacia un lado y hacia el otro. Solo uno de los dos llega lejos."
         },
         {

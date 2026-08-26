@@ -41,7 +41,7 @@ export class Desmentido {
       desmentido: Math.round(data.lados.desmentido.techo / f),
     };
     this.el = this.#build();
-    this.#showScene('intro');
+    this.#empezar();
   }
 
   destroy() {
@@ -51,10 +51,14 @@ export class Desmentido {
 
   applyRotation(rotation) {
     if (this.el.dataset.scene !== 'girar') return;
-    const paso = this.#data.pasoFiguras;
-    this.#rotary.feed(rotation, 24, (direction) => {
-      const next = this.#pos + direction * paso;
-      this.#mover(next);
+    this.#rotary.feed(rotation, 20, (direction) => {
+      // Un paso vale una fraccion del recorrido del lado hacia donde se va, no
+      // una cantidad fija de figuras: asi los dos topes se alcanzan con la
+      // misma vuelta. Lo que cambia no es cuanto hay que girar, es cuanta
+      // gente se enciende.
+      const hacia = this.#pos + direction > 0 ? 'mentira' : 'desmentido';
+      const paso = Math.max(1, Math.round(this.#tope[hacia] / this.#data.pasos));
+      this.#mover(this.#pos + direction * paso);
     });
   }
 
@@ -71,16 +75,6 @@ export class Desmentido {
     root.dataset.scene = 'intro';
     root.dataset.lado = 'centro';
     root.innerHTML = `
-      <section class="des__scene" data-scene="intro">
-        <div>
-          <h1 class="des__h1">${this.#data.title}</h1>
-          <p class="des__lead">${this.#data.lead}</p>
-        </div>
-        <div class="des__acts">
-          <button class="des__btn des__btn--go" data-act="start">${t.start}</button>
-        </div>
-      </section>
-
       <section class="des__scene" data-scene="girar">
         <div class="des__col">
           <div class="des__lados">
@@ -99,7 +93,7 @@ export class Desmentido {
           <div class="des__dicho" data-slot="dicho">
             <p class="des__tit" data-slot="titulo"></p>
             <p class="des__nota" data-slot="nota"></p>
-            <p class="des__final" data-slot="final"></p>
+            <p class="des__remate" data-slot="remate"></p>
           </div>
         </div>
 
@@ -144,8 +138,7 @@ export class Desmentido {
         return this.#mover(l === 'mentira' ? this.#tope.mentira : -this.#tope.desmentido);
       }
       const act = target.closest('[data-act]')?.dataset.act;
-      if (act === 'start') this.#empezar();
-      else if (act === 'fin') this.#showScene('fin');
+      if (act === 'fin') this.#showScene('fin');
       else if (act === 'again') this.#empezar();
     });
 
@@ -247,12 +240,13 @@ export class Desmentido {
       const l = this.#data.lados[lado];
       this.#set('titulo', l.titulo);
       this.#set('nota', l.nota);
-      // El texto de tope aparece solo cuando el giro ya no mueve nada. Es el
-      // momento en que la pieza dice lo que tiene para decir.
+      // El remate aparece cuando la grilla llego a su tope. Es redundante a
+      // proposito: cierra la idea sin que haga falta un guia al lado.
+      const remate = this.el.querySelector('[data-slot="remate"]');
       const enTope = abs >= rango;
-      const fin = this.el.querySelector('[data-slot="final"]');
-      fin.textContent = enTope ? l.final : '';
-      fin.dataset.on = String(enTope);
+      remate.textContent = enTope ? l.remate : '';
+      remate.dataset.on = String(enTope);
+
     }
 
     this.#contarHasta(abs * this.#data.porFigura);

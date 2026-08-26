@@ -1,10 +1,9 @@
 {
   "id": "eje-5-alcance",
-  "title": "Hasta dónde llega",
-  "lead": "Una publicación antisemita escala durante nueve días. Girá el marcador para avanzar.",
+  "title": "Cómo escala un meme",
+  "lead": "",
   "aviso": "Caso de ejemplo. Las cifras ilustran el ritmo de una escalada, no corresponden a un hecho puntual.",
   "ui": {
-    "start": "Empezar",
     "next": "Siguiente",
     "last": "Ver el cierre",
     "again": "Volver a empezar",
@@ -22,7 +21,6 @@
       "que": "Alguien publica una caricatura de un judío con rasgos exagerados contando monedas.",
       "alcance": 10,
       "accion": "No compartirlo y reportarlo a la plataforma.",
-      "evita": "Todo lo que viene después.",
       "ruta": "De una cuenta individual a sus amigos y seguidores."
     },
     {
@@ -31,7 +29,6 @@
       "que": "«Totalmente de acuerdo». «Así son ellos siempre». El meme suma likes y respuestas.",
       "alcance": 70,
       "accion": "Responder con información y reportar los comentarios.",
-      "evita": "Que el prejuicio se lea como una opinión compartida.",
       "ruta": "De los seguidores a grupos y comunidades cerradas."
     },
     {
@@ -40,7 +37,6 @@
       "que": "Alguien señala a una persona real, con su nombre y su lugar de trabajo.",
       "alcance": 320,
       "accion": "Reportar la exposición de datos personales y avisarle a esa persona.",
-      "evita": "Que el odio general se convierta en una persona concreta.",
       "ruta": "De los grupos a influenciadores y líderes de opinión."
     },
     {
@@ -49,7 +45,6 @@
       "que": "Aparecen mensajes anunciando que van a ir a buscarla.",
       "alcance": 1100,
       "accion": "Guardar capturas, denunciar y acompañar a la persona atacada.",
-      "evita": "Poco. La amenaza ya circuló y ya la leyó.",
       "ruta": "De los influenciadores a hashtags y tendencias."
     },
     {
@@ -58,7 +53,6 @@
       "que": "Se convoca públicamente a concentrarse frente a una sinagoga.",
       "alcance": 3200,
       "accion": "Denunciar a la policía y a la plataforma.",
-      "evita": "Nada de lo anterior. A esta altura solo se puede contener el daño.",
       "ruta": "De las tendencias a amenazas y ataques reales."
     }
   ],

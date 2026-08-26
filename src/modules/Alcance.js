@@ -34,7 +34,9 @@ export class Alcance {
     this.#data = data;
     this.#onExit = onExit;
     this.el = this.#build();
-    this.#showScene('intro');
+    // Directo a la primera etapa: la pantalla de entrada repetia el rotulo del
+    // menu y costaba un click antes de lo unico que importa.
+    this.#ir(0, true);
   }
 
   destroy() {
@@ -75,17 +77,6 @@ export class Alcance {
     root.className = 'alc';
     root.dataset.scene = 'intro';
     root.innerHTML = `
-      <section class="alc__scene" data-scene="intro">
-        <div>
-          <h1 class="alc__h1">${this.#data.title}</h1>
-          <p class="alc__lead">${this.#data.lead}</p>
-          <p class="alc__aviso">${this.#data.aviso}</p>
-        </div>
-        <div class="alc__acts">
-          <button class="alc__btn alc__btn--go" data-act="start">${t.start}</button>
-        </div>
-      </section>
-
       <section class="alc__scene" data-scene="etapa">
         <div class="alc__col">
           <ol class="alc__pasos">
@@ -100,7 +91,6 @@ export class Alcance {
           <div class="alc__accion">
             <p class="alc__k">${t.act}</p>
             <p class="alc__acc" data-slot="accion"></p>
-            <p class="alc__evita" data-slot="evita"></p>
           </div>
         </div>
 
@@ -111,6 +101,7 @@ export class Alcance {
           </p>
           ${this.#grilla(total)}
           <p class="alc__escala">${t.scale}</p>
+          <p class="alc__aviso">${this.#data.aviso}</p>
         </div>
 
         <div class="alc__foot">
@@ -141,8 +132,7 @@ export class Alcance {
       if (paso?.dataset.index) return this.#ir(Number.parseInt(paso.dataset.index, 10));
 
       const act = target.closest('[data-act]')?.dataset.act;
-      if (act === 'start') this.#ir(0, true);
-      else if (act === 'next') this.#siguiente();
+      if (act === 'next') this.#siguiente();
       else if (act === 'again') this.#ir(0, true);
     });
 
@@ -224,7 +214,6 @@ export class Alcance {
     // Por que crece el numero: la ruta que hace el posteo en cada salto.
     this.#set('ruta', e.ruta);
     this.#set('accion', e.accion);
-    this.#set('evita', e.evita);
 
     for (const li of this.el.querySelectorAll('.alc__pasos li')) {
       const i = Number(li.dataset.index);

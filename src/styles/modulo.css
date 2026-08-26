@@ -5437,3 +5437,28 @@
   left: auto;
   right: 34px;
 }
+
+/* El aviso de que las cifras son un ejemplo va junto a la grilla que las
+   dibuja, no en una pantalla de entrada que ya no existe. */
+.alc__aviso {
+  margin-top: 10px;
+  max-width: 46ch;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.42;
+  color: var(--ink-500);
+}
+
+/* El remate del lado, cuando la grilla llegó a su tope. */
+.des__remate {
+  margin-top: 26px;
+  padding-left: 20px;
+  border-left: 2px solid var(--warn);
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1.26;
+  color: var(--ink-100);
+}
+
+.des[data-lado='mentira'] .des__remate { border-left-color: var(--accent); }
+.des__remate[data-on='false'] { display: none; }
