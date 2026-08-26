@@ -10,6 +10,7 @@
  * Parametros:
  *   ?debug=0    apaga el andamiaje visible
  *   ?sim=0      apaga el simulador entero
+ *   ?sim=1      lo enciende aunque este publicado
  *   ?marker=3   arranca con 3 marcadores (default 1)
  *   ?guide=1    arranca en modo guia
  *   ?lang=en    fuerza idioma
@@ -24,7 +25,20 @@ function flag(name, fallback) {
   return raw !== '0' && raw !== 'false';
 }
 
-/** @param {string} name @param {number} fallback @param {number} min @param {number} max */
+const guide = flag('guide', false);
+
+/**
+ * El simulador viene apagado en produccion, pero sin el no hay marcadores, y
+ * sin marcadores no hay modo guia ni nada que mostrar. Asi que `?guide=1` y
+ * `?marker=` lo encienden solos: la misma URL funciona en local y publicada.
+ * `?sim=0` siempre gana, para probar la pantalla sin ningun objeto.
+ */
+function simulador() {
+  const raw = params.get('sim');
+  if (raw !== null) return raw !== '0' && raw !== 'false';
+  return import.meta.env.DEV || guide || params.get('marker') !== null;
+}
+
 /** @param {string} name @param {number} fallback @param {number} min @param {number} max */
 function num(name, fallback, min, max) {
   const raw = params.get(name);
@@ -45,11 +59,11 @@ function int(name, fallback, min, max) {
 
 export const DEBUG = {
   /** El simulador de marcadores. En produccion no se compila. */
-  simulator: flag('sim', import.meta.env.DEV),
+  simulator: simulador(),
   /** Ghosts, guias de cuadrante y overlay de estado. */
   chrome: flag('debug', import.meta.env.DEV),
   markerCount: int('marker', 1, 0, 4),
-  guide: flag('guide', false),
+  guide,
   /**
    * Escala del lienzo en modo guia. Provisorio hasta verlo en la mesa real:
    * ?gscale=1.5 para probar otro valor.

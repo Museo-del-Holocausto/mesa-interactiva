@@ -23,6 +23,20 @@ function flag(name: string, fallback: boolean): boolean {
   return raw !== '0' && raw !== 'false';
 }
 
+const guide = flag('guide', false);
+
+/**
+ * El simulador viene apagado en produccion, pero sin el no hay marcadores, y
+ * sin marcadores no hay modo guia ni nada que mostrar. Asi que `?guide=1` y
+ * `?marker=` lo encienden solos: la misma URL funciona en local y publicada.
+ * `?sim=0` siempre gana, para probar la pantalla sin ningun objeto.
+ */
+function simulador(): boolean {
+  const raw = params.get('sim');
+  if (raw !== null) return raw !== '0' && raw !== 'false';
+  return import.meta.env.DEV || guide || params.get('marker') !== null;
+}
+
 function int(name: string, fallback: number, min: number, max: number): number {
   const raw = params.get(name);
   if (raw === null) return fallback;
@@ -33,11 +47,11 @@ function int(name: string, fallback: number, min: number, max: number): number {
 
 export const DEBUG = {
   /** El simulador de marcadores. En produccion no se compila. */
-  simulator: flag('sim', import.meta.env.DEV),
+  simulator: simulador(),
   /** Ghosts, guias de cuadrante y overlay de estado. */
   chrome: flag('debug', import.meta.env.DEV),
   markerCount: int('marker', 1, 0, 4),
-  guide: flag('guide', false),
+  guide,
 } as const;
 
 export const FORCED_LANG = params.get('lang');
