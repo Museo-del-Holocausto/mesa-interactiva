@@ -5462,3 +5462,172 @@
 
 .des[data-lado='mentira'] .des__remate { border-left-color: var(--accent); }
 .des__remate[data-on='false'] { display: none; }
+
+/* ==========================================================================
+   Escala — siete frases, de la crítica política a la amenaza
+   ==========================================================================
+   No hay nada que elegir. El documento pide expresamente que la escala no dé a
+   entender que todo encaja perfectamente: por eso el medio es una franja gris
+   y no una línea divisoria, y las paradas no llevan número. */
+
+.esc {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  gap: 26px;
+  align-content: start;
+
+  --critica: #4fdcb4;
+  --gris: #f0b64f;
+  --anti: #ff8571;
+}
+
+.esc__aviso {
+  max-width: 60ch;
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1.44;
+  color: var(--ink-400);
+}
+
+/* --- la escala ------------------------------------------------------------ */
+
+.esc__escala { position: relative; padding-bottom: 26px; }
+
+.esc__extremos {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.esc__extremos span:first-child { color: var(--critica); }
+.esc__extremos span:last-child { color: var(--anti); }
+
+.esc__pista {
+  position: relative;
+  height: 4px;
+  margin-bottom: 18px;
+  background: linear-gradient(
+    to right,
+    var(--critica) 0%,
+    var(--gris) 45%,
+    var(--gris) 55%,
+    var(--anti) 100%
+  );
+  opacity: 0.5;
+}
+
+.esc__cursor {
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--ink-100);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  transition: left var(--dur-base) var(--ease-out);
+}
+
+/* Las paradas viven adentro de la barra: colgadas de la escala entera caían
+   por debajo del trazo. */
+.esc__paradas { position: absolute; inset: 0; list-style: none; }
+
+.esc__paradas li {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.esc__paradas li::after {
+  content: '';
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ink-600);
+  transition: background var(--dur-base) var(--ease-out), scale var(--dur-base) var(--ease-out);
+}
+
+.esc__paradas li[data-on='true']::after { scale: 1.6; }
+.esc__paradas li[data-zona='critica'][data-on='true']::after { background: var(--critica); }
+.esc__paradas li[data-zona='gris'][data-on='true']::after { background: var(--gris); }
+.esc__paradas li[data-zona='anti'][data-on='true']::after { background: var(--anti); }
+
+/* --- la frase ------------------------------------------------------------- */
+
+.esc__card { align-self: start; }
+
+.esc__cat {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.esc[data-zona='critica'] .esc__cat { color: var(--critica); }
+.esc[data-zona='gris'] .esc__cat { color: var(--gris); }
+.esc[data-zona='anti'] .esc__cat { color: var(--anti); }
+
+.esc__frase {
+  max-width: 30ch;
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  color: var(--ink-100);
+  text-wrap: balance;
+}
+
+/* --- los criterios -------------------------------------------------------- */
+
+.esc__k {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.esc__criterios ul {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 44px;
+  list-style: none;
+  max-width: 92ch;
+}
+
+.esc__criterios li {
+  padding-left: 16px;
+  border-left: 1px solid var(--ink-600);
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--ink-400);
+}
+
+.esc__hint {
+  align-self: end;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}

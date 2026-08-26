@@ -251,7 +251,7 @@ export class Contradicciones {
 
     const dicho = this.el.querySelector('[data-slot="dicho"]');
     if (lado) {
-      this.#set('frase', `«${p[lado].frase}»`);
+      this.#set('frase', p[lado].frase);
       this.#set('cuando', p[lado].cuando);
       this.#set('quien', p[lado].nota);
       // La contradicción se lee en el mismo momento en que se llega al polo.

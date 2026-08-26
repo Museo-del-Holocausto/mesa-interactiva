@@ -164,7 +164,7 @@ export class Mitos {
 
     this.#set('n', String(index + 1));
     this.#set('era', m.era);
-    this.#set('frase', `«${m.frase}»`);
+    this.#set('frase', m.frase);
 
     const cat = this.el.querySelector('[data-slot="cat"]');
     cat.textContent = this.#data.categorias[m.cat];

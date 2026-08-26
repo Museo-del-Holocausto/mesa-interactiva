@@ -193,7 +193,7 @@
       "mode": "decidir",
       "title": "Antisionismo y antisemitismo",
       "subtitle": "Un Estado, un gobierno, una ideología y una población mundial no son la misma cosa.",
-      "volume": "3 partes",
+      "volume": "5 partes",
       "children": [
         {
           "id": "eje-6-definiciones",
@@ -208,6 +208,20 @@
           "eyebrow": "Eje 6 · Siete afirmaciones frecuentes",
           "title": "Siete afirmaciones frecuentes",
           "subtitle": "Qué tiene de cierto cada una y qué simplifica."
+        },
+        {
+          "id": "eje-6-escala",
+          "module": "eje-6-escala",
+          "eyebrow": "Eje 6 · Dónde cae cada frase",
+          "title": "Dónde cae cada frase",
+          "subtitle": "Siete frases, de la crítica política clara a la amenaza."
+        },
+        {
+          "id": "eje-6-criticando",
+          "module": "eje-6-criticando",
+          "eyebrow": "Eje 6 · ¿Qué está criticando?",
+          "title": "¿Qué está criticando?",
+          "subtitle": "Seis frases. Cada una critica algo distinto."
         },
         {
           "id": "eje-6-trivia",

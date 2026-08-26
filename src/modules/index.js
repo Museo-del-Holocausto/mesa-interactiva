@@ -2,6 +2,7 @@ import { Definir } from '@/modules/Definir.js';
 import { Trivia } from '@/modules/Trivia.js';
 import { Mitos } from '@/modules/Mitos.js';
 import { Contradicciones } from '@/modules/Contradicciones.js';
+import { Escala } from '@/modules/Escala.js';
 import { Decidir } from '@/modules/Decidir.js';
 import { Combinar } from '@/modules/Combinar.js';
 import { Estimar } from '@/modules/Estimar.js';
@@ -34,6 +35,8 @@ import eje5desmentido from '@/content/es/eje5-desmentido.json';
 import eje6defs from '@/content/es/eje6-definiciones.json';
 import eje6afirm from '@/content/es/eje6-afirmaciones.json';
 import eje6trivia from '@/content/es/eje6-trivia.json';
+import eje6escala from '@/content/es/eje6-escala.json';
+import eje6crit from '@/content/es/eje6-criticando.json';
 import eje7 from '@/content/es/eje7.json';
 import eje7casos from '@/content/es/eje7-casos.json';
 import eje8 from '@/content/es/eje8.json';
@@ -75,6 +78,8 @@ export const MODULES = {
   'eje-5-trivia': (onExit) => new Trivia(eje5trivia, onExit),
   'eje-6-definiciones': (onExit) => new Mitos(eje6defs, onExit),
   'eje-6-afirmaciones': (onExit) => new Mitos(eje6afirm, onExit),
+  'eje-6-escala': (onExit) => new Escala(eje6escala, onExit),
+  'eje-6-criticando': (onExit) => new Trivia(eje6crit, onExit),
   'eje-6-trivia': (onExit) => new Trivia(eje6trivia, onExit),
   'eje-7-decidir': (onExit) => new Decidir(eje7, onExit),
   'eje-7-casos': (onExit) => new Mitos(eje7casos, onExit),

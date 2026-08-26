@@ -1,0 +1,81 @@
+{
+  "id": "eje-6-criticando",
+  "title": "¿Qué está criticando?",
+  "lead": "Seis frases. Cada una critica algo distinto.",
+  "ui": {
+    "start": "Empezar",
+    "counter": "Frase {n} de {total}",
+    "next": "Siguiente",
+    "last": "Ver el cierre",
+    "again": "Volver a empezar"
+  },
+  "preguntas": [
+    {
+      "enunciado": "«Rechazo la política de este primer ministro.»",
+      "opciones": [
+        { "k": "a", "label": "Un gobierno" },
+        { "k": "b", "label": "Una política concreta" },
+        { "k": "c", "label": "El modelo de Estado" },
+        { "k": "d", "label": "Los judíos en general" }
+      ],
+      "correcta": "a"
+    },
+    {
+      "enunciado": "«Me opongo a la expansión de asentamientos.»",
+      "opciones": [
+        { "k": "a", "label": "Un gobierno" },
+        { "k": "b", "label": "Una política concreta" },
+        { "k": "c", "label": "Una ideología" },
+        { "k": "d", "label": "Los judíos en general" }
+      ],
+      "correcta": "b"
+    },
+    {
+      "enunciado": "«Prefiero un Estado compartido para israelíes y palestinos.»",
+      "opciones": [
+        { "k": "a", "label": "Una política concreta" },
+        { "k": "b", "label": "El modelo de Estado" },
+        { "k": "c", "label": "Una generalización" },
+        { "k": "d", "label": "Los judíos en general" }
+      ],
+      "correcta": "b"
+    },
+    {
+      "enunciado": "«Me opongo al nacionalismo en general, incluido el sionismo.»",
+      "opciones": [
+        { "k": "a", "label": "Un gobierno" },
+        { "k": "b", "label": "Una ideología" },
+        { "k": "c", "label": "El modelo de Estado" },
+        { "k": "d", "label": "Los judíos en general" }
+      ],
+      "correcta": "b"
+    },
+    {
+      "enunciado": "«Los sionistas controlan los medios y los bancos.»",
+      "opciones": [
+        { "k": "a", "label": "Una ideología" },
+        { "k": "b", "label": "Un gobierno" },
+        { "k": "c", "label": "Una generalización antisemita" },
+        { "k": "d", "label": "Una política concreta" }
+      ],
+      "correcta": "c",
+      "mensaje": "Usa un mito antisemita clásico y cambia «Israel» por «los sionistas»."
+    },
+    {
+      "enunciado": "«Todos los judíos deben responder por Israel.»",
+      "opciones": [
+        { "k": "a", "label": "Un gobierno" },
+        { "k": "b", "label": "El modelo de Estado" },
+        { "k": "c", "label": "Una ideología" },
+        { "k": "d", "label": "Responsabilidad colectiva" }
+      ],
+      "correcta": "d",
+      "mensaje": "Responsabilizar a todos los judíos por las decisiones de un Estado es antisemitismo."
+    }
+  ],
+  "closing": {
+    "label": "Para cerrar",
+    "text": "La palabra «antisionismo» no determina por sí sola si una expresión es antisemita.",
+    "sub": "Hay que analizar qué afirma, a quién responsabiliza y qué imágenes utiliza."
+  }
+}

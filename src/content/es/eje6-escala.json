@@ -1,0 +1,60 @@
+{
+  "id": "eje-6-escala",
+  "title": "Dónde cae cada frase",
+  "lead": "Siete frases sobre Israel y los judíos, ordenadas de la crítica política clara a la amenaza. Girá el marcador para recorrerlas.",
+  "aviso": "Se muestra una escala, pero sin asumir que todo encaja perfectamente.",
+  "ui": {
+    "hint": "Girá el marcador para recorrer",
+    "left": "Crítica política",
+    "right": "Antisemitismo",
+    "of": "de"
+  },
+  "frases": [
+    {
+      "cat": "Crítica política clara",
+      "texto": "«El gobierno israelí debe investigar posibles violaciones del derecho internacional.»",
+      "zona": "critica"
+    },
+    {
+      "cat": "Crítica ideológica",
+      "texto": "«Me opongo al sionismo porque me opongo a los Estados etnonacionales.»",
+      "zona": "critica"
+    },
+    {
+      "cat": "Afirmación discutible o imprecisa",
+      "texto": "«Israel nunca quiso la paz.»",
+      "zona": "gris"
+    },
+    {
+      "cat": "Generalización",
+      "texto": "«Los israelíes son todos racistas.»",
+      "zona": "gris"
+    },
+    {
+      "cat": "Responsabilidad colectiva",
+      "texto": "«Los judíos del mundo son responsables de Gaza.»",
+      "zona": "anti"
+    },
+    {
+      "cat": "Conspiración",
+      "texto": "«Los judíos controlan a los gobiernos para proteger a Israel.»",
+      "zona": "anti"
+    },
+    {
+      "cat": "Amenaza",
+      "texto": "«Hay que atacar una sinagoga para vengarse de Israel.»",
+      "zona": "anti"
+    }
+  ],
+  "criterios": {
+    "label": "Cuándo se acerca al antisemitismo",
+    "items": [
+      "Sustituye «Israel» por «los judíos».",
+      "Atribuye una conducta colectiva esencial.",
+      "Usa conspiraciones clásicas.",
+      "Exige lealtad o condena pública a personas judías.",
+      "Niega a los judíos derechos que reconoce a otros pueblos por ser judíos.",
+      "Promueve hostilidad o violencia contra judíos."
+    ]
+  }
+}
