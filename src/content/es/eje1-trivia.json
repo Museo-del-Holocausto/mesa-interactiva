@@ -31,7 +31,7 @@
       "mensaje": "Una identidad compartida no convierte a las personas en copias idénticas."
     },
     {
-      "enunciado": "Completá la frase: «Una persona judía cometió un delito, entonces…»",
+      "enunciado": "Completá la frase: «Una persona judía cometió una infracción, entonces…»",
       "opciones": [
         { "k": "a", "label": "Esa persona debe responder por lo que hizo." },
         { "k": "b", "label": "Todos los judíos son responsables." },
@@ -49,12 +49,12 @@
         { "k": "d", "label": "Atacar a quienes parecen diferentes." }
       ],
       "correcta": "a",
-      "mensaje": "Culpar a un grupo no resuelve una crisis. Solamente crea nuevas víctimas."
+      "mensaje": "Culpar a un grupo no resuelve una crisis. Crea un chivo expiatorio."
     }
   ],
   "closing": {
     "label": "Para cerrar",
-    "text": "Las personas son responsables de sus actos.",
-    "sub": "Los grupos no tienen una culpa colectiva."
+    "text": "Generalizar está mal.",
+    "sub": "Los grupos no son responsables por los actos individuales."
   }
 }

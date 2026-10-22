@@ -13,7 +13,7 @@
       "tipo": "elegir",
       "titulo": "¿Qué es el antisemitismo?",
       "intro": [
-        "Es una forma de prejuicio, discriminación y hostilidad dirigida contra las personas judías, las comunidades judías, el judaísmo o aquello que se imagina y se presenta como «judío»."
+        "Prejuicio, discriminación, odio y hostilidad contra las personas judías o aquello que se presenta como «judío»."
       ],
       "consigna": "¿A través de qué te parece que se manifiesta?",
       "items": [
@@ -57,15 +57,15 @@
       "permiteVacio": true,
       "titulo": "De una persona a todo un grupo",
       "intro": [
-        "El antisemitismo toma lo que hace una persona y lo atribuye a todos los judíos.",
+        "El antisemitismo, como cualquier prejuicio, toma lo que hace una persona y lo atribuye a todos los judíos.",
         "Estos son datos de una sola persona judía."
       ],
       "consigna": "¿Cuáles te dicen algo sobre el resto de los judíos?",
       "ayuda": "También podés confirmar sin marcar ninguno.",
       "items": [
-        "Es maestra",
+        "Juega al fútbol",
         "Vive en Rosario",
-        "Cometió un delito",
+        "Cometió una infracción",
         "Habla ídish",
         "Vota a la izquierda"
       ],
@@ -80,7 +80,7 @@
       "intro": [
         "En momentos de crisis, algunas sociedades buscan una explicación rápida y un grupo al que responsabilizar."
       ],
-      "consigna": "¿En cuáles de estas crisis te parece que se acusó a los judíos?",
+      "consigna": "¿En cuáles de estas crisis te parece que los judíos fueron culpabilizados?",
       "items": [
         {
           "titulo": "Epidemias",
@@ -113,6 +113,6 @@
   "closing": {
     "label": "Para cerrar",
     "text": "El antisemitismo no describe a nadie.",
-    "sub": "Construye una imagen, la aplica a un grupo entero y la usa cuando hace falta un culpable."
+    "sub": "Construye una imagen negativa de lo judío y la aplica a un grupo entero."
   }
 }
