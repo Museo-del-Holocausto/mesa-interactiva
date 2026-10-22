@@ -31,7 +31,7 @@
       "era": "Punto 1",
       "cat": "def",
       "frase": "Qué es el sionismo",
-      "origen": "El sionismo surgió como un conjunto de movimientos políticos judíos que defendieron la autodeterminación nacional judía, principalmente en la tierra histórica de Israel y Palestina.",
+      "origen": "El sionismo es un movimiento nacionalista surgido a fines del siglo XIX que sostuvo que los judíos, además de constituir una comunidad religiosa y cultural, son un pueblo con derecho a la autodeterminación en su tierra histórica.",
       "eje": ""
     },
     {
@@ -57,22 +57,13 @@
       "era": "Punto 4",
       "cat": "lim",
       "frase": "Los criterios",
-      "origen": "La expresión se acerca al antisemitismo cuando sustituye «Israel» por «los judíos»; atribuye una conducta colectiva esencial; usa conspiraciones clásicas; exige lealtad o condena pública a personas judías; niega a los judíos derechos que reconoce a otros pueblos por ser judíos; promueve hostilidad o violencia contra judíos.",
-      "construccion": "La Declaración de Jerusalén, Nexus e IHRA discrepan en ciertos límites, pero coinciden en que responsabilizar a los judíos colectivamente o atacarlos por Israel es antisemita.",
-      "eje": ""
-    },
-    {
-      "y": 5,
-      "era": "Punto 5",
-      "cat": "pos",
-      "frase": "Qué no determina la palabra",
-      "origen": "La palabra «antisionismo» no determina por sí sola si una expresión es antisemita. Hay que analizar qué afirma, a quién responsabiliza y qué imágenes utiliza.",
+      "origen": "La expresión se acerca al antisemitismo cuando:\n— Sustituye «Israel» por «los judíos».\n— Atribuye una conducta colectiva esencial.\n— Usa conspiraciones clásicas.\n— Exige lealtad o condena pública a personas judías.\n— Niega a los judíos derechos que reconoce a otros pueblos por ser judíos.\n— Promueve hostilidad o violencia contra judíos.",
       "eje": ""
     }
   ],
   "closing": {
     "label": "Mensaje central",
-    "text": "Un Estado, un gobierno, una ideología y una población mundial no son la misma cosa.",
+    "text": "Un Estado, un gobierno, una ideología y un pueblo no son la misma cosa.",
     "sub": ""
   }
 }

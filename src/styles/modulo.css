@@ -3657,6 +3657,7 @@
 .mit__bloque[data-k='clave'] .mit__rot { color: var(--accent); }
 
 .mit__txt {
+  white-space: pre-line;
   margin-top: 10px;
   font-size: 26px;
   font-weight: 300;
