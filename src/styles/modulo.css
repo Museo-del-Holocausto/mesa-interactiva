@@ -459,6 +459,7 @@
   display: grid;
   grid-template-rows: 1fr auto auto;
   --rel: #8f9dff;
+  --pre: #b8a98f;
   --eco: #4fdcb4;
   --rac: #ff8571;
   --con: #f0b64f;
@@ -473,6 +474,7 @@
 }
 
 .linea__era[data-cat='rel'] { color: var(--rel); }
+.linea__era[data-cat='pre'] { color: var(--pre); }
 .linea__era[data-cat='eco'] { color: var(--eco); }
 .linea__era[data-cat='rac'] { color: var(--rac); }
 .linea__era[data-cat='con'] { color: var(--con); }
@@ -528,6 +530,7 @@
 }
 
 .linea__band[data-cat='rel'] { background: var(--rel); }
+.linea__band[data-cat='pre'] { background: var(--pre); }
 .linea__band[data-cat='eco'] { background: var(--eco); }
 .linea__band[data-cat='rac'] { background: var(--rac); }
 .linea__band[data-cat='con'] { background: var(--con); }
@@ -550,6 +553,7 @@
 }
 
 .linea__pt[data-on='true'][data-cat='rel'] { background: var(--rel); }
+.linea__pt[data-on='true'][data-cat='pre'] { background: var(--pre); }
 .linea__pt[data-on='true'][data-cat='eco'] { background: var(--eco); }
 .linea__pt[data-on='true'][data-cat='rac'] { background: var(--rac); }
 .linea__pt[data-on='true'][data-cat='con'] { background: var(--con); }
@@ -3410,6 +3414,7 @@
   /* Las mismas cuatro familias del documento. Estaban declaradas dentro de
      .linea, así que no llegaban hasta acá. */
   --rel: #8f9dff;
+  --pre: #b8a98f;
   --eco: #4fdcb4;
   --rac: #ff8571;
   --con: #f0b64f;

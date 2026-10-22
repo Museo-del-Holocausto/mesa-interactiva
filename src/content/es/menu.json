@@ -90,15 +90,15 @@
       "id": "eje-3",
       "number": "03",
       "mode": "decidir",
-      "title": "Mitos y estereotipos",
-      "subtitle": "A lo largo de los siglos, el antisemitismo construyó mitos para presentar a los judíos como una amenaza. Estos relatos falsos cambiaron de forma según la época: primero fueron religiosos, luego económicos, raciales, políticos y conspirativos. Aunque no tienen base real, sirvieron para justificar discriminación, expulsiones, violencia y genocidio.",
+      "title": "Mitos, estereotipos y acusaciones",
+      "subtitle": "A lo largo de los siglos, el antisemitismo se nutrió de prejuicios negativos y construyó estereotipos y mitos para presentar a los judíos como una amenaza. Estas imágenes se transformaron en acusaciones que cambiaron de forma según la época: primero fueron religiosas, luego económicas, raciales, políticas y conspirativas. Esto sirvió para justificar discriminación, violencia, expulsiones hasta llegar al Holocausto.",
       "volume": "6 casos",
       "children": [
         {
           "id": "eje-3-mitos",
           "module": "eje-3-mitos",
-          "eyebrow": "Eje 3 · Dos mil años de mitos",
-          "title": "Dos mil años de mitos",
+          "eyebrow": "Eje 3 · Dos mil años de antisemitismo",
+          "title": "Dos mil años de antisemitismo",
           "subtitle": "Nueve acusaciones, de la Antigüedad a hoy. Su origen, cómo se construyeron y qué dejaron."
         },
         {
@@ -106,7 +106,7 @@
           "module": "eje-3-contradicciones",
           "eyebrow": "Eje 3 · El detector de contradicciones",
           "title": "El detector de contradicciones",
-          "subtitle": "Seis pares de acusaciones opuestas sobre las mismas personas. ¿Pueden ser todas ciertas?"
+          "subtitle": "Cinco pares de acusaciones opuestas sobre las mismas personas. ¿Pueden ser todas ciertas?"
         },
         {
           "id": "eje-3-trivia",

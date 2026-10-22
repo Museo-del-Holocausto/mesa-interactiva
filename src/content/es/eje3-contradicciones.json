@@ -102,24 +102,6 @@
         "choque": "Si destruyen la tradición, no pueden estar aferrados a ella."
       },
       "cierre": "Demasiado antiguos y demasiado modernos, según lo que hiciera falta."
-    },
-    {
-      "eje": "La pertenencia",
-      "a": {
-        "corto": "Sin patria",
-        "frase": "«Los judíos son cosmopolitas sin patria»",
-        "cuando": "Siglos XIX y XX",
-        "nota": "Se los acusa de no tener lealtad a ningún país.",
-        "choque": "Si no tienen patria, no pueden ser fanáticos de una."
-      },
-      "b": {
-        "corto": "Nacionalistas",
-        "frase": "«Los judíos son nacionalistas fanáticos»",
-        "cuando": "Siglos XX y XXI",
-        "nota": "Se los acusa de tener una lealtad nacional por encima de todo lo demás.",
-        "choque": "Si son fanáticos de su nación, no pueden carecer de patria."
-      },
-      "cierre": "Sin patria y demasiado patriotas. La acusación cambia, el acusado no."
     }
   ],
   "veredicto": {

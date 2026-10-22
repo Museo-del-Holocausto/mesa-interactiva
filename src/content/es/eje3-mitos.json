@@ -1,6 +1,6 @@
 {
   "id": "eje-3-mitos",
-  "title": "Dos mil años de mitos",
+  "title": "Dos mil años de antisemitismo",
   "ui": {
     "hint": "Deslizá el marcador para recorrer",
     "reveal": "Seguir",
@@ -14,7 +14,8 @@
     "rel": "Religioso",
     "eco": "Económico",
     "rac": "Racial",
-    "con": "Conspirativo"
+    "con": "Conspirativo",
+    "pre": "Precristiano"
   },
   "bloques": [
     {
@@ -34,7 +35,7 @@
     {
       "y": 50,
       "era": "Siglo I",
-      "cat": "rel",
+      "cat": "pre",
       "frase": "«Los judíos son enemigos de la sociedad»",
       "origen": "En la Antigüedad grecorromana, algunas costumbres judías —como el monoteísmo, las leyes alimentarias o la circuncisión— fueron vistas como extrañas.",
       "construccion": "Esa diferencia fue usada para acusar a los judíos de aislarse o de rechazar a los demás.",
@@ -45,9 +46,9 @@
       "y": 380,
       "era": "Siglo IV",
       "cat": "rel",
-      "frase": "«Los judíos mataron a Cristo»",
-      "origen": "Con el cristianismo se difundió la acusación de deicidio: la idea de que todos los judíos eran culpables por la muerte de Jesús.",
-      "construccion": "El mito convirtió a los judíos en enemigos religiosos y alimentó siglos de persecución.",
+      "frase": "«Los judíos son deicidas»",
+      "origen": "Durante siglos se enseñó que los judíos habían matado a Jesús y, por eso, eran colectivamente culpables de su muerte: es lo que se llamó la acusación de deicidio.",
+      "construccion": "Hoy las principales Iglesias cristianas rechazan esa idea: en 1965, la declaración Nostra Aetate del Concilio Vaticano II rechazó formalmente la culpa colectiva judía. Históricamente, Jesús murió ejecutado por la autoridad romana, y no puede atribuirse responsabilidad colectiva a los judíos de entonces ni, mucho menos, a los judíos posteriores.",
       "clave": "Una acusación religiosa colectiva justificó exclusión y violencia.",
       "eje": "Siglo IV"
     },
@@ -56,8 +57,8 @@
       "era": "1144, Norwich",
       "cat": "rel",
       "frase": "«Los judíos usan sangre cristiana en rituales»",
-      "origen": "En la Edad Media surgió el mito del crimen ritual: la falsa acusación de que los judíos asesinaban niños cristianos para usar su sangre en ceremonias.",
-      "construccion": "Fue una de las mentiras más peligrosas y provocó ataques, juicios y matanzas.",
+      "origen": "En la Edad Media surgió el mito del crimen ritual: la falsa acusación de que los judíos asesinaban niños cristianos para usar su sangre en ceremonias. La acusación es conocida como «libelo de sangre».",
+      "construccion": "El caso de Norwich, en 1144, fue el primero documentado. Fue una de las mentiras más peligrosas: provocó ataques, juicios y matanzas, reapareció durante siglos y persiste hasta hoy.",
       "clave": "Una mentira religiosa podía convertirse en violencia real.",
       "eje": "1144"
     },
@@ -86,8 +87,8 @@
       "era": "Siglos XVI–XIX",
       "cat": "eco",
       "frase": "«El judío mentiroso y estafador»",
-      "origen": "Las restricciones legales y la imagen negativa vinculada a la usura dieron origen a la acusación.",
-      "construccion": "En cada crisis económica se acusó a los judíos de manipulación financiera. La literatura, el arte, el teatro y más tarde el cine los retrataron como astutos, engañosos y estafadores.",
+      "origen": "Las restricciones legales y la imagen negativa vinculada a la usura dieron origen a esta acusación.",
+      "construccion": "En cada crisis económica se acusó a los judíos de manipulación financiera. La literatura, el arte, el teatro y más tarde el cine los retrataron como astutos, engañosos y estafadores. Desde el siglo XIX, la familia Rothschild fue convertida en símbolo de un supuesto poder financiero judío mundial.",
       "clave": "El estereotipo persiste hoy en teorías que presentan a los judíos como controladores financieros y mediáticos.",
       "eje": "Siglos XVI–XIX"
     },
@@ -105,10 +106,10 @@
       "y": 1935,
       "era": "Década de 1930",
       "cat": "rac",
-      "frase": "«Los judíos son una raza peligrosa»",
-      "origen": "Una característica del antisemitismo es su capacidad de adaptarse.",
-      "construccion": "A los judíos se los acusó, de forma contradictoria, de ser capitalistas y comunistas, ricos y revolucionarios, poderosos y peligrosos. Esa flexibilidad permitió usar el antisemitismo como explicación falsa para casi cualquier crisis.",
-      "clave": "El antisemitismo no busca la verdad: necesita un enemigo.",
+      "frase": "«Los judíos son una “raza” peligrosa»",
+      "origen": "A fines del siglo XIX, el prejuicio religioso y económico se reformuló con lenguaje pseudocientífico: los judíos dejaron de ser definidos por su religión y pasaron a ser definidos como una “raza”.",
+      "construccion": "El nazismo llevó esa idea al extremo: definió al judío por su ascendencia, lo presentó como una amenaza biológica y convirtió esa clasificación en ley.",
+      "clave": "Cuando el prejuicio se volvió “racial”, integrarse o convertirse dejó de ser una salida: se perseguía a las personas por lo que eran, no por lo que creían.",
       "eje": "1930"
     },
     {
@@ -116,8 +117,10 @@
       "era": "Hoy",
       "cat": "con",
       "frase": "«Los judíos tienen doble lealtad»",
-      "vacio": true,
-      "eje": "Hoy"
+      "eje": "Hoy",
+      "origen": "La acusación sostiene que los judíos son más leales a Israel —o entre sí— que a los países donde viven y de los que son ciudadanos.",
+      "construccion": "Es la versión actual de un mito antiguo: el judío como extranjero eterno. Hoy se usa para exigir a personas judías que demuestren su lealtad o que condenen públicamente a Israel.",
+      "clave": "Dudar de la pertenencia de un ciudadano por su identidad no es un debate político: es el mito funcionando."
     }
   ],
   "closing": {
