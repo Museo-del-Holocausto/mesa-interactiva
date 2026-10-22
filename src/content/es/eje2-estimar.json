@@ -1,7 +1,7 @@
 {
   "id": "eje-2-estimar",
   "title": "Lo que creemos y lo que es",
-  "lead": "Casi todo lo que damos por sabido sobre los judíos lo supusimos. Ocho preguntas con números: girá el marcador para responder y compará tu cálculo con el dato real.",
+  "lead": "Casi todo lo que damos por sabido sobre los judíos lo supusimos. Siete preguntas con números: girá el marcador para responder y compará tu cálculo con el dato real.",
   "ui": {
     "start": "Empezar",
     "counter": "Pregunta {n} de {total}",
@@ -57,7 +57,7 @@
       "bajo": "Israel concentra bastante más de lo que calculaste."
     },
     {
-      "enunciado": "De cada 100 judíos de Israel, ¿cuántos tienen origen en países árabes o musulmanes?",
+      "enunciado": "De cada 100 judíos de Israel, ¿cuántos tienen origen en países árabes?",
       "unidad": "de cada 100",
       "max": 100,
       "real": 50,
@@ -67,7 +67,7 @@
       "bajo": "Casi la mitad. Judío no es sinónimo de europeo."
     },
     {
-      "enunciado": "De cada 100 judíos de Israel, ¿cuántos son ultraortodoxos?",
+      "enunciado": "De cada 100 judíos de Israel, ¿cuántos son ortodoxos (haredim)?",
       "unidad": "de cada 100",
       "max": 100,
       "real": 9,
@@ -77,18 +77,8 @@
       "bajo": "Estuviste cerca por abajo."
     },
     {
-      "enunciado": "De cada 100 judíos del mundo, ¿cuántos hablan ídish?",
-      "unidad": "de cada 100",
-      "max": 100,
-      "real": 4,
-      "corto": "4 de cada 100",
-      "fuente": "Unas 600.000 personas hoy. Antes de la Segunda Guerra Mundial había cerca de 13 millones de hablantes, casi todos en Europa del Este.",
-      "alto": "Es la lengua que más se asocia con lo judío y hoy casi nadie la habla. Lo que la hizo desaparecer es el tema de este museo.",
-      "bajo": "Estuviste cerca por abajo."
-    },
-    {
       "tipo": "anio",
-      "enunciado": "¿En qué año la población judía del mundo volvió al número que tenía antes de la guerra?",
+      "enunciado": "¿En qué año la población judía del mundo volvió al número que tenía antes de la Segunda Guerra Mundial?",
       "unidad": "año",
       "min": 1945,
       "max": 2026,

@@ -51,16 +51,16 @@
       "id": "eje-2",
       "number": "02",
       "mode": "explorar",
-      "title": "Quiénes son los judíos",
-      "subtitle": "Las personas judías tienen historias, costumbres, ideas y formas de vida muy diferentes. El judaísmo incluye religión, historia, lenguas, costumbres, memorias, arte y vida comunitaria. No existe una única forma de ser judío.",
+      "title": "¿Quiénes son los judíos?",
+      "subtitle": "Las personas judías tienen historias, costumbres, ideas y formas de vida muy diferentes. El judaísmo se manifiesta en religión, historia, lenguas, costumbres, memorias, arte y vida comunitaria. No existe una única forma de ser judío.",
       "volume": "4 partes",
       "eyebrow": "Eje 2 · Quiénes son los judíos",
       "children": [
         {
           "id": "eje-2-que",
           "module": "eje-2-que",
-          "eyebrow": "Eje 2 · Qué significa ser judío",
-          "title": "Qué significa ser judío",
+          "eyebrow": "Eje 2 · ¿Cómo podemos definir el judaísmo?",
+          "title": "¿Cómo podemos definir el judaísmo?",
           "subtitle": "Un pueblo, una religión, una cultura y una historia."
         },
         {
@@ -68,14 +68,14 @@
           "module": "eje-2-combinar",
           "eyebrow": "Eje 2 · Una identidad, muchas formas",
           "title": "Una identidad, muchas formas",
-          "subtitle": "Cinco preguntas y 2.304 personas posibles."
+          "subtitle": "Cuatro preguntas y 576 personas posibles."
         },
         {
           "id": "eje-2-estimar",
           "module": "eje-2-estimar",
           "eyebrow": "Eje 2 · Lo que creemos y lo que es",
           "title": "Lo que creemos y lo que es",
-          "subtitle": "Ocho preguntas con números. Girá el marcador y compará con el dato real."
+          "subtitle": "Siete preguntas con números. Girá el marcador y compará con el dato real."
         },
         {
           "id": "eje-2-trivia",

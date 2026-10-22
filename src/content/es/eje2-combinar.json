@@ -1,16 +1,16 @@
 {
   "id": "eje-2-combinar",
   "title": "Una identidad, muchas formas",
-  "lead": "El judaísmo incluye religión, historia, lenguas, costumbres, memorias, arte y vida comunitaria. Respondé cinco preguntas y mirá qué persona aparece.",
+  "lead": "El judaísmo se manifiesta en religión, historia, lenguas, costumbres, memorias, arte y vida comunitaria. Respondé cuatro preguntas y mirá qué persona aparece.",
   "hint": "Girá el marcador para elegir · Tocá para confirmar",
-  "template": "{corriente}, {origen}. {lengua}. {vive}. {politica}.",
+  "template": "{corriente}, {origen}. {lengua}. {vive}.",
   "ui": {
     "start": "Empezar",
     "pending": "…",
     "next": "Siguiente",
     "last": "Ver la persona",
     "exists": "Esta persona existe.",
-    "countLabel": "Con estas cinco preguntas hay 2.304 combinaciones posibles. Esta es una de ellas.",
+    "countLabel": "Combinaciones posibles con estas cuatro preguntas",
     "andThis": "",
     "again": "Armar otra"
   },
@@ -24,7 +24,7 @@
           "k": "religioso",
           "label": "Religioso",
           "frase": "Religioso",
-          "def": "Considera la fe, las celebraciones y las prácticas judías una parte central de su vida."
+          "def": "Practica la religión y participa de sus celebraciones."
         },
         {
           "k": "secular",
@@ -83,7 +83,7 @@
         },
         {
           "k": "otro",
-          "label": "Otro origen",
+          "label": "Otros orígenes",
           "frase": "de otro origen",
           "def": "Existen comunidades judías con historias propias que no entran en estas tres."
         }
@@ -99,7 +99,7 @@
           "k": "espanol",
           "label": "Español",
           "frase": "Habla español",
-          "def": "La lengua de la comunidad judía argentina, la tercera más grande de América."
+          "def": "La lengua de la comunidad judía argentina, la más grande de América Latina."
         },
         {
           "k": "idish",
@@ -117,7 +117,7 @@
           "k": "hebreo",
           "label": "Hebreo",
           "frase": "Habla hebreo",
-          "def": "Lengua litúrgica durante siglos y hoy lengua cotidiana en Israel."
+          "def": "Lengua litúrgica durante siglos y hoy lengua mayoritaria en Israel."
         },
         {
           "k": "arabe",
@@ -127,7 +127,7 @@
         },
         {
           "k": "otra",
-          "label": "Otra lengua",
+          "label": "Otras lenguas",
           "frase": "Habla otra lengua",
           "def": "Según su lugar de origen, puede hablar idiomas diferentes y tener músicas, comidas y costumbres propias."
         }
@@ -161,38 +161,6 @@
           "label": "Espiritual",
           "frase": "Lo vive desde lo espiritual",
           "def": "Se vincula con la fe, la reflexión, los valores y la búsqueda de sentido."
-        }
-      ]
-    },
-    {
-      "id": "politica",
-      "label": "Política",
-      "question": "¿Dónde se para políticamente?",
-      "propuesta": true,
-      "options": [
-        {
-          "k": "izq",
-          "label": "De izquierda",
-          "frase": "De izquierda",
-          "def": "Como en cualquier sociedad, las personas judías pueden tener posiciones políticas muy diferentes."
-        },
-        {
-          "k": "centro",
-          "label": "De centro",
-          "frase": "De centro",
-          "def": "Como en cualquier sociedad, las personas judías pueden tener posiciones políticas muy diferentes."
-        },
-        {
-          "k": "der",
-          "label": "De derecha",
-          "frase": "De derecha",
-          "def": "Como en cualquier sociedad, las personas judías pueden tener posiciones políticas muy diferentes."
-        },
-        {
-          "k": "nada",
-          "label": "No le interesa",
-          "frase": "No le interesa la política",
-          "def": "Como en cualquier sociedad, las personas judías pueden tener posiciones políticas muy diferentes."
         }
       ]
     }

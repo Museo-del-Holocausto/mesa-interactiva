@@ -1,6 +1,6 @@
 {
   "id": "eje-2-que",
-  "title": "Qué significa ser judío",
+  "title": "¿Cómo podemos definir el judaísmo?",
   "lead": "Ser judío no significa pertenecer únicamente a una religión.",
   "intro": "Apoyá el marcador sobre cada círculo para leer qué incluye.",
   "ui": {
@@ -10,20 +10,9 @@
   },
   "contenedores": [
     {
-      "id": "pueblo",
-      "rot": "Un pueblo",
-      "sub": "Historia compartida",
-      "items": [
-        {
-          "titulo": "Un pueblo con historia propia",
-          "texto": "El judaísmo es la identidad de un pueblo con una historia de más de tres mil años, atravesada por migraciones, expulsiones, reconstrucciones y encuentros con otras culturas."
-        }
-      ]
-    },
-    {
       "id": "religion",
       "rot": "Una religión",
-      "sub": "Para algunos",
+      "sub": "Fe y prácticas",
       "items": [
         {
           "titulo": "Una religión, para quienes la practican",
@@ -32,9 +21,20 @@
       ]
     },
     {
+      "id": "pueblo",
+      "rot": "Un pueblo",
+      "sub": "Tres mil años de historia",
+      "items": [
+        {
+          "titulo": "Un pueblo con historia propia",
+          "texto": "El judaísmo es la identidad de un pueblo con una historia de más de tres mil años, atravesada por migraciones, expulsiones, reconstrucciones y encuentros con otras culturas."
+        }
+      ]
+    },
+    {
       "id": "cultura",
       "rot": "Una cultura",
-      "sub": "Lenguas y costumbres",
+      "sub": "Lenguas, comidas, música",
       "items": [
         {
           "titulo": "Lenguas, costumbres, comida, música",
@@ -44,15 +44,15 @@
     },
     {
       "id": "memoria",
-      "rot": "Una memoria",
-      "sub": "Transmitida",
+      "rot": "Una identidad",
+      "sub": "Se transmite en familia",
       "items": [
         {
           "titulo": "Una memoria que se transmite",
-          "texto": "Historias familiares, lugares de origen, persecuciones y llegadas. Buena parte de esa memoria se cuenta de una generación a la siguiente."
+          "texto": "Historias familiares, lugares de origen, la diáspora. Buena parte de esa memoria se cuenta de una generación a la siguiente."
         }
       ]
     }
   ],
-  "cierre": "No existe una única forma de ser judío. Cada persona combina estos elementos de una manera propia."
+  "cierre": "Las diversas formas de definir lo judío y vivir el judaísmo son fundacionales de la identidad judía."
 }
