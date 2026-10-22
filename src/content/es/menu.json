@@ -262,7 +262,7 @@
       "number": "08",
       "mode": "explorar",
       "title": "El 7 de octubre de 2023",
-      "subtitle": "En la mañana del 7 de octubre de 2023, Hamás encabezó un ataque coordinado desde la Franja de Gaza, en el que participaron también otros grupos armados palestinos. Alrededor de 1.200 personas fueron asesinadas y 251 fueron secuestradas. La mayoría de las personas asesinadas eran civiles.",
+      "subtitle": "En la mañana del 7 de octubre de 2023, Hamás encabezó un ataque coordinado desde la Franja de Gaza, en el que participaron también otros grupos terroristas palestinos. Alrededor de 1.200 personas fueron asesinadas y 251 fueron secuestradas. La mayoría de las personas asesinadas eran civiles.",
       "volume": "8 partes",
       "children": [
         {
@@ -322,13 +322,6 @@
           "eyebrow": "Eje 8 · Catorce vidas",
           "title": "Catorce vidas",
           "subtitle": "Quiénes eran, qué hacían y qué les gustaba."
-        },
-        {
-          "id": "eje-8-espera",
-          "module": "eje-8-espera",
-          "eyebrow": "Eje 8 · La incertidumbre de las familias",
-          "title": "La espera",
-          "subtitle": "Pasa el tiempo y hay cada vez menos. Los canales para averiguar algo se apagan y las preguntas ocupan su lugar."
         },
         {
           "id": "eje-8-antisemitismo",
