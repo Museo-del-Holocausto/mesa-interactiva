@@ -237,7 +237,7 @@
       "number": "07",
       "mode": "decidir",
       "title": "Negación, distorsión y banalización",
-      "subtitle": "Negar, distorsionar y banalizar no son lo mismo. Nueve afirmaciones para clasificar.",
+      "subtitle": "Negar, distorsionar y banalizar no son lo mismo.",
       "volume": "2 partes",
       "eyebrow": "Eje 7 · Negacionismo y distorsión",
       "children": [
@@ -251,8 +251,8 @@
         {
           "id": "eje-7-casos",
           "module": "eje-7-casos",
-          "eyebrow": "Eje 7 · Ocho casos reales",
-          "title": "Ocho casos reales",
+          "eyebrow": "Eje 7 · Siete casos reales",
+          "title": "Siete casos reales",
           "subtitle": "De un juicio en Londres a las estrellas amarillas en las marchas antivacunas."
         }
       ]
