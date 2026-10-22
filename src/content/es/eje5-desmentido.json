@@ -1,6 +1,6 @@
 {
   "id": "eje-5-desmentido",
-  "title": "La mentira y la corrección",
+  "title": "La información falsa y la corrección",
   "lead": "El mismo hecho, contado de dos maneras. Girá hacia un lado y hacia el otro.",
   "ui": {
     "again": "Volver a empezar",
@@ -12,18 +12,18 @@
   "porFigura": 10,
   "lados": {
     "mentira": {
-      "rot": "La mentira",
+      "rot": "La información falsa",
       "titulo": "«Los judíos controlan los bancos»",
       "nota": "Se reenvía sin verificar. Suena a algo que ya se escuchó antes.",
       "techo": 3200,
-      "remate": "La mentira llega siempre a más gente que la corrección."
+      "remate": "La información falsa llega siempre a más gente que la corrección."
     },
     "desmentido": {
       "rot": "La corrección",
       "titulo": "«Ese dato es falso, y esta es la fuente»",
       "nota": "Aporta datos y cita de dónde salen. Casi nadie lo reenvía.",
       "techo": 180,
-      "remate": "La corrección llega siempre a menos gente que la mentira."
+      "remate": "La corrección llega siempre a menos gente que la información falsa."
     }
   },
   "fuente": {
@@ -34,7 +34,7 @@
   "closing": {
     "label": "Para cerrar",
     "text": "Desmentir no alcanza.",
-    "sub": "La corrección llega siempre a menos gente que la mentira. Por eso importa el momento en que algo todavía no se compartió."
+    "sub": "La corrección llega siempre a menos gente que la información falsa. Por eso importa el momento en que algo todavía no se compartió."
   },
   "pasos": 6
 }

@@ -153,8 +153,8 @@
       "id": "eje-5",
       "number": "05",
       "mode": "decidir",
-      "title": "El antisemitismo en redes",
-      "subtitle": "El odio no aparece de repente. Escala de forma gradual. La repetición y normalización del desprecio puede reducir los límites sociales frente a la violencia.",
+      "title": "De las redes a la vida real",
+      "subtitle": "El odio no aparece de repente. Escala de forma gradual. La repetición y normalización de los discursos de odio puede reducir los límites sociales frente a la violencia.",
       "volume": "4 partes",
       "children": [
         {
@@ -174,14 +174,14 @@
         {
           "id": "eje-5-desmentido",
           "module": "eje-5-desmentido",
-          "eyebrow": "Eje 5 · La mentira y la corrección",
-          "title": "La mentira y la corrección",
+          "eyebrow": "Eje 5 · La información falsa y la corrección",
+          "title": "La información falsa y la corrección",
           "subtitle": "Girá hacia un lado y hacia el otro. Solo uno de los dos llega lejos."
         },
         {
           "id": "eje-5-trivia",
           "module": "eje-5-trivia",
-          "eyebrow": "El antisemitismo en redes · Lo que acabás de ver",
+          "eyebrow": "Eje 5 · Lo que acabás de ver",
           "title": "Lo que acabás de ver",
           "subtitle": "Preguntas de repaso sobre lo que acabás de recorrer."
         }

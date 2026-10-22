@@ -22,7 +22,7 @@
     },
     {
       "k": "construccion",
-      "rot": "Cómo aparece en redes"
+      "rot": "Cómo se manifiesta"
     }
   ],
   "mitos": [
@@ -50,7 +50,7 @@
       "cat": "pal",
       "frase": "Insulto",
       "origen": "El prejuicio se convierte en agresión verbal.",
-      "construccion": "Ya no hace falta el chiste. La agresión se dice de frente y en público.",
+      "construccion": "Ya no hace falta el chiste. La agresión se hace visible y muchas veces anónima.",
       "eje": "3"
     },
     {
@@ -67,7 +67,7 @@
       "era": "Nivel 5",
       "cat": "exc",
       "frase": "Discriminación",
-      "origen": "Se niegan derechos o se trata mal por ser judío.",
+      "origen": "Se excluye o se trata mal por ser judío.",
       "construccion": "El prejuicio deja de ser algo que se dice y pasa a ser algo que se hace.",
       "eje": "5"
     },
@@ -86,7 +86,7 @@
       "cat": "vio",
       "frase": "Amenaza",
       "origen": "Se amenaza con hacer daño.",
-      "construccion": "El daño todavía no ocurrió, pero ya tiene destinatario y fecha.",
+      "construccion": "El daño todavía no ocurrió, pero ya tiene destinatario.",
       "eje": "7"
     },
     {
