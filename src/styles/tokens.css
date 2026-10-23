@@ -1,3 +1,16 @@
+/* Los rotulos van en Geist Mono, pero sus numeros salen de Geist: el 1 de la
+   mono tiene base y bandera y desentona. unicode-range hace que esta familia
+   solo responda por los digitos; todo lo demas cae a la mono. */
+@font-face {
+  font-family: 'Geist Cifras';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('../../node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2')
+    format('woff2-variations');
+  unicode-range: U+0030-0039;
+}
+
 :root {
   /* --- color ------------------------------------------------------------- */
   --ink-900: #06080a;   /* fondo de mesa */
@@ -15,8 +28,12 @@
   --warn: #ffb020;
 
   /* --- tipografia -------------------------------------------------------- */
-  --font-display: 'Space Grotesk Variable', 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --font-display: 'Geist Variable', 'Geist', system-ui, sans-serif;
+  --font-body: 'Geist Variable', 'Geist', system-ui, sans-serif;
+  /* Rotulos en mayusculas: ejes, botones, contadores, pistas. */
+  --font-label: 'Geist Cifras', 'Geist Mono Variable', 'Geist Mono', ui-monospace, monospace;
+  /* La mono ya es ancha: el tracking de cada rotulo se multiplica por esto. */
+  --label-track: 0.55;
 
   /* Escala en px de mesa. 1 px = 0.375 mm reales sobre el panel de 65". */
   --t-eyebrow: 24px;

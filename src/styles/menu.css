@@ -97,10 +97,10 @@
 /* Rotulo de posicion dentro de una hoja. */
 .menu__kicker {
   margin-top: calc(20px * var(--panel-scale));
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: calc(24px * var(--panel-scale));
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: calc(0.12em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -135,10 +135,10 @@
 }
 
 .menu__eyebrow {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: calc(24px * var(--panel-scale));
   font-weight: 500;
-  letter-spacing: 0.3em;
+  letter-spacing: calc(0.3em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
 }
@@ -173,10 +173,10 @@
   white-space: nowrap;
   margin-top: calc(52px * var(--panel-scale));
   padding: calc(22px * var(--panel-scale)) calc(46px * var(--panel-scale));
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: calc(22px * var(--panel-scale));
   font-weight: 500;
-  letter-spacing: 0.26em;
+  letter-spacing: calc(0.26em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
   border: 1px solid var(--accent-dim);
@@ -194,10 +194,10 @@
   position: absolute;
   top: 0;
   padding: 20px 44px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 22px;
   font-weight: 500;
-  letter-spacing: 0.26em;
+  letter-spacing: calc(0.26em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-900);
   background: var(--accent);
@@ -307,10 +307,10 @@
 .menu__row[data-active='true'] .menu__row-line { background: var(--accent-dim); }
 
 .menu__row-kicker {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 19px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -325,10 +325,10 @@
 .menu__row-cta {
   flex: none;
   padding: 12px 24px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.24em;
+  letter-spacing: calc(0.24em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
   border: 1px solid var(--accent-dim);

@@ -44,20 +44,20 @@
 }
 
 .modulo__eyebrow {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.24em;
+  letter-spacing: calc(0.24em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
 
 .modulo__back {
   padding: 14px 32px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
   background: none;
@@ -150,10 +150,10 @@
 
 .fab__btn {
   padding: 20px 42px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 23px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
   border: 1px solid var(--ink-500);
@@ -176,10 +176,10 @@
 .fab__k,
 .fab__saidh,
 .fab__colh {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -252,10 +252,10 @@
 
 .fab__lg {
   margin-top: 10px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 24px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -360,10 +360,10 @@
 
 .fab__tag {
   padding: 5px 13px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-900);
   background: var(--ink-300);
@@ -466,10 +466,10 @@
 }
 
 .linea__era {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 25px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
 }
 
@@ -590,9 +590,9 @@
 .linea__legend {
   display: flex;
   gap: 32px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
-  letter-spacing: 0.1em;
+  letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
 }
@@ -614,9 +614,9 @@
 .linea__legend i[data-cat='con'] { background: var(--con); }
 
 .linea__hint {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
-  letter-spacing: 0.1em;
+  letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--accent);
@@ -675,10 +675,10 @@
 
 .dec__btn {
   padding: 20px 42px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 23px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
   border: 1px solid var(--ink-500);
@@ -691,10 +691,10 @@
 }
 
 .dec__k {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -739,10 +739,10 @@
 .dec__def[data-cat] { border-left-color: var(--cat); }
 
 .dec__def dt {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 26px;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: calc(0.14em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-100);
 }
@@ -767,10 +767,10 @@
 }
 
 .dec__kicker {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 22px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -795,10 +795,10 @@
 .dec__opt {
   flex: 1;
   padding: 24px 20px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 26px;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: calc(0.12em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
   border: 1px solid var(--ink-500);
@@ -847,10 +847,10 @@
    tamaño. Borde apenas redondeado, como el resto de la interfaz. */
 .dec__pill {
   padding: 12px 26px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 26px;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: calc(0.12em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-900);
   background: var(--cat, var(--ink-300));
@@ -973,10 +973,10 @@
 
 .comb__btn {
   padding: 20px 42px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 23px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
   border: 1px solid var(--ink-500);
@@ -989,10 +989,10 @@
 }
 
 .comb__k {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -1118,9 +1118,9 @@
 }
 
 .comb__hint {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
-  letter-spacing: 0.1em;
+  letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
   opacity: 0.65;
@@ -1238,10 +1238,10 @@
 
 .rec__btn {
   padding: 20px 42px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 23px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
   border: 1px solid var(--ink-500);
@@ -1254,10 +1254,10 @@
 }
 
 .rec__k {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -1303,10 +1303,10 @@
 }
 
 .rec__counter {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 22px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -1357,9 +1357,9 @@
   align-items: baseline;
   gap: 16px;
   margin-top: 14px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 22px;
-  letter-spacing: 0.14em;
+  letter-spacing: calc(0.14em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -1397,10 +1397,10 @@
 }
 
 .rec__rowname {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 20px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -1467,9 +1467,9 @@
 .rec__fecha {
   flex: 0 0 auto;
   margin-left: auto;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 17px;
-  letter-spacing: 0.08em;
+  letter-spacing: calc(0.08em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
   white-space: nowrap;
@@ -1484,9 +1484,9 @@
 }
 
 .rec__hint {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
-  letter-spacing: 0.1em;
+  letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
   opacity: 0.65;
@@ -1519,10 +1519,10 @@
 }
 
 .rec__grouph {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 19px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -1662,9 +1662,9 @@
   top: 5%;
   left: 0;
   translate: -50% 0;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 22px;
-  letter-spacing: 0.14em;
+  letter-spacing: calc(0.14em * var(--label-track));
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--ink-400);
@@ -1683,9 +1683,9 @@
   top: 10.5%;
   left: 0;
   translate: -50% 0;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
-  letter-spacing: 0.1em;
+  letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--accent);
@@ -1722,9 +1722,9 @@
 }
 
 .exp__photo span {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
 }
 
@@ -1740,9 +1740,9 @@
 }
 
 .exp__credit {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 17px;
-  letter-spacing: 0.12em;
+  letter-spacing: calc(0.12em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
 }
@@ -1752,10 +1752,10 @@
 }
 
 .exp__disc {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 22px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -1811,10 +1811,10 @@
 }
 
 .lug__k {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -1822,10 +1822,10 @@
 .lug__btn,
 .vid__btn {
   padding: 20px 42px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 23px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
   border: 1px solid var(--ink-500);
@@ -1920,9 +1920,9 @@
 }
 
 .lug__rail li span {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 19px;
-  letter-spacing: 0.12em;
+  letter-spacing: calc(0.12em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
   transition: color var(--dur-base) var(--ease-out);
@@ -1987,9 +1987,9 @@
 }
 
 .lug__photo span {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 20px;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
 }
 
@@ -2016,10 +2016,10 @@
 
 .lug__tab {
   padding: 9px 20px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 20px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
   background: rgba(6, 8, 10, 0.75);
@@ -2037,9 +2037,9 @@
   bottom: 18px;
   left: 18px;
   padding: 8px 16px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 19px;
-  letter-spacing: 0.1em;
+  letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
   background: rgba(6, 8, 10, 0.75);
@@ -2106,10 +2106,10 @@
 }
 
 .vid__k {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -2207,9 +2207,9 @@
 .vid__hint {
   grid-column: 1 / -1;
   margin-top: 12px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 19px;
-  letter-spacing: 0.1em;
+  letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
   opacity: 0.65;
@@ -2224,10 +2224,10 @@
 }
 
 .vid__estado {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -2255,10 +2255,10 @@
 }
 
 .vid__field dt {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 16px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -2305,10 +2305,10 @@
 }
 
 .esp__k {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -2322,10 +2322,10 @@
 
 .esp__btn {
   padding: 20px 42px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 23px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
   border: 1px solid var(--ink-500);
@@ -2377,10 +2377,10 @@
 }
 
 .esp__sub {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -2493,9 +2493,9 @@
 }
 
 .esp__hint {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
-  letter-spacing: 0.1em;
+  letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
   opacity: 0.65;
@@ -2625,10 +2625,10 @@
    se resolvió pasa a acento, porque ahí deja de contar y dice algo. */
 .def__estado {
   margin-top: 22px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
   transition: color var(--dur-slow) var(--ease-out);
@@ -2753,10 +2753,10 @@
 .def__chip[data-revelado='true'] .def__chip-mas { opacity: 1; }
 
 .def__chip-cuando {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -2793,10 +2793,10 @@
 
 .def__btn {
   padding: 20px 42px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 23px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
   border: 1px solid var(--ink-500);
@@ -2816,10 +2816,10 @@
 }
 
 .def__k {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -2904,10 +2904,10 @@
 .tri__acts { align-self: end; }
 
 .tri__kicker {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 22px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -2948,8 +2948,8 @@
 .tri__opts[data-formato='fila'] .tri__opt {
   flex: 1;
   text-align: center;
-  font-family: var(--font-display);
-  letter-spacing: 0.12em;
+  font-family: var(--font-label);
+  letter-spacing: calc(0.12em * var(--label-track));
   text-transform: uppercase;
 }
 
@@ -3000,10 +3000,10 @@
 
 .tri__btn {
   padding: 20px 42px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 23px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
   border: 1px solid var(--ink-500);
@@ -3019,10 +3019,10 @@
 .tri__btn[hidden] { display: none; }
 
 .tri__k {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -3151,10 +3151,10 @@
 }
 
 .est__kicker {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 20px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -3200,10 +3200,10 @@
 
 .est__spin {
   margin-top: 14px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 19px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -3222,10 +3222,10 @@
 .est__comp[data-on='true'] { display: flex; }
 
 .est__rot {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -3308,10 +3308,10 @@
 
 .est__btn {
   padding: 20px 42px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 23px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
   border: 1px solid var(--ink-500);
@@ -3327,10 +3327,10 @@
 /* --- cierre --------------------------------------------------------------- */
 
 .est__k {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -3561,9 +3561,9 @@
   top: 5%;
   left: 0;
   translate: -50% 0;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 22px;
-  letter-spacing: 0.14em;
+  letter-spacing: calc(0.14em * var(--label-track));
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--ink-400);
@@ -3580,9 +3580,9 @@
   top: 10.5%;
   left: 0;
   translate: -50% 0;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
-  letter-spacing: 0.1em;
+  letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--accent);
@@ -3603,10 +3603,10 @@
   display: flex;
   align-items: baseline;
   gap: 20px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -3651,10 +3651,10 @@
 .mit__bloque[data-k='clave'] { border-left-color: var(--accent); }
 
 .mit__rot {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -3700,10 +3700,10 @@
 
 .mit__btn {
   padding: 18px 40px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
   border: 1px solid var(--accent-dim);
@@ -3745,10 +3745,10 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 17px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -3828,10 +3828,10 @@
 .con__zona[data-on='true'] .con__zrot { color: var(--accent); }
 
 .con__hint {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
 }
@@ -3846,10 +3846,10 @@
 /* Se repite el nombre del par debajo: arriba lo tapa el propio marcador. */
 .con__eje {
   margin-bottom: 18px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -3937,10 +3937,10 @@
 
 .con__cuando {
   margin-top: 16px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 19px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -3968,10 +3968,10 @@
 }
 
 .con__espera {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 20px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
 }
@@ -3999,10 +3999,10 @@
 .con__op {
   min-width: 150px;
   padding: 18px 40px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
   border: 1px solid var(--accent-dim);
@@ -4033,10 +4033,10 @@
 
 .con__cara-cuando {
   margin-top: 10px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -4131,10 +4131,10 @@
 
 .alc__pasos li {
   padding: 7px 14px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 16px;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: calc(0.14em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
   border: 1px solid var(--ink-600);
@@ -4149,10 +4149,10 @@
 
 .alc__dia {
   margin-top: 30px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 19px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -4182,10 +4182,10 @@
 }
 
 .alc__k {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -4227,10 +4227,10 @@
 }
 
 .alc__unidad {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -4252,10 +4252,10 @@
 
 .alc__escala {
   margin-top: 16px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 17px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
 }
@@ -4271,20 +4271,20 @@
 }
 
 .alc__hint {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 19px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
 }
 
 .alc__btn {
   padding: 20px 42px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 22px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
   border: 1px solid var(--ink-500);
@@ -4424,10 +4424,10 @@
 
 .des__rest {
   margin-top: 34px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 20px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
 }
@@ -4490,10 +4490,10 @@
 .des[data-lado='desmentido'] .des__cifra { color: var(--warn); }
 
 .des__unidad {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 21px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -4510,10 +4510,10 @@
 
 .des__escala {
   margin-top: 16px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 17px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
 }
@@ -4522,10 +4522,10 @@
 
 .des__btn {
   padding: 20px 42px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 22px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
   border: 1px solid var(--ink-500);
@@ -4537,10 +4537,10 @@
 /* --- cierre --------------------------------------------------------------- */
 
 .des__k {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 19px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -4645,10 +4645,10 @@
 
 .cif__pasos li {
   padding: 6px 12px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: calc(0.12em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
   border: 1px solid var(--ink-600);
@@ -4661,10 +4661,10 @@
 
 .cif__rot {
   margin-top: 34px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -4692,10 +4692,10 @@
 .cif[data-color='vida'] .cif__cifra { color: var(--vida); }
 
 .cif__unidad {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 20px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -4732,10 +4732,10 @@
 
 .cif__escala {
   margin-top: 18px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 16px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
 }
@@ -4751,20 +4751,20 @@
 }
 
 .cif__hint {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
 }
 
 .cif__btn {
   padding: 20px 42px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 22px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
   border: 1px solid var(--ink-500);
@@ -4774,10 +4774,10 @@
 .cif__btn--go { color: var(--accent); border-color: var(--accent-dim); }
 
 .cif__k {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 19px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -4894,10 +4894,10 @@
 
 .con2__sub {
   position: relative;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
 }
@@ -4919,10 +4919,10 @@
 
 .con2__ayuda {
   margin-top: 18px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
 }
@@ -4995,10 +4995,10 @@
 .con2__pasos li[data-on='true'] { background: var(--accent); }
 
 .con2__spin {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 16px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
 }
@@ -5076,19 +5076,19 @@
 .rel__espera[data-on='false'] { visibility: hidden; }
 
 .rel__k {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 17px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
 
 .rel__hs {
   margin-top: 6px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 20px;
-  letter-spacing: 0.12em;
+  letter-spacing: calc(0.12em * var(--label-track));
   text-transform: uppercase;
   color: var(--warn);
 }
@@ -5243,20 +5243,20 @@
 }
 
 .rel__hint {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
 }
 
 .rel__btn {
   padding: 20px 42px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 22px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-300);
   border: 1px solid var(--ink-500);
@@ -5328,10 +5328,10 @@
 }
 
 .rel__foto span {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
 }
@@ -5362,10 +5362,10 @@
 .exp__dato[hidden] { display: none; }
 
 .exp__datok {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 17px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -5505,10 +5505,10 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 14px;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
 }
 
@@ -5575,10 +5575,10 @@
 .esc__card { align-self: start; }
 
 .esc__cat {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 19px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -5602,10 +5602,10 @@
 /* --- los criterios -------------------------------------------------------- */
 
 .esc__k {
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: calc(0.2em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-400);
 }
@@ -5630,10 +5630,10 @@
 
 .esc__hint {
   align-self: end;
-  font-family: var(--font-display);
+  font-family: var(--font-label);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
   color: var(--ink-500);
 }

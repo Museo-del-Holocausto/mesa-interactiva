@@ -1,5 +1,5 @@
-import '@fontsource-variable/space-grotesk';
-import '@fontsource-variable/inter';
+import '@fontsource-variable/geist';
+import '@fontsource-variable/geist-mono';
 import '@/styles/tokens.css';
 import '@/styles/base.css';
 import '@/styles/quadrant.css';
