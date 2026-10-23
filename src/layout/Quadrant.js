@@ -6,6 +6,7 @@ import { DEBUG } from '@/config/debug.js';
 import { MODULES } from '@/modules/index.js';
 import { Modulo } from '@/modules/Modulo.js';
 import { i18n } from '@/i18n/i18n.js';
+import { Huella } from '@/ui/Huella.js';
 
 /**
  * Una region de la mesa asignada a un usuario.
@@ -42,6 +43,10 @@ export class Quadrant {
       <p class="idle__prompt">${i18n.t('idlePrompt')}</p>
       <p class="idle__hint">${i18n.t('idleHint')}</p>`;
     this.el.append(this.idleEl);
+
+    // El anillo del objeto: confirma que la mesa lo vio y cuenta la gracia al levantarlo.
+    this.huella = new Huella();
+    this.el.append(this.huella.el);
 
     this.warningEl = document.createElement('div');
     this.warningEl.className = 'warning';
@@ -95,12 +100,15 @@ export class Quadrant {
    * @param {() => import('@/ui/Corona.js').Corona} menuFactory
    */
   attach(marker, menuFactory) {
+    const dormido = this.#sleepTimer !== null;
     this.#wake();
     if (this.#markerId === marker.id && this.#menu) return;
     this.#markerId = marker.id;
+    if (dormido || !this.#menu) this.huella.mostrar();
     if (!this.#menu) {
       this.#menu = menuFactory();
       this.#menu.callbacks.onModule = (node) => this.#mountModule(node);
+      this.#menu.callbacks.onStep = () => this.huella.latido();
       this.el.append(this.#menu.el);
       // Solo opacidad: el transform del menu lo maneja GSAP en los hijos,
       // y la posicion sale de left/top. Animar transform aca pisaba el place().
@@ -119,6 +127,7 @@ export class Quadrant {
     this.#markerId = null;
     this.el.dataset.state = 'dormant';
     this.warningEl.dataset.visible = 'false';
+    this.huella.cuenta(QUADRANT_GRACE_MS);
     this.#sleepTimer = window.setTimeout(() => {
       this.#sleepTimer = null;
       this.detach();
@@ -134,6 +143,7 @@ export class Quadrant {
   detach() {
     this.#wake();
     this.#markerId = null;
+    this.huella.ocultar();
     this.#unmountModule();
     this.#menu?.detach();
     this.#menu?.destroy();
@@ -180,6 +190,7 @@ export class Quadrant {
     this.el.style.setProperty('--marker-y', `${Math.round(local.y)}px`);
     this.#menu.place(local.x, local.y, this.region.w);
     this.#syncSide(local.x);
+    this.huella.girar(marker.rotation);
 
     if (this.#module) {
       // Con una pieza montada el giro y la posicion son de la pieza, no de la

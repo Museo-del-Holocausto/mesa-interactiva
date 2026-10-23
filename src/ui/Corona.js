@@ -129,6 +129,7 @@ export class Corona {
     this.#dir = ahead <= n / 2 ? 1 : -1;
     frame.index = index;
     this.#render(false, 'giro');
+    this.callbacks.onStep?.();
   }
 
   /** Resetea cuando el marcador se levanta y se vuelve a apoyar. */
@@ -227,8 +228,9 @@ export class Corona {
     footprint.setAttribute('r', String(MARKER_RADIUS));
     svg.append(footprint);
 
-    // Dos hairlines que encuadran la orbita. No giran.
-    for (const r of [CORONA_R - CORONA_TRACK_GAP, CORONA_R + CORONA_TRACK_GAP]) {
+    // Hairline exterior que encuadra la orbita. No gira. La interior se saco:
+    // caia encima de las marcas del anillo del objeto (Huella).
+    for (const r of [CORONA_R + CORONA_TRACK_GAP]) {
       const track = document.createElementNS(SVG_NS, 'circle');
       track.setAttribute('class', 'menu__track');
       track.setAttribute('r', String(r));

@@ -1,0 +1,124 @@
+/* ==========================================================================
+   Respuesta visual: anillo del objeto, cuenta regresiva, onda de toque
+   ========================================================================== */
+
+/* --- anillo del objeto ------------------------------------------------------ */
+
+.huella {
+  position: absolute;
+  left: var(--marker-x, 50%);
+  top: var(--marker-y, 50%);
+  translate: -50% -50%;
+  pointer-events: none;
+  /* Por encima de la pieza: el anillo rodea al objeto, que tapa lo que tiene abajo. */
+  z-index: 7;
+}
+
+.huella[data-estado='oculta'] {
+  display: none;
+}
+
+.huella svg {
+  display: block;
+  overflow: visible;
+}
+
+.huella__ticks line {
+  stroke: var(--accent-dim);
+  stroke-width: 1.5;
+}
+
+.huella__ticks .huella__indice {
+  stroke: var(--accent);
+  stroke-width: 3;
+}
+
+.huella__onda {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  opacity: 0;
+}
+
+.huella__latido {
+  fill: none;
+  stroke: var(--ink-300);
+  stroke-width: 2;
+  opacity: 0;
+}
+
+.huella__arco {
+  fill: none;
+  stroke: var(--ink-300);
+  stroke-width: 3;
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+
+.huella__segundos {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  font-family: var(--font-label);
+  font-size: var(--t-title);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-300);
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+
+/* Objeto levantado: las marcas se apagan y manda la cuenta. */
+.huella[data-estado='cuenta'] .huella__ticks {
+  opacity: 0.25;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+
+.huella[data-estado='cuenta'] .huella__arco,
+.huella[data-estado='cuenta'] .huella__segundos {
+  opacity: 1;
+}
+
+/* --- onda de toque ------------------------------------------------------------ */
+
+.toques {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.toque {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+  border: 3px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: toque var(--dur-slow) var(--ease-out) forwards;
+}
+
+.toque::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: toque-centro calc(var(--dur-slow) * 0.5) var(--ease-out) forwards;
+}
+
+@keyframes toque {
+  from { scale: 0.1; opacity: 0.9; }
+  to { scale: 1; opacity: 0; }
+}
+
+@keyframes toque-centro {
+  from { scale: 1; opacity: 0.8; }
+  to { scale: 0.4; opacity: 0; }
+}

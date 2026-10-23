@@ -6,6 +6,7 @@ import '@/styles/quadrant.css';
 import '@/styles/menu.css';
 import '@/styles/modulo.css';
 import '@/styles/botones.css';
+import '@/styles/respuesta.css';
 import '@/styles/debug.css';
 
 import { DEBUG } from '@/config/debug.js';
@@ -16,6 +17,7 @@ import { LayoutManager } from '@/layout/LayoutManager.js';
 import { DebugOverlay } from '@/ui/DebugOverlay.js';
 import { Reticula } from '@/ui/Reticula.js';
 import { aplicarLento } from '@/config/motion.js';
+import { Toque } from '@/ui/Toque.js';
 import { i18n } from '@/i18n/i18n.js';
 
 function boot() {
@@ -42,6 +44,9 @@ function boot() {
   stageEl.append(layoutRoot);
 
   const layout = new LayoutManager(store, layoutRoot);
+
+  // Onda donde cae el dedo. Va despues del layout para quedar por encima.
+  new Toque(stageEl, stage);
 
   if (!DEBUG.simulator) {
     // Produccion: aca se engancha TangibleInput contra el relay.

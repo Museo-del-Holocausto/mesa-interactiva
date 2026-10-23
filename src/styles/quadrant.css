@@ -33,7 +33,9 @@
   transition: opacity var(--dur-base) var(--ease-out);
 }
 
-.quadrant[data-state='active'] .idle {
+/* Dormido: la cuenta regresiva del anillo ya dice que hay que volver a apoyarlo. */
+.quadrant[data-state='active'] .idle,
+.quadrant[data-state='dormant'] .idle {
   opacity: 0;
   pointer-events: none;
 }
