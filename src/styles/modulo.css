@@ -34,13 +34,22 @@
    terminaba flotando en el medio. */
 .modulo__head {
   position: absolute;
-  top: 48px;
+  /* Termina antes de los 132 px donde arranca el contenido: en las piezas sin
+     columna para el marcador el título empieza en la misma esquina. */
+  top: 34px;
   left: 56px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 14px;
+  gap: 10px;
   z-index: 6;
+}
+
+/* Con el marcador a la derecha, la cabecera pasa a la esquina derecha. */
+.modulo[data-side='right'] .modulo__head {
+  left: auto;
+  right: 56px;
+  align-items: flex-end;
 }
 
 .modulo__eyebrow {
@@ -1660,11 +1669,21 @@
   box-shadow: 0 0 24px var(--accent-dim);
 }
 
-.exp__pos {
+/* "3 de 7" y la instrucción viven arriba del contenido y no sobre el riel:
+   centrados sobre el riel se metían debajo del botón Volver. */
+.exp__nav {
   position: absolute;
-  top: 5%;
+  top: 0;
   left: 0;
-  translate: -50% 0;
+  right: 0;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 32px;
+  row-gap: 6px;
+}
+
+.exp__pos {
   font-family: var(--font-label);
   font-size: 22px;
   letter-spacing: calc(0.14em * var(--label-track));
@@ -1679,13 +1698,8 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* La instrucción del gesto nuevo: es lo único que hay que enseñar.
-   Va arriba del primer tick: abajo chocaba con el botón Volver. */
+/* La instrucción del gesto nuevo: es lo único que hay que enseñar. */
 .exp__hint {
-  position: absolute;
-  top: 10.5%;
-  left: 0;
-  translate: -50% 0;
   font-family: var(--font-label);
   font-size: 21px;
   letter-spacing: calc(0.1em * var(--label-track));
@@ -3550,7 +3564,7 @@
   /* La leyenda arriba y la ficha abajo. Al pie cerraba una caja imaginaria que
      el propio contenido empujaba hacia afuera cada vez que crecía. */
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto 1fr;
   gap: 24px;
 
   /* Las mismas cuatro familias del documento. Estaban declaradas dentro de
@@ -3698,11 +3712,17 @@
 .mit__ticks li[data-on='true'][data-cat='rac']::after { background: var(--rac); box-shadow: 0 0 24px var(--rac); }
 .mit__ticks li[data-on='true'][data-cat='con']::after { background: var(--con); box-shadow: 0 0 24px var(--con); }
 
+/* "3 de 7" y la instrucción viven arriba del contenido y no sobre el riel:
+   centrados sobre el riel se metían debajo del botón Volver. */
+.mit__nav {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 32px;
+  row-gap: 6px;
+}
+
 .mit__pos {
-  position: absolute;
-  top: 5%;
-  left: 0;
-  translate: -50% 0;
   font-family: var(--font-label);
   font-size: 22px;
   letter-spacing: calc(0.14em * var(--label-track));
@@ -3718,10 +3738,6 @@
 }
 
 .mit__hint {
-  position: absolute;
-  top: 10.5%;
-  left: 0;
-  translate: -50% 0;
   font-family: var(--font-label);
   font-size: 21px;
   letter-spacing: calc(0.1em * var(--label-track));
@@ -3887,7 +3903,8 @@
   gap: 24px;
 }
 
-.mit__acciones[hidden] { display: none; }
+.mit__acciones[hidden],
+.mit__acciones[data-sobra='true'] { display: none; }
 
 .mit__btn {
   padding: 18px 40px;

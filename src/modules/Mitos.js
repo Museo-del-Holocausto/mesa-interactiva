@@ -100,6 +100,9 @@ export class Mitos {
             )
             .join('')}
         </ol>
+      </div>
+
+      <div class="mit__nav">
         <p class="mit__pos"><span data-slot="n"></span> ${t.of} ${n}</p>
         <p class="mit__hint">${t.hint}</p>
       </div>
@@ -293,6 +296,8 @@ export class Mitos {
     for (const b of abiertos) b.dataset.plegado = 'false';
     const limite = this.el.getBoundingClientRect().bottom;
     const sobra = () => card.getBoundingClientRect().bottom > limite + 1;
+    const acciones = this.el.querySelector('.mit__acciones');
+    acciones.dataset.sobra = 'false';
     const viejos = abiertos.slice(0, -1);
     // Primero a dos renglones; si igual no entra, solo queda el rótulo.
     for (const nivel of ['true', 'rotulo']) {
@@ -301,6 +306,9 @@ export class Mitos {
         b.dataset.plegado = nivel;
       }
     }
+    // Último recurso, con todo leído: el botón ya no hace nada y se va.
+    const total = this.#bloquesDe().length;
+    if (sobra() && this.#abiertos[this.#index] >= total) acciones.dataset.sobra = 'true';
   }
 
   #revelar() {

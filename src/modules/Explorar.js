@@ -77,6 +77,9 @@ export class Explorar {
         <ol class="exp__ticks">
           ${this.#data.people.map((_, i) => `<li data-index="${i}"></li>`).join('')}
         </ol>
+      </div>
+
+      <div class="exp__nav">
         <p class="exp__pos"><span data-slot="n"></span> ${t.of} ${this.#data.people.length}</p>
         <p class="exp__hint">${this.#data.hint}</p>
       </div>

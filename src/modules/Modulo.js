@@ -142,6 +142,10 @@ export class Modulo {
     if (cx < mid - SIDE_HYSTERESIS) this.#side = 'left';
     else if (cx > mid + SIDE_HYSTERESIS) this.#side = 'right';
     this.canvas.dataset.side = this.#side;
+    // La cabecera (rótulo y Volver) va del lado del marcador, en la columna
+    // que le reservamos. Fija a la izquierda, con el marcador a la derecha se
+    // montaba sobre la primera línea del contenido.
+    this.el.dataset.side = this.#side;
 
     // Columna: solo si el objeto pisa el lienzo. Si quedo afuera —cosa habitual
     // en modo guia— el contenido usa todo el ancho en vez de dejar un hueco.
