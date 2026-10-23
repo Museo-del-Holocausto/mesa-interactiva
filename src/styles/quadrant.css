@@ -91,6 +91,8 @@
   position: absolute;
   top: 0;
   left: 0;
+  /* Por encima de la pieza (5), su cabecera (6) y el anillo del objeto (7). */
+  z-index: 8;
   padding: 20px 34px;
   font-size: var(--t-meta);
   font-weight: 600;

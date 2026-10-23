@@ -20,6 +20,8 @@ import { Rotary } from '@/core/Rotary.js';
  *   ocurrio: se gire lo que se gire no hay año correcto, y ese es el punto.
  */
 export class Estimar {
+  /** El objeto se apoya sobre el dial: ahi no estorba, es el gesto de la pieza. */
+  aceptaMarcadorEncima = true;
   #data;
   #onExit;
   #rotary = new Rotary();
