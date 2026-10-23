@@ -18,6 +18,7 @@
     {
       "dia": "Día 1",
       "titulo": "Un meme antisemita",
+      "icono": "image",
       "que": "Alguien publica una caricatura de un judío con rasgos exagerados contando monedas.",
       "alcance": 10,
       "accion": "No compartirlo y reportarlo a la plataforma.",
@@ -26,6 +27,7 @@
     {
       "dia": "Día 2",
       "titulo": "Comentarios de aprobación",
+      "icono": "thumbs-up",
       "que": "«Totalmente de acuerdo». «Así son ellos siempre». El meme suma likes y respuestas.",
       "alcance": 70,
       "accion": "Responder con información y reportar los comentarios.",
@@ -34,6 +36,7 @@
     {
       "dia": "Día 4",
       "titulo": "Identificación pública",
+      "icono": "scan-face",
       "que": "Alguien señala a una persona real, con su nombre y su lugar de trabajo.",
       "alcance": 320,
       "accion": "Reportar la exposición de datos personales y avisarle a esa persona.",
@@ -42,6 +45,7 @@
     {
       "dia": "Día 7",
       "titulo": "Amenazas",
+      "icono": "triangle-alert",
       "que": "Aparecen mensajes anunciando que van a ir a buscarla.",
       "alcance": 1100,
       "accion": "Guardar capturas, denunciar y acompañar a la persona atacada.",
@@ -50,6 +54,7 @@
     {
       "dia": "Día 9",
       "titulo": "Convocatoria a atacar",
+      "icono": "megaphone",
       "que": "Se convoca públicamente a concentrarse frente a una sinagoga.",
       "alcance": 3200,
       "accion": "Denunciar a la policía y a la plataforma.",

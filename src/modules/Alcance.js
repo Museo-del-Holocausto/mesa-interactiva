@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
+import { dibujar, icono } from '@/ui/iconos.js';
 
 /** Columnas de la grilla. 20 x 16 = 320 figuras, el alcance de la ultima etapa. */
 const COLS = 20;
@@ -86,7 +87,10 @@ export class Alcance {
               .join('')}
           </ol>
           <p class="alc__dia" data-slot="dia"></p>
-          <h2 class="alc__tit" data-slot="titulo"></h2>
+          <div class="alc__titulo">
+            <span class="alc__icono" hidden></span>
+            <h2 class="alc__tit" data-slot="titulo"></h2>
+          </div>
           <p class="alc__que" data-slot="que"></p>
           <p class="alc__ruta"><span class="alc__k">${t.route}</span><span data-slot="ruta"></span></p>
           <div class="alc__accion">
@@ -211,6 +215,14 @@ export class Alcance {
 
     this.#set('dia', e.dia);
     this.#set('titulo', e.titulo);
+    const caja = this.el.querySelector('.alc__icono');
+    const nuevo = caja.dataset.icono !== e.icono;
+    caja.hidden = !e.icono;
+    caja.dataset.icono = e.icono ?? '';
+    if (nuevo) {
+      caja.innerHTML = e.icono ? icono(e.icono) : '';
+      dibujar(caja);
+    }
     this.#set('que', e.que);
     // Por que crece el numero: la ruta que hace el posteo en cada salto.
     this.#set('ruta', e.ruta);

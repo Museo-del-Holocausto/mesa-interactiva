@@ -11,6 +11,7 @@
   "contenedores": [
     {
       "id": "quienes",
+      "icono": "users",
       "rot": "Quiénes estaban",
       "sub": "Más de 3.500",
       "items": [
@@ -21,6 +22,7 @@
     },
     {
       "id": "victimas",
+      "icono": "flower",
       "rot": "Las víctimas",
       "sub": "El balance oficial",
       "encabezado": "El balance oficial más reciente identifica 378 personas asesinadas en hechos vinculados con el festival Nova.",
@@ -32,6 +34,7 @@
     },
     {
       "id": "donde",
+      "icono": "map-pin",
       "rot": "Dónde ocurrió",
       "sub": "Cinco espacios",
       "encabezado": "Los ataques no ocurrieron únicamente en la pista de baile. Se extendieron por diferentes espacios:",

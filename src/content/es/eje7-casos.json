@@ -15,18 +15,26 @@
     "dis": "Distorsión",
     "ban": "Banalización"
   },
+  "categoriaIconos": {
+    "neg": "ban",
+    "dis": "shuffle",
+    "ban": "equal"
+  },
   "bloques": [
     {
       "k": "origen",
-      "rot": "Qué pasó"
+      "rot": "Qué pasó",
+      "icono": "scroll-text"
     },
     {
       "k": "construccion",
-      "rot": "La afirmación"
+      "rot": "La afirmación",
+      "icono": "quote"
     },
     {
       "k": "clave",
-      "rot": "Por qué"
+      "rot": "Por qué",
+      "icono": "lightbulb"
     }
   ],
   "mitos": [

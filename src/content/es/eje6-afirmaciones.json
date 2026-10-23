@@ -18,15 +18,18 @@
   "bloques": [
     {
       "k": "origen",
-      "rot": "Qué sabemos"
+      "rot": "Qué sabemos",
+      "icono": "book-open"
     },
     {
       "k": "construccion",
-      "rot": "Qué simplifica"
+      "rot": "Qué simplifica",
+      "icono": "scissors"
     },
     {
       "k": "clave",
-      "rot": "Idea clave"
+      "rot": "Idea clave",
+      "icono": "lightbulb"
     }
   ],
   "mitos": [

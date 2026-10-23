@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
+import { dibujar, icono } from '@/ui/iconos.js';
 import { MODULE_CANVAS_W } from '@/config/table.js';
 
 /**
@@ -110,6 +111,7 @@ export class Contenedores {
             (c) => `
           <button class="con2__circulo" data-id="${c.id}" type="button">
             <span class="con2__anillo"></span>
+            ${c.icono ? `<span class="con2__icono">${icono(c.icono)}</span>` : ''}
             <span class="con2__rot">${c.rot}</span>
             <span class="con2__sub">${c.sub}</span>
           </button>`,
@@ -179,7 +181,10 @@ export class Contenedores {
     this.el.dataset.abierto = String(abierto);
 
     for (const c of this.el.querySelectorAll('.con2__circulo')) {
-      c.dataset.on = String(c.dataset.id === this.#activo);
+      const on = c.dataset.id === this.#activo;
+      // El ícono se vuelve a dibujar solo cuando el círculo recién se abre.
+      if (on && c.dataset.on !== 'true') dibujar(c);
+      c.dataset.on = String(on);
     }
 
     this.el.querySelector('[data-slot="reposo"]').hidden = abierto;

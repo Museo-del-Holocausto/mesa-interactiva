@@ -2,7 +2,7 @@ import gsap from 'gsap';
 import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
 import { fotoDe, precargar } from '@/config/fotos.js';
-import { icono } from '@/ui/iconos.js';
+import { dibujar, icono } from '@/ui/iconos.js';
 
 /** Tramo del alto donde vive el riel, en fracciones. Igual que en Aportes judios. */
 const RAIL_TOP = 0.16;
@@ -112,7 +112,10 @@ export class Mitos {
 
       <ul class="mit__leyenda">
         ${Object.entries(this.#data.categorias)
-          .map(([k, label]) => `<li data-cat="${k}"><i></i>${label}</li>`)
+          .map(([k, label]) => {
+            const ic = this.#data.categoriaIconos?.[k];
+            return `<li data-cat="${k}" style="--c: var(--${k})">${ic ? icono(ic, 'mit__caticono') : '<i></i>'}${label}</li>`;
+          })
           .join('')}
       </ul>
 
@@ -186,7 +189,9 @@ export class Mitos {
     this.#pintarFoto(m, baja, immediate);
 
     const cat = this.el.querySelector('[data-slot="cat"]');
-    cat.textContent = this.#data.categorias[m.cat];
+    const catIcono = this.#data.categoriaIconos?.[m.cat];
+    cat.innerHTML = catIcono ? icono(catIcono, 'mit__caticono') : '';
+    cat.append(this.#data.categorias[m.cat] ?? '');
     cat.dataset.cat = m.cat;
 
     for (const tick of this.el.querySelectorAll('.mit__ticks li')) {
@@ -215,7 +220,9 @@ export class Mitos {
         bloque.className = 'mit__bloque';
         bloque.dataset.k = b.k;
         bloque.innerHTML = '<p class="mit__rot"></p><p class="mit__txt"></p>';
-        bloque.querySelector('.mit__rot').textContent = b.rot;
+        const rot = bloque.querySelector('.mit__rot');
+        rot.innerHTML = b.icono ? icono(b.icono, 'mit__roticono') : '';
+        rot.append(b.rot);
         bloque.querySelector('.mit__txt').textContent = m[b.k];
         caja.append(bloque);
       }
@@ -241,26 +248,7 @@ export class Mitos {
     caja.dataset.cat = m.cat;
     caja.innerHTML = m.icono ? icono(m.icono) : '';
     if (!m.icono || immediate) return;
-    const trazos = caja.querySelectorAll('[pathLength]');
-    // Por atributo y no por CSS: con pathLength=1 la propiedad CSS salta
-    // directo al final y el trazo no se ve dibujarse.
-    for (const t of trazos) t.setAttribute('stroke-dasharray', '1');
-    gsap.fromTo(
-      trazos,
-      { attr: { 'stroke-dashoffset': 1 } },
-      {
-        attr: { 'stroke-dashoffset': 0 },
-        duration: MOTION.dur.largo,
-        ease: MOTION.ease.firme,
-        stagger: 0.06,
-        onComplete: () => {
-          for (const t of trazos) {
-            t.removeAttribute('stroke-dasharray');
-            t.removeAttribute('stroke-dashoffset');
-          }
-        },
-      },
-    );
+    dibujar(caja);
   }
 
   /**
@@ -314,6 +302,7 @@ export class Mitos {
     btn.disabled = completo;
 
     if (!immediate && bloques[abiertos - 1]) {
+      dibujar(bloques[abiertos - 1]);
       gsap.fromTo(
         bloques[abiertos - 1],
         { opacity: 0, y: 16 },

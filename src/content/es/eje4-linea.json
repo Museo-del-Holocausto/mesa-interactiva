@@ -19,15 +19,18 @@
   "bloques": [
     {
       "k": "origen",
-      "rot": "Qué pasó"
+      "rot": "Qué pasó",
+      "icono": "scroll-text"
     },
     {
       "k": "construccion",
-      "rot": "Cómo se aplicó"
+      "rot": "Cómo se aplicó",
+      "icono": "gavel"
     },
     {
       "k": "clave",
-      "rot": "Idea clave"
+      "rot": "Idea clave",
+      "icono": "lightbulb"
     }
   ],
   "mitos": [

@@ -11,6 +11,7 @@
   "contenedores": [
     {
       "id": "religion",
+      "icono": "book-open",
       "rot": "Una religión",
       "sub": "Fe y prácticas",
       "items": [
@@ -22,6 +23,7 @@
     },
     {
       "id": "pueblo",
+      "icono": "hourglass",
       "rot": "Un pueblo",
       "sub": "Tres mil años de historia",
       "items": [
@@ -33,6 +35,7 @@
     },
     {
       "id": "cultura",
+      "icono": "music",
       "rot": "Una cultura",
       "sub": "Lenguas, comidas, música",
       "items": [
@@ -44,6 +47,7 @@
     },
     {
       "id": "memoria",
+      "icono": "house",
       "rot": "Una identidad",
       "sub": "Se transmite en familia",
       "items": [

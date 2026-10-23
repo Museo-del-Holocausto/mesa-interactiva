@@ -18,11 +18,13 @@
   "bloques": [
     {
       "k": "origen",
-      "rot": "Qué dice"
+      "rot": "Qué dice",
+      "icono": "quote"
     },
     {
       "k": "construccion",
-      "rot": "Qué hay que tener en cuenta"
+      "rot": "Qué hay que tener en cuenta",
+      "icono": "circle-alert"
     }
   ],
   "mitos": [

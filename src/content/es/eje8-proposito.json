@@ -11,6 +11,7 @@
   "contenedores": [
     {
       "id": "hechos",
+      "icono": "file-text",
       "rot": "Nombrar los hechos",
       "sub": "Con claridad",
       "items": [
@@ -22,6 +23,7 @@
     },
     {
       "id": "personas",
+      "icono": "user-round",
       "rot": "Recordar a las personas",
       "sub": "No solo las cifras",
       "items": [
@@ -33,6 +35,7 @@
     },
     {
       "id": "responsables",
+      "icono": "scale",
       "rot": "Diferenciar",
       "sub": "Responsables y civiles",
       "items": [
@@ -44,6 +47,7 @@
     },
     {
       "id": "ambos",
+      "icono": "hand-heart",
       "rot": "Reconocer",
       "sub": "Los dos dolores",
       "items": [

@@ -3575,8 +3575,10 @@
   --rac: #ff8571;
   --con: #f0b64f;
 
-  /* Eje 5: palabras. Eje 6: definición, posición, límite / historia, derechos, política. */
-  --pal: #4fdcb4;
+  /* Eje 5: palabras. Eje 6: definición, posición, límite / historia, derechos, política.
+     Palabras no comparte color con Exclusión: en la escalada van juntas y en
+     la leyenda no se distinguían. */
+  --pal: #8f9dff;
   --neg: #ff8571;
   --dis: #f0b64f;
   --ban: #8f9dff;
@@ -3998,6 +4000,30 @@
   height: 3px;
 }
 
+/* Con ícono, el ícono reemplaza al guion de color. */
+.mit__leyenda .mit__caticono {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  color: var(--c);
+}
+
+.mit__cat:has(.icono) {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mit__cat .mit__caticono { width: 22px; height: 22px; flex: none; }
+
+.mit__rot:has(.icono) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mit__roticono { width: 20px; height: 20px; flex: none; }
+
 .mit__leyenda li[data-cat='rel'] i { background: var(--rel); }
 .mit__leyenda li[data-cat='eco'] i { background: var(--eco); }
 .mit__leyenda li[data-cat='rac'] i { background: var(--rac); }
@@ -4397,8 +4423,28 @@
   color: var(--ink-400);
 }
 
-.alc__tit {
+/* Ícono y título en la misma línea, como en la escalada. */
+.alc__titulo {
+  display: flex;
+  align-items: center;
+  gap: 24px;
   margin-top: 10px;
+}
+
+.alc__icono {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  border: 1px solid var(--ink-600);
+  color: var(--ink-300);
+}
+
+.alc__icono[hidden] { display: none; }
+.alc__icono .icono { width: 46px; height: 46px; }
+
+.alc__tit {
   font-family: var(--font-display);
   font-size: 48px;
   font-weight: 400;
@@ -5120,6 +5166,16 @@
   background: var(--accent-ghost);
   box-shadow: 0 0 36px rgba(0, 229, 255, 0.18);
 }
+
+/* El ícono, arriba del rótulo y del mismo color. */
+.con2__icono {
+  position: relative;
+  color: var(--ink-400);
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.con2__icono .icono { display: block; width: 44px; height: 44px; }
+.con2__circulo[data-on='true'] .con2__icono { color: var(--accent); }
 
 .con2__rot {
   position: relative;

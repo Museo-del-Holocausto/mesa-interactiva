@@ -11,6 +11,7 @@
   "contenedores": [
     {
       "id": "denuncias",
+      "icono": "file-warning",
       "rot": "Las denuncias",
       "sub": "Argentina",
       "items": [
@@ -33,6 +34,7 @@
     },
     {
       "id": "formas",
+      "icono": "layers",
       "rot": "Cómo se manifestó",
       "sub": "Siete formas",
       "items": [
@@ -47,6 +49,7 @@
     },
     {
       "id": "limite",
+      "icono": "octagon-alert",
       "rot": "Dónde está el límite",
       "sub": "Cinco casos",
       "encabezado": "Criticar las decisiones de un Gobierno no es, por sí mismo, antisemitismo. La crítica a las políticas del Estado de Israel forma parte del debate político legítimo. Se cruza un límite cuando:",

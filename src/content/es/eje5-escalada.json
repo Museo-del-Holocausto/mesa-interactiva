@@ -18,11 +18,13 @@
   "bloques": [
     {
       "k": "origen",
-      "rot": "Qué es"
+      "rot": "Qué es",
+      "icono": "info"
     },
     {
       "k": "construccion",
-      "rot": "Cómo se manifiesta"
+      "rot": "Cómo se manifiesta",
+      "icono": "eye"
     }
   ],
   "mitos": [
