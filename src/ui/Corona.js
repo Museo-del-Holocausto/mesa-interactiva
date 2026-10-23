@@ -13,6 +13,9 @@ import { Rotary } from '@/core/Rotary.js';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
+/** Cuanto se desplaza el texto al entrar y salir, en px de mesa. */
+const SWAP_Y = 28;
+
 /** Alto de fila del selector y cuantas se ven a la vez. */
 const ROW_H = 76;
 const VISIBLE_ROWS = 4;
@@ -51,6 +54,10 @@ export class Corona {
   /** @type {SVGCircleElement[]} */
   #dots = [];
   #listKey = '';
+  /** Sentido del ultimo giro: 1 hacia adelante, -1 hacia atras. */
+  #dir = 1;
+  /** Cada cambio de texto anula al anterior si todavia estaba en curso. */
+  #swapId = 0;
 
   /**
    * @param {any[]} axes
@@ -116,8 +123,12 @@ export class Corona {
   select(index) {
     const frame = this.#frame();
     if (frame.nodes.length === 0 || index === frame.index) return;
+    // Sentido por el camino mas corto: tocar el punto de al lado es un paso, no una vuelta.
+    const n = frame.nodes.length;
+    const ahead = (index - frame.index + n) % n;
+    this.#dir = ahead <= n / 2 ? 1 : -1;
     frame.index = index;
-    this.#render(false);
+    this.#render(false, 'giro');
   }
 
   /** Resetea cuando el marcador se levanta y se vuelve a apoyar. */
@@ -129,7 +140,8 @@ export class Corona {
   }
 
   destroy() {
-    gsap.killTweensOf([this.orbit, this.slot, this.list, this.panel]);
+    this.#swapId += 1;
+    gsap.killTweensOf([this.orbit, this.slot, this.list, this.panel, ...this.#swapTargets()]);
     this.el.remove();
   }
 
@@ -190,7 +202,8 @@ export class Corona {
     this.el.dataset.display = this.#display();
     this.el.dataset.depth = String(this.#depth());
     this.#buildOrbit(this.#frame().nodes.length);
-    this.#render(immediate);
+    this.#render(immediate, 'nivel');
+    if (!immediate) this.#buildIn();
     this.callbacks.onNavigate?.(this.#stack.map((f) => f.parent?.id ?? 'root'));
   }
 
@@ -462,8 +475,11 @@ export class Corona {
     this.el.dataset.hidden = String(hidden);
   }
 
-  /** @param {boolean} immediate */
-  #render(immediate) {
+  /**
+   * @param {boolean} immediate
+   * @param {'giro'|'nivel'} [how]  giro: cambio de hermano. nivel: entrar o volver.
+   */
+  #render(immediate, how = 'giro') {
     const display = this.#display();
     this.el.dataset.display = display;
     const view = this.views[display];
@@ -478,47 +494,123 @@ export class Corona {
     });
     this.#spinOrbit(immediate);
 
-    const set = (slot, value) => {
-      const el = view.querySelector(`[data-slot="${slot}"]`);
-      if (!el) return;
-      el.textContent = value ?? '';
-      el.hidden = !value;
+    const apply = () => {
+      const set = (slot, value) => {
+        const el = view.querySelector(`[data-slot="${slot}"]`);
+        if (!el) return;
+        el.textContent = value ?? '';
+        el.hidden = !value;
+      };
+
+      set('eyebrow', this.#eyebrow());
+
+      if (display === 'lista') {
+        this.#renderList(immediate);
+      } else if (display === 'destacado') {
+        set('title', node.title);
+        set('subtitle', node.subtitle);
+      } else {
+        set('kicker', node.kicker);
+        set('title', node.title);
+        set('body', node.body);
+      }
+
+      const pendiente = node.estado === 'pendiente';
+      this.el.dataset.estado = pendiente ? 'pendiente' : 'listo';
+      this.cta.textContent = pendiente
+        ? i18n.t('ctaDev')
+        : display === 'destacado'
+          ? i18n.t('ctaEnter')
+          : display === 'lista'
+            ? i18n.t('ctaOpen')
+            : i18n.t('ctaPending');
+      // En la lista la accion la lleva la fila activa: el boton suelto sobra.
+      this.cta.hidden = display === 'lista' || (display === 'contenido' && Boolean(node.body));
+
+      this.#fitTitle();
     };
 
-    set('eyebrow', this.#eyebrow());
-
-    if (display === 'lista') {
-      this.#renderList(immediate);
-    } else if (display === 'destacado') {
-      set('title', node.title);
-      set('subtitle', node.subtitle);
-    } else {
-      set('kicker', node.kicker);
-      set('title', node.title);
-      set('body', node.body);
+    // La lista ya tiene su propio movimiento (el rodillo de filas): no se le suma nada.
+    if (immediate || display === 'lista' || how === 'nivel') {
+      this.#swapId += 1;
+      gsap.killTweensOf(this.#swapTargets());
+      gsap.set(this.#swapTargets(), { clearProps: 'opacity,y' });
+      apply();
+      return;
     }
 
-    const pendiente = node.estado === 'pendiente';
-    this.el.dataset.estado = pendiente ? 'pendiente' : 'listo';
-    this.cta.textContent = pendiente
-      ? i18n.t('ctaDev')
-      : display === 'destacado'
-        ? i18n.t('ctaEnter')
-        : display === 'lista'
-          ? i18n.t('ctaOpen')
-          : i18n.t('ctaPending');
-    // En la lista la accion la lleva la fila activa: el boton suelto sobra.
-    // En la lista la accion la lleva la fila activa: el boton suelto sobra.
-    this.cta.hidden = display === 'lista' || (display === 'contenido' && Boolean(node.body));
+    this.#swap(view, apply);
+  }
 
-    this.#fitTitle();
+  /** Lo que se mueve al cambiar de texto: los renglones de la vista activa y el boton. */
+  #swapTargets(view = this.views[this.#display()]) {
+    if (!view) return [this.cta];
+    return [...view.querySelectorAll('[data-slot]'), this.cta];
+  }
 
-    if (!immediate) {
-      gsap.fromTo(
-        this.panel,
-        { opacity: 0.4 },
-        { opacity: 1, duration: MOTION.dur.paso, ease: MOTION.ease.sale, overwrite: true },
-      );
+  /**
+   * Cambio de eje como un rodillo: el texto viejo se va en el sentido del giro
+   * y el nuevo entra del lado opuesto, renglon por renglon.
+   * @param {HTMLElement} view @param {() => void} apply
+   */
+  #swap(view, apply) {
+    const id = ++this.#swapId;
+    const dir = this.#dir;
+    const targets = this.#swapTargets(view);
+    gsap.killTweensOf(targets);
+
+    gsap.to(targets, {
+      opacity: 0,
+      y: -SWAP_Y * dir,
+      duration: MOTION.dur.paso * 0.5,
+      ease: 'power2.in',
+      stagger: 0.02,
+      onComplete: () => {
+        if (id !== this.#swapId) return;
+        apply();
+        const fresh = this.#swapTargets(view).filter((el) => !el.hidden);
+        // from() y no fromTo(): cada renglon vuelve a la opacidad que le da el CSS,
+        // que no siempre es 1. Al terminar se limpia y manda el CSS.
+        gsap.set(targets, { clearProps: 'opacity,y' });
+        gsap.from(fresh, {
+          opacity: 0,
+          y: SWAP_Y * dir,
+          duration: MOTION.dur.escena,
+          ease: MOTION.ease.sale,
+          stagger: 0.05,
+          clearProps: 'opacity,y',
+        });
+      },
+    });
+  }
+
+  /**
+   * Entrar o volver de nivel: la orbita se arma punto por punto desde el centro
+   * y el panel entra renglon por renglon.
+   */
+  #buildIn() {
+    const view = this.views[this.#display()];
+    const rows = view ? [...view.querySelectorAll('[data-slot], .menu__row')] : [];
+    const targets = [...rows, this.cta].filter((el) => !el.hidden);
+    // Las filas inactivas viven al 40 % por CSS: from() las devuelve ahi, no a 1.
+    gsap.from(targets, {
+      opacity: 0,
+      y: SWAP_Y * 0.6,
+      duration: MOTION.dur.escena,
+      ease: MOTION.ease.sale,
+      stagger: 0.04,
+      clearProps: 'opacity,y',
+    });
+    if (this.#dots.length > 0) {
+      gsap.from(this.#dots, {
+        opacity: 0,
+        scale: 0,
+        transformOrigin: '50% 50%',
+        duration: MOTION.dur.paso,
+        ease: MOTION.ease.sale,
+        stagger: Math.min(0.04, 0.36 / this.#dots.length),
+        clearProps: 'opacity,scale,transform',
+      });
     }
   }
 }
