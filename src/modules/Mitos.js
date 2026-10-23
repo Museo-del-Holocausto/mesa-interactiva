@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
+import { fotoDe, precargar } from '@/config/fotos.js';
 
 /** Tramo del alto donde vive el riel, en fracciones. Igual que en Aportes judios. */
 const RAIL_TOP = 0.16;
@@ -41,6 +42,7 @@ export class Mitos {
     this.#data = data;
     this.#onExit = onExit;
     this.#abiertos = data.mitos.map(() => 1);
+    precargar(data.mitos.map((m) => m.imagen?.src));
     this.el = this.#build();
     this.#select(0, true);
   }
@@ -109,6 +111,10 @@ export class Mitos {
       </ul>
 
       <article class="mit__card">
+        <figure class="mit__figura" hidden>
+          <div class="mit__foto"><img alt="" /></div>
+          <figcaption data-slot="epigrafe"></figcaption>
+        </figure>
         <p class="mit__meta">
           <span data-slot="era"></span>
           <span class="mit__cat" data-slot="cat"></span>
@@ -160,12 +166,14 @@ export class Mitos {
   /** @param {number} index @param {boolean} [immediate] */
   #select(index, immediate = false) {
     if (index === this.#index) return;
+    const baja = index > this.#index;
     this.#index = index;
     const m = this.#mito;
 
     this.#set('n', String(index + 1));
     this.#set('era', m.era);
     this.#set('frase', m.frase);
+    this.#pintarFoto(m, baja, immediate);
 
     const cat = this.el.querySelector('[data-slot="cat"]');
     cat.textContent = this.#data.categorias[m.cat];
@@ -213,6 +221,33 @@ export class Mitos {
     }
   }
 
+  /**
+   * La foto del caso, si la tiene. Se descubre en el sentido del recorrido:
+   * bajando por el riel entra de arriba hacia abajo, subiendo al revés.
+   * @param {any} m @param {boolean} baja @param {boolean} immediate
+   */
+  #pintarFoto(m, baja, immediate) {
+    const card = this.el.querySelector('.mit__card');
+    const figura = this.el.querySelector('.mit__figura');
+    const img = figura.querySelector('img');
+    const src = m.imagen?.src;
+    card.dataset.foto = String(Boolean(src));
+    figura.hidden = !src;
+    if (!src) return;
+    img.src = fotoDe(src);
+    img.alt = m.imagen.epigrafe ?? '';
+    this.#set('epigrafe', m.imagen.epigrafe);
+    if (immediate) return;
+    const foto = figura.querySelector('.mit__foto');
+    gsap.killTweensOf([foto, img]);
+    gsap.fromTo(
+      foto,
+      { clipPath: baja ? 'inset(0% 0% 100% 0%)' : 'inset(100% 0% 0% 0%)' },
+      { clipPath: 'inset(0% 0% 0% 0%)', duration: MOTION.dur.entrada, ease: MOTION.ease.firme, clearProps: 'clipPath' },
+    );
+    gsap.fromTo(img, { scale: 1.06 }, { scale: 1, duration: MOTION.dur.largo, ease: MOTION.ease.sale, clearProps: 'scale' });
+  }
+
   /** @param {boolean} [immediate] */
   #pintarBloques(immediate = false) {
     const t = this.#data.ui;
@@ -227,6 +262,8 @@ export class Mitos {
       li.dataset.on = String(i < abiertos);
     });
 
+    this.#plegar();
+
     const completo = abiertos >= total;
     const btn = this.el.querySelector('[data-act="revelar"]');
     // Con una sola linea escrita no hay nada que revelar: el botón sobra.
@@ -240,6 +277,29 @@ export class Mitos {
         { opacity: 0, y: 16 },
         { opacity: 1, y: 0, duration: MOTION.dur.entrada, ease: MOTION.ease.sale },
       );
+    }
+  }
+
+  /**
+   * Si los bloques abiertos no entran en el lienzo, los anteriores se pliegan
+   * a dos renglones, del más viejo al más nuevo, y si hace falta quedan solo
+   * con su rótulo. El último abierto queda
+   * siempre entero: es el que se está leyendo. Sin esto los casos del eje 7,
+   * los de texto más largo, empujaban el "Por qué" fuera de la pantalla.
+   */
+  #plegar() {
+    const card = this.el.querySelector('.mit__card');
+    const abiertos = [...this.el.querySelectorAll('.mit__bloque[data-on="true"]')];
+    for (const b of abiertos) b.dataset.plegado = 'false';
+    const limite = this.el.getBoundingClientRect().bottom;
+    const sobra = () => card.getBoundingClientRect().bottom > limite + 1;
+    const viejos = abiertos.slice(0, -1);
+    // Primero a dos renglones; si igual no entra, solo queda el rótulo.
+    for (const nivel of ['true', 'rotulo']) {
+      for (const b of viejos) {
+        if (!sobra()) return;
+        b.dataset.plegado = nivel;
+      }
     }
   }
 

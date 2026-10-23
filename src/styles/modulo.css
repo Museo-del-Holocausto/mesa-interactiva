@@ -3736,9 +3736,46 @@
 /* Arranca arriba y no centrada. Centrada, cada bloque que se abre corría todo
    el texto hacia arriba y había que volver a buscar dónde se estaba leyendo. */
 .mit__card {
+  position: relative;
   align-self: start;
   display: flex;
   flex-direction: column;
+}
+
+/* Con foto, el texto le deja la columna derecha. */
+.mit__card[data-foto='true'] {
+  padding-right: 376px;
+}
+
+.mit__figura {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 328px;
+}
+
+.mit__figura[hidden] { display: none; }
+
+.mit__foto {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.mit__foto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mit__figura figcaption {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--ink-400);
 }
 
 .mit__meta {
@@ -3791,6 +3828,18 @@
 
 .mit__bloque[data-on='true'] { display: block; }
 .mit__bloque[data-k='clave'] { border-left-color: var(--accent); }
+
+/* Bloque ya leído que no entra: queda en dos renglones y apagado, o solo el
+   rótulo si ni así entra. */
+.mit__bloque[data-plegado='rotulo'] .mit__txt { display: none; }
+
+.mit__bloque[data-plegado='true'] .mit__txt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  opacity: 0.55;
+}
 
 .mit__rot {
   font-family: var(--font-label);
