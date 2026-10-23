@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
 
 /** Tramo del alto donde vive el riel, en fracciones. */
@@ -157,8 +158,8 @@ export class Frenar {
     gsap.set(scenes, { opacity: 0 });
     gsap.to(this.el.querySelector(`[data-scene="${name}"]`), {
       opacity: 1,
-      duration: 0.34,
-      ease: 'power2.out',
+      duration: MOTION.dur.escena,
+      ease: MOTION.ease.sale,
     });
   }
 
@@ -191,7 +192,7 @@ export class Frenar {
     gsap.fromTo(
       this.el.querySelector('.fre__etapa'),
       { opacity: 0.35, y: 10 },
-      { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out', overwrite: true },
+      { opacity: 1, y: 0, duration: MOTION.dur.paso, ease: MOTION.ease.sale, overwrite: true },
     );
   }
 
@@ -231,7 +232,7 @@ export class Frenar {
       gsap.fromTo(
         li.querySelector('.fre__bpista i'),
         { width: '0%' },
-        { width: `${w}%`, duration: 0.9, delay: 0.15 + i * 0.12, ease: 'power2.out' },
+        { width: `${w}%`, duration: MOTION.dur.largo, delay: 0.15 + i * 0.12, ease: MOTION.ease.sale },
       );
     });
 

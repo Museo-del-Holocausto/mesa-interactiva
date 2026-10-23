@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
 
 /** Tramo del alto donde vive el riel, en fracciones. Igual que en Aportes judios. */
@@ -207,7 +208,7 @@ export class Mitos {
       gsap.fromTo(
         this.el.querySelector('.mit__card'),
         { opacity: 0.35, y: 10 },
-        { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out', overwrite: true },
+        { opacity: 1, y: 0, duration: MOTION.dur.paso, ease: MOTION.ease.sale, overwrite: true },
       );
     }
   }
@@ -237,7 +238,7 @@ export class Mitos {
       gsap.fromTo(
         bloques[abiertos - 1],
         { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
+        { opacity: 1, y: 0, duration: MOTION.dur.entrada, ease: MOTION.ease.sale },
       );
     }
   }

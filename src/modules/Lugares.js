@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 
 const RAIL_TOP = 0.16;
 const RAIL_BOTTOM = 0.84;
@@ -192,8 +193,8 @@ export class Lugares {
     gsap.set(scenes, { opacity: 0 });
     gsap.to(this.el.querySelector(`[data-scene="${name}"]`), {
       opacity: 1,
-      duration: 0.34,
-      ease: 'power2.out',
+      duration: MOTION.dur.escena,
+      ease: MOTION.ease.sale,
     });
   }
 
@@ -222,7 +223,7 @@ export class Lugares {
     gsap.fromTo(
       this.el.querySelector('.lug__state'),
       { opacity: 0.35 },
-      { opacity: 1, duration: 0.28, ease: 'power2.out', overwrite: true },
+      { opacity: 1, duration: MOTION.dur.paso, ease: MOTION.ease.sale, overwrite: true },
     );
   }
 
@@ -246,7 +247,7 @@ export class Lugares {
       gsap.fromTo(
         this.el.querySelector('.lug__cols'),
         { opacity: 0.3, y: 10 },
-        { opacity: 1, y: 0, duration: 0.32, ease: 'power2.out', overwrite: true },
+        { opacity: 1, y: 0, duration: MOTION.dur.paso, ease: MOTION.ease.sale, overwrite: true },
       );
     }
   }

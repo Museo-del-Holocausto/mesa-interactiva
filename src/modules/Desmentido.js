@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
 
 /** Columnas de la grilla. */
@@ -184,8 +185,8 @@ export class Desmentido {
     gsap.set(scenes, { opacity: 0 });
     gsap.to(this.el.querySelector(`[data-scene="${name}"]`), {
       opacity: 1,
-      duration: 0.34,
-      ease: 'power2.out',
+      duration: MOTION.dur.escena,
+      ease: MOTION.ease.sale,
     });
   }
 
@@ -258,8 +259,8 @@ export class Desmentido {
     const obj = { v: Number.parseInt(el.textContent.replace(/\D/g, ''), 10) || 0 };
     gsap.to(obj, {
       v: valor,
-      duration: 0.5,
-      ease: 'power2.out',
+      duration: MOTION.dur.entrada,
+      ease: MOTION.ease.sale,
       onUpdate: () => {
         el.textContent = this.#num(Math.round(obj.v));
       },

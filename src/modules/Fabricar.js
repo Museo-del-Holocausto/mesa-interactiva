@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 
 /**
  * Fabrica de mitos.
@@ -137,7 +138,7 @@ export class Fabricar {
     gsap.set(scenes, { opacity: 0 });
     this.el.dataset.scene = name;
     const active = this.el.querySelector(`[data-scene="${name}"]`);
-    gsap.to(active, { opacity: 1, duration: 0.34, ease: 'power2.out' });
+    gsap.to(active, { opacity: 1, duration: MOTION.dur.escena, ease: MOTION.ease.sale });
   }
 
   /** @param {string} slot @param {string} value */
@@ -200,7 +201,7 @@ export class Fabricar {
       ? this.crisis.f[`${this.#pickA}|${this.#pickB}`]
       : this.#data.waiting;
     say.disabled = !ready;
-    if (ready) gsap.fromTo(phrase, { opacity: 0.3 }, { opacity: 1, duration: 0.3 });
+    if (ready) gsap.fromTo(phrase, { opacity: 0.3 }, { opacity: 1, duration: MOTION.dur.paso, ease: MOTION.ease.sale });
   }
 
   #reveal() {

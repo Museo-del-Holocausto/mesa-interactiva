@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 
 /**
  * Decidir: clasificar afirmaciones en categorias.
@@ -133,8 +134,8 @@ export class Decidir {
     gsap.set(scenes, { opacity: 0 });
     gsap.to(this.el.querySelector(`[data-scene="${name}"]`), {
       opacity: 1,
-      duration: 0.34,
-      ease: 'power2.out',
+      duration: MOTION.dur.escena,
+      ease: MOTION.ease.sale,
     });
   }
 

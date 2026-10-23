@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 import {
   CORONA_R,
   CORONA_TRACK_GAP,
@@ -367,7 +368,7 @@ export class Corona {
   #spinSlot(immediate) {
     const vars = { rotation: this.#targetAngle(), svgOrigin: '0 0' };
     if (immediate) gsap.set(this.slot, vars);
-    else gsap.to(this.slot, { ...vars, duration: 0.44, ease: 'power3.out', overwrite: true });
+    else gsap.to(this.slot, { ...vars, duration: MOTION.dur.giro, ease: MOTION.ease.firme, overwrite: true });
   }
 
   /** @param {boolean} immediate */
@@ -378,7 +379,7 @@ export class Corona {
       svgOrigin: '0 0',
     };
     if (immediate) gsap.set(this.orbit, vars);
-    else gsap.to(this.orbit, { ...vars, duration: 0.44, ease: 'power3.out', overwrite: true });
+    else gsap.to(this.orbit, { ...vars, duration: MOTION.dur.giro, ease: MOTION.ease.firme, overwrite: true });
   }
 
   /**
@@ -448,7 +449,7 @@ export class Corona {
 
     const y = -frame.index * ROW_H;
     if (immediate) gsap.set(this.list, { y });
-    else gsap.to(this.list, { y, duration: 0.4, ease: 'power3.out', overwrite: true });
+    else gsap.to(this.list, { y, duration: MOTION.dur.giro, ease: MOTION.ease.firme, overwrite: true });
   }
 
   /** Vuelve a tomar el angulo actual como cero. */
@@ -516,7 +517,7 @@ export class Corona {
       gsap.fromTo(
         this.panel,
         { opacity: 0.4 },
-        { opacity: 1, duration: 0.3, ease: 'power2.out', overwrite: true },
+        { opacity: 1, duration: MOTION.dur.paso, ease: MOTION.ease.sale, overwrite: true },
       );
     }
   }

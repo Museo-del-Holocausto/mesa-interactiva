@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
 
 /**
@@ -227,8 +228,8 @@ export class Reloj {
     gsap.set(scenes, { opacity: 0 });
     gsap.to(this.el.querySelector(`[data-scene="${name}"]`), {
       opacity: 1,
-      duration: 0.34,
-      ease: 'power2.out',
+      duration: MOTION.dur.escena,
+      ease: MOTION.ease.sale,
     });
   }
 
@@ -292,7 +293,7 @@ export class Reloj {
       }
       const ultimo = lista.lastElementChild;
       if (ultimo) {
-        gsap.fromTo(ultimo, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' });
+        gsap.fromTo(ultimo, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: MOTION.dur.entrada, ease: MOTION.ease.sale });
       }
       this.#acomodarLista();
     }
@@ -314,8 +315,8 @@ export class Reloj {
       const sobra = lista.scrollHeight - visor.clientHeight;
       gsap.to(lista, {
         y: sobra > 0 ? -sobra : 0,
-        duration: 0.5,
-        ease: 'power2.out',
+        duration: MOTION.dur.entrada,
+        ease: MOTION.ease.sale,
         overwrite: true,
       });
     });
@@ -347,6 +348,6 @@ export class Reloj {
     this.el.querySelector('[data-slot="epigrafe"]').textContent = conFoto.imagen.epigrafe ?? '';
     this.el.querySelector('[data-slot="credito"]').textContent =
       conFoto.imagen.credito ?? t.creditPending;
-    gsap.fromTo(figura, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.out' });
+    gsap.fromTo(figura, { opacity: 0 }, { opacity: 1, duration: MOTION.dur.entrada, ease: MOTION.ease.sale });
   }
 }

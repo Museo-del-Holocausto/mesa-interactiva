@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
 
 /**
@@ -114,7 +115,7 @@ export class Escala {
       gsap.fromTo(
         this.el.querySelector('.esc__card'),
         { opacity: 0.3, y: 10 },
-        { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out', overwrite: true },
+        { opacity: 1, y: 0, duration: MOTION.dur.paso, ease: MOTION.ease.sale, overwrite: true },
       );
     }
   }

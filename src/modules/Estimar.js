@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
 
 /**
@@ -174,8 +175,8 @@ export class Estimar {
     gsap.set(scenes, { opacity: 0 });
     gsap.to(this.el.querySelector(`[data-scene="${name}"]`), {
       opacity: 1,
-      duration: 0.34,
-      ease: 'power2.out',
+      duration: MOTION.dur.escena,
+      ease: MOTION.ease.sale,
     });
   }
 
@@ -320,7 +321,7 @@ export class Estimar {
       });
     }
 
-    gsap.fromTo(comp, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
+    gsap.fromTo(comp, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: MOTION.dur.entrada, ease: MOTION.ease.sale });
     this.#set('fuente', p.fuente);
 
     const btn = this.el.querySelector('[data-act="avanzar"]');

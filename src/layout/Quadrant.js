@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 import { evaluateProximity } from '@/layout/ProximityGuard.js';
 import { MARKER_COLUMN_W, MARKER_RADIUS, QUADRANT_GRACE_MS } from '@/config/table.js';
 import { DEBUG } from '@/config/debug.js';
@@ -103,7 +104,7 @@ export class Quadrant {
       this.el.append(this.#menu.el);
       // Solo opacidad: el transform del menu lo maneja GSAP en los hijos,
       // y la posicion sale de left/top. Animar transform aca pisaba el place().
-      gsap.fromTo(this.#menu.el, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power3.out' });
+      gsap.fromTo(this.#menu.el, { opacity: 0 }, { opacity: 1, duration: MOTION.dur.entrada, ease: MOTION.ease.firme });
     }
     this.el.dataset.state = 'active';
   }
@@ -153,7 +154,7 @@ export class Quadrant {
     this.el.append(this.#module.el);
     this.el.dataset.warning = 'none';
     this.#menu?.setHidden(true);
-    gsap.fromTo(this.#module.el, { opacity: 0 }, { opacity: 1, duration: 0.4 });
+    gsap.fromTo(this.#module.el, { opacity: 0 }, { opacity: 1, duration: MOTION.dur.entrada, ease: MOTION.ease.sale });
   }
 
   #unmountModule() {

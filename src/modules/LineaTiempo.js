@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 
 /**
  * Dos mil anos.
@@ -153,7 +154,7 @@ export class LineaTiempo {
       gsap.fromTo(
         this.el.querySelector('.linea__top'),
         { opacity: 0.35 },
-        { opacity: 1, duration: 0.28, ease: 'power2.out', overwrite: true },
+        { opacity: 1, duration: MOTION.dur.paso, ease: MOTION.ease.sale, overwrite: true },
       );
     }
   }

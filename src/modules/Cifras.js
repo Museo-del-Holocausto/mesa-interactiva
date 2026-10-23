@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
 
 /** Columnas de la grilla. 60 x 24 = 1.440, alcanza para las 1.414 personas. */
@@ -176,8 +177,8 @@ export class Cifras {
     gsap.set(scenes, { opacity: 0 });
     gsap.to(this.el.querySelector(`[data-scene="${name}"]`), {
       opacity: 1,
-      duration: 0.34,
-      ease: 'power2.out',
+      duration: MOTION.dur.escena,
+      ease: MOTION.ease.sale,
     });
   }
 
@@ -234,7 +235,7 @@ export class Cifras {
       gsap.fromTo(
         f,
         { opacity: 0 },
-        { opacity: 1, duration: 0.5, delay: Math.random() * 0.7, ease: 'none' },
+        { opacity: 1, duration: MOTION.dur.entrada, delay: Math.random() * 0.7, ease: MOTION.ease.lineal },
       );
     }
   }

@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
 
 /** Columnas de la grilla. 20 x 16 = 320 figuras, el alcance de la ultima etapa. */
@@ -186,8 +187,8 @@ export class Alcance {
     gsap.set(scenes, { opacity: 0 });
     gsap.to(this.el.querySelector(`[data-scene="${name}"]`), {
       opacity: 1,
-      duration: 0.34,
-      ease: 'power2.out',
+      duration: MOTION.dur.escena,
+      ease: MOTION.ease.sale,
     });
   }
 
@@ -260,8 +261,8 @@ export class Alcance {
     const obj = { v: Number.parseInt(el.textContent.replace(/\D/g, ''), 10) || 0 };
     gsap.to(obj, {
       v: valor,
-      duration: 1.1,
-      ease: 'power2.out',
+      duration: MOTION.dur.largo,
+      ease: MOTION.ease.sale,
       onUpdate: () => {
         el.textContent = this.#num(Math.round(obj.v));
       },

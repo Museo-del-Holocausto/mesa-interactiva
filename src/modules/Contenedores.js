@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
 import { MODULE_CANVAS_W } from '@/config/table.js';
 
@@ -160,7 +161,7 @@ export class Contenedores {
       gsap.fromTo(
         this.el.querySelector('[data-slot="abierto"]'),
         { opacity: 0, y: 14 },
-        { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' },
+        { opacity: 1, y: 0, duration: MOTION.dur.entrada, ease: MOTION.ease.sale },
       );
     }
   }

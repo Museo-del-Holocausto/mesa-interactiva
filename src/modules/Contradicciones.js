@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
 import { MODULE_CANVAS_W } from '@/config/table.js';
 
@@ -218,7 +219,7 @@ export class Contradicciones {
       gsap.fromTo(
         this.el.querySelector('.con__card'),
         { opacity: 0.35, y: 10 },
-        { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out', overwrite: true },
+        { opacity: 1, y: 0, duration: MOTION.dur.paso, ease: MOTION.ease.sale, overwrite: true },
       );
     }
   }
@@ -259,7 +260,7 @@ export class Contradicciones {
       this.#set('choque', p[lado].choque);
       dicho.dataset.on = 'true';
       if (!immediate) {
-        gsap.fromTo(dicho, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' });
+        gsap.fromTo(dicho, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: MOTION.dur.entrada, ease: MOTION.ease.sale });
       }
     } else {
       dicho.dataset.on = 'false';
@@ -283,12 +284,12 @@ export class Contradicciones {
     gsap.fromTo(
       this.el.querySelector('[data-slot="cara"]'),
       { opacity: 0, y: 18 },
-      { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' },
+      { opacity: 1, y: 0, duration: MOTION.dur.entrada, ease: MOTION.ease.sale },
     );
     gsap.fromTo(
       this.el.querySelector('[data-slot="cierre"]'),
       { opacity: 0 },
-      { opacity: 1, duration: 0.5, delay: 0.3 },
+      { opacity: 1, duration: MOTION.dur.entrada, delay: 0.3 },
     );
   }
 }

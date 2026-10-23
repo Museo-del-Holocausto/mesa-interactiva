@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 
 /**
  * Trivia: preguntas de opcion multiple al final de un eje.
@@ -108,8 +109,8 @@ export class Trivia {
     gsap.set(scenes, { opacity: 0 });
     gsap.to(this.el.querySelector(`[data-scene="${name}"]`), {
       opacity: 1,
-      duration: 0.34,
-      ease: 'power2.out',
+      duration: MOTION.dur.escena,
+      ease: MOTION.ease.sale,
     });
   }
 
@@ -185,9 +186,9 @@ export class Trivia {
     this.#set('mensaje', p.mensaje ?? '');
     gsap.to(this.el.querySelector('.tri__after'), {
       opacity: 1,
-      duration: 0.55,
+      duration: MOTION.dur.entrada,
       delay: 0.3,
-      ease: 'power2.out',
+      ease: MOTION.ease.sale,
     });
 
     const t = this.#data.ui;

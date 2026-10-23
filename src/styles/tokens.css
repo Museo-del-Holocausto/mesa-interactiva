@@ -51,8 +51,10 @@
   --gap-4: 48px;
   --gap-5: 80px;
 
+  /* Mismos criterios que src/config/motion.js. ?lento=3 multiplica todo. */
+  --lento: 1;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --dur-fast: 180ms;
-  --dur-base: 320ms;
-  --dur-slow: 720ms;
+  --dur-fast: calc(180ms * var(--lento));
+  --dur-base: calc(320ms * var(--lento));
+  --dur-slow: calc(720ms * var(--lento));
 }

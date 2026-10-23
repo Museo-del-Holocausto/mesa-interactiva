@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
 
 /**
@@ -142,8 +143,8 @@ export class Definir {
     gsap.set(scenes, { opacity: 0 });
     gsap.to(this.el.querySelector(`[data-scene="${name}"]`), {
       opacity: 1,
-      duration: 0.34,
-      ease: 'power2.out',
+      duration: MOTION.dur.escena,
+      ease: MOTION.ease.sale,
     });
   }
 
@@ -324,7 +325,7 @@ export class Definir {
     gsap.fromTo(
       remate,
       { opacity: 0, y: 22 },
-      { opacity: 1, y: 0, duration: 0.7, delay, ease: 'power2.out' },
+      { opacity: 1, y: 0, duration: MOTION.dur.largo, delay, ease: MOTION.ease.sale },
     );
     gsap.delayedCall(delay + 0.2, () => {
       this.#estado[this.#index] = 'resuelto';

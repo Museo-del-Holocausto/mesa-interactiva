@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
 
 /**
@@ -129,8 +130,8 @@ export class Recorrer {
     gsap.set(scenes, { opacity: 0 });
     gsap.to(this.el.querySelector(`[data-scene="${name}"]`), {
       opacity: 1,
-      duration: 0.34,
-      ease: 'power2.out',
+      duration: MOTION.dur.escena,
+      ease: MOTION.ease.sale,
     });
   }
 
@@ -211,10 +212,10 @@ export class Recorrer {
 
     const fresh = list.querySelectorAll('[data-current="true"] .rec__measure');
     if (fresh.length > 0) {
-      gsap.from(fresh, { opacity: 0, x: -12, duration: 0.32, stagger: 0.05, ease: 'power2.out' });
+      gsap.from(fresh, { opacity: 0, x: -12, duration: MOTION.dur.paso, stagger: 0.05, ease: MOTION.ease.sale });
     }
     const ticks = list.querySelectorAll('[data-current="true"] .rec__ticks i');
-    gsap.from(ticks, { scaleX: 0, duration: 0.3, stagger: 0.04, ease: 'power2.out' });
+    gsap.from(ticks, { scaleX: 0, duration: MOTION.dur.paso, stagger: 0.04, ease: MOTION.ease.sale });
   }
 
   /**
@@ -227,8 +228,8 @@ export class Recorrer {
     const from = { n: Number.parseInt(el.textContent, 10) || 0 };
     gsap.to(from, {
       n: value,
-      duration: 0.5,
-      ease: 'power2.out',
+      duration: MOTION.dur.entrada,
+      ease: MOTION.ease.sale,
       onUpdate: () => {
         el.textContent = String(Math.round(from.n));
       },

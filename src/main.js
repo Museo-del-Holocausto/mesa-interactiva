@@ -14,6 +14,7 @@ import { SimulatedInput } from '@/core/inputs/SimulatedInput.js';
 import { LayoutManager } from '@/layout/LayoutManager.js';
 import { DebugOverlay } from '@/ui/DebugOverlay.js';
 import { Reticula } from '@/ui/Reticula.js';
+import { aplicarLento } from '@/config/motion.js';
 import { i18n } from '@/i18n/i18n.js';
 
 function boot() {
@@ -21,6 +22,7 @@ function boot() {
   if (!stageEl) throw new Error('Falta #stage en index.html');
 
   i18n.set(i18n.current);
+  aplicarLento();
 
   const stage = new Stage(stageEl);
 

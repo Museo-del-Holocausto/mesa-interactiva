@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
 
 /**
@@ -131,8 +132,8 @@ export class Espera {
     gsap.set(scenes, { opacity: 0 });
     gsap.to(this.el.querySelector(`[data-scene="${name}"]`), {
       opacity: 1,
-      duration: 0.34,
-      ease: 'power2.out',
+      duration: MOTION.dur.escena,
+      ease: MOTION.ease.sale,
     });
   }
 
@@ -180,7 +181,7 @@ export class Espera {
       gsap.fromTo(
         this.el.querySelector('.esp__col--preguntas'),
         { opacity: 0.5 },
-        { opacity: 1, duration: 0.4, ease: 'power2.out', overwrite: true },
+        { opacity: 1, duration: MOTION.dur.entrada, ease: MOTION.ease.sale, overwrite: true },
       );
     }
   }
