@@ -1,7 +1,8 @@
 .quadrant {
   position: absolute;
   overflow: hidden;
-  background: var(--ink-800);
+  /* Transparente: el fondo es la retícula de la mesa. */
+  background: transparent;
   transform-origin: center center;
   /* Division fisica entre usuarios: una linea, no un marco. */
   box-shadow:
@@ -11,7 +12,12 @@
 
 .quadrant[data-guide='true'] {
   box-shadow: none;
-  background: var(--ink-900);
+}
+
+/* En modo guía los cuatro cuadrantes siguen montados debajo. Antes los tapaba el
+   fondo opaco de la guía; ahora que el fondo es la retícula, se ocultan. */
+.layout:has(.quadrant[data-guide='true']) .quadrant:not([data-guide='true']) {
+  visibility: hidden;
 }
 
 /* --- reposo --------------------------------------------------------------- */

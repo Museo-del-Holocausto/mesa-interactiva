@@ -13,6 +13,7 @@ import { MarkerStore } from '@/core/MarkerStore.js';
 import { SimulatedInput } from '@/core/inputs/SimulatedInput.js';
 import { LayoutManager } from '@/layout/LayoutManager.js';
 import { DebugOverlay } from '@/ui/DebugOverlay.js';
+import { Reticula } from '@/ui/Reticula.js';
 import { i18n } from '@/i18n/i18n.js';
 
 function boot() {
@@ -22,6 +23,13 @@ function boot() {
   i18n.set(i18n.current);
 
   const stage = new Stage(stageEl);
+
+  // Fondo vivo: va primero en el stage, debajo de todo. ?grid=0 lo apaga.
+  if (new URLSearchParams(location.search).get('grid') !== '0') {
+    const reticula = new Reticula();
+    stageEl.append(reticula.el);
+    reticula.start();
+  }
   const store = new MarkerStore();
   store.startSweep();
 

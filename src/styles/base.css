@@ -46,6 +46,14 @@ body {
   inset: 0;
 }
 
+/* Fondo de mesa: retícula y puntos. Nunca recibe toques. */
+.reticula,
+.reticula canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
 button {
   font: inherit;
   color: inherit;
