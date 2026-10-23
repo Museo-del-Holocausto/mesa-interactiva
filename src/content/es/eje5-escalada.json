@@ -1,6 +1,7 @@
 {
   "id": "eje-5-escalada",
   "title": "La escalada del odio",
+  "escala": "grande",
   "ui": {
     "hint": "Deslizá el marcador para recorrer",
     "reveal": "Seguir",

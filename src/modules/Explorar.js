@@ -134,6 +134,8 @@ export class Explorar {
     if (index === this.#index) return;
     this.#dir = index > this.#index ? 1 : -1;
     this.#index = index;
+    // Apenas el visitante recorre, la instrucción ya cumplió y se apaga.
+    if (!immediate) this.el.dataset.guiado = 'true';
     const person = this.#data.people[index];
     const t = this.#data.ui;
 

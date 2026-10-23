@@ -4,7 +4,11 @@
    El marcador define un lado, no un punto. La pieza ocupa el lado opuesto,
    con una columna reservada de 680 px para el objeto y su Volver.
    Son dos estados espejados, no un layout por cada posicion posible.
-   Area util resultante: 1164 x 880. */
+   Area util resultante: 1164 x 880.
+
+   Color: cyan solo para lo que se toca. Las instrucciones ("Girá el
+   marcador…") y el progreso van en gris; en cyan competían con los botones y
+   el visitante no distinguía qué era botón y qué era indicación. */
 
 .modulo {
   position: absolute;
@@ -631,8 +635,7 @@
   letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
   white-space: nowrap;
-  color: var(--accent);
-  opacity: 0.65;
+  color: var(--ink-400);
 }
 
 /* ==========================================================================
@@ -1134,8 +1137,7 @@
   font-size: 21px;
   letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
-  color: var(--accent);
-  opacity: 0.65;
+  color: var(--ink-400);
 }
 
 /* --- resultado ------------------------------------------------------------ */
@@ -1500,8 +1502,7 @@
   font-size: 21px;
   letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
-  color: var(--accent);
-  opacity: 0.65;
+  color: var(--ink-400);
 }
 
 /* --- cierre --------------------------------------------------------------- */
@@ -1694,7 +1695,7 @@
 
 .exp__pos span {
   font-size: 34px;
-  color: var(--accent);
+  color: var(--ink-100);
   font-variant-numeric: tabular-nums;
 }
 
@@ -1705,8 +1706,7 @@
   letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
   white-space: nowrap;
-  color: var(--accent);
-  opacity: 0.7;
+  color: var(--ink-400);
 }
 
 /* --- la ficha ------------------------------------------------------------- */
@@ -2136,7 +2136,7 @@
   font-size: 19px;
   letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--ink-400);
   background: rgba(6, 8, 10, 0.75);
   border-radius: 3px;
   pointer-events: none;
@@ -2364,8 +2364,7 @@
   font-size: 19px;
   letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
-  color: var(--accent);
-  opacity: 0.65;
+  color: var(--ink-400);
 }
 
 /* --- ficha ---------------------------------------------------------------- */
@@ -2653,8 +2652,7 @@
   font-size: 21px;
   letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
-  color: var(--accent);
-  opacity: 0.65;
+  color: var(--ink-400);
 }
 
 .esp__cierre {
@@ -3735,7 +3733,7 @@
 
 .mit__pos span {
   font-size: 34px;
-  color: var(--accent);
+  color: var(--ink-100);
   font-variant-numeric: tabular-nums;
 }
 
@@ -3745,8 +3743,7 @@
   letter-spacing: calc(0.1em * var(--label-track));
   text-transform: uppercase;
   white-space: nowrap;
-  color: var(--accent);
-  opacity: 0.7;
+  color: var(--ink-400);
 }
 
 /* --- la ficha ------------------------------------------------------------- */
@@ -3974,7 +3971,7 @@
   transition: background var(--dur-base) var(--ease-out);
 }
 
-.mit__pasos li[data-on='true'] { background: var(--accent); }
+.mit__pasos li[data-on='true'] { background: var(--ink-300); }
 
 .mit__leyenda {
   align-self: start;
@@ -4099,7 +4096,7 @@
   font-weight: 500;
   letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
-  color: var(--ink-500);
+  color: var(--ink-400);
 }
 
 /* --- la ficha ------------------------------------------------------------- */
@@ -4562,7 +4559,7 @@
   font-weight: 500;
   letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
-  color: var(--ink-500);
+  color: var(--ink-400);
 }
 
 .alc__btn {
@@ -5042,7 +5039,7 @@
   font-weight: 500;
   letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
-  color: var(--ink-500);
+  color: var(--ink-400);
 }
 
 .cif__btn {
@@ -5220,7 +5217,7 @@
   font-weight: 500;
   letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
-  color: var(--ink-500);
+  color: var(--ink-400);
 }
 
 .con2__reposo[hidden],
@@ -5288,7 +5285,7 @@
   transition: background var(--dur-base) var(--ease-out);
 }
 
-.con2__pasos li[data-on='true'] { background: var(--accent); }
+.con2__pasos li[data-on='true'] { background: var(--ink-300); }
 
 .con2__spin {
   font-family: var(--font-label);
@@ -5296,7 +5293,7 @@
   font-weight: 500;
   letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
-  color: var(--ink-500);
+  color: var(--ink-400);
 }
 
 .con2__cierre {
@@ -5544,7 +5541,7 @@
   font-weight: 500;
   letter-spacing: calc(0.16em * var(--label-track));
   text-transform: uppercase;
-  color: var(--ink-500);
+  color: var(--ink-400);
 }
 
 .rel__btn {
@@ -5973,5 +5970,62 @@
   font-weight: 500;
   letter-spacing: calc(0.18em * var(--label-track));
   text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+/* ==========================================================================
+   Instrucciones que se apagan
+   ==========================================================================
+   "Deslizá el marcador…" hace falta hasta que el visitante lo hace. Después
+   es un renglón más compitiendo con el título. */
+
+.mit__hint,
+.exp__hint,
+.lug__hint {
+  transition: opacity var(--dur-slow) var(--ease-out);
+}
+
+.mit[data-guiado='true'] .mit__hint,
+.exp[data-guiado='true'] .exp__hint,
+.lug[data-guiado='true'] .lug__hint {
+  opacity: 0;
+}
+
+/* La leyenda de categorías baja un tono: es referencia, no título. */
+.mit__leyenda li {
   color: var(--ink-500);
+}
+
+.mit__leyenda .mit__caticono { opacity: 0.75; }
+
+/* Marca de completo: reemplaza al botón cuando ya se leyó todo. */
+.mit__listo {
+  display: grid;
+  place-items: center;
+  color: var(--ink-300);
+}
+
+.mit__listo[hidden] { display: none; }
+.mit__listo .icono { width: 26px; height: 26px; }
+
+/* --- escala grande ---------------------------------------------------------
+   Para piezas de texto corto. La escalada tiene una línea por bloque y con la
+   escala de siempre dejaba media pantalla negra. */
+
+.mit[data-escala='grande'] .mit__frase { font-size: 76px; max-width: 20ch; }
+.mit[data-escala='grande'] .mit__icono { width: 124px; height: 124px; }
+.mit[data-escala='grande'] .mit__icono .icono { width: 76px; height: 76px; }
+.mit[data-escala='grande'] .mit__bloques { margin-top: 44px; gap: 34px; }
+.mit[data-escala='grande'] .mit__txt { font-size: 36px; line-height: 1.38; }
+.mit[data-escala='grande'] .mit__rot { font-size: 20px; }
+.mit[data-escala='grande'] .mit__acciones { margin-top: 44px; }
+
+/* --- círculos centrados ----------------------------------------------------
+   Los círculos aceptan el marcador encima, así que no reservan columna y
+   ocupaban solo la mitad izquierda de la pantalla. Centrado, el bloque queda
+   parejo en la mesa. */
+
+.con2 {
+  max-width: 1180px;
+  margin-inline: auto;
 }

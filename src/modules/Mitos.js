@@ -90,6 +90,9 @@ export class Mitos {
     const n = this.#data.mitos.length;
     const root = document.createElement('div');
     root.className = 'mit';
+    // Piezas de texto corto (la escalada) usan una escala más grande: con la
+    // escala de siempre dejaban media pantalla vacía.
+    if (this.#data.escala) root.dataset.escala = this.#data.escala;
     root.innerHTML = `
       <div class="mit__rail">
         <div class="mit__line"></div>
@@ -137,6 +140,7 @@ export class Mitos {
         <div class="mit__acciones">
           <button class="mit__btn" data-act="revelar"></button>
           <ol class="mit__pasos">${this.#data.bloques.map(() => '<li></li>').join('')}</ol>
+          <span class="mit__listo" hidden>${icono('check')}</span>
         </div>
       </article>`;
 
@@ -180,6 +184,8 @@ export class Mitos {
     if (index === this.#index) return;
     const baja = index > this.#index;
     this.#index = index;
+    // Apenas el visitante recorre, la instrucción ya cumplió y se apaga.
+    if (!immediate) this.el.dataset.guiado = 'true';
     const m = this.#mito;
 
     this.#set('n', String(index + 1));
@@ -292,14 +298,20 @@ export class Mitos {
       li.dataset.on = String(i < abiertos);
     });
 
-    this.#plegar();
-
     const completo = abiertos >= total;
     const btn = this.el.querySelector('[data-act="revelar"]');
     // Con una sola linea escrita no hay nada que revelar: el botón sobra.
-    btn.hidden = total <= 1;
-    btn.textContent = completo ? t.read : t.reveal;
-    btn.disabled = completo;
+    // Leído todo, el botón también se va: una caja apagada parecía un botón
+    // roto. Queda la marca de completo junto a los pasos.
+    btn.hidden = total <= 1 || completo;
+    btn.textContent = t.reveal;
+    const listo = this.el.querySelector('.mit__listo');
+    const recien = completo && listo.hidden && !immediate;
+    listo.hidden = !(completo && total > 1);
+    if (recien && !listo.hidden) dibujar(listo);
+
+    // Después de acomodar el botón: lo que ocupa cambia lo que entra.
+    this.#plegar();
 
     if (!immediate && bloques[abiertos - 1]) {
       dibujar(bloques[abiertos - 1]);

@@ -67,6 +67,7 @@ export class Lugares {
     }
     const delta = rotation - this.#lastRot;
     this.#lastRot = rotation;
+    if (Math.abs(delta) > 2) this.el.dataset.guiado = 'true';
     this.#setWipe(this.#wipeT + delta / WIPE_SWEEP_DEG);
   }
 
@@ -164,6 +165,7 @@ export class Lugares {
   /** @param {PointerEvent} event */
   #dragWipe(event) {
     const wipe = this.el.querySelector('.lug__wipe');
+    this.el.dataset.guiado = 'true';
     const apply = (e) => {
       const rect = wipe.getBoundingClientRect();
       this.#setWipe((e.clientX - rect.left) / rect.width);
