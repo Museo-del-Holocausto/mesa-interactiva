@@ -1,17 +1,6 @@
 import gsap from 'gsap';
 import { MOTION } from '@/config/motion.js';
-/**
- * Fotos en color o en blanco y negro. Las dos versiones estan exportadas en
- * public/images/aportes/mesa/ (blanco y negro) y mesa/color/.
- * ?color=1 o ?color=0 en la URL pisa este valor, para mostrar las dos.
- */
-const COLOR = false;
-
-const COLOR_PARAM = new URLSearchParams(window.location.search).get('color');
-const USAR_COLOR = COLOR_PARAM === null ? COLOR : COLOR_PARAM !== '0' && COLOR_PARAM !== 'false';
-
-/** @param {string} ruta */
-const fotoDe = (ruta) => (USAR_COLOR ? ruta.replace('/mesa/', '/mesa/color/') : ruta);
+import { fotoDe } from '@/config/fotos.js';
 
 /** Tramo vertical del cuadrante donde vive el riel, en fracciones del alto. */
 const RAIL_TOP = 0.16;

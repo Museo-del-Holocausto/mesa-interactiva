@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
+import { fotoDe, precargar } from '@/config/fotos.js';
 
 /**
  * Detras de cada cifra.
@@ -24,6 +25,7 @@ export class Vidas {
   constructor(data, onExit) {
     this.#data = data;
     this.#onExit = onExit;
+    precargar(data.personas.map((p) => p.imagen));
     this.el = this.#build();
     this.#showScene('intro');
   }
@@ -61,19 +63,26 @@ export class Vidas {
           ${this.#data.personas
             .map(
               (p, i) => `<button class="vid__tile" type="button" data-index="${i}">
-                <span class="vid__tilephoto"></span>
+                <span class="vid__tilephoto" data-foto="${Boolean(p.imagen)}">${
+                  p.imagen ? `<img src="${fotoDe(p.imagen)}" alt="" />` : ''
+                }</span>
                 <span class="vid__tilename">${p.nombre}</span>
               </button>`,
             )
             .join('')}
           <p class="vid__hint">${t.hint}</p>
+          <p class="vid__rights">${t.rights}</p>
         </div>
 
         <article class="vid__card">
-          <p class="vid__estado" data-slot="estado"></p>
-          <h1 class="vid__name" data-slot="nombre"></h1>
+          <header class="vid__cardhead">
+            <span class="vid__retrato"><img alt="" hidden /></span>
+            <div>
+              <p class="vid__estado" data-slot="estado"></p>
+              <h1 class="vid__name" data-slot="nombre"></h1>
+            </div>
+          </header>
           <dl class="vid__fields"></dl>
-          <p class="vid__rights">${t.rights}</p>
         </article>
       </section>`;
 
@@ -124,6 +133,16 @@ export class Vidas {
     };
     set('estado', persona.estado);
     set('nombre', persona.nombre);
+
+    // Retrato grande en la ficha. Sin foto queda el mismo hueco que en la grilla.
+    const retrato = this.el.querySelector('.vid__retrato');
+    const img = retrato.querySelector('img');
+    retrato.dataset.foto = String(Boolean(persona.imagen));
+    img.hidden = !persona.imagen;
+    if (persona.imagen) {
+      img.src = fotoDe(persona.imagen);
+      img.alt = persona.nombre;
+    }
 
     const dl = this.el.querySelector('.vid__fields');
     dl.replaceChildren();

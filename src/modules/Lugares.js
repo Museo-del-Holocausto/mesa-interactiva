@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import { MOTION } from '@/config/motion.js';
+import { fotoDe, precargar } from '@/config/fotos.js';
 
 const RAIL_TOP = 0.16;
 const RAIL_BOTTOM = 0.84;
@@ -34,6 +35,7 @@ export class Lugares {
   constructor(data, onExit) {
     this.#data = data;
     this.#onExit = onExit;
+    precargar(data.lugares.flatMap((l) => [l.antes.imagen, l.despues.imagen]));
     this.el = this.#build();
     this.#showScene('aviso');
   }
@@ -104,10 +106,10 @@ export class Lugares {
 
         <div class="lug__wipe">
           <div class="lug__panel lug__panel--antes">
-            <div class="lug__photo"><span>${t.imagePending}</span></div>
+            <div class="lug__photo" data-lado="antes"><img class="lug__img" alt="" hidden /><span>${t.imagePending}</span></div>
           </div>
           <div class="lug__panel lug__panel--despues">
-            <div class="lug__photo"><span>${t.imagePending}</span></div>
+            <div class="lug__photo" data-lado="despues"><img class="lug__img" alt="" hidden /><span>${t.imagePending}</span></div>
           </div>
           <div class="lug__seam"></div>
           <div class="lug__tabs">
@@ -242,6 +244,7 @@ export class Lugares {
       li.dataset.on = String(Number(li.dataset.index) === index);
     }
     this.#renderState();
+    this.#pintarFotos(lugar, immediate);
 
     if (!immediate) {
       gsap.fromTo(
@@ -250,6 +253,33 @@ export class Lugares {
         { opacity: 1, y: 0, duration: MOTION.dur.paso, ease: MOTION.ease.sale, overwrite: true },
       );
     }
+  }
+
+  /**
+   * Las dos fotos del lugar, una debajo de cada lado de la cortina. Al cambiar
+   * de lugar entran juntas, para que el antes y el despues sigan siendo el
+   * mismo sitio.
+   * @param {any} lugar @param {boolean} immediate
+   */
+  #pintarFotos(lugar, immediate) {
+    const imgs = [];
+    for (const lado of ['antes', 'despues']) {
+      const photo = this.el.querySelector(`.lug__photo[data-lado="${lado}"]`);
+      const img = photo.querySelector('.lug__img');
+      const src = lugar[lado].imagen;
+      photo.dataset.foto = String(Boolean(src));
+      img.hidden = !src;
+      if (!src) continue;
+      img.src = fotoDe(src);
+      img.alt = lugar[lado].epigrafe ?? '';
+      imgs.push(img);
+    }
+    if (immediate || !imgs.length) return;
+    gsap.fromTo(
+      imgs,
+      { opacity: 0, scale: 1.03 },
+      { opacity: 1, scale: 1, duration: MOTION.dur.entrada, ease: MOTION.ease.sale, overwrite: true },
+    );
   }
 
   /** El texto sigue a la cortina: manda el lado que ocupa mas de la mitad. */

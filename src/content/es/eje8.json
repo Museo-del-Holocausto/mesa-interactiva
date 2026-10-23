@@ -24,7 +24,8 @@
       "antes": {
         "titulo": "Una comunidad construida alrededor del trabajo colectivo",
         "texto": "Be'eri era un kibutz de aproximadamente 1.200 habitantes, fundado en 1946. Su vida cotidiana combinaba viviendas familiares, espacios verdes, agricultura, actividades culturales y una importante imprenta comunitaria, una de las principales fuentes de trabajo del kibutz. Era una comunidad intergeneracional en la que convivían fundadores, hijos, nietos y familias jóvenes.",
-        "epigrafe": "Familias en los jardines, trabajadores de la imprenta, campos cultivados."
+        "imagen": "images/7-octubre/mesa/lugares/beeri-antes.jpg",
+        "epigrafe": "Vista aérea de Be'eri, 2020."
       },
       "durante": {
         "titulo": "Horas dentro de las habitaciones protegidas",
@@ -33,7 +34,8 @@
       "despues": {
         "titulo": "Una comunidad viviendo en varios lugares",
         "texto": "Los sobrevivientes fueron evacuados a hoteles y alojamientos temporarios. Gran parte de la comunidad se trasladó a viviendas provisorias en el kibutz Hatzerim, mientras la imprenta y algunos servicios continuaron funcionando en Be'eri. La reconstrucción incluye viviendas, educación, atención psicológica y la discusión sobre qué edificios conservar como espacios de memoria.",
-        "epigrafe": "Viviendas provisorias en Hatzerim."
+        "imagen": "images/7-octubre/mesa/lugares/beeri-despues.jpg",
+        "epigrafe": "Viviendas incendiadas en Be'eri después del ataque."
       }
     },
     {
@@ -43,7 +45,8 @@
       "antes": {
         "titulo": "Familias de varias generaciones",
         "texto": "Kfar Aza era un kibutz de alrededor de mil habitantes, situado a pocos kilómetros de Gaza. Tenía jardines, viviendas familiares, espacios educativos y un sector conocido como el barrio de los jóvenes, donde vivían adultos jóvenes que comenzaban su vida independiente. Era una comunidad pequeña y estrechamente conectada, en la que muchas familias se conocían desde hacía décadas.",
-        "epigrafe": "El jardín de infantes, jóvenes reunidos al aire libre, los caminos internos."
+        "imagen": "images/7-octubre/mesa/lugares/kfar-aza-antes.jpg",
+        "epigrafe": "Jardines y viviendas de Kfar Aza antes del ataque."
       },
       "durante": {
         "titulo": "La comunidad quedó dividida en sectores aislados",
@@ -52,6 +55,7 @@
       "despues": {
         "titulo": "¿Reconstruir una casa o vivir dentro de un memorial?",
         "texto": "La mayoría de los sobrevivientes fue trasladada a hoteles, residencias universitarias y viviendas temporarias. Durante mucho tiempo solo un pequeño grupo regresó. La reconstrucción física avanzó, pero sigue acompañada por una pregunta difícil: cuánto preservar como testimonio del ataque y cuánto transformar para que el kibutz vuelva a ser un lugar habitable.",
+        "imagen": "images/7-octubre/mesa/lugares/kfar-aza-despues.jpg",
         "epigrafe": "Viviendas dañadas en Kfar Aza. Evelyn Hockstein / Reuters, 2 de noviembre de 2023."
       }
     },
@@ -62,6 +66,7 @@
       "antes": {
         "titulo": "Un jardín en medio del desierto",
         "texto": "Nir Oz era un kibutz de casi 400 habitantes, reconocido por sus árboles, jardines y experimentación agrícola. Sus fundadores habían convertido una zona desértica en un espacio verde, con un jardín botánico y áreas comunitarias que funcionaban como una prolongación de las viviendas. Familias de distintas generaciones compartían educación, trabajo y actividades sociales.",
+        "imagen": "images/7-octubre/mesa/lugares/nir-oz-antes.jpg",
         "epigrafe": "Niños y familias durante Purim en Nir Oz, 2 de marzo de 2018. Yael Yolovitch / Wikimedia Commons, CC BY-SA 4.0."
       },
       "durante": {
@@ -71,6 +76,7 @@
       "despues": {
         "titulo": "Reconstruir sin perder el jardín",
         "texto": "Los sobrevivientes fueron evacuados primero a Eilat y muchos se instalaron después en viviendas temporarias en Kiryat Gat. La recuperación se centra no solo en levantar casas, sino en restablecer escuelas, espacios comunes y el jardín botánico, considerado parte esencial de la identidad del kibutz.",
+        "imagen": "images/7-octubre/mesa/lugares/nir-oz-despues.jpg",
         "epigrafe": "Vivienda incendiada en Nir Oz. Yael Yolovitch, 5 de diciembre de 2023 / Wikimedia Commons, CC BY-SA 4.0."
       }
     },
@@ -81,7 +87,8 @@
       "antes": {
         "titulo": "Una ciudad, no un kibutz",
         "texto": "Sderot era una ciudad de decenas de miles de habitantes, con escuelas, comercios, barrios, centros culturales y población de orígenes diversos. Su vida cotidiana llevaba años condicionada por las alarmas y el lanzamiento de cohetes desde Gaza, pero también por el esfuerzo de mantener abiertas las escuelas, los comercios y las actividades culturales.",
-        "epigrafe": "Una plaza, la escuela a la salida de clases, el mercado."
+        "imagen": "images/7-octubre/mesa/lugares/sderot-antes.jpg",
+        "epigrafe": "La entrada a Sderot."
       },
       "durante": {
         "titulo": "Combates dentro de la ciudad",
@@ -90,6 +97,7 @@
       "despues": {
         "titulo": "El regreso a una ciudad transformada",
         "texto": "La mayor parte de la población fue evacuada a hoteles y alojamientos distribuidos por Israel. Sderot reabrió oficialmente en marzo de 2024 y gran parte de sus habitantes regresó durante los meses siguientes. El retorno implicó reabrir escuelas, reparar viviendas y atender las consecuencias psicológicas de una población expuesta al ataque y a los meses posteriores de guerra.",
+        "imagen": "images/7-octubre/mesa/lugares/sderot-despues.jpg",
         "epigrafe": "La comisaría de Sderot después del ataque. Yoav Keren, 8 de octubre de 2023 / Wikimedia Commons, CC BY-SA 4.0."
       }
     },
@@ -100,7 +108,8 @@
       "antes": {
         "titulo": "Una ciudad de inmigrantes y familias trabajadoras",
         "texto": "Ofakim no se encuentra inmediatamente junto a la frontera. Es una ciudad desarrollada desde la década de 1950, habitada en gran medida por familias provenientes de distintas olas migratorias.",
-        "epigrafe": "Calles del barrio Mishor HaGefen antes del ataque."
+        "imagen": "images/7-octubre/mesa/lugares/ofakim-antes.jpg",
+        "epigrafe": "Vista aérea de Ofakim."
       },
       "durante": {
         "titulo": "La violencia llegó a un barrio residencial",
@@ -109,6 +118,7 @@
       "despues": {
         "titulo": "Una reconstrucción desigual",
         "texto": "Ofakim no fue evacuada completamente, por lo que la recuperación tuvo un carácter diferente al de los kibutzim fronterizos. Se concentró en las familias afectadas, la atención psicológica y la recuperación del barrio Mishor HaGefen. Inicialmente la ciudad quedó fuera de algunos programas especiales de reconstrucción, lo que generó reclamos por una asistencia más equitativa.",
+        "imagen": "images/7-octubre/mesa/lugares/ofakim-despues.jpg",
         "epigrafe": "Una calle de Ofakim después del ataque. Ilan Assayag / Associated Press, 8 de octubre de 2023."
       }
     }

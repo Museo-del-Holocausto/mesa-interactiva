@@ -2046,6 +2046,34 @@
   text-transform: uppercase;
 }
 
+/* Con foto el recuadro deja de ser un hueco: sin trama ni borde punteado. */
+.lug__photo {
+  position: relative;
+  overflow: hidden;
+}
+
+.lug__photo[data-foto='true'] {
+  border-color: transparent;
+  background: none;
+}
+
+.lug__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Las etiquetas y la ayuda quedan sobre la foto: una sombra las despega. */
+.lug__photo[data-foto='true']::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(3, 6, 8, 0.45), transparent 32%, transparent 62%, rgba(3, 6, 8, 0.6));
+  pointer-events: none;
+}
+
 /* La costura: ahí se parte la imagen. */
 .lug__seam {
   position: absolute;
@@ -2246,6 +2274,64 @@
   background: var(--accent-ghost);
 }
 
+/* Con retrato: la foto ocupa el recuadro y el elegido se marca con el borde.
+   Los demás quedan apagados para que el elegido se lea de lejos. */
+.vid__tilephoto,
+.vid__retrato {
+  position: relative;
+  overflow: hidden;
+}
+
+.vid__tilephoto[data-foto='true'] {
+  border-style: solid;
+  border-color: transparent;
+  background: none;
+}
+
+.vid__tilephoto img,
+.vid__retrato img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vid__tilephoto img {
+  opacity: 0.5;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+
+.vid__tile[data-on='true'] .vid__tilephoto[data-foto='true'] {
+  border-color: var(--accent);
+}
+
+.vid__tile[data-on='true'] .vid__tilephoto img { opacity: 1; }
+
+/* --- ficha: retrato y nombre ---------------------------------------------- */
+
+.vid__cardhead {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 24px;
+  align-items: end;
+}
+
+.vid__retrato {
+  aspect-ratio: 3 / 4;
+  border: 1px dashed var(--ink-500);
+  background: repeating-linear-gradient(
+    45deg,
+    transparent 0 12px,
+    rgba(107, 123, 135, 0.05) 12px 13px
+  );
+}
+
+.vid__retrato[data-foto='true'] {
+  border-color: transparent;
+  background: none;
+}
+
 .vid__tilename {
   font-family: var(--font-display);
   font-size: 16px;
@@ -2296,14 +2382,14 @@
 }
 
 .vid__fields {
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 .vid__field {
   display: grid;
   grid-template-columns: 170px 1fr;
   gap: 20px;
-  padding: 9px 0;
+  padding: 8px 0;
   border-top: 1px solid var(--ink-600);
 }
 
@@ -2328,8 +2414,11 @@
   color: var(--ink-500);
 }
 
+/* Va debajo de la grilla y no en la ficha: con retrato, la ficha más larga
+   (los Bibas) se pasaba del lienzo. */
 .vid__rights {
-  margin-top: 20px;
+  grid-column: 1 / -1;
+  margin-top: 4px;
   font-size: 17px;
   font-weight: 300;
   line-height: 1.36;
@@ -5378,6 +5467,25 @@
     transparent 0 8px,
     rgba(255, 255, 255, 0.02) 8px 16px
   );
+}
+
+/* Con foto el recuadro deja de ser un hueco: sin trama ni borde punteado. */
+.rel__foto {
+  position: relative;
+  overflow: hidden;
+}
+
+.rel__foto[data-foto='true'] {
+  border-color: transparent;
+  background: none;
+}
+
+.rel__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .rel__foto span {

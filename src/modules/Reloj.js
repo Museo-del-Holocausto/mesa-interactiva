@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import { MOTION } from '@/config/motion.js';
+import { fotoDe, precargar } from '@/config/fotos.js';
 import { Rotary } from '@/core/Rotary.js';
 
 /**
@@ -33,6 +34,7 @@ export class Reloj {
     this.#onExit = onExit;
     this.#min = data.desde;
     this.#calcularAnclas();
+    precargar(data.eventos.map((e) => e.imagen?.src));
     this.el = this.#build();
     this.#showScene('intro');
   }
@@ -103,7 +105,7 @@ export class Reloj {
 
         <div class="rel__cuerpo" data-slot="cuerpo">
           <figure class="rel__figura" data-slot="figura">
-            <div class="rel__foto"><span data-slot="fotoEstado"></span></div>
+            <div class="rel__foto"><img class="rel__img" alt="" hidden /><span data-slot="fotoEstado"></span></div>
             <figcaption>
               <span data-slot="epigrafe"></span>
               <span class="rel__credito" data-slot="credito"></span>
@@ -343,8 +345,17 @@ export class Reloj {
     figura.dataset.actual = conFoto.hora;
 
     const t = this.#data.ui;
-    this.el.querySelector('[data-slot="fotoEstado"]').textContent =
-      conFoto.imagen.alt ?? t.imagePending;
+    const img = this.el.querySelector('.rel__img');
+    const src = conFoto.imagen.src;
+    img.hidden = !src;
+    if (src) {
+      img.src = fotoDe(src);
+      img.alt = conFoto.imagen.epigrafe ?? '';
+    }
+    this.el.querySelector('.rel__foto').dataset.foto = String(Boolean(src));
+    this.el.querySelector('[data-slot="fotoEstado"]').textContent = src
+      ? ''
+      : (conFoto.imagen.alt ?? t.imagePending);
     this.el.querySelector('[data-slot="epigrafe"]').textContent = conFoto.imagen.epigrafe ?? '';
     this.el.querySelector('[data-slot="credito"]').textContent =
       conFoto.imagen.credito ?? t.creditPending;

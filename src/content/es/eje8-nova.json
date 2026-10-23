@@ -22,9 +22,9 @@
       "titulo": "Empieza el festival",
       "texto": "El festival comienza a las 22:00 del 6 de octubre. Miles de jóvenes llegan con amigos, instalan carpas, bailan durante la noche y comparten fotografías y mensajes. La música electrónica, las estructuras de colores y el campamento forman parte de una celebración que se prolongaría durante el día siguiente.",
       "imagen": {
+        "src": "images/7-octubre/mesa/nova/2200.jpg",
         "epigrafe": "Jóvenes bailan en el festival Nova durante la noche del 6 al 7 de octubre de 2023, cerca del kibutz Re'im.",
-        "credito": "Fotografía: Ido Darbi. Fuente: Ynet.",
-        "pendiente": true
+        "credito": "Fotografía: Ido Darbi. Fuente: Ynet."
       }
     },
     {
@@ -33,9 +33,9 @@
       "titulo": "Comienzan los cohetes",
       "texto": "A las 6:29 comienza un intenso lanzamiento de cohetes desde Gaza.",
       "imagen": {
+        "src": "images/7-octubre/mesa/nova/0629.jpg",
         "epigrafe": "Un grupo de amigos descansa en el sector de campamento del festival, durante la madrugada del 7 de octubre de 2023.",
-        "credito": "Fotografía: Matan Boltax. Publicada por WAMC Northeast Public Radio.",
-        "pendiente": true
+        "credito": "Fotografía: Matan Boltax. Publicada por WAMC Northeast Public Radio."
       }
     },
     {
@@ -56,9 +56,9 @@
       "titulo": "Los atacantes entran al predio",
       "texto": "Después de las 9:15, decenas de atacantes ingresan al recinto del festival, disparan contra personas ocultas y secuestran a otras.",
       "imagen": {
+        "src": "images/7-octubre/mesa/nova/0915.jpg",
         "epigrafe": "El sitio del festival, después del ataque.",
-        "credito": null,
-        "pendiente": true
+        "credito": null
       }
     }
   ],
