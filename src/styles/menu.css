@@ -254,6 +254,9 @@
 
 .menu[data-side='left'] .menu__picker {
   transform-origin: right center;
+  /* Espejado: la lista se pega al marcador. Sin esto quedaba contra el borde
+     izquierdo del panel y abría un hueco entre las filas y la corona. */
+  margin-left: auto;
 }
 
 .menu__list {
