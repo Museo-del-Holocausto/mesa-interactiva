@@ -2,6 +2,7 @@ import { GUIDE_MARKER_ID, GUIDE_REGION, QUADRANTS } from '@/config/table.js';
 import { Quadrant } from '@/layout/Quadrant.js';
 import { Corona } from '@/ui/Corona.js';
 import { i18n } from '@/i18n/i18n.js';
+import { DEBUG } from '@/config/debug.js';
 
 /**
  * Decide que regiones existen y a quien pertenece cada una.
@@ -50,6 +51,8 @@ export class LayoutManager {
       for (const quadrant of this.#quadrants) quadrant.detach();
       this.#guide = new Quadrant(GUIDE_REGION);
       this.#guide.el.dataset.guide = 'true';
+      // Una sola escala para todo el modo guia: menu y piezas crecen igual (?gscale=).
+      this.#guide.el.style.setProperty('--guide-scale', String(DEBUG.guideScale));
       this.root.append(this.#guide.el);
     } else {
       this.#guide?.detach();

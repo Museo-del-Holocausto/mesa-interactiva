@@ -10,8 +10,10 @@
   --panel-scale: 1;
 }
 
+/* En modo guia el texto crece lo mismo que las piezas: --guide-scale sale de
+   DEBUG.guideScale (1.2, ?gscale=). Con 2 el titulo medía 43 mm en la mesa. */
 .quadrant[data-guide='true'] .menu {
-  --panel-scale: 2;
+  --panel-scale: var(--guide-scale, 1.2);
 }
 
 .menu__corona {
@@ -106,6 +108,7 @@
 }
 
 .menu__body {
+  max-width: 46ch;
   margin-top: calc(24px * var(--panel-scale));
   font-size: calc(28px * var(--panel-scale));
   font-weight: 300;
@@ -134,6 +137,11 @@
   text-align: right;
 }
 
+/* Espejado: el renglón acotado se pega al marcador, no al borde lejano. */
+.menu[data-side='left'] :is(.menu__subtitle, .menu__body) {
+  margin-left: auto;
+}
+
 .menu__eyebrow {
   font-family: var(--font-label);
   font-size: calc(24px * var(--panel-scale));
@@ -154,6 +162,8 @@
 }
 
 .menu__subtitle {
+  /* Renglón de lectura: con el panel ancho del modo guía se iba a 120 caracteres. */
+  max-width: 46ch;
   margin-top: calc(20px * var(--panel-scale));
   font-size: calc(26px * var(--panel-scale));
   font-weight: 300;
