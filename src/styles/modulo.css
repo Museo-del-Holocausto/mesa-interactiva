@@ -1942,8 +1942,9 @@
 .lug__rail li {
   position: absolute;
   left: 0;
+  width: 44px;
+  height: 44px;
   translate: -50% -50%;
-  padding: 12px 0 12px 24px;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -1952,7 +1953,7 @@
   content: '';
   position: absolute;
   top: 50%;
-  left: 0;
+  left: 50%;
   width: 10px;
   height: 10px;
   translate: -50% -50%;
@@ -1962,6 +1963,11 @@
 }
 
 .lug__rail li span {
+  /* Igual que los años de Mitos: fuera del radio del objeto, hacia el contenido. */
+  position: absolute;
+  top: 50%;
+  left: calc(var(--marker-r, 147px) + 50px);
+  translate: 0 -50%;
   font-family: var(--font-label);
   font-size: 19px;
   letter-spacing: calc(0.12em * var(--label-track));
@@ -1976,6 +1982,11 @@
 }
 
 .lug__rail li[data-on='true'] span { color: var(--accent); }
+
+.modulo__canvas[data-side='right'] .lug__rail li span {
+  left: auto;
+  right: calc(var(--marker-r, 147px) + 50px);
+}
 
 /* --- lugar ---------------------------------------------------------------- */
 
@@ -5465,7 +5476,9 @@
 .mit__ticks li span {
   position: absolute;
   top: 50%;
-  left: 34px;
+  /* Fuera del radio del objeto: el marcador se apoya sobre el riel y a 34 px
+     tapaba el año. El filete (::before) lo une con su punto. */
+  left: calc(var(--marker-r, 147px) + 50px);
   translate: 0 -50%;
   font-family: var(--font-display);
   font-size: 17px;
@@ -5483,8 +5496,29 @@
 /* Con el marcador a la derecha el año cae del otro lado, hacia el contenido. */
 .modulo__canvas[data-side='right'] .mit__ticks li span {
   left: auto;
-  right: 34px;
+  right: calc(var(--marker-r, 147px) + 50px);
 }
+
+/* Filete del punto al rótulo. Pasa por debajo del objeto y asoma del borde. */
+.mit__ticks li span::before,
+.lug__rail li span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 10px);
+  width: calc(var(--marker-r, 147px) + 10px);
+  height: 1px;
+  background: var(--ink-600);
+  transition: background var(--dur-base) var(--ease-out);
+}
+
+.modulo__canvas[data-side='right'] :is(.mit__ticks, .lug__rail) li span::before {
+  right: auto;
+  left: calc(100% + 10px);
+}
+
+.mit__ticks li[data-on='true'] span::before { background: var(--ink-400); }
+.lug__rail li[data-on='true'] span::before { background: var(--accent-dim); }
 
 /* El aviso de que las cifras son un ejemplo va junto a la grilla que las
    dibuja, no en una pantalla de entrada que ya no existe. */

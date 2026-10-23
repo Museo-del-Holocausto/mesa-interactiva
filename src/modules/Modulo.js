@@ -96,6 +96,9 @@ export class Modulo {
     // que usan el marcador como cursor la necesitan para estirar su riel.
     this.canvas.style.setProperty('--bleed-x', `${Math.round(this.#originX / this.#scale)}px`);
     this.canvas.style.setProperty('--bleed-y', `${Math.round(this.#originY / this.#scale)}px`);
+    // Radio del objeto en px de lienzo. Los rieles corren sus rotulos fuera de
+    // este radio: el objeto se apoya sobre la linea y tapaba los años.
+    this.canvas.style.setProperty('--marker-r', `${Math.round(MARKER_RADIUS / this.#scale)}px`);
   }
 
   get scale() {
