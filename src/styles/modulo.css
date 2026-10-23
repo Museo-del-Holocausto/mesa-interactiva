@@ -3811,9 +3811,41 @@
 .mit__cat[data-cat='rac'] { color: var(--rac); }
 .mit__cat[data-cat='con'] { color: var(--con); }
 
+/* Ícono y frase en la misma línea. Sin ícono, el título queda como estaba. */
+.mit__titulo {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 16px;
+}
+
+.mit__icono {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  border: 1px solid var(--ink-600);
+  color: var(--ink-300);
+}
+
+.mit__icono[hidden] { display: none; }
+.mit__icono .icono { width: 56px; height: 56px; }
+.mit__icono[data-cat='pal'] { color: var(--pal); }
+.mit__icono[data-cat='exc'] { color: var(--exc); }
+.mit__icono[data-cat='vio'] { color: var(--vio); }
+
+/* En el riel, el ícono chico acompaña al número de la parada. */
+.mit__ticks li span:has(.mit__tickicono) {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mit__tickicono { width: 22px; height: 22px; flex: none; }
+
 .mit__frase {
   max-width: 26ch;
-  margin-top: 16px;
   font-family: var(--font-display);
   font-size: 56px;
   font-weight: 400;

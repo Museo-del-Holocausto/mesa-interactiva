@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import { MOTION } from '@/config/motion.js';
 import { Rotary } from '@/core/Rotary.js';
 import { fotoDe, precargar } from '@/config/fotos.js';
+import { icono } from '@/ui/iconos.js';
 
 /** Tramo del alto donde vive el riel, en fracciones. Igual que en Aportes judios. */
 const RAIL_TOP = 0.16;
@@ -96,7 +97,9 @@ export class Mitos {
           ${this.#data.mitos
             .map(
               (m, i) =>
-                `<li data-index="${i}" data-cat="${m.cat}"><span>${m.eje ?? m.y}</span></li>`,
+                `<li data-index="${i}" data-cat="${m.cat}"><span>${
+                  m.icono ? icono(m.icono, 'mit__tickicono') : ''
+                }${m.eje ?? m.y}</span></li>`,
             )
             .join('')}
         </ol>
@@ -122,7 +125,10 @@ export class Mitos {
           <span data-slot="era"></span>
           <span class="mit__cat" data-slot="cat"></span>
         </p>
-        <h1 class="mit__frase" data-slot="frase"></h1>
+        <div class="mit__titulo">
+          <span class="mit__icono" hidden></span>
+          <h1 class="mit__frase" data-slot="frase"></h1>
+        </div>
         <div class="mit__bloques" data-slot="bloques"></div>
         <p class="mit__vacio" data-slot="vacio">${t.pending}</p>
         <div class="mit__acciones">
@@ -176,6 +182,7 @@ export class Mitos {
     this.#set('n', String(index + 1));
     this.#set('era', m.era);
     this.#set('frase', m.frase);
+    this.#pintarIcono(m, immediate);
     this.#pintarFoto(m, baja, immediate);
 
     const cat = this.el.querySelector('[data-slot="cat"]');
@@ -222,6 +229,38 @@ export class Mitos {
         { opacity: 1, y: 0, duration: MOTION.dur.paso, ease: MOTION.ease.sale, overwrite: true },
       );
     }
+  }
+
+  /**
+   * El ícono de la parada, si lo tiene. Se dibuja trazo por trazo al llegar.
+   * @param {any} m @param {boolean} immediate
+   */
+  #pintarIcono(m, immediate) {
+    const caja = this.el.querySelector('.mit__icono');
+    caja.hidden = !m.icono;
+    caja.dataset.cat = m.cat;
+    caja.innerHTML = m.icono ? icono(m.icono) : '';
+    if (!m.icono || immediate) return;
+    const trazos = caja.querySelectorAll('[pathLength]');
+    // Por atributo y no por CSS: con pathLength=1 la propiedad CSS salta
+    // directo al final y el trazo no se ve dibujarse.
+    for (const t of trazos) t.setAttribute('stroke-dasharray', '1');
+    gsap.fromTo(
+      trazos,
+      { attr: { 'stroke-dashoffset': 1 } },
+      {
+        attr: { 'stroke-dashoffset': 0 },
+        duration: MOTION.dur.largo,
+        ease: MOTION.ease.firme,
+        stagger: 0.06,
+        onComplete: () => {
+          for (const t of trazos) {
+            t.removeAttribute('stroke-dasharray');
+            t.removeAttribute('stroke-dashoffset');
+          }
+        },
+      },
+    );
   }
 
   /**

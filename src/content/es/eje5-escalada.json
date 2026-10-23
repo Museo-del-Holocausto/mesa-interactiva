@@ -31,6 +31,7 @@
       "era": "Nivel 1",
       "cat": "pal",
       "frase": "Estereotipo",
+      "icono": "tag",
       "origen": "Ideas falsas y generalizaciones sobre los judíos.",
       "construccion": "Circula sin que nadie lo firme. No parece una agresión: parece un dato conocido.",
       "eje": "1"
@@ -40,6 +41,7 @@
       "era": "Nivel 2",
       "cat": "pal",
       "frase": "Chiste degradante",
+      "icono": "laugh",
       "origen": "Se presenta el prejuicio como humor.",
       "construccion": "El formato del meme lo vuelve compartible. Quien lo objeta queda como el que no entiende la broma.",
       "eje": "2"
@@ -49,6 +51,7 @@
       "era": "Nivel 3",
       "cat": "pal",
       "frase": "Insulto",
+      "icono": "message-square-warning",
       "origen": "El prejuicio se convierte en agresión verbal.",
       "construccion": "Ya no hace falta el chiste. La agresión se hace visible y muchas veces anónima.",
       "eje": "3"
@@ -58,6 +61,7 @@
       "era": "Nivel 4",
       "cat": "pal",
       "frase": "Rumor",
+      "icono": "messages-square",
       "origen": "Se difunden mentiras sobre las personas judías.",
       "construccion": "Sin fuente y sin autor. Cuanto más se repite, más se parece a una verdad.",
       "eje": "4"
@@ -67,6 +71,7 @@
       "era": "Nivel 5",
       "cat": "exc",
       "frase": "Discriminación",
+      "icono": "user-x",
       "origen": "Se excluye o se trata mal por ser judío.",
       "construccion": "El prejuicio deja de ser algo que se dice y pasa a ser algo que se hace.",
       "eje": "5"
@@ -76,6 +81,7 @@
       "era": "Nivel 6",
       "cat": "exc",
       "frase": "Exclusión institucional",
+      "icono": "landmark",
       "origen": "Se excluye de espacios, servicios o instituciones.",
       "construccion": "Ya no es una persona la que discrimina: es una organización.",
       "eje": "6"
@@ -85,6 +91,7 @@
       "era": "Nivel 7",
       "cat": "vio",
       "frase": "Amenaza",
+      "icono": "triangle-alert",
       "origen": "Se amenaza con hacer daño.",
       "construccion": "El daño todavía no ocurrió, pero ya tiene destinatario.",
       "eje": "7"
@@ -94,6 +101,7 @@
       "era": "Nivel 8",
       "cat": "vio",
       "frase": "Agresión",
+      "icono": "hand-fist",
       "origen": "Se producen ataques físicos o materiales.",
       "construccion": "Personas heridas, comercios rotos, cementerios y sinagogas atacados.",
       "eje": "8"
@@ -103,6 +111,7 @@
       "era": "Nivel 9",
       "cat": "vio",
       "frase": "Violencia organizada",
+      "icono": "crosshair",
       "origen": "Los ataques se planifican y coordinan.",
       "construccion": "Deja de haber agresores sueltos. Hay un grupo, un objetivo y una fecha.",
       "eje": "9"
@@ -112,6 +121,7 @@
       "era": "Nivel 10",
       "cat": "vio",
       "frase": "Exterminio",
+      "icono": "skull",
       "origen": "La violencia sistemática busca eliminar completamente a un grupo.",
       "construccion": "Es el punto al que llegó el proceso que este museo documenta.",
       "eje": "10"
