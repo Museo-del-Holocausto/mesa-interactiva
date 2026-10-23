@@ -5,6 +5,7 @@ import '@/styles/base.css';
 import '@/styles/quadrant.css';
 import '@/styles/menu.css';
 import '@/styles/modulo.css';
+import '@/styles/botones.css';
 import '@/styles/debug.css';
 
 import { DEBUG } from '@/config/debug.js';

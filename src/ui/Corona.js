@@ -141,7 +141,7 @@ export class Corona {
 
   destroy() {
     this.#swapId += 1;
-    gsap.killTweensOf([this.orbit, this.slot, this.list, this.panel, ...this.#swapTargets()]);
+    gsap.killTweensOf([this.orbit, this.slot, this.list, this.panel, this.cta, ...this.#swapTargets()]);
     this.el.remove();
   }
 
@@ -533,8 +533,9 @@ export class Corona {
     // La lista ya tiene su propio movimiento (el rodillo de filas): no se le suma nada.
     if (immediate || display === 'lista' || how === 'nivel') {
       this.#swapId += 1;
-      gsap.killTweensOf(this.#swapTargets());
+      gsap.killTweensOf([...this.#swapTargets(), this.cta]);
       gsap.set(this.#swapTargets(), { clearProps: 'opacity,y' });
+      gsap.set(this.cta, { clearProps: 'clipPath' });
       apply();
       return;
     }
@@ -542,10 +543,34 @@ export class Corona {
     this.#swap(view, apply);
   }
 
-  /** Lo que se mueve al cambiar de texto: los renglones de la vista activa y el boton. */
+  /**
+   * Lo que hace el rodillo: los renglones de la vista activa. El boton no:
+   * tiene su propio armado y desarmado, y si ademas se desvanece no se ve.
+   */
   #swapTargets(view = this.views[this.#display()]) {
-    if (!view) return [this.cta];
-    return [...view.querySelectorAll('[data-slot]'), this.cta];
+    if (!view) return [];
+    return [...view.querySelectorAll('[data-slot]')];
+  }
+
+  /** Clip con el que el boton queda borrado del lado donde va a arrancar a armarse. */
+  #ctaOculto() {
+    return this.#side === 'left' ? 'inset(0 0 0 100%)' : 'inset(0 100% 0 0)';
+  }
+
+  /**
+   * Arma el boton cuando el texto ya llego. Mientras espera queda recortado
+   * igual que el primer cuadro del armado, asi el arranque no salta.
+   * @param {number} delay segundos @param {number} id
+   */
+  #armarCta(delay, id) {
+    gsap.killTweensOf(this.cta);
+    if (this.cta.hidden) return;
+    gsap.set(this.cta, { clipPath: this.#ctaOculto() });
+    gsap.delayedCall(delay, () => {
+      if (id !== this.#swapId) return;
+      gsap.set(this.cta, { clearProps: 'clipPath' });
+      this.#rearmar(this.cta);
+    });
   }
 
   /**
@@ -557,7 +582,16 @@ export class Corona {
     const id = ++this.#swapId;
     const dir = this.#dir;
     const targets = this.#swapTargets(view);
-    gsap.killTweensOf(targets);
+    gsap.killTweensOf([...targets, this.cta]);
+
+    // El boton se desarma hacia el lado opuesto al que se va a armar.
+    if (!this.cta.hidden) {
+      gsap.to(this.cta, {
+        clipPath: this.#side === 'left' ? 'inset(0 100% 0 0)' : 'inset(0 0 0 100%)',
+        duration: MOTION.dur.paso * 0.5,
+        ease: 'power2.in',
+      });
+    }
 
     gsap.to(targets, {
       opacity: 0,
@@ -572,6 +606,8 @@ export class Corona {
         // from() y no fromTo(): cada renglon vuelve a la opacidad que le da el CSS,
         // que no siempre es 1. Al terminar se limpia y manda el CSS.
         gsap.set(targets, { clearProps: 'opacity,y' });
+        // El boton arranca cuando ya entro el ultimo renglon.
+        this.#armarCta(MOTION.dur.escena * 0.6 + 0.05 * fresh.length, id);
         gsap.from(fresh, {
           opacity: 0,
           y: SWAP_Y * dir,
@@ -585,13 +621,27 @@ export class Corona {
   }
 
   /**
+   * Vuelve a correr el armado del boton (botones.css). Las animaciones de CSS
+   * arrancan cuando el elemento pasa de oculto a visible: se lo oculta un
+   * instante, sin que llegue a pintarse.
+   * @param {HTMLElement} el
+   */
+  #rearmar(el) {
+    if (el.hidden) return;
+    el.hidden = true;
+    void el.offsetWidth;
+    el.hidden = false;
+  }
+
+  /**
    * Entrar o volver de nivel: la orbita se arma punto por punto desde el centro
    * y el panel entra renglon por renglon.
    */
   #buildIn() {
     const view = this.views[this.#display()];
     const rows = view ? [...view.querySelectorAll('[data-slot], .menu__row')] : [];
-    const targets = [...rows, this.cta].filter((el) => !el.hidden);
+    const targets = rows.filter((el) => !el.hidden);
+    this.#armarCta(MOTION.dur.escena * 0.6 + 0.04 * targets.length, this.#swapId);
     // Las filas inactivas viven al 40 % por CSS: from() las devuelve ahi, no a 1.
     gsap.from(targets, {
       opacity: 0,

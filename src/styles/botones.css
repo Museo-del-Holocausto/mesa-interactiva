@@ -1,0 +1,112 @@
+/* ==========================================================================
+   Botones: armado, toque
+   ==========================================================================
+   Un botón no aparece de golpe: se arma. La caja se descubre de un lado al otro
+   con un filo de luz que la recorre, y el texto entra cuando la caja ya está.
+   Al tocarlo se comprime un instante.
+
+   Todo es CSS: una animación corre cada vez que el elemento pasa de oculto a
+   visible, así que cada pantalla nueva arma sus botones sin tocar las piezas.
+   El botón principal del menú, que no se oculta entre ejes, lo rearma Corona.
+
+   Duraciones atadas a tokens.css: ?lento=3 también las frena. */
+
+:root {
+  --arm-dur: calc(var(--dur-base) * 1.1);
+  --arm-ease: cubic-bezier(0.65, 0, 0.35, 1);
+  /* De qué lado arranca el armado. El menú lo da vuelta cuando el panel está a la izquierda. */
+  --arm-desde: inset(0 100% 0 0);
+  --arm-filo-desde: 0%;
+  --arm-filo-hasta: 100%;
+}
+
+.menu[data-side='left'] {
+  --arm-desde: inset(0 0 0 100%);
+  --arm-filo-desde: 100%;
+  --arm-filo-hasta: 0%;
+}
+
+/* Todo lo que se toca como botón. Las filas del menú arman su "Tocá para abrir"
+   recién cuando quedan activas. */
+.alc__btn, .cif__btn, .comb__btn, .dec__btn, .def__btn, .des__btn, .esp__btn,
+.est__btn, .fab__btn, .fre__btn, .lug__btn, .mit__btn, .rec__btn, .rel__btn,
+.tri__btn, .vid__btn, .modulo__back,
+.menu__cta, .menu__back,
+.menu__row[data-active='true'] .menu__row-cta {
+  animation:
+    armar-caja var(--arm-dur) var(--arm-ease) backwards,
+    armar-texto calc(var(--arm-dur) * 0.7) var(--ease-out) calc(var(--arm-dur) * 0.55) backwards;
+}
+
+/* El filo necesita una caja de referencia. Los del menú ya son absolutos. */
+.alc__btn, .cif__btn, .comb__btn, .dec__btn, .def__btn, .des__btn, .esp__btn,
+.est__btn, .fab__btn, .fre__btn, .lug__btn, .mit__btn, .rec__btn, .rel__btn,
+.tri__btn, .vid__btn, .modulo__back {
+  position: relative;
+}
+
+.alc__btn::after, .cif__btn::after, .comb__btn::after, .dec__btn::after,
+.def__btn::after, .des__btn::after, .esp__btn::after, .est__btn::after,
+.fab__btn::after, .fre__btn::after, .lug__btn::after, .mit__btn::after,
+.rec__btn::after, .rel__btn::after, .tri__btn::after, .vid__btn::after,
+.modulo__back::after, .menu__cta::after, .menu__back::after,
+.menu__row[data-active='true'] .menu__row-cta::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: var(--arm-filo-hasta);
+  width: 2px;
+  margin-left: -1px;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+  opacity: 0;
+  pointer-events: none;
+  animation: armar-filo var(--arm-dur) var(--arm-ease) backwards;
+}
+
+/* Un botón apagado no se arma: aparece quieto, como lo que es. */
+:is(.alc__btn, .cif__btn, .comb__btn, .dec__btn, .def__btn, .des__btn, .esp__btn,
+.est__btn, .fab__btn, .fre__btn, .lug__btn, .mit__btn, .rec__btn, .rel__btn,
+.tri__btn, .vid__btn):disabled,
+:is(.alc__btn, .cif__btn, .comb__btn, .dec__btn, .def__btn, .des__btn, .esp__btn,
+.est__btn, .fab__btn, .fre__btn, .lug__btn, .mit__btn, .rec__btn, .rel__btn,
+.tri__btn, .vid__btn):disabled::after {
+  animation: none;
+}
+
+@keyframes armar-caja {
+  from { clip-path: var(--arm-desde); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes armar-texto {
+  from { color: transparent; }
+}
+
+@keyframes armar-filo {
+  from { left: var(--arm-filo-desde); opacity: 1; }
+  85% { opacity: 1; }
+  to { left: var(--arm-filo-hasta); opacity: 0; }
+}
+
+/* --- toque ------------------------------------------------------------------ */
+
+.alc__btn, .cif__btn, .comb__btn, .dec__btn, .def__btn, .des__btn, .esp__btn,
+.est__btn, .fab__btn, .fre__btn, .lug__btn, .mit__btn, .rec__btn, .rel__btn,
+.tri__btn, .vid__btn, .modulo__back, .menu__cta, .menu__back, .menu__row-cta {
+  transition-property: border-color, color, opacity, background-color, scale;
+  transition-duration: var(--dur-base), var(--dur-base), var(--dur-base), var(--dur-fast), 90ms;
+  transition-timing-function: var(--ease-out);
+}
+
+:is(.alc__btn, .cif__btn, .comb__btn, .dec__btn, .def__btn, .des__btn, .esp__btn,
+.est__btn, .fab__btn, .fre__btn, .lug__btn, .mit__btn, .rec__btn, .rel__btn,
+.tri__btn, .vid__btn, .modulo__back, .menu__cta, .menu__row-cta):active {
+  scale: 0.96;
+  background-color: var(--accent-ghost);
+}
+
+.menu__back:active {
+  scale: 0.96;
+}
