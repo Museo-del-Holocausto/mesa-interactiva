@@ -168,7 +168,8 @@ export class Lugares {
     this.el.dataset.guiado = 'true';
     const apply = (e) => {
       const rect = wipe.getBoundingClientRect();
-      this.#setWipe((e.clientX - rect.left) / rect.width);
+      // El dedo lleva la costura: a la derecha descubre el antes.
+      this.#setWipe(1 - (e.clientX - rect.left) / rect.width);
     };
     apply(event);
     wipe.setPointerCapture(event.pointerId);
@@ -214,7 +215,10 @@ export class Lugares {
   /** @param {number} t 0 = todo antes, 1 = todo despues */
   #setWipe(t) {
     this.#wipeT = Math.min(1, Math.max(0, t));
-    const pct = this.#wipeT * 100;
+    // El antes queda a la izquierda de la costura y el despues a la derecha.
+    // Mas despues es costura mas a la izquierda. Estaba al reves: con la foto
+    // de despues entera, el texto decia "antes".
+    const pct = (1 - this.#wipeT) * 100;
     this.despuesEl.style.clipPath = `inset(0 0 0 ${pct}%)`;
     this.seamEl.style.left = `${pct}%`;
     this.el.querySelector('.lug__tab--antes').dataset.on = String(this.#wipeT <= 0.5);

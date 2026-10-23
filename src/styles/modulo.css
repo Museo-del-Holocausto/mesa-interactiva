@@ -1941,7 +1941,15 @@
   bottom: -76px;
   list-style: none;
   width: 1px;
-  background: var(--ink-500);
+  /* La línea va solo entre la primera y la última parada (16 % y 84 %, como
+     RAIL_TOP y RAIL_BOTTOM). Entera cruzaba el rótulo de la cabecera. */
+  background: linear-gradient(
+    to bottom,
+    transparent 16%,
+    var(--ink-500) 16%,
+    var(--ink-500) 84%,
+    transparent 84%
+  );
   z-index: 3;
 }
 
@@ -2004,9 +2012,11 @@
 
 /* --- lugar ---------------------------------------------------------------- */
 
+/* La cortina mide 252 y no 300: con 300, el texto más largo ("Las horas
+   del ataque" de Be'eri) se salía 60 px por abajo. */
 .lug__scene[data-scene='lugar'] {
-  grid-template-rows: auto 300px 1fr;
-  gap: 26px;
+  grid-template-rows: auto 252px 1fr;
+  gap: 22px;
 }
 
 .lug__name {
@@ -2146,7 +2156,7 @@
 
 .lug__cols {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
+  grid-template-columns: 1.05fr 1fr;
   gap: 46px;
 }
 
@@ -2161,9 +2171,9 @@
 
 .lug__stext {
   margin-top: 12px;
-  font-size: 24px;
+  font-size: 23px;
   font-weight: 300;
-  line-height: 1.44;
+  line-height: 1.42;
   color: var(--ink-300);
 }
 
