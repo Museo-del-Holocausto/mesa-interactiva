@@ -44,7 +44,7 @@
       "era": "Nivel 2",
       "cat": "pal",
       "frase": "Chiste degradante",
-      "icono": "laugh",
+      "icono": "frown",
       "origen": "Se presenta el prejuicio como humor.",
       "construccion": "El formato del meme lo vuelve compartible. Quien lo objeta queda como el que no entiende la broma.",
       "eje": "2"
@@ -104,7 +104,7 @@
       "era": "Nivel 8",
       "cat": "vio",
       "frase": "Agresión",
-      "icono": "hand-fist",
+      "icono": "pina",
       "origen": "Se producen ataques físicos o materiales.",
       "construccion": "Personas heridas, comercios rotos, cementerios y sinagogas atacados.",
       "eje": "8"

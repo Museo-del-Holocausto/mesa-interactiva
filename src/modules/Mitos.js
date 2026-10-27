@@ -109,7 +109,6 @@ export class Mitos {
       </div>
 
       <div class="mit__nav">
-        <p class="mit__pos"><span data-slot="n"></span> ${t.of} ${n}</p>
         <p class="mit__hint">${t.hint}</p>
       </div>
 
@@ -188,7 +187,6 @@ export class Mitos {
     if (!immediate) this.el.dataset.guiado = 'true';
     const m = this.#mito;
 
-    this.#set('n', String(index + 1));
     this.#set('era', m.era);
     this.#set('frase', m.frase);
     this.#pintarIcono(m, immediate);

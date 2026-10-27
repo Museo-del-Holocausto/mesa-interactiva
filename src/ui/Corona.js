@@ -19,6 +19,14 @@ const SWAP_Y = 28;
 /** Alto de fila del selector y cuantas se ven a la vez. */
 const ROW_H = 76;
 const VISIBLE_ROWS = 4;
+/**
+ * El menu principal muestra siete filas: la elegida y tres de cada lado. El
+ * museo pidio que se vean todos los ejes a la vez y que el orden no pese: se
+ * recorre como una lista, no de a uno.
+ */
+const ROOT_ROWS = 7;
+/** A partir de que distancia de la fila elegida las demas ya no se distinguen. */
+const ROW_FADE_STEPS = 3;
 
 /**
  * Punto sobre la orbita. 0 grados arriba, sentido horario.
@@ -42,6 +50,9 @@ function orbitPoint(r, deg) {
  * Cada nodo declara como se muestran sus hijos con `display`:
  *   destacado  de a uno, con bajada  (pocos hijos, cada uno pide explicacion)
  *   lista      selector vertical      (muchos hijos, se recorren)
+ *
+ * El menu principal tambien es lista: el museo pidio ver todos los ejes juntos.
+ * La bajada de cada eje pasa al nivel siguiente, arriba de sus piezas.
  *
  * Un nodo sin hijos es una hoja: ahi la rosca queda inerte y se opera solo con toque.
  */
@@ -169,7 +180,7 @@ export class Corona {
   /** Como se muestran los hijos del nivel actual. Lo declara el padre. */
   #display() {
     if (this.#isLeaf()) return 'contenido';
-    return this.#frame().parent?.display ?? (this.#depth() === 0 ? 'destacado' : 'lista');
+    return this.#frame().parent?.display ?? 'lista';
   }
 
   #stepDeg() {
@@ -270,7 +281,10 @@ export class Corona {
         <p class="menu__subtitle" data-slot="subtitle"></p>
       </div>
       <div class="menu__view" data-view="lista">
-        <p class="menu__eyebrow" data-slot="eyebrow"></p>
+        <div class="menu__head">
+          <p class="menu__eyebrow" data-slot="eyebrow"></p>
+          <p class="menu__lead" data-slot="lead"></p>
+        </div>
         <div class="menu__picker"><ul class="menu__list"></ul></div>
       </div>
       <div class="menu__view" data-view="contenido">
@@ -294,8 +308,9 @@ export class Corona {
       contenido: this.panel.querySelector('[data-view="contenido"]'),
     };
     this.list = this.panel.querySelector('.menu__list');
+    this.picker = this.panel.querySelector('.menu__picker');
     this.cta = this.panel.querySelector('.menu__cta');
-    this.panel.querySelector('.menu__picker').style.height = `${ROW_H * VISIBLE_ROWS}px`;
+    this.picker.style.height = `${ROW_H * VISIBLE_ROWS}px`;
 
     this.#bindTouch(root);
     this.#spinSlot(true);
@@ -420,21 +435,17 @@ export class Corona {
   /** El rotulo de contexto: donde estas parado. */
   #eyebrow() {
     const frame = this.#frame();
-    if (this.#depth() === 0) {
-      return i18n
-        .t('axisCounter')
-        .replace('{n}', String(frame.index + 1))
-        .replace('{total}', String(frame.nodes.length));
-    }
-    const parentTitle = frame.parent?.title ?? '';
-    if (this.#isLeaf()) return parentTitle;
-    return `${parentTitle} · ${frame.index + 1}/${frame.nodes.length}`;
+    // Sin "Eje 3 de 9" ni "1/3": el museo pidio que el orden no pese.
+    if (this.#depth() === 0) return '';
+    return frame.parent?.title ?? '';
   }
 
   /** El listado se comporta como un dial: la fila elegida entra en la ranura. */
   #renderList(immediate) {
     const frame = this.#frame();
     const key = `${frame.parent?.id ?? 'root'}:${frame.nodes.length}`;
+    const raiz = this.#depth() === 0;
+    this.picker.style.height = `${ROW_H * (raiz ? ROOT_ROWS : VISIBLE_ROWS)}px`;
     if (this.#listKey !== key) {
       this.#listKey = key;
       this.list.replaceChildren();
@@ -452,7 +463,11 @@ export class Corona {
           '</span>' +
           '<span class="menu__row-line"></span>' +
           `<span class="menu__row-cta">${
-            node.estado === 'pendiente' ? i18n.t('ctaDev') : i18n.t('ctaOpen')
+            node.estado === 'pendiente'
+              ? i18n.t('ctaDev')
+              : raiz
+                ? i18n.t('ctaEnter')
+                : i18n.t('ctaOpen')
           }</span>`;
         this.list.append(row);
       });
@@ -460,6 +475,8 @@ export class Corona {
 
     [...this.list.children].forEach((row, index) => {
       row.dataset.active = String(index === frame.index);
+      // Cuanto mas lejos de la elegida, mas apagada: se ven todas, se lee una.
+      row.dataset.dist = String(Math.min(ROW_FADE_STEPS, Math.abs(index - frame.index)));
     });
 
     const y = -frame.index * ROW_H;
@@ -507,6 +524,8 @@ export class Corona {
       set('eyebrow', this.#eyebrow());
 
       if (display === 'lista') {
+        // La bajada del eje acompaña a sus piezas, arriba de la lista.
+        set('lead', this.#depth() > 0 ? this.#frame().parent?.subtitle : '');
         this.#renderList(immediate);
       } else if (display === 'destacado') {
         set('title', node.title);

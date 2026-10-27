@@ -80,7 +80,6 @@ export class Explorar {
       </div>
 
       <div class="exp__nav">
-        <p class="exp__pos"><span data-slot="n"></span> ${t.of} ${this.#data.people.length}</p>
         <p class="exp__hint">${this.#data.hint}</p>
       </div>
 
@@ -145,7 +144,6 @@ export class Explorar {
       el.textContent = value ?? '';
       el.hidden = !value;
     };
-    set('n', String(index + 1));
     set('disciplina', person.disciplina);
     set('nombre', person.nombre);
     set('anios', person.anios);

@@ -228,15 +228,31 @@
 
 /* El listado se comporta como un dial: la fila elegida entra en la ranura fija
    y el resto pasa por arriba y por abajo. Es la misma logica que la orbita. */
-/* En la lista, el rotulo sale del flujo para que lo centrado sobre la linea
-   de lectura sea el selector y no el bloque entero. */
-.menu__view[data-view='lista'] .menu__eyebrow {
+/* En la lista, el rótulo y la bajada salen del flujo para que lo centrado
+   sobre la línea de lectura sea la fila elegida y no el bloque entero. Quedan
+   arriba de ella, en el tramo que la máscara deja vacío. */
+.menu__view[data-view='lista'] .menu__head {
   position: absolute;
-  bottom: 75%;
+  bottom: calc(50% + 38px * var(--panel-scale) + 30px * var(--panel-scale));
   left: 0;
   right: 0;
-  margin-bottom: calc(46px * var(--panel-scale));
 }
+
+.menu__head:has(.menu__eyebrow[hidden]):has(.menu__lead[hidden]) { display: none; }
+
+/* Bajada del eje: antes vivía en el menú principal, una por eje. */
+.menu__lead {
+  max-width: 44ch;
+  margin-top: calc(14px * var(--panel-scale));
+  font-size: calc(21px * var(--panel-scale));
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--ink-300);
+  text-wrap: pretty;
+}
+
+.menu[data-side='left'] :is(.menu__head) { text-align: right; }
+.menu[data-side='left'] .menu__lead { margin-left: auto; }
 
 .menu__picker {
   position: relative;
@@ -358,6 +374,31 @@
 .menu__row[data-active='true'] {
   color: var(--accent);
   opacity: 1;
+}
+
+/* Las demás filas se apagan con la distancia: se ven todas, se lee una. */
+.menu__row[data-dist='1'] { opacity: 0.55; }
+.menu__row[data-dist='2'] { opacity: 0.32; }
+.menu__row[data-dist='3'] { opacity: 0.16; }
+
+/* --- menú principal: los nueve ejes como lista ---------------------------- */
+
+/* Arriba y abajo de la elegida se ven tres filas. La máscara solo suaviza
+   los extremos; el apagado lo hace la distancia. */
+.menu[data-depth='0'] .menu__picker {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
+}
+
+/* La acción solo en la elegida: en las demás ocupaba lugar invisible y partía
+   los títulos largos en dos renglones. */
+.menu[data-depth='0'] .menu__row:not([data-active='true']) .menu__row-cta { display: none; }
+
+.menu[data-depth='0'] .menu__row-title {
+  font-size: 26px;
+  line-height: 1.16;
+  white-space: normal;
+  text-wrap: balance;
 }
 
 .menu__row[data-active='true'] .menu__row-kicker {
